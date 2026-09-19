@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Amar Taka</title>
+
+  <meta name="description" content="Amar Taka - সহজ ও নিরাপদ ডিজিটাল অ্যাকাউন্ট প্ল্যাটফর্ম">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f6f8fb;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      color: #16834b;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    button,
+    .btn {
+      border: none;
+      padding: 11px 17px;
+      border-radius: 9px;
+      cursor: pointer;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .login {
+      background: #eef2f7;
+      color: #172033;
+    }
+
+    .primary {
+      background: #16834b;
+      color: white;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: auto;
+      padding: 70px 20px 45px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #e9f8f0;
+      color: #16834b;
+      padding: 7px 13px;
+      border-radius: 30px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(35px, 8vw, 62px);
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      color: #16834b;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #667085;
+      font-size: 17px;
+    }
+
+    .hero-buttons {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 45px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+      margin-bottom: 8px;
+    }
+
+    .section-title p {
+      color: #667085;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      border: 1px solid #e7eaf0;
+      box-shadow: 0 5px 20px rgba(20, 30, 50, 0.04);
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      margin-bottom: 7px;
+    }
+
+    .card p {
+      color: #667085;
+      font-size: 14px;
+    }
+
+    .bonus {
+      background: #ffffff;
+      border: 1px solid #dcefe4;
+      border-radius: 18px;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .bonus h2 {
+      color: #16834b;
+      margin-bottom: 8px;
+    }
+
+    .bonus strong {
+      font-size: 38px;
+    }
+
+    footer {
+      background: #172033;
+      color: white;
+      margin-top: 30px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: auto;
+      padding: 35px 20px;
+      text-align: center;
+    }
+
+    .footer-inner p {
+      color: #b9c0cc;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    .footer-links {
+      margin-top: 18px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #dfe4eb;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .nav {
+        padding: 12px 14px;
+      }
+
+      .logo {
+        font-size: 19px;
+      }
+
+      .nav-buttons .login {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .section {
+        padding: 35px 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+
+    <div class="logo">
+      💰 Amar Taka
+    </div>
+
+    <div class="nav-buttons">
+      <a href="#" class="btn login">Login</a>
+      <a href="#" class="btn primary">Create Account</a>
+    </div>
+
+  </div>
+</header>
+
+
+<main>
+
+  <section class="hero">
+
+    <div class="badge">
+      🟢 Amar Taka
+    </div>
+
+    <h1>
+      আপনার টাকা,<br>
+      <span>আপনার নিয়ন্ত্রণে</span>
+    </h1>
+
+    <p>
+      Amar Taka-তে আপনার account, deposit, withdrawal,
+      membership, referral এবং daily claim এক জায়গা থেকে পরিচালনা করুন।
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#" class="btn primary">Create Account</a>
+      <a href="#" class="btn login">Login</a>
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="bonus">
+      <h2>🎁 Welcome Bonus</h2>
+      <strong>৳100</strong>
+      <p>
+        নতুন account তৈরি করলে আপনার Welcome Bonus পাওয়ার সুযোগ থাকবে।
+      </p>
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="section-title">
+      <h2>Amar Taka কীভাবে কাজ করে?</h2>
+      <p>সহজ কয়েকটি ধাপে আপনার account পরিচালনা করুন।</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">👤</div>
+        <h3>Create Account</h3>
+        <p>
+          আপনার account তৈরি করুন এবং নিজের unique User ID পান।
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">💰</div>
+        <h3>Deposit</h3>
+        <p>
+          bKash অথবা Nagad নির্বাচন করে Send Money করুন এবং
+          Transaction ID submit করুন।
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">🎁</div>
+        <h3>Daily Claim</h3>
+        <p>
+          Active account থেকে নির্ধারিত সময় পর Daily Claim করা যাবে।
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">💸</div>
+        <h3>Withdrawal</h3>
+        <p>
+          প্রয়োজনীয় balance থাকলে withdrawal request submit করুন।
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="section">
+
+    <div class="section-title">
+      <h2>কেন Amar Taka?</h2>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="icon">🔐</div>
+        <h3>Secure Account</h3>
+        <p>
+          Account এবং transaction information নিরাপদ রাখার জন্য
+          server-side security ব্যবহারের পরিকল্পনা থাকবে।
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">📜</div>
+        <h3>Transaction History</h3>
+        <p>
+          আপনার deposit, withdrawal, referral এবং claim history
+          দেখতে পারবেন।
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="icon">💬</div>
+        <h3>Live Support</h3>
+        <p>
+          আপনার account থেকে সরাসরি support team-এর সঙ্গে
+          message করতে পারবেন।
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer>
+
+  <div class="footer-inner">
+
+    <strong>💰 Amar Taka</strong>
+
+    <p>
+      আপনার account পরিচালনার জন্য একটি সহজ digital platform।
+    </p>
+
+    <div class="footer-links">
+      <a href="#">How It Works</a>
+      <a href="#">VIP Plans</a>
+      <a href="#">Referral</a>
+      <a href="#">FAQ</a>
+      <a href="#">Support</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+
+    <p>
+      © 2026 Amar Taka. All rights reserved.
+    </p>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
