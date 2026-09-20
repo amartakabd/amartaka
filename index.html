@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Amar Taka</title>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -245,6 +246,8 @@
       font-size: 14px;
     }
 
+    /* Dashboard */
+
     .dashboard {
       display: none;
       min-height: 70vh;
@@ -271,17 +274,51 @@
       margin-top: 8px;
     }
 
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 18px;
+    }
+
+    .dashboard-card {
+      background: white;
+      border: 1px solid #e7eaf0;
+      border-radius: 16px;
+      padding: 22px;
+    }
+
+    .dashboard-card h3 {
+      margin-bottom: 7px;
+    }
+
+    .dashboard-card p {
+      color: #667085;
+      font-size: 14px;
+    }
+
     .logout {
       margin-top: 18px;
     }
 
+    .loading {
+      text-align: center;
+      padding: 30px;
+      color: #667085;
+    }
+
     @media(max-width:600px) {
+
       .nav-buttons .login {
         display: none;
       }
 
       .hero {
         padding-top: 45px;
+      }
+
+      .balance {
+        font-size: 32px;
       }
     }
   </style>
@@ -291,19 +328,39 @@
 
 <header>
   <div class="nav">
-    <div class="logo">💰 Amar Taka</div>
+
+    <div class="logo">
+      💰 Amar Taka
+    </div>
 
     <div class="nav-buttons">
-      <button class="btn login" onclick="openLogin()">Login</button>
-      <button class="btn primary" onclick="openSignup()">Create Account</button>
+
+      <button
+        class="btn login"
+        onclick="openLogin()">
+        Login
+      </button>
+
+      <button
+        class="btn primary"
+        onclick="openSignup()">
+        Create Account
+      </button>
+
     </div>
   </div>
 </header>
 
+
+<!-- HOME PAGE -->
+
 <main id="homePage">
 
   <section class="hero">
-    <div class="badge">🟢 Amar Taka</div>
+
+    <div class="badge">
+      🟢 Amar Taka
+    </div>
 
     <h1>
       আপনার টাকা,<br>
@@ -316,230 +373,583 @@
     </p>
 
     <div class="hero-buttons">
-      <button class="btn primary" onclick="openSignup()">Create Account</button>
-      <button class="btn login" onclick="openLogin()">Login</button>
+
+      <button
+        class="btn primary"
+        onclick="openSignup()">
+        Create Account
+      </button>
+
+      <button
+        class="btn login"
+        onclick="openLogin()">
+        Login
+      </button>
+
     </div>
+
   </section>
 
+
   <section class="section">
+
     <div class="bonus">
-      <h2>🎁 Welcome Bonus</h2>
-      <strong>৳100</strong>
-      <p>নতুন account তৈরি করলে আপনার Welcome Bonus পাওয়ার সুযোগ থাকবে।</p>
+
+      <h2>
+        🎁 Welcome Bonus
+      </h2>
+
+      <strong>
+        ৳100
+      </strong>
+
+      <p>
+        নতুন account তৈরি করলে আপনার Welcome Bonus পাওয়ার সুযোগ থাকবে।
+      </p>
+
     </div>
+
   </section>
 
+
   <section class="section">
+
     <div class="cards">
 
       <div class="card">
-        <div class="icon">👤</div>
-        <h3>Create Account</h3>
-        <p>আপনার account তৈরি করুন এবং নিজের unique User ID পান।</p>
+
+        <div class="icon">
+          👤
+        </div>
+
+        <h3>
+          Create Account
+        </h3>
+
+        <p>
+          আপনার account তৈরি করুন এবং নিজের unique User ID পান।
+        </p>
+
       </div>
 
-      <div class="card">
-        <div class="icon">💰</div>
-        <h3>Deposit</h3>
-        <p>bKash অথবা Nagad নির্বাচন করে Send Money করুন এবং Transaction ID submit করুন।</p>
-      </div>
 
       <div class="card">
-        <div class="icon">🎁</div>
-        <h3>Daily Claim</h3>
-        <p>Active account থেকে নির্ধারিত সময় পর Daily Claim করা যাবে।</p>
+
+        <div class="icon">
+          💰
+        </div>
+
+        <h3>
+          Deposit
+        </h3>
+
+        <p>
+          bKash অথবা Nagad নির্বাচন করে Send Money করুন এবং Transaction ID submit করুন।
+        </p>
+
       </div>
 
+
       <div class="card">
-        <div class="icon">💸</div>
-        <h3>Withdrawal</h3>
-        <p>প্রয়োজনীয় balance থাকলে withdrawal request submit করুন।</p>
+
+        <div class="icon">
+          🎁
+        </div>
+
+        <h3>
+          Daily Claim
+        </h3>
+
+        <p>
+          Active account থেকে নির্ধারিত সময় পর Daily Claim করা যাবে।
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">
+          💸
+        </div>
+
+        <h3>
+          Withdrawal
+        </h3>
+
+        <p>
+          প্রয়োজনীয় balance থাকলে withdrawal request submit করুন।
+        </p>
+
       </div>
 
     </div>
+
   </section>
 
 </main>
 
-<!-- Dashboard -->
 
-<section id="dashboard" class="dashboard">
+<!-- USER DASHBOARD -->
+
+<section
+  id="dashboard"
+  class="dashboard">
+
   <div class="dashboard-inner">
 
     <div class="welcome-card">
-      <h2>স্বাগতম, <span id="userName">User</span> 👋</h2>
-      <p>Your User ID: <strong id="userId">—</strong></p>
+
+      <h2>
+        স্বাগতম,
+        <span id="userName">
+          User
+        </span>
+        👋
+      </h2>
+
+      <p>
+        Your User ID:
+        <strong id="userId">
+          —
+        </strong>
+      </p>
 
       <div class="balance">
-        ৳<span id="userBalance">0.00</span>
+
+        ৳<span id="userBalance">
+          0.00
+        </span>
+
       </div>
 
-      <p>বর্তমান Balance</p>
+      <p>
+        বর্তমান Balance
+      </p>
 
-      <button class="btn login logout" onclick="logout()">
+      <button
+        class="btn login logout"
+        onclick="logout()">
+
         Logout
+
       </button>
+
+    </div>
+
+
+    <div class="dashboard-grid">
+
+      <div class="dashboard-card">
+
+        <h3>
+          💰 Deposit
+        </h3>
+
+        <p>
+          bKash / Nagad দিয়ে Deposit করুন।
+        </p>
+
+      </div>
+
+
+      <div class="dashboard-card">
+
+        <h3>
+          🎁 Daily Claim
+        </h3>
+
+        <p>
+          আপনার Daily Claim এখানে পাওয়া যাবে।
+        </p>
+
+      </div>
+
+
+      <div class="dashboard-card">
+
+        <h3>
+          💸 Withdraw
+        </h3>
+
+        <p>
+          আপনার balance থেকে Withdrawal request করুন।
+        </p>
+
+      </div>
+
+
+      <div class="dashboard-card">
+
+        <h3>
+          ⭐ VIP
+        </h3>
+
+        <p>
+          আপনার active VIP membership এখানে দেখা যাবে।
+        </p>
+
+      </div>
+
+
+      <div class="dashboard-card">
+
+        <h3>
+          👥 Referral
+        </h3>
+
+        <p>
+          আপনার Referral তথ্য এখানে থাকবে।
+        </p>
+
+      </div>
+
+
+      <div class="dashboard-card">
+
+        <h3>
+          💬 Support
+        </h3>
+
+        <p>
+          Admin-এর সাথে ব্যক্তিগতভাবে যোগাযোগ করুন।
+        </p>
+
+      </div>
+
     </div>
 
   </div>
+
 </section>
 
+
 <footer>
-  <strong>💰 Amar Taka</strong>
-  <p>আপনার account পরিচালনার জন্য একটি সহজ digital platform।</p>
-  <p>© 2026 Amar Taka. All rights reserved.</p>
+
+  <strong>
+    💰 Amar Taka
+  </strong>
+
+  <p>
+    আপনার account পরিচালনার জন্য একটি সহজ digital platform।
+  </p>
+
+  <p>
+    © 2026 Amar Taka. All rights reserved.
+  </p>
+
 </footer>
 
 
-<!-- Signup Modal -->
+<!-- SIGNUP MODAL -->
 
-<div id="signupModal" class="modal">
+<div
+  id="signupModal"
+  class="modal">
+
   <div class="modal-box">
 
-    <button class="close" onclick="closeModals()">×</button>
-
-    <h2>Create Account</h2>
-
-    <input id="signupName" type="text" placeholder="আপনার নাম">
-
-    <input id="signupPhone" type="tel" placeholder="মোবাইল নম্বর">
-
-    <input id="signupEmail" type="email" placeholder="Email">
-
-    <input id="signupPassword" type="password" placeholder="Password">
-
-    <input id="signupReferral" type="text" placeholder="Referral Code (Optional)">
-
-    <button class="btn primary form-button" onclick="signup()">
-      Create Account
+    <button
+      class="close"
+      onclick="closeModals()">
+      ×
     </button>
 
-    <div id="signupMessage" class="message"></div>
+    <h2>
+      Create Account
+    </h2>
+
+    <input
+      id="signupName"
+      type="text"
+      placeholder="আপনার নাম">
+
+    <input
+      id="signupPhone"
+      type="tel"
+      placeholder="মোবাইল নম্বর">
+
+    <input
+      id="signupEmail"
+      type="email"
+      placeholder="Email">
+
+    <input
+      id="signupPassword"
+      type="password"
+      placeholder="Password">
+
+    <input
+      id="signupReferral"
+      type="text"
+      placeholder="Referral Code (Optional)">
+
+    <button
+      class="btn primary form-button"
+      onclick="signup()">
+
+      Create Account
+
+    </button>
+
+    <div
+      id="signupMessage"
+      class="message">
+    </div>
 
     <div class="switch">
+
       Already have an account?
-      <button onclick="switchToLogin()">Login</button>
+
+      <button
+        onclick="switchToLogin()">
+        Login
+      </button>
+
     </div>
 
   </div>
+
 </div>
 
 
-<!-- Login Modal -->
+<!-- LOGIN MODAL -->
 
-<div id="loginModal" class="modal">
+<div
+  id="loginModal"
+  class="modal">
+
   <div class="modal-box">
 
-    <button class="close" onclick="closeModals()">×</button>
-
-    <h2>Login</h2>
-
-    <input id="loginEmail" type="email" placeholder="Email">
-
-    <input id="loginPassword" type="password" placeholder="Password">
-
-    <button class="btn primary form-button" onclick="login()">
-      Login
+    <button
+      class="close"
+      onclick="closeModals()">
+      ×
     </button>
 
-    <div id="loginMessage" class="message"></div>
+    <h2>
+      Login
+    </h2>
+
+    <input
+      id="loginEmail"
+      type="email"
+      placeholder="Email">
+
+    <input
+      id="loginPassword"
+      type="password"
+      placeholder="Password">
+
+    <button
+      class="btn primary form-button"
+      onclick="login()">
+
+      Login
+
+    </button>
+
+    <div
+      id="loginMessage"
+      class="message">
+    </div>
 
     <div class="switch">
+
       New user?
-      <button onclick="switchToSignup()">Create Account</button>
+
+      <button
+        onclick="switchToSignup()">
+        Create Account
+      </button>
+
     </div>
 
   </div>
+
 </div>
 
 
 <script>
-  const SUPABASE_URL = "https://xwdljcjotlspmecezhcl.supabase.co";
+
+  /* ================================
+     SUPABASE
+  ================================= */
+
+  const SUPABASE_URL =
+    "https://xwdljcjotlspmecezhcl.supabase.co";
 
   const SUPABASE_KEY =
     "sb_publishable_relELN9M0XEqVuF7UKlAsQ_1cB8lSh_";
 
-  const supabaseClient = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_KEY
-  );
 
+  const supabaseClient =
+    window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    );
+
+
+  /* ================================
+     MODALS
+  ================================= */
 
   function openSignup() {
+
     closeModals();
-    document.getElementById("signupModal").style.display = "flex";
+
+    document.getElementById(
+      "signupModal"
+    ).style.display = "flex";
+
   }
+
 
   function openLogin() {
+
     closeModals();
-    document.getElementById("loginModal").style.display = "flex";
+
+    document.getElementById(
+      "loginModal"
+    ).style.display = "flex";
+
   }
+
 
   function closeModals() {
-    document.getElementById("signupModal").style.display = "none";
-    document.getElementById("loginModal").style.display = "none";
+
+    document.getElementById(
+      "signupModal"
+    ).style.display = "none";
+
+    document.getElementById(
+      "loginModal"
+    ).style.display = "none";
+
   }
+
 
   function switchToLogin() {
+
     closeModals();
+
     openLogin();
+
   }
+
 
   function switchToSignup() {
+
     closeModals();
+
     openSignup();
+
   }
 
-  function showMessage(id, text, success = false) {
-    const el = document.getElementById(id);
+
+  /* ================================
+     MESSAGE
+  ================================= */
+
+  function showMessage(
+    id,
+    text,
+    success = false
+  ) {
+
+    const el =
+      document.getElementById(id);
+
+    if (!el) return;
 
     el.style.display = "block";
+
     el.textContent = text;
 
     if (success) {
-      el.style.background = "#e9f8f0";
-      el.style.color = "#16834b";
+
+      el.style.background =
+        "#e9f8f0";
+
+      el.style.color =
+        "#16834b";
+
     } else {
-      el.style.background = "#fff0f0";
-      el.style.color = "#c62828";
+
+      el.style.background =
+        "#fff0f0";
+
+      el.style.color =
+        "#c62828";
+
     }
+
   }
 
+
+  /* ================================
+     SIGNUP
+  ================================= */
 
   async function signup() {
 
     const name =
-      document.getElementById("signupName").value.trim();
+      document.getElementById(
+        "signupName"
+      ).value.trim();
 
     const phone =
-      document.getElementById("signupPhone").value.trim();
+      document.getElementById(
+        "signupPhone"
+      ).value.trim();
 
     const email =
-      document.getElementById("signupEmail").value.trim();
+      document.getElementById(
+        "signupEmail"
+      ).value.trim();
 
     const password =
-      document.getElementById("signupPassword").value;
+      document.getElementById(
+        "signupPassword"
+      ).value;
 
     const referral =
-      document.getElementById("signupReferral").value.trim();
+      document.getElementById(
+        "signupReferral"
+      ).value.trim();
 
-    if (!name || !phone || !email || !password) {
+
+    if (
+      !name ||
+      !phone ||
+      !email ||
+      !password
+    ) {
+
       showMessage(
         "signupMessage",
         "সব প্রয়োজনীয় তথ্য পূরণ করুন।"
       );
+
       return;
     }
 
+
     if (password.length < 6) {
+
       showMessage(
         "signupMessage",
         "Password কমপক্ষে ৬ অক্ষরের হতে হবে।"
       );
+
       return;
     }
 
-    const { data, error } =
+
+    const {
+      data,
+      error
+    } =
       await supabaseClient.auth.signUp({
 
         email: email,
@@ -547,22 +957,32 @@
         password: password,
 
         options: {
+
           data: {
+
             full_name: name,
+
             phone: phone,
+
             referral_code: referral
+
           }
+
         }
 
       });
 
+
     if (error) {
+
       showMessage(
         "signupMessage",
         error.message
       );
+
       return;
     }
+
 
     showMessage(
       "signupMessage",
@@ -570,104 +990,349 @@
       true
     );
 
-    document.getElementById("signupName").value = "";
-    document.getElementById("signupPhone").value = "";
-    document.getElementById("signupEmail").value = "";
-    document.getElementById("signupPassword").value = "";
-    document.getElementById("signupReferral").value = "";
+
+    document.getElementById(
+      "signupName"
+    ).value = "";
+
+    document.getElementById(
+      "signupPhone"
+    ).value = "";
+
+    document.getElementById(
+      "signupEmail"
+    ).value = "";
+
+    document.getElementById(
+      "signupPassword"
+    ).value = "";
+
+    document.getElementById(
+      "signupReferral"
+    ).value = "";
+
   }
 
+
+  /* ================================
+     LOGIN
+  ================================= */
 
   async function login() {
 
     const email =
-      document.getElementById("loginEmail").value.trim();
+      document.getElementById(
+        "loginEmail"
+      ).value.trim();
 
     const password =
-      document.getElementById("loginPassword").value;
+      document.getElementById(
+        "loginPassword"
+      ).value;
+
 
     if (!email || !password) {
+
       showMessage(
         "loginMessage",
         "Email এবং Password দিন।"
       );
+
       return;
     }
 
-    const { data, error } =
-      await supabaseClient.auth.signInWithPassword({
-        email,
-        password
-      });
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient.auth
+        .signInWithPassword({
+
+          email: email,
+
+          password: password
+
+        });
+
 
     if (error) {
+
       showMessage(
         "loginMessage",
-        "Login হয়নি: " + error.message
+        "Login হয়নি: " +
+        error.message
       );
+
       return;
     }
+
 
     closeModals();
 
+
+    /*
+      Login সফল হয়েছে।
+      সরাসরি Dashboard দেখানো হবে।
+    */
+
     await loadDashboard();
+
   }
 
+
+  /* ================================
+     DASHBOARD
+  ================================= */
 
   async function loadDashboard() {
 
-    const {
-      data: { user }
-    } = await supabaseClient.auth.getUser();
+    try {
 
-    if (!user) return;
+      const {
+        data: {
+          user
+        }
+      } =
+        await supabaseClient.auth.getUser();
 
-    const { data: profile, error } =
-      await supabaseClient
-        .from("profiles")
-        .select("*")
-        .eq("id", user.id)
-        .single();
 
-    if (error) {
-      console.error(error);
-      return;
+      if (!user) {
+
+        showHome();
+
+        return;
+      }
+
+
+      /*
+        প্রথমেই Dashboard দেখাই।
+        profiles query-তে সমস্যা হলেও
+        Dashboard আর আটকে থাকবে না।
+      */
+
+      showDashboard();
+
+
+      /*
+        Default Auth information
+      */
+
+      let displayName =
+        user.user_metadata?.full_name ||
+        "User";
+
+
+      let displayUserId =
+        user.id;
+
+
+      /*
+        Profile table থেকে তথ্য নেওয়ার চেষ্টা।
+      */
+
+      const {
+        data: profile,
+        error: profileError
+      } =
+        await supabaseClient
+          .from("profiles")
+          .select(
+            "user_id, full_name"
+          )
+          .eq(
+            "id",
+            user.id
+          )
+          .maybeSingle();
+
+
+      /*
+        Profile পাওয়া গেলে সেটাই ব্যবহার।
+      */
+
+      if (
+        !profileError &&
+        profile
+      ) {
+
+        if (profile.full_name) {
+
+          displayName =
+            profile.full_name;
+
+        }
+
+        if (profile.user_id) {
+
+          displayUserId =
+            profile.user_id;
+
+        }
+
+      }
+
+
+      /*
+        Dashboard information
+      */
+
+      document.getElementById(
+        "userName"
+      ).textContent =
+        displayName;
+
+
+      document.getElementById(
+        "userId"
+      ).textContent =
+        displayUserId;
+
+
+      /*
+        Real balance এখনো ledger
+        থেকে calculation করা হয়নি।
+        তাই এখন 0.00।
+      */
+
+      document.getElementById(
+        "userBalance"
+      ).textContent =
+        "0.00";
+
+
+    } catch (error) {
+
+      console.error(
+        "Dashboard error:",
+        error
+      );
+
+      /*
+        কোনো unexpected error হলেও
+        Dashboard দেখানো থাকবে।
+      */
+
+      showDashboard();
+
     }
 
-    document.getElementById("homePage").style.display = "none";
-
-    document.getElementById("dashboard").style.display = "block";
-
-    document.getElementById("userName").textContent =
-      profile.full_name || "User";
-
-    document.getElementById("userId").textContent =
-      profile.user_id;
-
-    document.getElementById("userBalance").textContent =
-      "0.00";
   }
 
+
+  /* ================================
+     SHOW HOME
+  ================================= */
+
+  function showHome() {
+
+    document.getElementById(
+      "dashboard"
+    ).style.display = "none";
+
+
+    document.getElementById(
+      "homePage"
+    ).style.display = "block";
+
+  }
+
+
+  /* ================================
+     SHOW DASHBOARD
+  ================================= */
+
+  function showDashboard() {
+
+    document.getElementById(
+      "homePage"
+    ).style.display = "none";
+
+
+    document.getElementById(
+      "dashboard"
+    ).style.display = "block";
+
+  }
+
+
+  /* ================================
+     LOGOUT
+  ================================= */
 
   async function logout() {
 
     await supabaseClient.auth.signOut();
 
-    document.getElementById("dashboard").style.display = "none";
+    showHome();
 
-    document.getElementById("homePage").style.display = "block";
   }
 
 
+  /* ================================
+     AUTH STATE
+  ================================= */
+
   supabaseClient.auth.onAuthStateChange(
-    async (event, session) => {
+    (event, session) => {
+
+      /*
+        Callback-এর ভিতরে সরাসরি
+        async database operation না করে
+        সামান্য delay দিয়ে Dashboard load।
+      */
+
+      setTimeout(
+        () => {
+
+          if (session) {
+
+            loadDashboard();
+
+          } else {
+
+            showHome();
+
+          }
+
+        },
+        0
+      );
+
+    }
+  );
+
+
+  /* ================================
+     INITIAL SESSION CHECK
+  ================================= */
+
+  window.addEventListener(
+    "DOMContentLoaded",
+    async () => {
+
+      const {
+        data: {
+          session
+        }
+      } =
+        await supabaseClient.auth
+          .getSession();
+
 
       if (session) {
+
         await loadDashboard();
+
+      } else {
+
+        showHome();
+
       }
 
     }
   );
+
 </script>
 
 </body>
