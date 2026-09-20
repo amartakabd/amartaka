@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Amar Taka</title>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -185,6 +184,7 @@
       align-items: center;
       justify-content: center;
       padding: 18px;
+      overflow-y: auto;
     }
 
     .modal-box {
@@ -194,6 +194,8 @@
       border-radius: 18px;
       padding: 25px;
       position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
     }
 
     .modal-box h2 {
@@ -211,13 +213,15 @@
       padding: 0;
     }
 
-    input {
+    input,
+    select {
       width: 100%;
       padding: 13px;
       margin: 7px 0 12px;
       border: 1px solid #d8dde6;
       border-radius: 9px;
       font-size: 15px;
+      background: white;
     }
 
     .form-button {
@@ -286,6 +290,7 @@
       border: 1px solid #e7eaf0;
       border-radius: 16px;
       padding: 22px;
+      cursor: pointer;
     }
 
     .dashboard-card h3 {
@@ -301,6 +306,30 @@
       margin-top: 18px;
     }
 
+    .payment-box {
+      background: #e9f8f0;
+      border: 1px solid #cfe9da;
+      border-radius: 12px;
+      padding: 15px;
+      margin: 10px 0 15px;
+    }
+
+    .payment-number {
+      font-size: 22px;
+      font-weight: 800;
+      color: #16834b;
+      margin: 5px 0;
+    }
+
+    .copy-btn {
+      background: white;
+      border: 1px solid #cfe9da;
+      color: #16834b;
+      padding: 7px 12px;
+      border-radius: 7px;
+      cursor: pointer;
+    }
+
     .loading {
       text-align: center;
       padding: 30px;
@@ -308,7 +337,6 @@
     }
 
     @media(max-width:600px) {
-
       .nav-buttons .login {
         display: none;
       }
@@ -352,7 +380,7 @@
 </header>
 
 
-<!-- HOME PAGE -->
+<!-- HOME -->
 
 <main id="homePage">
 
@@ -395,13 +423,9 @@
 
     <div class="bonus">
 
-      <h2>
-        🎁 Welcome Bonus
-      </h2>
+      <h2>🎁 Welcome Bonus</h2>
 
-      <strong>
-        ৳100
-      </strong>
+      <strong>৳100</strong>
 
       <p>
         নতুন account তৈরি করলে আপনার Welcome Bonus পাওয়ার সুযোগ থাকবে।
@@ -417,70 +441,27 @@
     <div class="cards">
 
       <div class="card">
-
-        <div class="icon">
-          👤
-        </div>
-
-        <h3>
-          Create Account
-        </h3>
-
-        <p>
-          আপনার account তৈরি করুন এবং নিজের unique User ID পান।
-        </p>
-
+        <div class="icon">👤</div>
+        <h3>Create Account</h3>
+        <p>আপনার account তৈরি করুন এবং নিজের unique User ID পান।</p>
       </div>
 
-
       <div class="card">
-
-        <div class="icon">
-          💰
-        </div>
-
-        <h3>
-          Deposit
-        </h3>
-
-        <p>
-          bKash অথবা Nagad নির্বাচন করে Send Money করুন এবং Transaction ID submit করুন।
-        </p>
-
+        <div class="icon">💰</div>
+        <h3>Deposit</h3>
+        <p>bKash অথবা Nagad নির্বাচন করে Send Money করুন এবং Transaction ID submit করুন।</p>
       </div>
 
-
       <div class="card">
-
-        <div class="icon">
-          🎁
-        </div>
-
-        <h3>
-          Daily Claim
-        </h3>
-
-        <p>
-          Active account থেকে নির্ধারিত সময় পর Daily Claim করা যাবে।
-        </p>
-
+        <div class="icon">🎁</div>
+        <h3>Daily Claim</h3>
+        <p>Active account থেকে নির্ধারিত সময় পর Daily Claim করা যাবে।</p>
       </div>
 
-
       <div class="card">
-
-        <div class="icon">
-          💸
-        </div>
-
-        <h3>
-          Withdrawal
-        </h3>
-
-        <p>
-          প্রয়োজনীয় balance থাকলে withdrawal request submit করুন।
-        </p>
-
+        <div class="icon">💸</div>
+        <h3>Withdrawal</h3>
+        <p>প্রয়োজনীয় balance থাকলে withdrawal request submit করুন।</p>
       </div>
 
     </div>
@@ -490,7 +471,7 @@
 </main>
 
 
-<!-- USER DASHBOARD -->
+<!-- DASHBOARD -->
 
 <section
   id="dashboard"
@@ -502,37 +483,25 @@
 
       <h2>
         স্বাগতম,
-        <span id="userName">
-          User
-        </span>
+        <span id="userName">User</span>
         👋
       </h2>
 
       <p>
         Your User ID:
-        <strong id="userId">
-          —
-        </strong>
+        <strong id="userId">—</strong>
       </p>
 
       <div class="balance">
-
-        ৳<span id="userBalance">
-          0.00
-        </span>
-
+        ৳<span id="userBalance">0.00</span>
       </div>
 
-      <p>
-        বর্তমান Balance
-      </p>
+      <p>বর্তমান Balance</p>
 
       <button
         class="btn login logout"
         onclick="logout()">
-
         Logout
-
       </button>
 
     </div>
@@ -540,11 +509,11 @@
 
     <div class="dashboard-grid">
 
-      <div class="dashboard-card">
+      <div
+        class="dashboard-card"
+        onclick="openDeposit()">
 
-        <h3>
-          💰 Deposit
-        </h3>
+        <h3>💰 Deposit</h3>
 
         <p>
           bKash / Nagad দিয়ে Deposit করুন।
@@ -555,9 +524,7 @@
 
       <div class="dashboard-card">
 
-        <h3>
-          🎁 Daily Claim
-        </h3>
+        <h3>🎁 Daily Claim</h3>
 
         <p>
           আপনার Daily Claim এখানে পাওয়া যাবে।
@@ -568,9 +535,7 @@
 
       <div class="dashboard-card">
 
-        <h3>
-          💸 Withdraw
-        </h3>
+        <h3>💸 Withdraw</h3>
 
         <p>
           আপনার balance থেকে Withdrawal request করুন।
@@ -581,9 +546,7 @@
 
       <div class="dashboard-card">
 
-        <h3>
-          ⭐ VIP
-        </h3>
+        <h3>⭐ VIP</h3>
 
         <p>
           আপনার active VIP membership এখানে দেখা যাবে।
@@ -594,9 +557,7 @@
 
       <div class="dashboard-card">
 
-        <h3>
-          👥 Referral
-        </h3>
+        <h3>👥 Referral</h3>
 
         <p>
           আপনার Referral তথ্য এখানে থাকবে।
@@ -607,9 +568,7 @@
 
       <div class="dashboard-card">
 
-        <h3>
-          💬 Support
-        </h3>
+        <h3>💬 Support</h3>
 
         <p>
           Admin-এর সাথে ব্যক্তিগতভাবে যোগাযোগ করুন।
@@ -626,9 +585,7 @@
 
 <footer>
 
-  <strong>
-    💰 Amar Taka
-  </strong>
+  <strong>💰 Amar Taka</strong>
 
   <p>
     আপনার account পরিচালনার জন্য একটি সহজ digital platform।
@@ -655,9 +612,7 @@
       ×
     </button>
 
-    <h2>
-      Create Account
-    </h2>
+    <h2>Create Account</h2>
 
     <input
       id="signupName"
@@ -687,9 +642,7 @@
     <button
       class="btn primary form-button"
       onclick="signup()">
-
       Create Account
-
     </button>
 
     <div
@@ -701,8 +654,7 @@
 
       Already have an account?
 
-      <button
-        onclick="switchToLogin()">
+      <button onclick="switchToLogin()">
         Login
       </button>
 
@@ -727,9 +679,7 @@
       ×
     </button>
 
-    <h2>
-      Login
-    </h2>
+    <h2>Login</h2>
 
     <input
       id="loginEmail"
@@ -744,9 +694,7 @@
     <button
       class="btn primary form-button"
       onclick="login()">
-
       Login
-
     </button>
 
     <div
@@ -758,8 +706,7 @@
 
       New user?
 
-      <button
-        onclick="switchToSignup()">
+      <button onclick="switchToSignup()">
         Create Account
       </button>
 
@@ -770,11 +717,119 @@
 </div>
 
 
+<!-- DEPOSIT MODAL -->
+
+<div
+  id="depositModal"
+  class="modal">
+
+  <div class="modal-box">
+
+    <button
+      class="close"
+      onclick="closeModals()">
+      ×
+    </button>
+
+    <h2>💰 Deposit</h2>
+
+    <p style="color:#667085; font-size:14px;">
+      প্রথমে Payment Method নির্বাচন করুন।
+    </p>
+
+    <select
+      id="paymentMethod"
+      onchange="updatePaymentInfo()">
+
+      <option value="">
+        Payment Method নির্বাচন করুন
+      </option>
+
+      <option value="bkash">
+        bKash
+      </option>
+
+      <option value="nagad">
+        Nagad
+      </option>
+
+    </select>
+
+
+    <div
+      id="paymentInfo"
+      class="payment-box"
+      style="display:none;">
+
+      <strong id="paymentTitle">
+        Send Money করুন
+      </strong>
+
+      <div
+        id="paymentNumber"
+        class="payment-number">
+        01771332609
+      </div>
+
+      <button
+        class="copy-btn"
+        onclick="copyPaymentNumber()">
+        📋 নম্বর Copy
+      </button>
+
+      <p style="font-size:13px; margin-top:8px;">
+        উপরের নম্বরে Send Money করার পর
+        Transaction ID এখানে দিন।
+      </p>
+
+    </div>
+
+
+    <label>
+      Amount
+    </label>
+
+    <input
+      id="depositAmount"
+      type="number"
+      min="500"
+      placeholder="Minimum ৳500">
+
+
+    <label>
+      Transaction ID
+    </label>
+
+    <input
+      id="depositTransactionId"
+      type="text"
+      placeholder="Transaction ID লিখুন">
+
+
+    <button
+      class="btn primary form-button"
+      onclick="submitDeposit()">
+
+      Deposit Submit
+
+    </button>
+
+
+    <div
+      id="depositMessage"
+      class="message">
+    </div>
+
+  </div>
+
+</div>
+
+
 <script>
 
-  /* ================================
+  /* =========================
      SUPABASE
-  ================================= */
+  ========================== */
 
   const SUPABASE_URL =
     "https://xwdljcjotlspmecezhcl.supabase.co";
@@ -790,9 +845,9 @@
     );
 
 
-  /* ================================
+  /* =========================
      MODALS
-  ================================= */
+  ========================== */
 
   function openSignup() {
 
@@ -816,6 +871,17 @@
   }
 
 
+  function openDeposit() {
+
+    closeModals();
+
+    document.getElementById(
+      "depositModal"
+    ).style.display = "flex";
+
+  }
+
+
   function closeModals() {
 
     document.getElementById(
@@ -824,6 +890,10 @@
 
     document.getElementById(
       "loginModal"
+    ).style.display = "none";
+
+    document.getElementById(
+      "depositModal"
     ).style.display = "none";
 
   }
@@ -847,9 +917,9 @@
   }
 
 
-  /* ================================
+  /* =========================
      MESSAGE
-  ================================= */
+  ========================== */
 
   function showMessage(
     id,
@@ -868,28 +938,22 @@
 
     if (success) {
 
-      el.style.background =
-        "#e9f8f0";
-
-      el.style.color =
-        "#16834b";
+      el.style.background = "#e9f8f0";
+      el.style.color = "#16834b";
 
     } else {
 
-      el.style.background =
-        "#fff0f0";
-
-      el.style.color =
-        "#c62828";
+      el.style.background = "#fff0f0";
+      el.style.color = "#c62828";
 
     }
 
   }
 
 
-  /* ================================
+  /* =========================
      SIGNUP
-  ================================= */
+  ========================== */
 
   async function signup() {
 
@@ -947,14 +1011,13 @@
 
 
     const {
-      data,
       error
     } =
       await supabaseClient.auth.signUp({
 
-        email: email,
+        email,
 
-        password: password,
+        password,
 
         options: {
 
@@ -962,7 +1025,7 @@
 
             full_name: name,
 
-            phone: phone,
+            phone,
 
             referral_code: referral
 
@@ -990,33 +1053,12 @@
       true
     );
 
-
-    document.getElementById(
-      "signupName"
-    ).value = "";
-
-    document.getElementById(
-      "signupPhone"
-    ).value = "";
-
-    document.getElementById(
-      "signupEmail"
-    ).value = "";
-
-    document.getElementById(
-      "signupPassword"
-    ).value = "";
-
-    document.getElementById(
-      "signupReferral"
-    ).value = "";
-
   }
 
 
-  /* ================================
+  /* =========================
      LOGIN
-  ================================= */
+  ========================== */
 
   async function login() {
 
@@ -1043,15 +1085,14 @@
 
 
     const {
-      data,
       error
     } =
       await supabaseClient.auth
         .signInWithPassword({
 
-          email: email,
+          email,
 
-          password: password
+          password
 
         });
 
@@ -1070,159 +1111,97 @@
 
     closeModals();
 
-
-    /*
-      Login সফল হয়েছে।
-      সরাসরি Dashboard দেখানো হবে।
-    */
-
     await loadDashboard();
 
   }
 
 
-  /* ================================
+  /* =========================
      DASHBOARD
-  ================================= */
+  ========================== */
 
   async function loadDashboard() {
 
-    try {
-
-      const {
-        data: {
-          user
-        }
-      } =
-        await supabaseClient.auth.getUser();
-
-
-      if (!user) {
-
-        showHome();
-
-        return;
+    const {
+      data: {
+        user
       }
+    } =
+      await supabaseClient.auth.getUser();
 
 
-      /*
-        প্রথমেই Dashboard দেখাই।
-        profiles query-তে সমস্যা হলেও
-        Dashboard আর আটকে থাকবে না।
-      */
+    if (!user) {
 
-      showDashboard();
+      showHome();
 
-
-      /*
-        Default Auth information
-      */
-
-      let displayName =
-        user.user_metadata?.full_name ||
-        "User";
+      return;
+    }
 
 
-      let displayUserId =
-        user.id;
+    showDashboard();
 
 
-      /*
-        Profile table থেকে তথ্য নেওয়ার চেষ্টা।
-      */
+    let displayName =
+      user.user_metadata?.full_name ||
+      "User";
 
-      const {
-        data: profile,
-        error: profileError
-      } =
-        await supabaseClient
-          .from("profiles")
-          .select(
-            "user_id, full_name"
-          )
-          .eq(
-            "id",
-            user.id
-          )
-          .maybeSingle();
+    let displayUserId =
+      user.id;
 
 
-      /*
-        Profile পাওয়া গেলে সেটাই ব্যবহার।
-      */
+    const {
+      data: profile
+    } =
+      await supabaseClient
+        .from("profiles")
+        .select(
+          "user_id, full_name"
+        )
+        .eq(
+          "id",
+          user.id
+        )
+        .maybeSingle();
 
-      if (
-        !profileError &&
-        profile
-      ) {
 
-        if (profile.full_name) {
+    if (profile) {
 
-          displayName =
-            profile.full_name;
+      if (profile.full_name) {
 
-        }
-
-        if (profile.user_id) {
-
-          displayUserId =
-            profile.user_id;
-
-        }
+        displayName =
+          profile.full_name;
 
       }
 
+      if (profile.user_id) {
 
-      /*
-        Dashboard information
-      */
+        displayUserId =
+          profile.user_id;
 
-      document.getElementById(
-        "userName"
-      ).textContent =
-        displayName;
-
-
-      document.getElementById(
-        "userId"
-      ).textContent =
-        displayUserId;
-
-
-      /*
-        Real balance এখনো ledger
-        থেকে calculation করা হয়নি।
-        তাই এখন 0.00।
-      */
-
-      document.getElementById(
-        "userBalance"
-      ).textContent =
-        "0.00";
-
-
-    } catch (error) {
-
-      console.error(
-        "Dashboard error:",
-        error
-      );
-
-      /*
-        কোনো unexpected error হলেও
-        Dashboard দেখানো থাকবে।
-      */
-
-      showDashboard();
+      }
 
     }
 
+
+    document.getElementById(
+      "userName"
+    ).textContent =
+      displayName;
+
+
+    document.getElementById(
+      "userId"
+    ).textContent =
+      displayUserId;
+
+
+    document.getElementById(
+      "userBalance"
+    ).textContent =
+      "0.00";
+
   }
 
-
-  /* ================================
-     SHOW HOME
-  ================================= */
 
   function showHome() {
 
@@ -1230,7 +1209,6 @@
       "dashboard"
     ).style.display = "none";
 
-
     document.getElementById(
       "homePage"
     ).style.display = "block";
@@ -1238,16 +1216,11 @@
   }
 
 
-  /* ================================
-     SHOW DASHBOARD
-  ================================= */
-
   function showDashboard() {
 
     document.getElementById(
       "homePage"
     ).style.display = "none";
-
 
     document.getElementById(
       "dashboard"
@@ -1256,9 +1229,197 @@
   }
 
 
-  /* ================================
+  /* =========================
+     PAYMENT INFO
+  ========================== */
+
+  function updatePaymentInfo() {
+
+    const method =
+      document.getElementById(
+        "paymentMethod"
+      ).value;
+
+
+    const info =
+      document.getElementById(
+        "paymentInfo"
+      );
+
+
+    if (!method) {
+
+      info.style.display = "none";
+
+      return;
+
+    }
+
+
+    info.style.display = "block";
+
+
+    document.getElementById(
+      "paymentTitle"
+    ).textContent =
+      method === "bkash"
+        ? "bKash — Send Money করুন"
+        : "Nagad — Send Money করুন";
+
+
+    document.getElementById(
+      "paymentNumber"
+    ).textContent =
+      "01771332609";
+
+  }
+
+
+  /* =========================
+     COPY PAYMENT NUMBER
+  ========================== */
+
+  async function copyPaymentNumber() {
+
+    try {
+
+      await navigator.clipboard.writeText(
+        "01771332609"
+      );
+
+      showMessage(
+        "depositMessage",
+        "Payment number Copy হয়েছে।",
+        true
+      );
+
+    } catch (error) {
+
+      showMessage(
+        "depositMessage",
+        "নম্বরটি manually copy করুন।"
+      );
+
+    }
+
+  }
+
+
+  /* =========================
+     SUBMIT DEPOSIT
+  ========================== */
+
+  async function submitDeposit() {
+
+    const method =
+      document.getElementById(
+        "paymentMethod"
+      ).value;
+
+
+    const amount =
+      Number(
+        document.getElementById(
+          "depositAmount"
+        ).value
+      );
+
+
+    const transactionId =
+      document.getElementById(
+        "depositTransactionId"
+      ).value.trim();
+
+
+    if (!method) {
+
+      showMessage(
+        "depositMessage",
+        "Payment Method নির্বাচন করুন।"
+      );
+
+      return;
+    }
+
+
+    if (!amount || amount < 500) {
+
+      showMessage(
+        "depositMessage",
+        "Minimum Deposit ৳500।"
+      );
+
+      return;
+    }
+
+
+    if (!transactionId) {
+
+      showMessage(
+        "depositMessage",
+        "Transaction ID দিন।"
+      );
+
+      return;
+    }
+
+
+    const {
+      data,
+      error
+    } =
+      await supabaseClient.rpc(
+        "submit_deposit",
+        {
+          p_payment_method: method,
+          p_payment_number: "01771332609",
+          p_amount: amount,
+          p_transaction_id: transactionId
+        }
+      );
+
+
+    if (error) {
+
+      showMessage(
+        "depositMessage",
+        error.message
+      );
+
+      return;
+    }
+
+
+    showMessage(
+      "depositMessage",
+      "Deposit request সফলভাবে জমা হয়েছে। Admin verification-এর পর balance update হবে।",
+      true
+    );
+
+
+    document.getElementById(
+      "depositAmount"
+    ).value = "";
+
+    document.getElementById(
+      "depositTransactionId"
+    ).value = "";
+
+
+    document.getElementById(
+      "paymentMethod"
+    ).value = "";
+
+    document.getElementById(
+      "paymentInfo"
+    ).style.display = "none";
+
+  }
+
+
+  /* =========================
      LOGOUT
-  ================================= */
+  ========================== */
 
   async function logout() {
 
@@ -1269,18 +1430,12 @@
   }
 
 
-  /* ================================
+  /* =========================
      AUTH STATE
-  ================================= */
+  ========================== */
 
   supabaseClient.auth.onAuthStateChange(
     (event, session) => {
-
-      /*
-        Callback-এর ভিতরে সরাসরি
-        async database operation না করে
-        সামান্য delay দিয়ে Dashboard load।
-      */
 
       setTimeout(
         () => {
@@ -1303,9 +1458,9 @@
   );
 
 
-  /* ================================
-     INITIAL SESSION CHECK
-  ================================= */
+  /* =========================
+     INITIAL SESSION
+  ========================== */
 
   window.addEventListener(
     "DOMContentLoaded",
