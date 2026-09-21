@@ -137,29 +137,6 @@ h1 span{
   margin:5px 0;
 }
 
-.cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:16px;
-}
-
-.card{
-  background:white;
-  padding:23px;
-  border-radius:16px;
-  border:1px solid #e7eaf0;
-}
-
-.icon{
-  font-size:30px;
-  margin-bottom:10px;
-}
-
-.card p{
-  color:#667085;
-  font-size:14px;
-}
-
 /* MODAL */
 
 .modal{
@@ -558,8 +535,45 @@ footer p{
     font-size:23px;
   }
 
+  /* Guest অবস্থায় Login + Create Account দুটোই থাকবে */
+  .nav-buttons{
+    display:flex;
+    gap:5px;
+  }
+
   .nav-buttons .login{
-    display:none;
+    display:inline-block;
+    padding:9px 10px;
+    font-size:13px;
+  }
+
+  .nav-buttons .primary{
+    padding:9px 10px;
+    font-size:13px;
+  }
+
+  .hero{
+    padding:50px 18px 35px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .hero-buttons{
+    gap:10px;
+  }
+
+  .hero-buttons button{
+    min-width:135px;
+  }
+
+  .section{
+    padding:30px 18px;
+  }
+
+  .bonus{
+    padding:25px 18px;
   }
 
   .dashboard{
@@ -625,6 +639,7 @@ footer p{
       💰 Amar Taka
     </div>
 
+    <!-- GUEST NAVIGATION -->
     <div id="homeNav" class="nav-buttons">
 
       <button class="btn login" onclick="openLogin()">
@@ -637,6 +652,7 @@ footer p{
 
     </div>
 
+    <!-- LOGGED IN NAVIGATION -->
     <div id="dashboardNav" style="display:none;">
 
       <button class="menu-btn" onclick="toggleMenu()">
@@ -648,6 +664,7 @@ footer p{
   </div>
 
 
+  <!-- DASHBOARD MENU -->
   <div id="menuBox" class="menu-box">
 
     <button onclick="closeMenu();showDashboard()">
@@ -671,7 +688,9 @@ footer p{
 </header>
 
 
-<!-- HOME -->
+<!-- ========================= -->
+<!-- GUEST HOME PAGE -->
+<!-- ========================= -->
 
 <main id="homePage">
 
@@ -687,8 +706,8 @@ footer p{
     </h1>
 
     <p>
-      Amar Taka-তে আপনার account, deposit, withdrawal,
-      membership, referral এবং daily claim এক জায়গা থেকে পরিচালনা করুন।
+      Amar Taka-তে আপনার account পরিচালনা
+      এবং প্রয়োজনীয় তথ্য এক জায়গা থেকে দেখুন।
     </p>
 
     <div class="hero-buttons">
@@ -706,6 +725,7 @@ footer p{
   </section>
 
 
+  <!-- শুধু Guest Home-এ Welcome Bonus -->
   <section class="section">
 
     <div class="bonus">
@@ -722,43 +742,12 @@ footer p{
 
   </section>
 
-
-  <section class="section">
-
-    <div class="cards">
-
-      <div class="card">
-        <div class="icon">👤</div>
-        <h3>Create Account</h3>
-        <p>আপনার account তৈরি করুন এবং নিজের unique User ID পান।</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">💰</div>
-        <h3>Deposit</h3>
-        <p>bKash অথবা Nagad নির্বাচন করে Send Money করুন এবং Transaction ID submit করুন।</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">🎁</div>
-        <h3>Daily Claim</h3>
-        <p>Active account থেকে নির্ধারিত সময় পর Daily Claim করা যাবে।</p>
-      </div>
-
-      <div class="card">
-        <div class="icon">💸</div>
-        <h3>Withdrawal</h3>
-        <p>প্রয়োজনীয় balance থাকলে withdrawal request submit করুন।</p>
-      </div>
-
-    </div>
-
-  </section>
-
 </main>
 
 
-<!-- DASHBOARD -->
+<!-- ========================= -->
+<!-- DASHBOARD - LOGIN এর পরে -->
+<!-- ========================= -->
 
 <section id="dashboard" class="dashboard">
 
@@ -883,7 +872,9 @@ footer p{
 </section>
 
 
+<!-- ========================= -->
 <!-- TRANSACTIONS -->
+<!-- ========================= -->
 
 <section id="transactionsPage" class="transactions-page">
 
@@ -948,7 +939,9 @@ footer p{
 </footer>
 
 
+<!-- ========================= -->
 <!-- SIGNUP MODAL -->
+<!-- ========================= -->
 
 <div id="signupModal" class="modal">
 
@@ -1000,7 +993,9 @@ footer p{
 </div>
 
 
+<!-- ========================= -->
 <!-- LOGIN MODAL -->
+<!-- ========================= -->
 
 <div id="loginModal" class="modal">
 
@@ -1040,7 +1035,9 @@ footer p{
 </div>
 
 
+<!-- ========================= -->
 <!-- DEPOSIT MODAL -->
+<!-- ========================= -->
 
 <div id="depositModal" class="modal">
 
@@ -1136,7 +1133,9 @@ footer p{
 
 <script>
 
+/* ========================= */
 /* SUPABASE */
+/* ========================= */
 
 const SUPABASE_URL =
 "https://xwdljcjotlspmecezhcl.supabase.co";
@@ -1151,7 +1150,9 @@ window.supabase.createClient(
 );
 
 
+/* ========================= */
 /* MODALS */
+/* ========================= */
 
 function openSignup(){
 
@@ -1202,7 +1203,9 @@ function switchToSignup(){
 }
 
 
+/* ========================= */
 /* MENU */
+/* ========================= */
 
 function toggleMenu(){
 
@@ -1222,7 +1225,9 @@ function closeMenu(){
 }
 
 
+/* ========================= */
 /* MESSAGE */
+/* ========================= */
 
 function showMessage(id,text,success=false){
 
@@ -1247,7 +1252,9 @@ function showMessage(id,text,success=false){
 }
 
 
+/* ========================= */
 /* SIGNUP */
+/* ========================= */
 
 async function signup(){
 
@@ -1294,7 +1301,7 @@ async function signup(){
   }
 
 
-  const {error} =
+  const {data,error} =
     await supabaseClient.auth.signUp({
 
       email,
@@ -1322,6 +1329,22 @@ async function signup(){
   }
 
 
+  /*
+   * Email confirmation OFF থাকলে
+   * Supabase session দিতে পারে।
+   * তখন Dashboard সরাসরি খুলবে।
+   */
+
+  if(data && data.session){
+
+    closeModals();
+
+    await loadDashboard();
+
+    return;
+  }
+
+
   showMessage(
     "signupMessage",
     "Account সফলভাবে তৈরি হয়েছে। এখন Login করুন।",
@@ -1330,7 +1353,9 @@ async function signup(){
 }
 
 
+/* ========================= */
 /* LOGIN */
+/* ========================= */
 
 async function login(){
 
@@ -1381,7 +1406,9 @@ async function login(){
 }
 
 
+/* ========================= */
 /* DASHBOARD */
+/* ========================= */
 
 async function loadDashboard(){
 
@@ -1398,6 +1425,11 @@ async function loadDashboard(){
     return;
   }
 
+
+  /*
+   * Login করা থাকলেই Home বন্ধ
+   * এবং Dashboard দেখা যাবে।
+   */
 
   showDashboard();
 
@@ -1438,6 +1470,10 @@ async function loadDashboard(){
 }
 
 
+/* ========================= */
+/* GUEST HOME */
+/* ========================= */
+
 function showHome(){
 
   document.getElementById("dashboard")
@@ -1449,6 +1485,11 @@ function showHome(){
   document.getElementById("homePage")
     .style.display="block";
 
+  /*
+   * Guest অবস্থায়:
+   * Login + Create Account দেখাবে
+   */
+
   document.getElementById("homeNav")
     .style.display="flex";
 
@@ -1458,6 +1499,10 @@ function showHome(){
   closeMenu();
 }
 
+
+/* ========================= */
+/* SHOW DASHBOARD */
+/* ========================= */
 
 function showDashboard(){
 
@@ -1480,7 +1525,9 @@ function showDashboard(){
 }
 
 
+/* ========================= */
 /* COPY USER ID */
+/* ========================= */
 
 async function copyUserId(){
 
@@ -1502,7 +1549,9 @@ async function copyUserId(){
 }
 
 
+/* ========================= */
 /* PAYMENT INFO */
+/* ========================= */
 
 function updatePaymentInfo(){
 
@@ -1536,7 +1585,9 @@ function updatePaymentInfo(){
 }
 
 
+/* ========================= */
 /* COPY PAYMENT NUMBER */
+/* ========================= */
 
 async function copyPaymentNumber(){
 
@@ -1561,7 +1612,9 @@ async function copyPaymentNumber(){
 }
 
 
+/* ========================= */
 /* SUBMIT DEPOSIT */
+/* ========================= */
 
 async function submitDeposit(){
 
@@ -1657,9 +1710,9 @@ async function submitDeposit(){
 }
 
 
-/* ============================= */
+/* ========================= */
 /* TRANSACTIONS */
-/* ============================= */
+/* ========================= */
 
 let currentTransactionType="deposit";
 
@@ -1828,6 +1881,7 @@ async function loadTransactions(type){
           <div class="transaction-top">
 
             <div>
+
               <div class="transaction-title">
                 💰 Deposit
               </div>
@@ -1837,6 +1891,7 @@ async function loadTransactions(type){
                   ? item.payment_method.toUpperCase()
                   : "—"}
               </div>
+
             </div>
 
             <div class="transaction-amount">
@@ -1961,7 +2016,9 @@ async function loadTransactions(type){
 }
 
 
-/* নিরাপদভাবে database text দেখানো */
+/* ========================= */
+/* SAFE HTML */
+/* ========================= */
 
 function escapeHtml(value){
 
@@ -1974,7 +2031,9 @@ function escapeHtml(value){
 }
 
 
+/* ========================= */
 /* LOGOUT */
+/* ========================= */
 
 async function logout(){
 
@@ -1984,7 +2043,9 @@ async function logout(){
 }
 
 
+/* ========================= */
 /* AUTH STATE */
+/* ========================= */
 
 supabaseClient.auth.onAuthStateChange(
   (event,session)=>{
@@ -2005,7 +2066,9 @@ supabaseClient.auth.onAuthStateChange(
 );
 
 
+/* ========================= */
 /* INITIAL SESSION */
+/* ========================= */
 
 window.addEventListener(
   "DOMContentLoaded",
