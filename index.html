@@ -1,355 +1,500 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amar Taka</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amar Taka</title>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
 
-    body {
-      background: #f6f8fb;
-      color: #172033;
-      line-height: 1.6;
-    }
+body{
+  background:#f6f8fb;
+  color:#172033;
+  line-height:1.6;
+}
 
-    header {
-      background: white;
-      border-bottom: 1px solid #e5e7eb;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+header{
+  background:#fff;
+  border-bottom:1px solid #e5e7eb;
+  position:sticky;
+  top:0;
+  z-index:20;
+}
 
-    .nav {
-      max-width: 1100px;
-      margin: auto;
-      padding: 14px 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+.nav{
+  max-width:1100px;
+  margin:auto;
+  padding:14px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
 
-    .logo {
-      font-size: 21px;
-      font-weight: 800;
-      color: #16834b;
-    }
+.logo{
+  font-size:25px;
+  font-weight:800;
+  color:#16834b;
+}
 
-    .nav-buttons {
-      display: flex;
-      gap: 8px;
-    }
+.nav-buttons{
+  display:flex;
+  gap:8px;
+}
 
-    button,
-    .btn {
-      border: 0;
-      padding: 11px 17px;
-      border-radius: 9px;
-      cursor: pointer;
-      font-weight: 700;
-      text-decoration: none;
-      display: inline-block;
-    }
+button,.btn{
+  border:0;
+  padding:11px 17px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:700;
+  text-decoration:none;
+  display:inline-block;
+}
 
-    .primary {
-      background: #16834b;
-      color: white;
-    }
+.primary{
+  background:#16834b;
+  color:#fff;
+}
 
-    .login {
-      background: #eef2f7;
-      color: #172033;
-    }
+.login{
+  background:#eef2f7;
+  color:#172033;
+}
 
-    .hero {
-      max-width: 900px;
-      margin: auto;
-      padding: 65px 20px 45px;
-      text-align: center;
-    }
+/* HOME */
 
-    .badge {
-      display: inline-block;
-      background: #e9f8f0;
-      color: #16834b;
-      padding: 7px 13px;
-      border-radius: 30px;
-      font-weight: 700;
-      margin-bottom: 18px;
-    }
+.hero{
+  max-width:900px;
+  margin:auto;
+  padding:65px 20px 45px;
+  text-align:center;
+}
 
-    h1 {
-      font-size: clamp(35px, 8vw, 60px);
-      line-height: 1.15;
-      margin-bottom: 18px;
-    }
+.badge{
+  display:inline-block;
+  background:#e9f8f0;
+  color:#16834b;
+  padding:7px 13px;
+  border-radius:30px;
+  font-weight:700;
+  margin-bottom:18px;
+}
 
-    h1 span {
-      color: #16834b;
-    }
+h1{
+  font-size:clamp(35px,8vw,60px);
+  line-height:1.15;
+  margin-bottom:18px;
+}
 
-    .hero p {
-      max-width: 650px;
-      margin: auto;
-      color: #667085;
-      font-size: 17px;
-    }
+h1 span{
+  color:#16834b;
+}
 
-    .hero-buttons {
-      margin-top: 28px;
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+.hero p{
+  max-width:650px;
+  margin:auto;
+  color:#667085;
+  font-size:17px;
+}
 
-    .section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+.hero-buttons{
+  margin-top:28px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
+.section{
+  max-width:1000px;
+  margin:auto;
+  padding:40px 20px;
+}
 
-    .card {
-      background: white;
-      padding: 23px;
-      border-radius: 16px;
-      border: 1px solid #e7eaf0;
-    }
+.bonus{
+  background:white;
+  border:1px solid #dcefe4;
+  border-radius:18px;
+  padding:30px;
+  text-align:center;
+}
 
-    .icon {
-      font-size: 30px;
-      margin-bottom: 10px;
-    }
+.bonus h2{
+  color:#16834b;
+}
 
-    .card p {
-      color: #667085;
-      font-size: 14px;
-    }
+.bonus strong{
+  display:block;
+  font-size:38px;
+  margin:5px 0;
+}
 
-    .bonus {
-      background: white;
-      border: 1px solid #dcefe4;
-      border-radius: 18px;
-      padding: 30px;
-      text-align: center;
-    }
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
 
-    .bonus h2 {
-      color: #16834b;
-    }
+.card{
+  background:white;
+  padding:23px;
+  border-radius:16px;
+  border:1px solid #e7eaf0;
+}
 
-    .bonus strong {
-      display: block;
-      font-size: 38px;
-      margin: 5px 0;
-    }
+.icon{
+  font-size:30px;
+  margin-bottom:10px;
+}
 
-    footer {
-      background: #172033;
-      color: white;
-      margin-top: 30px;
-      text-align: center;
-      padding: 35px 20px;
-    }
+.card p{
+  color:#667085;
+  font-size:14px;
+}
 
-    footer p {
-      color: #b9c0cc;
-      margin-top: 8px;
-      font-size: 14px;
-    }
+/* MODAL */
 
-    /* Modal */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  z-index:100;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  overflow-y:auto;
+}
 
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.45);
-      z-index: 100;
-      align-items: center;
-      justify-content: center;
-      padding: 18px;
-      overflow-y: auto;
-    }
+.modal-box{
+  width:100%;
+  max-width:430px;
+  background:white;
+  border-radius:18px;
+  padding:25px;
+  position:relative;
+  max-height:90vh;
+  overflow-y:auto;
+}
 
-    .modal-box {
-      width: 100%;
-      max-width: 430px;
-      background: white;
-      border-radius: 18px;
-      padding: 25px;
-      position: relative;
-      max-height: 90vh;
-      overflow-y: auto;
-    }
+.modal-box h2{
+  margin-bottom:18px;
+}
 
-    .modal-box h2 {
-      margin-bottom: 18px;
-    }
+.close{
+  position:absolute;
+  right:15px;
+  top:12px;
+  background:#eef2f7;
+  border-radius:50%;
+  width:34px;
+  height:34px;
+  padding:0;
+}
 
-    .close {
-      position: absolute;
-      right: 15px;
-      top: 12px;
-      background: #eef2f7;
-      border-radius: 50%;
-      width: 34px;
-      height: 34px;
-      padding: 0;
-    }
+input,select{
+  width:100%;
+  padding:13px;
+  margin:7px 0 12px;
+  border:1px solid #d8dde6;
+  border-radius:9px;
+  font-size:15px;
+  background:white;
+}
 
-    input,
-    select {
-      width: 100%;
-      padding: 13px;
-      margin: 7px 0 12px;
-      border: 1px solid #d8dde6;
-      border-radius: 9px;
-      font-size: 15px;
-      background: white;
-    }
+.form-button{
+  width:100%;
+  margin-top:5px;
+}
 
-    .form-button {
-      width: 100%;
-      margin-top: 5px;
-    }
+.switch{
+  margin-top:15px;
+  text-align:center;
+  font-size:14px;
+  color:#667085;
+}
 
-    .switch {
-      margin-top: 15px;
-      text-align: center;
-      font-size: 14px;
-      color: #667085;
-    }
+.switch button{
+  background:none;
+  color:#16834b;
+  padding:0;
+}
 
-    .switch button {
-      background: none;
-      color: #16834b;
-      padding: 0;
-    }
+.message{
+  margin-top:12px;
+  padding:10px;
+  border-radius:8px;
+  display:none;
+  font-size:14px;
+}
 
-    .message {
-      margin-top: 12px;
-      padding: 10px;
-      border-radius: 8px;
-      display: none;
-      font-size: 14px;
-    }
+/* DASHBOARD */
 
-    /* Dashboard */
+.dashboard{
+  display:none;
+  min-height:80vh;
+  padding:18px 12px 35px;
+}
 
-    .dashboard {
-      display: none;
-      min-height: 70vh;
-      padding: 35px 18px;
-    }
+.dashboard-inner{
+  max-width:700px;
+  margin:auto;
+}
 
-    .dashboard-inner {
-      max-width: 1000px;
-      margin: auto;
-    }
+/* USER ID BAR */
 
-    .welcome-card {
-      background: white;
-      border-radius: 18px;
-      padding: 25px;
-      border: 1px solid #e7eaf0;
-      margin-bottom: 18px;
-    }
+.user-id-bar{
+  background:white;
+  border:1px solid #e7eaf0;
+  border-radius:12px;
+  padding:10px 12px;
+  margin-bottom:12px;
+  font-size:13px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  overflow:hidden;
+}
 
-    .balance {
-      font-size: 38px;
-      font-weight: 800;
-      color: #16834b;
-      margin-top: 8px;
-    }
+.user-id-text{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
 
-    .dashboard-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      margin-top: 18px;
-    }
+.copy-user-btn{
+  flex-shrink:0;
+  background:#eef7f1;
+  color:#16834b;
+  padding:6px 9px;
+  border-radius:7px;
+}
 
-    .dashboard-card {
-      background: white;
-      border: 1px solid #e7eaf0;
-      border-radius: 16px;
-      padding: 22px;
-      cursor: pointer;
-    }
+/* BALANCE */
 
-    .dashboard-card h3 {
-      margin-bottom: 7px;
-    }
+.welcome-card{
+  background:linear-gradient(135deg,#16834b,#20a35f);
+  color:white;
+  border-radius:22px;
+  padding:25px 20px;
+  margin-bottom:16px;
+  text-align:center;
+  box-shadow:0 8px 22px rgba(22,131,75,.18);
+}
 
-    .dashboard-card p {
-      color: #667085;
-      font-size: 14px;
-    }
+.welcome-card h2{
+  font-size:26px;
+  margin-bottom:8px;
+}
 
-    .logout {
-      margin-top: 18px;
-    }
+.welcome-card .small{
+  opacity:.9;
+  font-size:14px;
+}
 
-    .payment-box {
-      background: #e9f8f0;
-      border: 1px solid #cfe9da;
-      border-radius: 12px;
-      padding: 15px;
-      margin: 10px 0 15px;
-    }
+.balance{
+  font-size:42px;
+  font-weight:800;
+  margin:12px 0 2px;
+}
 
-    .payment-number {
-      font-size: 22px;
-      font-weight: 800;
-      color: #16834b;
-      margin: 5px 0;
-    }
+.balance-label{
+  font-size:14px;
+  opacity:.95;
+}
 
-    .copy-btn {
-      background: white;
-      border: 1px solid #cfe9da;
-      color: #16834b;
-      padding: 7px 12px;
-      border-radius: 7px;
-      cursor: pointer;
-    }
+/* 2 COLUMN CARDS */
 
-    .loading {
-      text-align: center;
-      padding: 30px;
-      color: #667085;
-    }
+.dashboard-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
 
-    @media(max-width:600px) {
-      .nav-buttons .login {
-        display: none;
-      }
+.dashboard-card{
+  background:white;
+  border:2px solid #dce9df;
+  border-radius:18px;
+  min-height:150px;
+  padding:18px 9px;
+  cursor:pointer;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 3px 10px rgba(0,0,0,.05);
+  transition:.15s;
+}
 
-      .hero {
-        padding-top: 45px;
-      }
+.dashboard-card:active{
+  transform:scale(.97);
+}
 
-      .balance {
-        font-size: 32px;
-      }
-    }
-  </style>
+.dashboard-icon{
+  font-size:42px;
+  margin-bottom:7px;
+}
+
+.dashboard-card h3{
+  font-size:19px;
+  margin-bottom:5px;
+}
+
+.dashboard-card p{
+  color:#667085;
+  font-size:12px;
+  line-height:1.4;
+}
+
+/* MENU */
+
+.menu-btn{
+  background:#16834b;
+  color:white;
+  font-size:25px;
+  width:52px;
+  height:46px;
+  padding:0;
+}
+
+.menu-box{
+  display:none;
+  position:absolute;
+  right:12px;
+  top:66px;
+  background:white;
+  width:210px;
+  border-radius:14px;
+  box-shadow:0 8px 25px rgba(0,0,0,.15);
+  padding:10px;
+  z-index:50;
+}
+
+.menu-box button{
+  width:100%;
+  text-align:left;
+  background:white;
+  margin:2px 0;
+  color:#172033;
+}
+
+.menu-box button:hover{
+  background:#f1f7f3;
+}
+
+.logout-menu{
+  color:#c62828!important;
+}
+
+/* PAYMENT */
+
+.payment-box{
+  background:#e9f8f0;
+  border:1px solid #cfe9da;
+  border-radius:12px;
+  padding:15px;
+  margin:10px 0 15px;
+}
+
+.payment-number{
+  font-size:22px;
+  font-weight:800;
+  color:#16834b;
+  margin:5px 0;
+}
+
+.copy-btn{
+  background:white;
+  border:1px solid #cfe9da;
+  color:#16834b;
+  padding:7px 12px;
+  border-radius:7px;
+  cursor:pointer;
+}
+
+footer{
+  background:#172033;
+  color:white;
+  margin-top:30px;
+  text-align:center;
+  padding:35px 20px;
+}
+
+footer p{
+  color:#b9c0cc;
+  margin-top:8px;
+  font-size:14px;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+  .nav{
+    padding:12px 14px;
+  }
+
+  .logo{
+    font-size:23px;
+  }
+
+  .nav-buttons .login{
+    display:none;
+  }
+
+  .dashboard{
+    padding:12px 10px 30px;
+  }
+
+  .dashboard-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+
+  .dashboard-card{
+    min-height:145px;
+    padding:15px 7px;
+  }
+
+  .dashboard-icon{
+    font-size:38px;
+  }
+
+  .dashboard-card h3{
+    font-size:17px;
+  }
+
+  .dashboard-card p{
+    font-size:11px;
+  }
+
+  .welcome-card{
+    padding:22px 15px;
+  }
+
+  .welcome-card h2{
+    font-size:24px;
+  }
+
+  .balance{
+    font-size:38px;
+  }
+
+  .user-id-bar{
+    font-size:12px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -361,21 +506,42 @@
       💰 Amar Taka
     </div>
 
-    <div class="nav-buttons">
-
-      <button
-        class="btn login"
-        onclick="openLogin()">
+    <div id="homeNav" class="nav-buttons">
+      <button class="btn login" onclick="openLogin()">
         Login
       </button>
 
-      <button
-        class="btn primary"
-        onclick="openSignup()">
+      <button class="btn primary" onclick="openSignup()">
         Create Account
       </button>
-
     </div>
+
+    <div id="dashboardNav" style="display:none;">
+      <button class="menu-btn" onclick="toggleMenu()">
+        ☰
+      </button>
+    </div>
+
+  </div>
+
+  <div id="menuBox" class="menu-box">
+
+    <button onclick="closeMenu()">
+      👤 My Account
+    </button>
+
+    <button onclick="closeMenu();openDeposit()">
+      💰 Deposit
+    </button>
+
+    <button onclick="closeMenu()">
+      📜 Transactions
+    </button>
+
+    <button class="logout-menu" onclick="closeMenu();logout()">
+      🚪 Logout
+    </button>
+
   </div>
 </header>
 
@@ -402,15 +568,11 @@
 
     <div class="hero-buttons">
 
-      <button
-        class="btn primary"
-        onclick="openSignup()">
+      <button class="btn primary" onclick="openSignup()">
         Create Account
       </button>
 
-      <button
-        class="btn login"
-        onclick="openLogin()">
+      <button class="btn login" onclick="openLogin()">
         Login
       </button>
 
@@ -428,7 +590,7 @@
       <strong>৳100</strong>
 
       <p>
-        নতুন account তৈরি করলে আপনার Welcome Bonus পাওয়ার সুযোগ থাকবে।
+        নতুন account তৈরি করলে Welcome Bonus পাওয়ার সুযোগ থাকবে।
       </p>
 
     </div>
@@ -473,11 +635,23 @@
 
 <!-- DASHBOARD -->
 
-<section
-  id="dashboard"
-  class="dashboard">
+<section id="dashboard" class="dashboard">
 
   <div class="dashboard-inner">
+
+    <div class="user-id-bar">
+
+      <div class="user-id-text">
+        Your User ID:
+        <strong id="userId">—</strong>
+      </div>
+
+      <button class="copy-user-btn" onclick="copyUserId()">
+        📋
+      </button>
+
+    </div>
+
 
     <div class="welcome-card">
 
@@ -487,36 +661,27 @@
         👋
       </h2>
 
-      <p>
-        Your User ID:
-        <strong id="userId">—</strong>
-      </p>
-
       <div class="balance">
         ৳<span id="userBalance">0.00</span>
       </div>
 
-      <p>বর্তমান Balance</p>
-
-      <button
-        class="btn login logout"
-        onclick="logout()">
-        Logout
-      </button>
+      <div class="balance-label">
+        আপনার বর্তমান ব্যালেন্স
+      </div>
 
     </div>
 
 
     <div class="dashboard-grid">
 
-      <div
-        class="dashboard-card"
-        onclick="openDeposit()">
+      <div class="dashboard-card" onclick="openDeposit()">
 
-        <h3>💰 Deposit</h3>
+        <div class="dashboard-icon">💰</div>
+
+        <h3>ডিপোজিট</h3>
 
         <p>
-          bKash / Nagad দিয়ে Deposit করুন।
+          bKash বা Nagad দিয়ে Deposit করুন।
         </p>
 
       </div>
@@ -524,10 +689,12 @@
 
       <div class="dashboard-card">
 
-        <h3>🎁 Daily Claim</h3>
+        <div class="dashboard-icon">🏧</div>
+
+        <h3>উত্তোলন</h3>
 
         <p>
-          আপনার Daily Claim এখানে পাওয়া যাবে।
+          আপনার balance দ্রুত উত্তোলন করুন।
         </p>
 
       </div>
@@ -535,10 +702,12 @@
 
       <div class="dashboard-card">
 
-        <h3>💸 Withdraw</h3>
+        <div class="dashboard-icon">👑</div>
+
+        <h3>VIP Membership</h3>
 
         <p>
-          আপনার balance থেকে Withdrawal request করুন।
+          আপনার VIP membership দেখুন।
         </p>
 
       </div>
@@ -546,10 +715,12 @@
 
       <div class="dashboard-card">
 
-        <h3>⭐ VIP</h3>
+        <div class="dashboard-icon">🎁</div>
+
+        <h3>ডেইলি ক্লেইম</h3>
 
         <p>
-          আপনার active VIP membership এখানে দেখা যাবে।
+          প্রতিদিনের claim এখানে করুন।
         </p>
 
       </div>
@@ -557,10 +728,12 @@
 
       <div class="dashboard-card">
 
-        <h3>👥 Referral</h3>
+        <div class="dashboard-icon">👥</div>
+
+        <h3>রেফার</h3>
 
         <p>
-          আপনার Referral তথ্য এখানে থাকবে।
+          বন্ধুদের refer করে তথ্য দেখুন।
         </p>
 
       </div>
@@ -568,7 +741,9 @@
 
       <div class="dashboard-card">
 
-        <h3>💬 Support</h3>
+        <div class="dashboard-icon">🟢</div>
+
+        <h3>লাইভ সাপোর্ট</h3>
 
         <p>
           Admin-এর সাথে ব্যক্তিগতভাবে যোগাযোগ করুন।
@@ -600,64 +775,49 @@
 
 <!-- SIGNUP MODAL -->
 
-<div
-  id="signupModal"
-  class="modal">
+<div id="signupModal" class="modal">
 
   <div class="modal-box">
 
-    <button
-      class="close"
-      onclick="closeModals()">
+    <button class="close" onclick="closeModals()">
       ×
     </button>
 
     <h2>Create Account</h2>
 
-    <input
-      id="signupName"
+    <input id="signupName"
       type="text"
       placeholder="আপনার নাম">
 
-    <input
-      id="signupPhone"
+    <input id="signupPhone"
       type="tel"
       placeholder="মোবাইল নম্বর">
 
-    <input
-      id="signupEmail"
+    <input id="signupEmail"
       type="email"
       placeholder="Email">
 
-    <input
-      id="signupPassword"
+    <input id="signupPassword"
       type="password"
       placeholder="Password">
 
-    <input
-      id="signupReferral"
+    <input id="signupReferral"
       type="text"
       placeholder="Referral Code (Optional)">
 
-    <button
-      class="btn primary form-button"
+    <button class="btn primary form-button"
       onclick="signup()">
       Create Account
     </button>
 
-    <div
-      id="signupMessage"
-      class="message">
-    </div>
+    <div id="signupMessage" class="message"></div>
 
     <div class="switch">
-
       Already have an account?
 
       <button onclick="switchToLogin()">
         Login
       </button>
-
     </div>
 
   </div>
@@ -667,49 +827,37 @@
 
 <!-- LOGIN MODAL -->
 
-<div
-  id="loginModal"
-  class="modal">
+<div id="loginModal" class="modal">
 
   <div class="modal-box">
 
-    <button
-      class="close"
-      onclick="closeModals()">
+    <button class="close" onclick="closeModals()">
       ×
     </button>
 
     <h2>Login</h2>
 
-    <input
-      id="loginEmail"
+    <input id="loginEmail"
       type="email"
       placeholder="Email">
 
-    <input
-      id="loginPassword"
+    <input id="loginPassword"
       type="password"
       placeholder="Password">
 
-    <button
-      class="btn primary form-button"
+    <button class="btn primary form-button"
       onclick="login()">
       Login
     </button>
 
-    <div
-      id="loginMessage"
-      class="message">
-    </div>
+    <div id="loginMessage" class="message"></div>
 
     <div class="switch">
-
       New user?
 
       <button onclick="switchToSignup()">
         Create Account
       </button>
-
     </div>
 
   </div>
@@ -719,26 +867,21 @@
 
 <!-- DEPOSIT MODAL -->
 
-<div
-  id="depositModal"
-  class="modal">
+<div id="depositModal" class="modal">
 
   <div class="modal-box">
 
-    <button
-      class="close"
-      onclick="closeModals()">
+    <button class="close" onclick="closeModals()">
       ×
     </button>
 
     <h2>💰 Deposit</h2>
 
-    <p style="color:#667085; font-size:14px;">
+    <p style="color:#667085;font-size:14px;">
       প্রথমে Payment Method নির্বাচন করুন।
     </p>
 
-    <select
-      id="paymentMethod"
+    <select id="paymentMethod"
       onchange="updatePaymentInfo()">
 
       <option value="">
@@ -756,8 +899,7 @@
     </select>
 
 
-    <div
-      id="paymentInfo"
+    <div id="paymentInfo"
       class="payment-box"
       style="display:none;">
 
@@ -765,19 +907,17 @@
         Send Money করুন
       </strong>
 
-      <div
-        id="paymentNumber"
+      <div id="paymentNumber"
         class="payment-number">
         01771332609
       </div>
 
-      <button
-        class="copy-btn"
+      <button class="copy-btn"
         onclick="copyPaymentNumber()">
         📋 নম্বর Copy
       </button>
 
-      <p style="font-size:13px; margin-top:8px;">
+      <p style="font-size:13px;margin-top:8px;">
         উপরের নম্বরে Send Money করার পর
         Transaction ID এখানে দিন।
       </p>
@@ -789,8 +929,7 @@
       Amount
     </label>
 
-    <input
-      id="depositAmount"
+    <input id="depositAmount"
       type="number"
       min="500"
       placeholder="Minimum ৳500">
@@ -800,23 +939,18 @@
       Transaction ID
     </label>
 
-    <input
-      id="depositTransactionId"
+    <input id="depositTransactionId"
       type="text"
       placeholder="Transaction ID লিখুন">
 
 
-    <button
-      class="btn primary form-button"
+    <button class="btn primary form-button"
       onclick="submitDeposit()">
-
       Deposit Submit
-
     </button>
 
 
-    <div
-      id="depositMessage"
+    <div id="depositMessage"
       class="message">
     </div>
 
@@ -827,666 +961,573 @@
 
 <script>
 
-  /* =========================
-     SUPABASE
-  ========================== */
+/* SUPABASE */
 
-  const SUPABASE_URL =
-    "https://xwdljcjotlspmecezhcl.supabase.co";
+const SUPABASE_URL =
+"https://xwdljcjotlspmecezhcl.supabase.co";
 
-  const SUPABASE_KEY =
-    "sb_publishable_relELN9M0XEqVuF7UKlAsQ_1cB8lSh_";
+const SUPABASE_KEY =
+"sb_publishable_relELN9M0XEqVuF7UKlAsQ_1cB8lSh_";
+
+const supabaseClient =
+window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
 
 
-  const supabaseClient =
-    window.supabase.createClient(
-      SUPABASE_URL,
-      SUPABASE_KEY
+/* MODALS */
+
+function openSignup(){
+
+  closeModals();
+
+  document.getElementById("signupModal")
+    .style.display="flex";
+}
+
+function openLogin(){
+
+  closeModals();
+
+  document.getElementById("loginModal")
+    .style.display="flex";
+}
+
+function openDeposit(){
+
+  closeModals();
+
+  document.getElementById("depositModal")
+    .style.display="flex";
+}
+
+function closeModals(){
+
+  document.getElementById("signupModal")
+    .style.display="none";
+
+  document.getElementById("loginModal")
+    .style.display="none";
+
+  document.getElementById("depositModal")
+    .style.display="none";
+}
+
+function switchToLogin(){
+
+  closeModals();
+  openLogin();
+}
+
+function switchToSignup(){
+
+  closeModals();
+  openSignup();
+}
+
+
+/* MENU */
+
+function toggleMenu(){
+
+  const menu =
+    document.getElementById("menuBox");
+
+  menu.style.display =
+    menu.style.display==="block"
+    ? "none"
+    : "block";
+}
+
+function closeMenu(){
+
+  document.getElementById("menuBox")
+    .style.display="none";
+}
+
+
+/* MESSAGE */
+
+function showMessage(id,text,success=false){
+
+  const el =
+    document.getElementById(id);
+
+  if(!el) return;
+
+  el.style.display="block";
+  el.textContent=text;
+
+  if(success){
+
+    el.style.background="#e9f8f0";
+    el.style.color="#16834b";
+
+  }else{
+
+    el.style.background="#fff0f0";
+    el.style.color="#c62828";
+  }
+}
+
+
+/* SIGNUP */
+
+async function signup(){
+
+  const name =
+    document.getElementById("signupName")
+    .value.trim();
+
+  const phone =
+    document.getElementById("signupPhone")
+    .value.trim();
+
+  const email =
+    document.getElementById("signupEmail")
+    .value.trim();
+
+  const password =
+    document.getElementById("signupPassword")
+    .value;
+
+  const referral =
+    document.getElementById("signupReferral")
+    .value.trim();
+
+
+  if(!name || !phone || !email || !password){
+
+    showMessage(
+      "signupMessage",
+      "সব প্রয়োজনীয় তথ্য পূরণ করুন।"
     );
 
-
-  /* =========================
-     MODALS
-  ========================== */
-
-  function openSignup() {
-
-    closeModals();
-
-    document.getElementById(
-      "signupModal"
-    ).style.display = "flex";
-
+    return;
   }
 
 
-  function openLogin() {
+  if(password.length<6){
 
-    closeModals();
+    showMessage(
+      "signupMessage",
+      "Password কমপক্ষে ৬ অক্ষরের হতে হবে।"
+    );
 
-    document.getElementById(
-      "loginModal"
-    ).style.display = "flex";
-
+    return;
   }
 
 
-  function openDeposit() {
+  const {error} =
+    await supabaseClient.auth.signUp({
 
-    closeModals();
+      email,
+      password,
 
-    document.getElementById(
-      "depositModal"
-    ).style.display = "flex";
+      options:{
+        data:{
+          full_name:name,
+          phone:phone,
+          referral_code:referral
+        }
+      }
 
+    });
+
+
+  if(error){
+
+    showMessage(
+      "signupMessage",
+      error.message
+    );
+
+    return;
   }
 
 
-  function closeModals() {
+  showMessage(
+    "signupMessage",
+    "Account সফলভাবে তৈরি হয়েছে। এখন Login করুন।",
+    true
+  );
+}
 
-    document.getElementById(
-      "signupModal"
-    ).style.display = "none";
 
-    document.getElementById(
-      "loginModal"
-    ).style.display = "none";
+/* LOGIN */
 
-    document.getElementById(
-      "depositModal"
-    ).style.display = "none";
+async function login(){
 
+  const email =
+    document.getElementById("loginEmail")
+    .value.trim();
+
+  const password =
+    document.getElementById("loginPassword")
+    .value;
+
+
+  if(!email || !password){
+
+    showMessage(
+      "loginMessage",
+      "Email এবং Password দিন।"
+    );
+
+    return;
   }
 
 
-  function switchToLogin() {
-
-    closeModals();
-
-    openLogin();
-
-  }
-
-
-  function switchToSignup() {
-
-    closeModals();
-
-    openSignup();
-
-  }
-
-
-  /* =========================
-     MESSAGE
-  ========================== */
-
-  function showMessage(
-    id,
-    text,
-    success = false
-  ) {
-
-    const el =
-      document.getElementById(id);
-
-    if (!el) return;
-
-    el.style.display = "block";
-
-    el.textContent = text;
-
-    if (success) {
-
-      el.style.background = "#e9f8f0";
-      el.style.color = "#16834b";
-
-    } else {
-
-      el.style.background = "#fff0f0";
-      el.style.color = "#c62828";
-
-    }
-
-  }
-
-
-  /* =========================
-     SIGNUP
-  ========================== */
-
-  async function signup() {
-
-    const name =
-      document.getElementById(
-        "signupName"
-      ).value.trim();
-
-    const phone =
-      document.getElementById(
-        "signupPhone"
-      ).value.trim();
-
-    const email =
-      document.getElementById(
-        "signupEmail"
-      ).value.trim();
-
-    const password =
-      document.getElementById(
-        "signupPassword"
-      ).value;
-
-    const referral =
-      document.getElementById(
-        "signupReferral"
-      ).value.trim();
-
-
-    if (
-      !name ||
-      !phone ||
-      !email ||
-      !password
-    ) {
-
-      showMessage(
-        "signupMessage",
-        "সব প্রয়োজনীয় তথ্য পূরণ করুন।"
-      );
-
-      return;
-    }
-
-
-    if (password.length < 6) {
-
-      showMessage(
-        "signupMessage",
-        "Password কমপক্ষে ৬ অক্ষরের হতে হবে।"
-      );
-
-      return;
-    }
-
-
-    const {
-      error
-    } =
-      await supabaseClient.auth.signUp({
+  const {error} =
+    await supabaseClient.auth
+      .signInWithPassword({
 
         email,
-
-        password,
-
-        options: {
-
-          data: {
-
-            full_name: name,
-
-            phone,
-
-            referral_code: referral
-
-          }
-
-        }
+        password
 
       });
 
 
-    if (error) {
-
-      showMessage(
-        "signupMessage",
-        error.message
-      );
-
-      return;
-    }
-
+  if(error){
 
     showMessage(
-      "signupMessage",
-      "Account সফলভাবে তৈরি হয়েছে। এখন Login করুন।",
-      true
+      "loginMessage",
+      "Login হয়নি: "+error.message
     );
 
+    return;
   }
 
 
-  /* =========================
-     LOGIN
-  ========================== */
+  closeModals();
 
-  async function login() {
+  await loadDashboard();
+}
 
-    const email =
-      document.getElementById(
-        "loginEmail"
-      ).value.trim();
 
-    const password =
-      document.getElementById(
-        "loginPassword"
-      ).value;
+/* DASHBOARD */
 
+async function loadDashboard(){
 
-    if (!email || !password) {
+  const {
+    data:{user}
+  } =
+  await supabaseClient.auth.getUser();
 
-      showMessage(
-        "loginMessage",
-        "Email এবং Password দিন।"
-      );
 
-      return;
-    }
-
-
-    const {
-      error
-    } =
-      await supabaseClient.auth
-        .signInWithPassword({
-
-          email,
-
-          password
-
-        });
-
-
-    if (error) {
-
-      showMessage(
-        "loginMessage",
-        "Login হয়নি: " +
-        error.message
-      );
-
-      return;
-    }
-
-
-    closeModals();
-
-    await loadDashboard();
-
-  }
-
-
-  /* =========================
-     DASHBOARD
-  ========================== */
-
-  async function loadDashboard() {
-
-    const {
-      data: {
-        user
-      }
-    } =
-      await supabaseClient.auth.getUser();
-
-
-    if (!user) {
-
-      showHome();
-
-      return;
-    }
-
-
-    showDashboard();
-
-
-    let displayName =
-      user.user_metadata?.full_name ||
-      "User";
-
-    let displayUserId =
-      user.id;
-
-
-    const {
-      data: profile
-    } =
-      await supabaseClient
-        .from("profiles")
-        .select(
-          "user_id, full_name"
-        )
-        .eq(
-          "id",
-          user.id
-        )
-        .maybeSingle();
-
-
-    if (profile) {
-
-      if (profile.full_name) {
-
-        displayName =
-          profile.full_name;
-
-      }
-
-      if (profile.user_id) {
-
-        displayUserId =
-          profile.user_id;
-
-      }
-
-    }
-
-
-    document.getElementById(
-      "userName"
-    ).textContent =
-      displayName;
-
-
-    document.getElementById(
-      "userId"
-    ).textContent =
-      displayUserId;
-
-
-    document.getElementById(
-      "userBalance"
-    ).textContent =
-      "0.00";
-
-  }
-
-
-  function showHome() {
-
-    document.getElementById(
-      "dashboard"
-    ).style.display = "none";
-
-    document.getElementById(
-      "homePage"
-    ).style.display = "block";
-
-  }
-
-
-  function showDashboard() {
-
-    document.getElementById(
-      "homePage"
-    ).style.display = "none";
-
-    document.getElementById(
-      "dashboard"
-    ).style.display = "block";
-
-  }
-
-
-  /* =========================
-     PAYMENT INFO
-  ========================== */
-
-  function updatePaymentInfo() {
-
-    const method =
-      document.getElementById(
-        "paymentMethod"
-      ).value;
-
-
-    const info =
-      document.getElementById(
-        "paymentInfo"
-      );
-
-
-    if (!method) {
-
-      info.style.display = "none";
-
-      return;
-
-    }
-
-
-    info.style.display = "block";
-
-
-    document.getElementById(
-      "paymentTitle"
-    ).textContent =
-      method === "bkash"
-        ? "bKash — Send Money করুন"
-        : "Nagad — Send Money করুন";
-
-
-    document.getElementById(
-      "paymentNumber"
-    ).textContent =
-      "01771332609";
-
-  }
-
-
-  /* =========================
-     COPY PAYMENT NUMBER
-  ========================== */
-
-  async function copyPaymentNumber() {
-
-    try {
-
-      await navigator.clipboard.writeText(
-        "01771332609"
-      );
-
-      showMessage(
-        "depositMessage",
-        "Payment number Copy হয়েছে।",
-        true
-      );
-
-    } catch (error) {
-
-      showMessage(
-        "depositMessage",
-        "নম্বরটি manually copy করুন।"
-      );
-
-    }
-
-  }
-
-
-  /* =========================
-     SUBMIT DEPOSIT
-  ========================== */
-
-  async function submitDeposit() {
-
-    const method =
-      document.getElementById(
-        "paymentMethod"
-      ).value;
-
-
-    const amount =
-      Number(
-        document.getElementById(
-          "depositAmount"
-        ).value
-      );
-
-
-    const transactionId =
-      document.getElementById(
-        "depositTransactionId"
-      ).value.trim();
-
-
-    if (!method) {
-
-      showMessage(
-        "depositMessage",
-        "Payment Method নির্বাচন করুন।"
-      );
-
-      return;
-    }
-
-
-    if (!amount || amount < 500) {
-
-      showMessage(
-        "depositMessage",
-        "Minimum Deposit ৳500।"
-      );
-
-      return;
-    }
-
-
-    if (!transactionId) {
-
-      showMessage(
-        "depositMessage",
-        "Transaction ID দিন।"
-      );
-
-      return;
-    }
-
-
-    const {
-      data,
-      error
-    } =
-      await supabaseClient.rpc(
-        "submit_deposit",
-        {
-          p_payment_method: method,
-          p_payment_number: "01771332609",
-          p_amount: amount,
-          p_transaction_id: transactionId
-        }
-      );
-
-
-    if (error) {
-
-      showMessage(
-        "depositMessage",
-        error.message
-      );
-
-      return;
-    }
-
-
-    showMessage(
-      "depositMessage",
-      "Deposit request সফলভাবে জমা হয়েছে। Admin verification-এর পর balance update হবে।",
-      true
-    );
-
-
-    document.getElementById(
-      "depositAmount"
-    ).value = "";
-
-    document.getElementById(
-      "depositTransactionId"
-    ).value = "";
-
-
-    document.getElementById(
-      "paymentMethod"
-    ).value = "";
-
-    document.getElementById(
-      "paymentInfo"
-    ).style.display = "none";
-
-  }
-
-
-  /* =========================
-     LOGOUT
-  ========================== */
-
-  async function logout() {
-
-    await supabaseClient.auth.signOut();
+  if(!user){
 
     showHome();
 
+    return;
   }
 
 
-  /* =========================
-     AUTH STATE
-  ========================== */
+  showDashboard();
 
-  supabaseClient.auth.onAuthStateChange(
-    (event, session) => {
 
-      setTimeout(
-        () => {
+  let displayName =
+    user.user_metadata?.full_name || "User";
 
-          if (session) {
+  let displayUserId =
+    user.id;
 
-            loadDashboard();
 
-          } else {
+  const {data:profile} =
+    await supabaseClient
+      .from("profiles")
+      .select("user_id,full_name")
+      .eq("id",user.id)
+      .maybeSingle();
 
-            showHome();
 
-          }
+  if(profile){
 
-        },
-        0
-      );
+    if(profile.full_name)
+      displayName=profile.full_name;
 
-    }
+    if(profile.user_id)
+      displayUserId=profile.user_id;
+  }
+
+
+  document.getElementById("userName")
+    .textContent=displayName;
+
+  document.getElementById("userId")
+    .textContent=displayUserId;
+
+  document.getElementById("userBalance")
+    .textContent="0.00";
+}
+
+
+function showHome(){
+
+  document.getElementById("dashboard")
+    .style.display="none";
+
+  document.getElementById("homePage")
+    .style.display="block";
+
+  document.getElementById("homeNav")
+    .style.display="flex";
+
+  document.getElementById("dashboardNav")
+    .style.display="none";
+
+  closeMenu();
+}
+
+
+function showDashboard(){
+
+  document.getElementById("homePage")
+    .style.display="none";
+
+  document.getElementById("dashboard")
+    .style.display="block";
+
+  document.getElementById("homeNav")
+    .style.display="none";
+
+  document.getElementById("dashboardNav")
+    .style.display="block";
+}
+
+
+/* COPY USER ID */
+
+async function copyUserId(){
+
+  const id =
+    document.getElementById("userId")
+    .textContent;
+
+  try{
+
+    await navigator.clipboard
+      .writeText(id);
+
+    alert("User ID Copy হয়েছে।");
+
+  }catch(e){
+
+    alert("User ID manually copy করুন।");
+  }
+}
+
+
+/* PAYMENT INFO */
+
+function updatePaymentInfo(){
+
+  const method =
+    document.getElementById("paymentMethod")
+    .value;
+
+  const info =
+    document.getElementById("paymentInfo");
+
+
+  if(!method){
+
+    info.style.display="none";
+    return;
+  }
+
+
+  info.style.display="block";
+
+
+  document.getElementById("paymentTitle")
+    .textContent =
+      method==="bkash"
+      ? "bKash — Send Money করুন"
+      : "Nagad — Send Money করুন";
+
+
+  document.getElementById("paymentNumber")
+    .textContent="01771332609";
+}
+
+
+/* COPY PAYMENT NUMBER */
+
+async function copyPaymentNumber(){
+
+  try{
+
+    await navigator.clipboard
+      .writeText("01771332609");
+
+    showMessage(
+      "depositMessage",
+      "Payment number Copy হয়েছে।",
+      true
+    );
+
+  }catch(error){
+
+    showMessage(
+      "depositMessage",
+      "নম্বরটি manually copy করুন।"
+    );
+  }
+}
+
+
+/* SUBMIT DEPOSIT */
+
+async function submitDeposit(){
+
+  const method =
+    document.getElementById("paymentMethod")
+    .value;
+
+  const amount =
+    Number(
+      document.getElementById("depositAmount")
+      .value
+    );
+
+  const transactionId =
+    document.getElementById("depositTransactionId")
+    .value.trim();
+
+
+  if(!method){
+
+    showMessage(
+      "depositMessage",
+      "Payment Method নির্বাচন করুন।"
+    );
+
+    return;
+  }
+
+
+  if(!amount || amount<500){
+
+    showMessage(
+      "depositMessage",
+      "Minimum Deposit ৳500।"
+    );
+
+    return;
+  }
+
+
+  if(!transactionId){
+
+    showMessage(
+      "depositMessage",
+      "Transaction ID দিন।"
+    );
+
+    return;
+  }
+
+
+  const {error} =
+    await supabaseClient.rpc(
+      "submit_deposit",
+      {
+        p_payment_method:method,
+        p_payment_number:"01771332609",
+        p_amount:amount,
+        p_transaction_id:transactionId
+      }
+    );
+
+
+  if(error){
+
+    showMessage(
+      "depositMessage",
+      error.message
+    );
+
+    return;
+  }
+
+
+  showMessage(
+    "depositMessage",
+    "Deposit request সফলভাবে জমা হয়েছে। Admin verification-এর পর balance update হবে।",
+    true
   );
 
 
-  /* =========================
-     INITIAL SESSION
-  ========================== */
+  document.getElementById("depositAmount")
+    .value="";
 
-  window.addEventListener(
-    "DOMContentLoaded",
-    async () => {
+  document.getElementById("depositTransactionId")
+    .value="";
 
-      const {
-        data: {
-          session
-        }
-      } =
-        await supabaseClient.auth
-          .getSession();
+  document.getElementById("paymentMethod")
+    .value="";
+
+  document.getElementById("paymentInfo")
+    .style.display="none";
+}
 
 
-      if (session) {
+/* LOGOUT */
 
-        await loadDashboard();
+async function logout(){
 
-      } else {
+  await supabaseClient.auth.signOut();
+
+  showHome();
+}
+
+
+/* AUTH STATE */
+
+supabaseClient.auth.onAuthStateChange(
+  (event,session)=>{
+
+    setTimeout(()=>{
+
+      if(session){
+
+        loadDashboard();
+
+      }else{
 
         showHome();
-
       }
 
+    },0);
+  }
+);
+
+
+/* INITIAL SESSION */
+
+window.addEventListener(
+  "DOMContentLoaded",
+  async()=>{
+
+    const {
+      data:{session}
+    } =
+    await supabaseClient.auth
+      .getSession();
+
+
+    if(session){
+
+      await loadDashboard();
+
+    }else{
+
+      showHome();
     }
-  );
+  }
+);
 
 </script>
 
