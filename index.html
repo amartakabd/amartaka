@@ -249,8 +249,6 @@ input,select{
   margin:auto;
 }
 
-/* USER ID BAR */
-
 .user-id-bar{
   background:white;
   border:1px solid #e7eaf0;
@@ -279,8 +277,6 @@ input,select{
   border-radius:7px;
 }
 
-/* BALANCE */
-
 .welcome-card{
   background:linear-gradient(135deg,#16834b,#20a35f);
   color:white;
@@ -296,11 +292,6 @@ input,select{
   margin-bottom:8px;
 }
 
-.welcome-card .small{
-  opacity:.9;
-  font-size:14px;
-}
-
 .balance{
   font-size:42px;
   font-weight:800;
@@ -312,7 +303,7 @@ input,select{
   opacity:.95;
 }
 
-/* 2 COLUMN CARDS */
+/* DASHBOARD CARDS */
 
 .dashboard-grid{
   display:grid;
@@ -373,7 +364,7 @@ input,select{
   right:12px;
   top:66px;
   background:white;
-  width:210px;
+  width:220px;
   border-radius:14px;
   box-shadow:0 8px 25px rgba(0,0,0,.15);
   padding:10px;
@@ -420,6 +411,125 @@ input,select{
   padding:7px 12px;
   border-radius:7px;
   cursor:pointer;
+}
+
+/* TRANSACTIONS */
+
+.transactions-page{
+  display:none;
+  min-height:80vh;
+  padding:18px 12px 35px;
+}
+
+.transactions-inner{
+  max-width:700px;
+  margin:auto;
+}
+
+.page-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:16px;
+}
+
+.back-btn{
+  background:white;
+  border:1px solid #e0e5eb;
+  padding:8px 12px;
+}
+
+.transaction-tabs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-bottom:14px;
+}
+
+.transaction-tab{
+  background:white;
+  color:#667085;
+  border:1px solid #e1e5ea;
+}
+
+.transaction-tab.active{
+  background:#16834b;
+  color:white;
+  border-color:#16834b;
+}
+
+.transaction-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.transaction-item{
+  background:white;
+  border:1px solid #e5e9ee;
+  border-radius:15px;
+  padding:15px;
+}
+
+.transaction-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.transaction-title{
+  font-weight:800;
+}
+
+.transaction-amount{
+  font-size:19px;
+  font-weight:800;
+}
+
+.transaction-details{
+  color:#667085;
+  font-size:13px;
+  margin-top:8px;
+}
+
+.status{
+  display:inline-block;
+  padding:4px 9px;
+  border-radius:20px;
+  font-size:11px;
+  font-weight:800;
+  margin-top:8px;
+}
+
+.status-pending{
+  background:#fff4d6;
+  color:#9a6700;
+}
+
+.status-approved{
+  background:#e6f7ed;
+  color:#16834b;
+}
+
+.status-rejected{
+  background:#ffe8e8;
+  color:#c62828;
+}
+
+.empty-transactions{
+  background:white;
+  border:1px dashed #d8dee6;
+  border-radius:15px;
+  padding:35px 15px;
+  text-align:center;
+  color:#667085;
+}
+
+.loading{
+  text-align:center;
+  padding:25px;
+  color:#667085;
 }
 
 footer{
@@ -493,6 +603,14 @@ footer p{
   .user-id-bar{
     font-size:12px;
   }
+
+  .transaction-item{
+    padding:13px;
+  }
+
+  .transaction-amount{
+    font-size:17px;
+  }
 }
 </style>
 </head>
@@ -500,6 +618,7 @@ footer p{
 <body>
 
 <header>
+
   <div class="nav">
 
     <div class="logo">
@@ -507,6 +626,7 @@ footer p{
     </div>
 
     <div id="homeNav" class="nav-buttons">
+
       <button class="btn login" onclick="openLogin()">
         Login
       </button>
@@ -514,27 +634,31 @@ footer p{
       <button class="btn primary" onclick="openSignup()">
         Create Account
       </button>
+
     </div>
 
     <div id="dashboardNav" style="display:none;">
+
       <button class="menu-btn" onclick="toggleMenu()">
         ☰
       </button>
+
     </div>
 
   </div>
 
+
   <div id="menuBox" class="menu-box">
 
-    <button onclick="closeMenu()">
-      👤 My Account
+    <button onclick="closeMenu();showDashboard()">
+      🏠 Dashboard
     </button>
 
     <button onclick="closeMenu();openDeposit()">
       💰 Deposit
     </button>
 
-    <button onclick="closeMenu()">
+    <button onclick="closeMenu();openTransactions()">
       📜 Transactions
     </button>
 
@@ -543,6 +667,7 @@ footer p{
     </button>
 
   </div>
+
 </header>
 
 
@@ -694,7 +819,7 @@ footer p{
         <h3>উত্তোলন</h3>
 
         <p>
-          আপনার balance দ্রুত উত্তোলন করুন।
+          আপনার balance থেকে withdrawal request দিন।
         </p>
 
       </div>
@@ -749,6 +874,56 @@ footer p{
           Admin-এর সাথে ব্যক্তিগতভাবে যোগাযোগ করুন।
         </p>
 
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- TRANSACTIONS -->
+
+<section id="transactionsPage" class="transactions-page">
+
+  <div class="transactions-inner">
+
+    <div class="page-title">
+
+      <button class="back-btn" onclick="showDashboard()">
+        ←
+      </button>
+
+      <h2>📜 Transactions</h2>
+
+    </div>
+
+
+    <div class="transaction-tabs">
+
+      <button
+        id="depositTab"
+        class="transaction-tab active"
+        onclick="showTransactionType('deposit')">
+        💰 Deposit
+      </button>
+
+      <button
+        id="withdrawalTab"
+        class="transaction-tab"
+        onclick="showTransactionType('withdrawal')">
+        🏧 Withdrawal
+      </button>
+
+    </div>
+
+
+    <div id="transactionList"
+      class="transaction-list">
+
+      <div class="loading">
+        Transactions loading...
       </div>
 
     </div>
@@ -1268,6 +1443,9 @@ function showHome(){
   document.getElementById("dashboard")
     .style.display="none";
 
+  document.getElementById("transactionsPage")
+    .style.display="none";
+
   document.getElementById("homePage")
     .style.display="block";
 
@@ -1286,6 +1464,9 @@ function showDashboard(){
   document.getElementById("homePage")
     .style.display="none";
 
+  document.getElementById("transactionsPage")
+    .style.display="none";
+
   document.getElementById("dashboard")
     .style.display="block";
 
@@ -1294,6 +1475,8 @@ function showDashboard(){
 
   document.getElementById("dashboardNav")
     .style.display="block";
+
+  closeMenu();
 }
 
 
@@ -1471,6 +1654,323 @@ async function submitDeposit(){
 
   document.getElementById("paymentInfo")
     .style.display="none";
+}
+
+
+/* ============================= */
+/* TRANSACTIONS */
+/* ============================= */
+
+let currentTransactionType="deposit";
+
+
+async function openTransactions(){
+
+  closeMenu();
+
+  document.getElementById("homePage")
+    .style.display="none";
+
+  document.getElementById("dashboard")
+    .style.display="none";
+
+  document.getElementById("transactionsPage")
+    .style.display="block";
+
+  document.getElementById("homeNav")
+    .style.display="none";
+
+  document.getElementById("dashboardNav")
+    .style.display="block";
+
+  await loadTransactions("deposit");
+}
+
+
+async function showTransactionType(type){
+
+  currentTransactionType=type;
+
+
+  document.getElementById("depositTab")
+    .classList.toggle(
+      "active",
+      type==="deposit"
+    );
+
+  document.getElementById("withdrawalTab")
+    .classList.toggle(
+      "active",
+      type==="withdrawal"
+    );
+
+
+  await loadTransactions(type);
+}
+
+
+function formatDate(date){
+
+  if(!date) return "—";
+
+  try{
+
+    return new Date(date).toLocaleString(
+      "bn-BD",
+      {
+        day:"numeric",
+        month:"short",
+        year:"numeric",
+        hour:"numeric",
+        minute:"2-digit"
+      }
+    );
+
+  }catch(e){
+
+    return date;
+  }
+}
+
+
+function statusText(status){
+
+  if(status==="approved")
+    return "Approved";
+
+  if(status==="rejected")
+    return "Rejected";
+
+  return "Pending";
+}
+
+
+function statusClass(status){
+
+  if(status==="approved")
+    return "status-approved";
+
+  if(status==="rejected")
+    return "status-rejected";
+
+  return "status-pending";
+}
+
+
+async function loadTransactions(type){
+
+  const list =
+    document.getElementById("transactionList");
+
+  list.innerHTML =
+    '<div class="loading">Loading...</div>';
+
+
+  const {
+    data:{user},
+    error:userError
+  } =
+  await supabaseClient.auth.getUser();
+
+
+  if(userError || !user){
+
+    list.innerHTML =
+      '<div class="empty-transactions">Login করুন।</div>';
+
+    return;
+  }
+
+
+  if(type==="deposit"){
+
+    const {data,error} =
+      await supabaseClient
+        .from("deposits")
+        .select(
+          "amount,payment_method,payment_number,transaction_id,status,created_at"
+        )
+        .eq("user_id",user.id)
+        .order(
+          "created_at",
+          {ascending:false}
+        );
+
+
+    if(error){
+
+      list.innerHTML =
+        '<div class="empty-transactions">Transaction load হয়নি।</div>';
+
+      return;
+    }
+
+
+    if(!data || data.length===0){
+
+      list.innerHTML = `
+        <div class="empty-transactions">
+          <div style="font-size:40px;">💰</div>
+          <strong>কোনো Deposit নেই</strong>
+          <p>আপনার Deposit করলে এখানে রেকর্ড দেখা যাবে।</p>
+        </div>
+      `;
+
+      return;
+    }
+
+
+    list.innerHTML =
+      data.map(item=>`
+
+        <div class="transaction-item">
+
+          <div class="transaction-top">
+
+            <div>
+              <div class="transaction-title">
+                💰 Deposit
+              </div>
+
+              <div class="transaction-details">
+                ${item.payment_method
+                  ? item.payment_method.toUpperCase()
+                  : "—"}
+              </div>
+            </div>
+
+            <div class="transaction-amount">
+              ৳${Number(item.amount || 0).toFixed(2)}
+            </div>
+
+          </div>
+
+
+          <div class="transaction-details">
+
+            Transaction ID:
+            <strong>
+              ${escapeHtml(item.transaction_id || "—")}
+            </strong>
+
+            <br>
+
+            Date:
+            ${formatDate(item.created_at)}
+
+          </div>
+
+
+          <span class="status ${statusClass(item.status)}">
+            ${statusText(item.status)}
+          </span>
+
+        </div>
+
+      `).join("");
+
+  }else{
+
+    const {data,error} =
+      await supabaseClient
+        .from("withdrawals")
+        .select(
+          "amount,payment_method,payment_number,status,created_at"
+        )
+        .eq("user_id",user.id)
+        .order(
+          "created_at",
+          {ascending:false}
+        );
+
+
+    if(error){
+
+      list.innerHTML =
+        '<div class="empty-transactions">Withdrawal history load হয়নি।</div>';
+
+      return;
+    }
+
+
+    if(!data || data.length===0){
+
+      list.innerHTML = `
+        <div class="empty-transactions">
+          <div style="font-size:40px;">🏧</div>
+          <strong>কোনো Withdrawal নেই</strong>
+          <p>Withdrawal request করলে এখানে রেকর্ড দেখা যাবে।</p>
+        </div>
+      `;
+
+      return;
+    }
+
+
+    list.innerHTML =
+      data.map(item=>`
+
+        <div class="transaction-item">
+
+          <div class="transaction-top">
+
+            <div>
+
+              <div class="transaction-title">
+                🏧 Withdrawal
+              </div>
+
+              <div class="transaction-details">
+                ${item.payment_method
+                  ? item.payment_method.toUpperCase()
+                  : "—"}
+              </div>
+
+            </div>
+
+            <div class="transaction-amount">
+              ৳${Number(item.amount || 0).toFixed(2)}
+            </div>
+
+          </div>
+
+
+          <div class="transaction-details">
+
+            Payment Number:
+            <strong>
+              ${escapeHtml(item.payment_number || "—")}
+            </strong>
+
+            <br>
+
+            Date:
+            ${formatDate(item.created_at)}
+
+          </div>
+
+
+          <span class="status ${statusClass(item.status)}">
+            ${statusText(item.status)}
+          </span>
+
+        </div>
+
+      `).join("");
+  }
+}
+
+
+/* নিরাপদভাবে database text দেখানো */
+
+function escapeHtml(value){
+
+  return String(value)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 }
 
 
