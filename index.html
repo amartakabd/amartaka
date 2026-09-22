@@ -68,7 +68,7 @@ header{
 
 .hero{
   text-align:center;
-  padding:45px 15px;
+  padding:55px 15px 35px;
 }
 
 .hero h1{
@@ -98,33 +98,6 @@ header{
   margin-top:8px;
 }
 
-.section-title{
-  margin:25px 0 15px;
-  font-size:21px;
-}
-
-.info-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-}
-
-.info-card{
-  background:white;
-  padding:20px;
-  border-radius:14px;
-  box-shadow:0 3px 12px rgba(0,0,0,.05);
-}
-
-.info-card h3{
-  margin-bottom:8px;
-}
-
-.info-card p{
-  color:#68736d;
-  line-height:1.6;
-}
-
 .dashboard{
   display:none;
 }
@@ -141,6 +114,7 @@ header{
 .user-id{
   color:#6c756f;
   font-size:13px;
+  word-break:break-all;
 }
 
 .balance-card{
@@ -251,16 +225,6 @@ header{
   border-radius:9px;
   font-size:16px;
   font-weight:700;
-}
-
-.secondary-btn{
-  width:100%;
-  padding:12px;
-  background:#e9f3ed;
-  color:#16834b;
-  border-radius:9px;
-  font-weight:700;
-  margin-top:8px;
 }
 
 .payment-box{
@@ -456,9 +420,6 @@ footer{
 }
 
 @media(max-width:700px){
-  .info-grid{
-    grid-template-columns:1fr;
-  }
 
   .menu-grid{
     grid-template-columns:repeat(2,1fr);
@@ -470,6 +431,7 @@ footer{
 }
 
 @media(max-width:420px){
+
   .menu-grid{
     grid-template-columns:repeat(2,1fr);
   }
@@ -484,117 +446,191 @@ footer{
 <body>
 
 <header>
-  <div class="logo">Amar Taka</div>
+
+  <div class="logo">
+    Amar Taka
+  </div>
 
   <div class="header-buttons" id="guestButtons">
-    <button class="header-btn" onclick="openModal('loginModal')">Login</button>
-    <button class="header-btn" onclick="openModal('registerModal')">Create Account</button>
+    <button
+      class="header-btn"
+      onclick="openModal('loginModal')">
+      Login
+    </button>
+
+    <button
+      class="header-btn"
+      onclick="openModal('registerModal')">
+      Create Account
+    </button>
   </div>
 
-  <div class="header-buttons hidden" id="userButtons">
-    <button class="header-btn" onclick="logout()">Logout</button>
+  <div
+    class="header-buttons hidden"
+    id="userButtons">
+
+    <button
+      class="header-btn"
+      onclick="logout()">
+      Logout
+    </button>
+
   </div>
+
 </header>
+
 
 <main class="container">
 
-<!-- HOME -->
+<!-- ================= HOME ================= -->
+
 <section id="homePage">
 
   <div class="hero">
-    <h1>আপনার টাকা, আপনার নিয়ন্ত্রণে</h1>
+
+    <h1>
+      আপনার টাকা, আপনার নিয়ন্ত্রণে
+    </h1>
+
     <p>
-      Amar Taka-তে আপনার account, deposit, withdrawal,
-      membership, referral এবং daily claim এক জায়গায়।
+      Amar Taka-তে আপনার account এবং
+      financial activities এক জায়গায় পরিচালনা করুন।
     </p>
+
   </div>
+
 
   <div class="bonus">
+
     🎁 Welcome Bonus
-    <strong>৳100</strong>
-  </div>
 
-  <h2 class="section-title">কীভাবে কাজ করে?</h2>
+    <strong>
+      ৳100
+    </strong>
 
-  <div class="info-grid">
-    <div class="info-card">
-      <h3>01. Create Account</h3>
-      <p>আপনার account তৈরি করুন এবং dashboard-এ প্রবেশ করুন।</p>
-    </div>
-
-    <div class="info-card">
-      <h3>02. Deposit</h3>
-      <p>bKash অথবা Nagad নির্বাচন করে Send Money করুন এবং Transaction ID দিন।</p>
-    </div>
-
-    <div class="info-card">
-      <h3>03. Manage</h3>
-      <p>আপনার balance এবং transaction dashboard থেকে দেখুন।</p>
-    </div>
   </div>
 
 </section>
 
 
-<!-- DASHBOARD -->
-<section id="dashboardPage" class="dashboard">
+<!-- ================= DASHBOARD ================= -->
+
+<section
+  id="dashboardPage"
+  class="dashboard">
 
   <div class="welcome">
-    <h2>Welcome, <span id="userName">User</span> 👋</h2>
+
+    <h2>
+      Welcome,
+      <span id="userName">User</span> 👋
+    </h2>
+
     <div class="user-id">
-      User ID: <span id="userId">-</span>
+
+      User ID:
+      <span id="userId">-</span>
+
     </div>
+
   </div>
 
+
   <div class="balance-card">
-    <div class="balance-label">Available Balance</div>
-    <div class="balance" id="balance">৳0.00</div>
+
+    <div class="balance-label">
+      Available Balance
+    </div>
+
+    <div
+      class="balance"
+      id="balance">
+      ৳0.00
+    </div>
+
   </div>
+
 
   <div class="menu-grid">
 
-    <div class="menu-card" onclick="openDeposit()">
+    <div
+      class="menu-card"
+      onclick="openDeposit()">
+
       <span>💰</span>
       Deposit
+
     </div>
 
-    <div class="menu-card" onclick="openTransactions('deposit')">
+
+    <div
+      class="menu-card"
+      onclick="openTransactions('deposit')">
+
       <span>📜</span>
       Transactions
+
     </div>
 
-    <div class="menu-card" onclick="showComingSoon('Daily Claim')">
+
+    <div
+      class="menu-card"
+      onclick="showComingSoon('Daily Claim')">
+
       <span>🎁</span>
       Daily Claim
+
     </div>
 
-    <div class="menu-card" onclick="showComingSoon('Withdraw')">
+
+    <div
+      class="menu-card"
+      onclick="showComingSoon('Withdraw')">
+
       <span>💸</span>
       Withdraw
+
     </div>
 
-    <div class="menu-card" onclick="showComingSoon('VIP Plans')">
+
+    <div
+      class="menu-card"
+      onclick="showComingSoon('VIP Plans')">
+
       <span>⭐</span>
       VIP Plans
+
     </div>
 
-    <div class="menu-card" onclick="showComingSoon('Referral')">
+
+    <div
+      class="menu-card"
+      onclick="showComingSoon('Referral')">
+
       <span>👥</span>
       Referral
+
     </div>
 
-    <div class="menu-card" onclick="showComingSoon('Support')">
+
+    <div
+      class="menu-card"
+      onclick="showComingSoon('Support')">
+
       <span>💬</span>
       Support
+
     </div>
+
 
     <div
       class="menu-card admin hidden"
       id="adminMenu"
-      onclick="openAdminPanel()"
-    >
+      onclick="openAdminPanel()">
+
       <span>🛡️</span>
       Admin Panel
+
     </div>
 
   </div>
@@ -602,49 +638,82 @@ footer{
 </section>
 
 
-<!-- TRANSACTIONS -->
-<section id="transactionsPage" class="page">
+<!-- ================= TRANSACTIONS ================= -->
+
+<section
+  id="transactionsPage"
+  class="page">
 
   <div class="page-header">
-    <button class="back-btn" onclick="backDashboard()">← Back</button>
-    <h2>Transactions</h2>
+
+    <button
+      class="back-btn"
+      onclick="backDashboard()">
+      ← Back
+    </button>
+
+    <h2>
+      Transactions
+    </h2>
+
   </div>
 
+
   <div class="tabs">
+
     <button
       id="depositTab"
       class="tab active"
-      onclick="loadTransactions('deposit')"
-    >
+      onclick="loadTransactions('deposit')">
       Deposit
     </button>
 
     <button
       id="withdrawTab"
       class="tab"
-      onclick="loadTransactions('withdrawal')"
-    >
+      onclick="loadTransactions('withdrawal')">
       Withdrawal
     </button>
+
   </div>
 
+
   <div id="transactionList">
-    <div class="loading">Loading...</div>
+    <div class="loading">
+      Loading...
+    </div>
   </div>
 
 </section>
 
 
-<!-- ADMIN -->
-<section id="adminPage" class="page">
+<!-- ================= ADMIN ================= -->
+
+<section
+  id="adminPage"
+  class="page">
 
   <div class="page-header">
-    <button class="back-btn" onclick="backDashboard()">← Back</button>
-    <h2>🛡️ Admin Panel</h2>
+
+    <button
+      class="back-btn"
+      onclick="backDashboard()">
+      ← Back
+    </button>
+
+    <h2>
+      🛡️ Admin Panel
+    </h2>
+
   </div>
 
+
   <div id="adminDepositList">
-    <div class="loading">Loading deposits...</div>
+
+    <div class="loading">
+      Loading deposits...
+    </div>
+
   </div>
 
 </section>
@@ -657,153 +726,348 @@ footer{
 </footer>
 
 
-<!-- LOGIN MODAL -->
-<div class="modal" id="loginModal">
+<!-- ================= LOGIN ================= -->
+
+<div
+  class="modal"
+  id="loginModal">
+
   <div class="modal-box">
 
     <div class="modal-title">
-      <h2>Login</h2>
-      <button class="close" onclick="closeModal('loginModal')">×</button>
-    </div>
 
-    <div class="error" id="loginError"></div>
+      <h2>
+        Login
+      </h2>
 
-    <div class="form-group">
-      <label>Email</label>
-      <input id="loginEmail" type="email" placeholder="আপনার email">
-    </div>
-
-    <div class="form-group">
-      <label>Password</label>
-      <input id="loginPassword" type="password" placeholder="Password">
-    </div>
-
-    <button class="primary-btn" onclick="login()">
-      Login
-    </button>
-
-  </div>
-</div>
-
-
-<!-- REGISTER MODAL -->
-<div class="modal" id="registerModal">
-  <div class="modal-box">
-
-    <div class="modal-title">
-      <h2>Create Account</h2>
-      <button class="close" onclick="closeModal('registerModal')">×</button>
-    </div>
-
-    <div class="error" id="registerError"></div>
-
-    <div class="form-group">
-      <label>Name</label>
-      <input id="registerName" type="text" placeholder="আপনার নাম">
-    </div>
-
-    <div class="form-group">
-      <label>Mobile</label>
-      <input id="registerMobile" type="text" placeholder="01XXXXXXXXX">
-    </div>
-
-    <div class="form-group">
-      <label>Email</label>
-      <input id="registerEmail" type="email" placeholder="Email">
-    </div>
-
-    <div class="form-group">
-      <label>Password</label>
-      <input id="registerPassword" type="password" placeholder="Password">
-    </div>
-
-    <div class="form-group">
-      <label>Confirm Password</label>
-      <input id="registerConfirm" type="password" placeholder="Confirm Password">
-    </div>
-
-    <div class="form-group">
-      <label>Referral Code (Optional)</label>
-      <input id="registerReferral" type="text" placeholder="Referral Code">
-    </div>
-
-    <button class="primary-btn" onclick="register()">
-      Create Account
-    </button>
-
-  </div>
-</div>
-
-
-<!-- DEPOSIT MODAL -->
-<div class="modal" id="depositModal">
-  <div class="modal-box">
-
-    <div class="modal-title">
-      <h2>💰 Deposit</h2>
-      <button class="close" onclick="closeModal('depositModal')">×</button>
-    </div>
-
-    <div class="error" id="depositError"></div>
-    <div class="success" id="depositSuccess"></div>
-
-    <div class="notice">
-      Minimum Deposit: <strong>৳500</strong><br>
-      প্রথমে bKash অথবা Nagad নির্বাচন করুন।
-    </div>
-
-    <div class="form-group">
-      <label>Payment Method</label>
-
-      <select id="paymentMethod" onchange="showPaymentNumber()">
-        <option value="">Select Payment Method</option>
-        <option value="bkash">bKash</option>
-        <option value="nagad">Nagad</option>
-      </select>
-    </div>
-
-    <div class="payment-box" id="paymentBox">
-
-      <div>Send Money করুন এই নম্বরে:</div>
-
-      <div class="payment-number" id="paymentNumber">
-        01771332609
-      </div>
-
-      <button class="copy-btn" onclick="copyPaymentNumber()">
-        Copy Number
+      <button
+        class="close"
+        onclick="closeModal('loginModal')">
+        ×
       </button>
 
     </div>
 
+
+    <div
+      class="error"
+      id="loginError">
+    </div>
+
+
     <div class="form-group">
-      <label>Amount</label>
+
+      <label>
+        Email
+      </label>
+
+      <input
+        id="loginEmail"
+        type="email"
+        placeholder="আপনার email">
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Password
+      </label>
+
+      <input
+        id="loginPassword"
+        type="password"
+        placeholder="Password">
+
+    </div>
+
+
+    <button
+      class="primary-btn"
+      onclick="login()">
+
+      Login
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= REGISTER ================= -->
+
+<div
+  class="modal"
+  id="registerModal">
+
+  <div class="modal-box">
+
+    <div class="modal-title">
+
+      <h2>
+        Create Account
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal('registerModal')">
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      class="error"
+      id="registerError">
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Name
+      </label>
+
+      <input
+        id="registerName"
+        type="text"
+        placeholder="আপনার নাম">
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Mobile
+      </label>
+
+      <input
+        id="registerMobile"
+        type="text"
+        placeholder="01XXXXXXXXX">
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Email
+      </label>
+
+      <input
+        id="registerEmail"
+        type="email"
+        placeholder="Email">
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Password
+      </label>
+
+      <input
+        id="registerPassword"
+        type="password"
+        placeholder="Password">
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Confirm Password
+      </label>
+
+      <input
+        id="registerConfirm"
+        type="password"
+        placeholder="Confirm Password">
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Referral Code (Optional)
+      </label>
+
+      <input
+        id="registerReferral"
+        type="text"
+        placeholder="Referral Code">
+
+    </div>
+
+
+    <button
+      class="primary-btn"
+      onclick="register()">
+
+      Create Account
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= DEPOSIT ================= -->
+
+<div
+  class="modal"
+  id="depositModal">
+
+  <div class="modal-box">
+
+    <div class="modal-title">
+
+      <h2>
+        💰 Deposit
+      </h2>
+
+      <button
+        class="close"
+        onclick="closeModal('depositModal')">
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      class="error"
+      id="depositError">
+    </div>
+
+
+    <div
+      class="success"
+      id="depositSuccess">
+    </div>
+
+
+    <div class="notice">
+
+      Minimum Deposit:
+      <strong>৳500</strong>
+
+      <br>
+
+      প্রথমে bKash অথবা Nagad নির্বাচন করুন।
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Payment Method
+      </label>
+
+      <select
+        id="paymentMethod"
+        onchange="showPaymentNumber()">
+
+        <option value="">
+          Select Payment Method
+        </option>
+
+        <option value="bkash">
+          bKash
+        </option>
+
+        <option value="nagad">
+          Nagad
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div
+      class="payment-box"
+      id="paymentBox">
+
+      <div>
+        Send Money করুন এই নম্বরে:
+      </div>
+
+      <div
+        class="payment-number"
+        id="paymentNumber">
+        01771332609
+      </div>
+
+      <button
+        class="copy-btn"
+        onclick="copyPaymentNumber()">
+
+        Copy Number
+
+      </button>
+
+    </div>
+
+
+    <div class="form-group">
+
+      <label>
+        Amount
+      </label>
+
       <input
         id="depositAmount"
         type="number"
         min="500"
-        placeholder="Minimum ৳500"
-      >
+        placeholder="Minimum ৳500">
+
     </div>
 
+
     <div class="form-group">
-      <label>Transaction ID</label>
+
+      <label>
+        Transaction ID
+      </label>
+
       <input
         id="transactionId"
         type="text"
-        placeholder="Transaction ID দিন"
-      >
+        placeholder="Transaction ID দিন">
+
     </div>
 
-    <button class="primary-btn" onclick="submitDeposit()">
+
+    <button
+      class="primary-btn"
+      onclick="submitDeposit()">
+
       Submit Deposit
+
     </button>
 
   </div>
+
 </div>
 
 
 <script>
+
+/* ==================================================
+   SUPABASE
+================================================== */
 
 const SUPABASE_URL =
   "https://xwdljcjotlspmecezhcl.supabase.co";
@@ -814,34 +1078,44 @@ const SUPABASE_KEY =
 const ADMIN_EMAIL =
   "ruhiaexpress@gmail.com";
 
+
 const supabaseClient =
   window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
   );
 
+
 let currentUser = null;
 let currentProfile = null;
 
 
-/* -------------------------
+/* ==================================================
    MODAL
-------------------------- */
+================================================== */
 
 function openModal(id){
-  document.getElementById(id).style.display="flex";
+
+  document.getElementById(id)
+    .style.display = "flex";
+
 }
+
 
 function closeModal(id){
-  document.getElementById(id).style.display="none";
+
+  document.getElementById(id)
+    .style.display = "none";
+
 }
 
 
-/* -------------------------
-   ESCAPE HTML
-------------------------- */
+/* ==================================================
+   ESCAPE
+================================================== */
 
 function escapeHtml(value){
+
   if(value === null || value === undefined){
     return "";
   }
@@ -852,58 +1126,78 @@ function escapeHtml(value){
     .replace(/>/g,"&gt;")
     .replace(/"/g,"&quot;")
     .replace(/'/g,"&#039;");
+
 }
 
 
-/* -------------------------
+/* ==================================================
    REGISTER
-------------------------- */
+================================================== */
 
 async function register(){
 
   const errorBox =
     document.getElementById("registerError");
 
-  errorBox.style.display="none";
+  errorBox.style.display = "none";
+
 
   const name =
-    document.getElementById("registerName").value.trim();
+    document.getElementById("registerName")
+      .value.trim();
 
   const mobile =
-    document.getElementById("registerMobile").value.trim();
+    document.getElementById("registerMobile")
+      .value.trim();
 
   const email =
-    document.getElementById("registerEmail").value.trim();
+    document.getElementById("registerEmail")
+      .value.trim();
 
   const password =
-    document.getElementById("registerPassword").value;
+    document.getElementById("registerPassword")
+      .value;
 
   const confirm =
-    document.getElementById("registerConfirm").value;
+    document.getElementById("registerConfirm")
+      .value;
 
   const referral =
-    document.getElementById("registerReferral").value.trim();
+    document.getElementById("registerReferral")
+      .value.trim();
+
 
   if(!name || !email || !password){
+
     errorBox.textContent =
       "Name, Email এবং Password দিন।";
-    errorBox.style.display="block";
+
+    errorBox.style.display = "block";
+
     return;
   }
 
+
   if(password !== confirm){
+
     errorBox.textContent =
       "Password দুইটি একই নয়।";
-    errorBox.style.display="block";
+
+    errorBox.style.display = "block";
+
     return;
   }
+
 
   try{
 
     const {data,error} =
       await supabaseClient.auth.signUp({
+
         email:email,
+
         password:password,
+
         options:{
           data:{
             name:name,
@@ -911,79 +1205,107 @@ async function register(){
             referral_code:referral
           }
         }
+
       });
+
 
     if(error) throw error;
 
+
     closeModal("registerModal");
+
 
     alert(
       "Account তৈরি হয়েছে। এখন Login করুন।"
     );
 
+
   }catch(error){
 
     errorBox.textContent =
-      error.message || "Account তৈরি করা যায়নি।";
+      error.message ||
+      "Account তৈরি করা যায়নি।";
 
-    errorBox.style.display="block";
+    errorBox.style.display = "block";
+
   }
+
 }
 
 
-/* -------------------------
+/* ==================================================
    LOGIN
-------------------------- */
+================================================== */
 
 async function login(){
 
   const errorBox =
     document.getElementById("loginError");
 
-  errorBox.style.display="none";
+  errorBox.style.display = "none";
+
 
   const email =
-    document.getElementById("loginEmail").value.trim();
+    document.getElementById("loginEmail")
+      .value.trim();
 
   const password =
-    document.getElementById("loginPassword").value;
+    document.getElementById("loginPassword")
+      .value;
+
 
   if(!email || !password){
 
     errorBox.textContent =
       "Email এবং Password দিন।";
 
-    errorBox.style.display="block";
+    errorBox.style.display = "block";
+
     return;
   }
+
 
   try{
 
     const {data,error} =
-      await supabaseClient.auth.signInWithPassword({
-        email:email,
-        password:password
-      });
+      await supabaseClient.auth
+        .signInWithPassword({
+
+          email:email,
+          password:password
+
+        });
+
 
     if(error) throw error;
 
+
     closeModal("loginModal");
 
+
+    currentUser =
+      data.user;
+
+
     await loadDashboard();
+
 
   }catch(error){
 
     errorBox.textContent =
-      error.message || "Login failed.";
+      error.message ||
+      "Login failed.";
 
-    errorBox.style.display="block";
+    errorBox.style.display = "block";
+
   }
+
 }
 
 
-/* -------------------------
-   LOAD PROFILE + BALANCE
-------------------------- */
+/* ==================================================
+   LOAD REAL PROFILE + BALANCE
+================================================== */
 
 async function loadDashboard(){
 
@@ -994,86 +1316,100 @@ async function loadDashboard(){
 
     currentUser =
       data?.user || null;
+
   }
+
 
   if(!currentUser){
     return;
   }
 
+
   /*
     IMPORTANT:
-    প্রতিবার database থেকে balance নতুন করে পড়ছি।
+    Database থেকে সরাসরি profile + balance পড়া হচ্ছে।
   */
 
   const {data:profile,error} =
     await supabaseClient
       .from("profiles")
-      .select("*")
+      .select("id,name,balance,role")
       .eq("id",currentUser.id)
       .single();
+
 
   if(error){
 
     console.error(
-      "Profile loading error:",
+      "PROFILE / BALANCE ERROR:",
       error
     );
 
+
     /*
-      Profile না পাওয়া গেলে auth metadata
-      দিয়ে basic dashboard দেখাবে।
+      এবার আর 0 দেখিয়ে ভুল তথ্য দেব না।
     */
 
-    currentProfile = {
-      id:currentUser.id,
-      name:
-        currentUser.user_metadata?.name ||
-        "User",
-      balance:0,
-      role:"user"
-    };
+    document.getElementById("balance")
+      .textContent = "Balance load error";
+
+
+    document.getElementById("userName")
+      .textContent =
+      currentUser.user_metadata?.name ||
+      "User";
+
+
+    document.getElementById("userId")
+      .textContent =
+      currentUser.id;
+
 
   }else{
 
     currentProfile = profile;
+
+
+    const realBalance =
+      Number(profile.balance);
+
+
+    document.getElementById("balance")
+      .textContent =
+      "৳" +
+      (Number.isFinite(realBalance)
+        ? realBalance
+        : 0
+      ).toLocaleString("en-BD",{
+
+        minimumFractionDigits:2,
+        maximumFractionDigits:2
+
+      });
+
+
+    document.getElementById("userName")
+      .textContent =
+      profile.name ||
+      currentUser.user_metadata?.name ||
+      "User";
+
+
+    document.getElementById("userId")
+      .textContent =
+      profile.id;
+
   }
 
 
-  /* NAME */
+  /* DASHBOARD */
 
-  document.getElementById("userName").textContent =
-    currentProfile.name ||
-    currentUser.user_metadata?.name ||
-    "User";
+  document.getElementById("homePage")
+    .style.display = "none";
 
+  document.getElementById("dashboardPage")
+    .style.display = "block";
 
-  /* USER ID */
-
-  document.getElementById("userId").textContent =
-    currentProfile.id ||
-    currentUser.id;
-
-
-  /* -------------------------
-     REAL DATABASE BALANCE
-  ------------------------- */
-
-  const realBalance =
-    Number(currentProfile.balance || 0);
-
-  document.getElementById("balance").textContent =
-    "৳" +
-    realBalance.toLocaleString("en-BD",{
-      minimumFractionDigits:2,
-      maximumFractionDigits:2
-    });
-
-
-  /* SHOW DASHBOARD */
-
-  document.getElementById("homePage").style.display="none";
-
-  document.getElementById("dashboardPage").style.display="block";
 
   document.getElementById("transactionsPage")
     .classList.remove("active");
@@ -1082,7 +1418,7 @@ async function loadDashboard(){
     .classList.remove("active");
 
 
-  /* LOGIN / LOGOUT BUTTON */
+  /* HEADER */
 
   document.getElementById("guestButtons")
     .classList.add("hidden");
@@ -1095,22 +1431,22 @@ async function loadDashboard(){
 
   if(isAdmin()){
 
-    document
-      .getElementById("adminMenu")
+    document.getElementById("adminMenu")
       .classList.remove("hidden");
 
   }else{
 
-    document
-      .getElementById("adminMenu")
+    document.getElementById("adminMenu")
       .classList.add("hidden");
+
   }
+
 }
 
 
-/* -------------------------
+/* ==================================================
    ADMIN CHECK
-------------------------- */
+================================================== */
 
 function isAdmin(){
 
@@ -1118,51 +1454,69 @@ function isAdmin(){
     return false;
   }
 
-  const email =
-    (currentUser.email || "").toLowerCase();
 
-  if(email === ADMIN_EMAIL.toLowerCase()){
+  const email =
+    (currentUser.email || "")
+      .toLowerCase();
+
+
+  if(
+    email ===
+    ADMIN_EMAIL.toLowerCase()
+  ){
+
     return true;
+
   }
 
+
   return currentProfile?.role === "admin";
+
 }
 
 
-/* -------------------------
+/* ==================================================
    LOGOUT
-------------------------- */
+================================================== */
 
 async function logout(){
 
   await supabaseClient.auth.signOut();
 
-  currentUser=null;
-  currentProfile=null;
+
+  currentUser = null;
+  currentProfile = null;
+
 
   document.getElementById("dashboardPage")
-    .style.display="none";
+    .style.display = "none";
+
 
   document.getElementById("transactionsPage")
     .classList.remove("active");
 
+
   document.getElementById("adminPage")
     .classList.remove("active");
 
+
   document.getElementById("homePage")
-    .style.display="block";
+    .style.display = "block";
+
 
   document.getElementById("guestButtons")
     .classList.remove("hidden");
 
+
   document.getElementById("userButtons")
     .classList.add("hidden");
+
 }
 
 
-/* -------------------------
-   DASHBOARD REFRESH
-------------------------- */
+/* ==================================================
+   REFRESH BALANCE
+================================================== */
 
 async function refreshBalance(){
 
@@ -1170,12 +1524,14 @@ async function refreshBalance(){
     return;
   }
 
+
   const {data,error} =
     await supabaseClient
       .from("profiles")
       .select("id,name,balance,role")
       .eq("id",currentUser.id)
       .single();
+
 
   if(error){
 
@@ -1185,76 +1541,121 @@ async function refreshBalance(){
     );
 
     return;
+
   }
 
-  currentProfile=data;
+
+  currentProfile = data;
+
 
   const balance =
-    Number(data.balance || 0);
+    Number(data.balance);
 
-  document.getElementById("balance").textContent =
+
+  document.getElementById("balance")
+    .textContent =
     "৳" +
-    balance.toLocaleString("en-BD",{
+    (Number.isFinite(balance)
+      ? balance
+      : 0
+    ).toLocaleString("en-BD",{
+
       minimumFractionDigits:2,
       maximumFractionDigits:2
+
     });
 
-  document.getElementById("userName").textContent =
+
+  document.getElementById("userName")
+    .textContent =
     data.name || "User";
 
-  document.getElementById("userId").textContent =
+
+  document.getElementById("userId")
+    .textContent =
     data.id;
+
 }
 
 
-/* -------------------------
+/* ==================================================
    DEPOSIT
-------------------------- */
+================================================== */
 
 function openDeposit(){
 
   if(!currentUser){
+
     openModal("loginModal");
+
     return;
   }
 
+
   document.getElementById("depositError")
-    .style.display="none";
+    .style.display = "none";
+
 
   document.getElementById("depositSuccess")
-    .style.display="none";
+    .style.display = "none";
 
-  document.getElementById("paymentMethod").value="";
-  document.getElementById("depositAmount").value="";
-  document.getElementById("transactionId").value="";
+
+  document.getElementById("paymentMethod")
+    .value = "";
+
+
+  document.getElementById("depositAmount")
+    .value = "";
+
+
+  document.getElementById("transactionId")
+    .value = "";
+
 
   document.getElementById("paymentBox")
-    .style.display="none";
+    .style.display = "none";
+
 
   openModal("depositModal");
+
 }
 
+
+/* ==================================================
+   PAYMENT NUMBER
+================================================== */
 
 function showPaymentNumber(){
 
   const method =
-    document.getElementById("paymentMethod").value;
+    document.getElementById("paymentMethod")
+      .value;
 
   const box =
     document.getElementById("paymentBox");
 
+
   if(!method){
 
-    box.style.display="none";
+    box.style.display = "none";
+
     return;
   }
 
-  box.style.display="block";
+
+  box.style.display = "block";
+
 
   document.getElementById("paymentNumber")
-    .textContent="01771332609";
+    .textContent =
+    "01771332609";
+
 }
 
+
+/* ==================================================
+   COPY NUMBER
+================================================== */
 
 async function copyPaymentNumber(){
 
@@ -1263,8 +1664,13 @@ async function copyPaymentNumber(){
   );
 
   alert("Number copied.");
+
 }
 
+
+/* ==================================================
+   SUBMIT DEPOSIT
+================================================== */
 
 async function submitDeposit(){
 
@@ -1274,47 +1680,60 @@ async function submitDeposit(){
   const successBox =
     document.getElementById("depositSuccess");
 
-  errorBox.style.display="none";
-  successBox.style.display="none";
+
+  errorBox.style.display = "none";
+  successBox.style.display = "none";
+
 
   const method =
-    document.getElementById("paymentMethod").value;
+    document.getElementById("paymentMethod")
+      .value;
+
 
   const amount =
     Number(
-      document.getElementById("depositAmount").value
+      document.getElementById("depositAmount")
+        .value
     );
+
 
   const transactionId =
     document.getElementById("transactionId")
       .value.trim();
+
 
   if(!method){
 
     errorBox.textContent =
       "Payment Method নির্বাচন করুন।";
 
-    errorBox.style.display="block";
+    errorBox.style.display = "block";
+
     return;
   }
+
 
   if(amount < 500){
 
     errorBox.textContent =
       "Minimum Deposit ৳500।";
 
-    errorBox.style.display="block";
+    errorBox.style.display = "block";
+
     return;
   }
+
 
   if(!transactionId){
 
     errorBox.textContent =
       "Transaction ID দিন।";
 
-    errorBox.style.display="block";
+    errorBox.style.display = "block";
+
     return;
   }
+
 
   try{
 
@@ -1322,57 +1741,84 @@ async function submitDeposit(){
       await supabaseClient.rpc(
         "submit_deposit",
         {
+
           p_payment_method:method,
-          p_payment_number:"01771332609",
+
+          p_payment_number:
+            "01771332609",
+
           p_amount:amount,
-          p_transaction_id:transactionId
+
+          p_transaction_id:
+            transactionId
+
         }
       );
 
+
     if(error) throw error;
+
 
     successBox.textContent =
       "Deposit submit হয়েছে। Admin verification-এর অপেক্ষায় আছে।";
 
-    successBox.style.display="block";
 
-    document.getElementById("depositAmount").value="";
-    document.getElementById("transactionId").value="";
+    successBox.style.display = "block";
+
+
+    document.getElementById("depositAmount")
+      .value = "";
+
+
+    document.getElementById("transactionId")
+      .value = "";
+
 
   }catch(error){
 
     errorBox.textContent =
-      error.message || "Deposit submit করা যায়নি।";
+      error.message ||
+      "Deposit submit করা যায়নি।";
 
-    errorBox.style.display="block";
+    errorBox.style.display = "block";
+
   }
+
 }
 
 
-/* -------------------------
+/* ==================================================
    TRANSACTIONS
-------------------------- */
+================================================== */
 
 async function openTransactions(type){
 
   if(!currentUser){
+
     openModal("loginModal");
+
     return;
   }
 
+
   document.getElementById("dashboardPage")
-    .style.display="none";
+    .style.display = "none";
+
 
   document.getElementById("homePage")
-    .style.display="none";
+    .style.display = "none";
+
 
   document.getElementById("adminPage")
     .classList.remove("active");
 
+
   document.getElementById("transactionsPage")
     .classList.add("active");
 
+
   await loadTransactions(type);
+
 }
 
 
@@ -1381,14 +1827,18 @@ async function loadTransactions(type){
   const list =
     document.getElementById("transactionList");
 
+
   list.innerHTML =
     '<div class="loading">Loading...</div>';
+
 
   const depositTab =
     document.getElementById("depositTab");
 
+
   const withdrawTab =
     document.getElementById("withdrawTab");
+
 
   if(type === "deposit"){
 
@@ -1399,10 +1849,12 @@ async function loadTransactions(type){
 
     depositTab.classList.remove("active");
     withdrawTab.classList.add("active");
+
   }
 
 
   let query;
+
 
   if(type === "deposit"){
 
@@ -1412,8 +1864,14 @@ async function loadTransactions(type){
         .select(
           "amount,payment_method,payment_number,transaction_id,status,created_at"
         )
-        .eq("user_id",currentUser.id)
-        .order("created_at",{ascending:false});
+        .eq(
+          "user_id",
+          currentUser.id
+        )
+        .order(
+          "created_at",
+          {ascending:false}
+        );
 
   }else{
 
@@ -1423,31 +1881,49 @@ async function loadTransactions(type){
         .select(
           "amount,payment_method,payment_number,status,created_at"
         )
-        .eq("user_id",currentUser.id)
-        .order("created_at",{ascending:false});
+        .eq(
+          "user_id",
+          currentUser.id
+        )
+        .order(
+          "created_at",
+          {ascending:false}
+        );
+
   }
 
 
   const {data,error} =
     await query;
 
+
   if(error){
 
     console.error(error);
 
     list.innerHTML =
-      '<div class="empty">Transactions load করা যায়নি।</div>';
+      `
+      <div class="empty">
+        Transactions load করা যায়নি।
+      </div>
+      `;
 
     return;
+
   }
 
 
   if(!data || data.length === 0){
 
     list.innerHTML =
-      '<div class="empty">কোনো transaction পাওয়া যায়নি।</div>';
+      `
+      <div class="empty">
+        কোনো transaction পাওয়া যায়নি।
+      </div>
+      `;
 
     return;
+
   }
 
 
@@ -1457,29 +1933,44 @@ async function loadTransactions(type){
       const status =
         item.status || "pending";
 
+
       const method =
         item.payment_method || "-";
 
+
       const date =
         item.created_at
-          ? new Date(item.created_at)
-              .toLocaleString("en-BD")
+          ? new Date(
+              item.created_at
+            ).toLocaleString("en-BD")
           : "-";
 
+
       return `
+
         <div class="transaction-card">
 
           <div class="row">
+
             <strong>
-              ${type === "deposit" ? "Deposit" : "Withdrawal"}
+              ${
+                type === "deposit"
+                  ? "Deposit"
+                  : "Withdrawal"
+              }
             </strong>
 
             <strong>
-              ৳${Number(item.amount || 0).toLocaleString("en-BD")}
+              ৳${Number(
+                item.amount || 0
+              ).toLocaleString("en-BD")}
             </strong>
+
           </div>
 
+
           <div class="row">
+
             <span class="muted">
               Method
             </span>
@@ -1487,27 +1978,37 @@ async function loadTransactions(type){
             <span>
               ${escapeHtml(method)}
             </span>
+
           </div>
+
 
           ${
             type === "deposit"
             ?
             `
+
             <div class="row">
+
               <span class="muted">
                 Transaction ID
               </span>
 
               <span>
-                ${escapeHtml(item.transaction_id || "-")}
+                ${escapeHtml(
+                  item.transaction_id || "-"
+                )}
               </span>
+
             </div>
+
             `
             :
             ""
           }
 
+
           <div class="row">
+
             <span class="muted">
               Date
             </span>
@@ -1515,111 +2016,148 @@ async function loadTransactions(type){
             <span>
               ${escapeHtml(date)}
             </span>
+
           </div>
 
-          <span class="status ${escapeHtml(status)}">
+
+          <span
+            class="status ${escapeHtml(status)}">
+
             ${escapeHtml(status)}
+
           </span>
 
         </div>
+
       `;
 
     }).join("");
+
 }
 
 
-/* -------------------------
-   BACK
-------------------------- */
+/* ==================================================
+   BACK DASHBOARD
+================================================== */
 
-function backDashboard(){
+async function backDashboard(){
 
   document.getElementById("transactionsPage")
     .classList.remove("active");
 
+
   document.getElementById("adminPage")
     .classList.remove("active");
 
+
   document.getElementById("homePage")
-    .style.display="none";
+    .style.display = "none";
+
 
   document.getElementById("dashboardPage")
-    .style.display="block";
+    .style.display = "block";
 
-  /*
-    Back করলেও balance নতুন করে পড়বে
-  */
 
-  refreshBalance();
+  await refreshBalance();
+
 }
 
 
-/* -------------------------
+/* ==================================================
    ADMIN PANEL
-------------------------- */
+================================================== */
 
 async function openAdminPanel(){
 
   if(!isAdmin()){
 
-    alert("Admin access required.");
+    alert(
+      "Admin access required."
+    );
+
     return;
   }
 
+
   document.getElementById("dashboardPage")
-    .style.display="none";
+    .style.display = "none";
+
 
   document.getElementById("homePage")
-    .style.display="none";
+    .style.display = "none";
+
 
   document.getElementById("transactionsPage")
     .classList.remove("active");
 
+
   document.getElementById("adminPage")
     .classList.add("active");
 
+
   await loadAdminDeposits();
+
 }
 
 
-/* -------------------------
+/* ==================================================
    ADMIN DEPOSITS
-------------------------- */
+================================================== */
 
 async function loadAdminDeposits(){
 
   const list =
-    document.getElementById("adminDepositList");
+    document.getElementById(
+      "adminDepositList"
+    );
+
 
   list.innerHTML =
     '<div class="loading">Loading deposits...</div>';
+
 
   const {data,error} =
     await supabaseClient.rpc(
       "admin_get_deposits"
     );
 
+
   if(error){
 
     console.error(error);
 
+
     list.innerHTML =
       `
+
       <div class="empty">
-        Admin deposits load করা যায়নি.<br><br>
+
+        Admin deposits load করা যায়নি।
+
+        <br><br>
+
         ${escapeHtml(error.message)}
+
       </div>
+
       `;
 
     return;
+
   }
+
 
   if(!data || data.length === 0){
 
     list.innerHTML =
-      '<div class="empty">কোনো deposit নেই।</div>';
+      `
+      <div class="empty">
+        কোনো deposit নেই।
+      </div>
+      `;
 
     return;
+
   }
 
 
@@ -1629,57 +2167,105 @@ async function loadAdminDeposits(){
       const status =
         deposit.status || "pending";
 
+
       const date =
         deposit.created_at
-          ? new Date(deposit.created_at)
-              .toLocaleString("en-BD")
+          ? new Date(
+              deposit.created_at
+            ).toLocaleString("en-BD")
           : "-";
 
+
       return `
+
         <div class="admin-card">
 
           <div class="row">
+
             <strong>
-              ৳${Number(deposit.amount || 0)
-                .toLocaleString("en-BD")}
+              ৳${Number(
+                deposit.amount || 0
+              ).toLocaleString("en-BD")}
             </strong>
 
-            <span class="status ${escapeHtml(status)}">
+            <span
+              class="status ${escapeHtml(status)}">
+
               ${escapeHtml(status)}
+
             </span>
+
           </div>
 
+
           <div>
-            <span class="muted">User Email</span><br>
-            ${escapeHtml(deposit.user_email || "-")}
+
+            <span class="muted">
+              User Email
+            </span>
+
+            <br>
+
+            ${escapeHtml(
+              deposit.user_email || "-"
+            )}
+
           </div>
+
 
           <br>
 
+
           <div>
-            <span class="muted">Payment Method</span><br>
-            ${escapeHtml(deposit.payment_method || "-")}
+
+            <span class="muted">
+              Payment Method
+            </span>
+
+            <br>
+
+            ${escapeHtml(
+              deposit.payment_method || "-"
+            )}
+
           </div>
+
 
           <br>
 
+
           <div>
-            <span class="muted">Transaction ID</span><br>
+
+            <span class="muted">
+              Transaction ID
+            </span>
+
+            <br>
+
             <strong>
-              ${escapeHtml(deposit.transaction_id || "-")}
+              ${escapeHtml(
+                deposit.transaction_id || "-"
+              )}
             </strong>
+
           </div>
 
+
           <br>
+
 
           <div class="muted">
+
             ${escapeHtml(date)}
+
           </div>
+
 
           ${
             status === "pending"
             ?
             `
+
             <div class="admin-actions">
 
               <button
@@ -1687,37 +2273,43 @@ async function loadAdminDeposits(){
                 onclick="processDeposit(
                   '${deposit.id}',
                   'approved'
-                )"
-              >
+                )">
+
                 ✓ Approve
+
               </button>
+
 
               <button
                 class="reject-btn"
                 onclick="processDeposit(
                   '${deposit.id}',
                   'rejected'
-                )"
-              >
+                )">
+
                 ✕ Reject
+
               </button>
 
             </div>
+
             `
             :
             ""
           }
 
         </div>
+
       `;
 
     }).join("");
+
 }
 
 
-/* -------------------------
+/* ==================================================
    ADMIN APPROVE / REJECT
-------------------------- */
+================================================== */
 
 async function processDeposit(
   depositId,
@@ -1729,9 +2321,11 @@ async function processDeposit(
       ? "Approve করতে চান?"
       : "Reject করতে চান?";
 
+
   if(!confirm(text)){
     return;
   }
+
 
   try{
 
@@ -1739,12 +2333,19 @@ async function processDeposit(
       await supabaseClient.rpc(
         "admin_update_deposit",
         {
-          p_deposit_id:depositId,
-          p_status:status
+
+          p_deposit_id:
+            depositId,
+
+          p_status:
+            status
+
         }
       );
 
+
     if(error) throw error;
+
 
     alert(
       status === "approved"
@@ -1752,7 +2353,9 @@ async function processDeposit(
         : "Deposit Rejected হয়েছে।"
     );
 
+
     await loadAdminDeposits();
+
 
   }catch(error){
 
@@ -1761,14 +2364,17 @@ async function processDeposit(
       "Deposit process করা যায়নি।"
     );
 
+
     console.error(error);
+
   }
+
 }
 
 
-/* -------------------------
+/* ==================================================
    COMING SOON
-------------------------- */
+================================================== */
 
 function showComingSoon(name){
 
@@ -1776,12 +2382,13 @@ function showComingSoon(name){
     name +
     " system পরবর্তী ধাপে চালু করা হবে।"
   );
+
 }
 
 
-/* -------------------------
+/* ==================================================
    AUTH STATE
-------------------------- */
+================================================== */
 
 supabaseClient.auth.onAuthStateChange(
   async (event,session) => {
@@ -1789,58 +2396,71 @@ supabaseClient.auth.onAuthStateChange(
     currentUser =
       session?.user || null;
 
+
     if(currentUser){
 
-      /*
-        ছোট delay রাখছি যাতে auth session
-        সম্পূর্ণভাবে ready হয়।
-      */
+      setTimeout(
+        async () => {
 
-      setTimeout(async () => {
-        await loadDashboard();
-      },100);
+          await loadDashboard();
+
+        },
+        100
+      );
+
 
     }else{
 
-      currentProfile=null;
+      currentProfile = null;
+
 
       document.getElementById("dashboardPage")
-        .style.display="none";
+        .style.display = "none";
+
 
       document.getElementById("transactionsPage")
         .classList.remove("active");
 
+
       document.getElementById("adminPage")
         .classList.remove("active");
 
+
       document.getElementById("homePage")
-        .style.display="block";
+        .style.display = "block";
+
 
       document.getElementById("guestButtons")
         .classList.remove("hidden");
 
+
       document.getElementById("userButtons")
         .classList.add("hidden");
+
     }
 
   }
 );
 
 
-/* -------------------------
+/* ==================================================
    INITIAL SESSION
-------------------------- */
+================================================== */
 
 (async function(){
 
   const {data} =
     await supabaseClient.auth.getSession();
 
+
   currentUser =
     data?.session?.user || null;
 
+
   if(currentUser){
+
     await loadDashboard();
+
   }
 
 })();
