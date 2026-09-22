@@ -8,11 +8,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
   font-family:Arial,"Noto Sans Bengali",sans-serif;
@@ -26,9 +22,7 @@ button{
   font-family:inherit;
 }
 
-.hidden{
-  display:none!important;
-}
+.hidden{display:none!important}
 
 header{
   background:#16834b;
@@ -98,9 +92,7 @@ header{
   margin-top:8px;
 }
 
-.dashboard{
-  display:none;
-}
+.dashboard{display:none}
 
 .welcome{
   margin-bottom:15px;
@@ -137,6 +129,15 @@ header{
   margin-top:8px;
 }
 
+.refresh-balance{
+  margin-top:12px;
+  padding:8px 12px;
+  border-radius:8px;
+  background:white;
+  color:#16834b;
+  font-weight:700;
+}
+
 .menu-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -158,22 +159,16 @@ header{
   font-weight:700;
 }
 
-.menu-card span{
-  font-size:28px;
-}
+.menu-card span{font-size:28px}
 
 .menu-card.admin{
   background:#fff7e5;
   color:#9a6500;
 }
 
-.page{
-  display:none;
-}
+.page{display:none}
 
-.page.active{
-  display:block;
-}
+.page.active{display:block}
 
 .page-header{
   display:flex;
@@ -188,13 +183,9 @@ header{
   border-radius:8px;
 }
 
-.page-header h2{
-  font-size:22px;
-}
+.page-header h2{font-size:22px}
 
-.form-group{
-  margin-bottom:15px;
-}
+.form-group{margin-bottom:15px}
 
 .form-group label{
   display:block;
@@ -420,7 +411,6 @@ footer{
 }
 
 @media(max-width:700px){
-
   .menu-grid{
     grid-template-columns:repeat(2,1fr);
   }
@@ -431,7 +421,6 @@ footer{
 }
 
 @media(max-width:420px){
-
   .menu-grid{
     grid-template-columns:repeat(2,1fr);
   }
@@ -452,6 +441,7 @@ footer{
   </div>
 
   <div class="header-buttons" id="guestButtons">
+
     <button
       class="header-btn"
       onclick="openModal('loginModal')">
@@ -463,6 +453,7 @@ footer{
       onclick="openModal('registerModal')">
       Create Account
     </button>
+
   </div>
 
   <div
@@ -498,7 +489,6 @@ footer{
     </p>
 
   </div>
-
 
   <div class="bonus">
 
@@ -547,6 +537,12 @@ footer{
       id="balance">
       ৳0.00
     </div>
+
+    <button
+      class="refresh-balance"
+      onclick="refreshBalance()">
+      ↻ Refresh Balance
+    </button>
 
   </div>
 
@@ -736,9 +732,7 @@ footer{
 
     <div class="modal-title">
 
-      <h2>
-        Login
-      </h2>
+      <h2>Login</h2>
 
       <button
         class="close"
@@ -757,9 +751,7 @@ footer{
 
     <div class="form-group">
 
-      <label>
-        Email
-      </label>
+      <label>Email</label>
 
       <input
         id="loginEmail"
@@ -771,9 +763,7 @@ footer{
 
     <div class="form-group">
 
-      <label>
-        Password
-      </label>
+      <label>Password</label>
 
       <input
         id="loginPassword"
@@ -806,9 +796,7 @@ footer{
 
     <div class="modal-title">
 
-      <h2>
-        Create Account
-      </h2>
+      <h2>Create Account</h2>
 
       <button
         class="close"
@@ -827,9 +815,7 @@ footer{
 
     <div class="form-group">
 
-      <label>
-        Name
-      </label>
+      <label>Name</label>
 
       <input
         id="registerName"
@@ -841,9 +827,7 @@ footer{
 
     <div class="form-group">
 
-      <label>
-        Mobile
-      </label>
+      <label>Mobile</label>
 
       <input
         id="registerMobile"
@@ -855,9 +839,7 @@ footer{
 
     <div class="form-group">
 
-      <label>
-        Email
-      </label>
+      <label>Email</label>
 
       <input
         id="registerEmail"
@@ -869,9 +851,7 @@ footer{
 
     <div class="form-group">
 
-      <label>
-        Password
-      </label>
+      <label>Password</label>
 
       <input
         id="registerPassword"
@@ -883,9 +863,7 @@ footer{
 
     <div class="form-group">
 
-      <label>
-        Confirm Password
-      </label>
+      <label>Confirm Password</label>
 
       <input
         id="registerConfirm"
@@ -897,9 +875,7 @@ footer{
 
     <div class="form-group">
 
-      <label>
-        Referral Code (Optional)
-      </label>
+      <label>Referral Code (Optional)</label>
 
       <input
         id="registerReferral"
@@ -932,9 +908,7 @@ footer{
 
     <div class="modal-title">
 
-      <h2>
-        💰 Deposit
-      </h2>
+      <h2>💰 Deposit</h2>
 
       <button
         class="close"
@@ -971,9 +945,7 @@ footer{
 
     <div class="form-group">
 
-      <label>
-        Payment Method
-      </label>
+      <label>Payment Method</label>
 
       <select
         id="paymentMethod"
@@ -1023,9 +995,7 @@ footer{
 
     <div class="form-group">
 
-      <label>
-        Amount
-      </label>
+      <label>Amount</label>
 
       <input
         id="depositAmount"
@@ -1038,9 +1008,7 @@ footer{
 
     <div class="form-group">
 
-      <label>
-        Transaction ID
-      </label>
+      <label>Transaction ID</label>
 
       <input
         id="transactionId"
@@ -1078,13 +1046,11 @@ const SUPABASE_KEY =
 const ADMIN_EMAIL =
   "ruhiaexpress@gmail.com";
 
-
 const supabaseClient =
   window.supabase.createClient(
     SUPABASE_URL,
     SUPABASE_KEY
   );
-
 
 let currentUser = null;
 let currentProfile = null;
@@ -1095,18 +1061,11 @@ let currentProfile = null;
 ================================================== */
 
 function openModal(id){
-
-  document.getElementById(id)
-    .style.display = "flex";
-
+  document.getElementById(id).style.display = "flex";
 }
 
-
 function closeModal(id){
-
-  document.getElementById(id)
-    .style.display = "none";
-
+  document.getElementById(id).style.display = "none";
 }
 
 
@@ -1126,7 +1085,6 @@ function escapeHtml(value){
     .replace(/>/g,"&gt;")
     .replace(/"/g,"&quot;")
     .replace(/'/g,"&#039;");
-
 }
 
 
@@ -1141,30 +1099,23 @@ async function register(){
 
   errorBox.style.display = "none";
 
-
   const name =
-    document.getElementById("registerName")
-      .value.trim();
+    document.getElementById("registerName").value.trim();
 
   const mobile =
-    document.getElementById("registerMobile")
-      .value.trim();
+    document.getElementById("registerMobile").value.trim();
 
   const email =
-    document.getElementById("registerEmail")
-      .value.trim();
+    document.getElementById("registerEmail").value.trim();
 
   const password =
-    document.getElementById("registerPassword")
-      .value;
+    document.getElementById("registerPassword").value;
 
   const confirm =
-    document.getElementById("registerConfirm")
-      .value;
+    document.getElementById("registerConfirm").value;
 
   const referral =
-    document.getElementById("registerReferral")
-      .value.trim();
+    document.getElementById("registerReferral").value.trim();
 
 
   if(!name || !email || !password){
@@ -1173,7 +1124,6 @@ async function register(){
       "Name, Email এবং Password দিন।";
 
     errorBox.style.display = "block";
-
     return;
   }
 
@@ -1184,7 +1134,6 @@ async function register(){
       "Password দুইটি একই নয়।";
 
     errorBox.style.display = "block";
-
     return;
   }
 
@@ -1195,7 +1144,6 @@ async function register(){
       await supabaseClient.auth.signUp({
 
         email:email,
-
         password:password,
 
         options:{
@@ -1211,14 +1159,11 @@ async function register(){
 
     if(error) throw error;
 
-
     closeModal("registerModal");
-
 
     alert(
       "Account তৈরি হয়েছে। এখন Login করুন।"
     );
-
 
   }catch(error){
 
@@ -1227,9 +1172,7 @@ async function register(){
       "Account তৈরি করা যায়নি।";
 
     errorBox.style.display = "block";
-
   }
-
 }
 
 
@@ -1260,7 +1203,6 @@ async function login(){
       "Email এবং Password দিন।";
 
     errorBox.style.display = "block";
-
     return;
   }
 
@@ -1282,13 +1224,9 @@ async function login(){
 
     closeModal("loginModal");
 
-
-    currentUser =
-      data.user;
-
+    currentUser = data.user;
 
     await loadDashboard();
-
 
   }catch(error){
 
@@ -1297,14 +1235,13 @@ async function login(){
       "Login failed.";
 
     errorBox.style.display = "block";
-
   }
-
 }
 
 
 /* ==================================================
-   LOAD REAL PROFILE + BALANCE
+   LOAD PROFILE + BALANCE
+   IMPORTANT FIX
 ================================================== */
 
 async function loadDashboard(){
@@ -1316,7 +1253,6 @@ async function loadDashboard(){
 
     currentUser =
       data?.user || null;
-
   }
 
 
@@ -1326,14 +1262,14 @@ async function loadDashboard(){
 
 
   /*
-    IMPORTANT:
-    Database থেকে সরাসরি profile + balance পড়া হচ্ছে।
+    এখানে name column আর নেওয়া হচ্ছে না।
+    কারণ profiles table-এ name নেই।
   */
 
   const {data:profile,error} =
     await supabaseClient
       .from("profiles")
-      .select("id,name,balance,role")
+      .select("id,balance,role")
       .eq("id",currentUser.id)
       .single();
 
@@ -1345,10 +1281,6 @@ async function loadDashboard(){
       error
     );
 
-
-    /*
-      এবার আর 0 দেখিয়ে ভুল তথ্য দেব না।
-    */
 
     document.getElementById("balance")
       .textContent = "Balance load error";
@@ -1364,33 +1296,26 @@ async function loadDashboard(){
       .textContent =
       currentUser.id;
 
-
   }else{
 
     currentProfile = profile;
 
 
     const realBalance =
-      Number(profile.balance);
+      Number(profile.balance || 0);
 
 
     document.getElementById("balance")
       .textContent =
       "৳" +
-      (Number.isFinite(realBalance)
-        ? realBalance
-        : 0
-      ).toLocaleString("en-BD",{
-
+      realBalance.toLocaleString("en-BD",{
         minimumFractionDigits:2,
         maximumFractionDigits:2
-
       });
 
 
     document.getElementById("userName")
       .textContent =
-      profile.name ||
       currentUser.user_metadata?.name ||
       "User";
 
@@ -1402,14 +1327,11 @@ async function loadDashboard(){
   }
 
 
-  /* DASHBOARD */
-
   document.getElementById("homePage")
     .style.display = "none";
 
   document.getElementById("dashboardPage")
     .style.display = "block";
-
 
   document.getElementById("transactionsPage")
     .classList.remove("active");
@@ -1418,16 +1340,12 @@ async function loadDashboard(){
     .classList.remove("active");
 
 
-  /* HEADER */
-
   document.getElementById("guestButtons")
     .classList.add("hidden");
 
   document.getElementById("userButtons")
     .classList.remove("hidden");
 
-
-  /* ADMIN */
 
   if(isAdmin()){
 
@@ -1438,9 +1356,7 @@ async function loadDashboard(){
 
     document.getElementById("adminMenu")
       .classList.add("hidden");
-
   }
-
 }
 
 
@@ -1454,24 +1370,16 @@ function isAdmin(){
     return false;
   }
 
-
   const email =
-    (currentUser.email || "")
-      .toLowerCase();
+    (currentUser.email || "").toLowerCase();
 
 
-  if(
-    email ===
-    ADMIN_EMAIL.toLowerCase()
-  ){
-
+  if(email === ADMIN_EMAIL.toLowerCase()){
     return true;
-
   }
 
 
   return currentProfile?.role === "admin";
-
 }
 
 
@@ -1483,34 +1391,26 @@ async function logout(){
 
   await supabaseClient.auth.signOut();
 
-
   currentUser = null;
   currentProfile = null;
-
 
   document.getElementById("dashboardPage")
     .style.display = "none";
 
-
   document.getElementById("transactionsPage")
     .classList.remove("active");
-
 
   document.getElementById("adminPage")
     .classList.remove("active");
 
-
   document.getElementById("homePage")
     .style.display = "block";
-
 
   document.getElementById("guestButtons")
     .classList.remove("hidden");
 
-
   document.getElementById("userButtons")
     .classList.add("hidden");
-
 }
 
 
@@ -1528,7 +1428,7 @@ async function refreshBalance(){
   const {data,error} =
     await supabaseClient
       .from("profiles")
-      .select("id,name,balance,role")
+      .select("id,balance,role")
       .eq("id",currentUser.id)
       .single();
 
@@ -1540,8 +1440,11 @@ async function refreshBalance(){
       error
     );
 
-    return;
+    alert(
+      "Balance load করা যায়নি। আবার চেষ্টা করুন।"
+    );
 
+    return;
   }
 
 
@@ -1549,32 +1452,35 @@ async function refreshBalance(){
 
 
   const balance =
-    Number(data.balance);
+    Number(data.balance || 0);
 
 
   document.getElementById("balance")
     .textContent =
     "৳" +
-    (Number.isFinite(balance)
-      ? balance
-      : 0
-    ).toLocaleString("en-BD",{
-
+    balance.toLocaleString("en-BD",{
       minimumFractionDigits:2,
       maximumFractionDigits:2
-
     });
 
 
   document.getElementById("userName")
     .textContent =
-    data.name || "User";
+    currentUser.user_metadata?.name ||
+    "User";
 
 
   document.getElementById("userId")
     .textContent =
     data.id;
 
+
+  if(isAdmin()){
+
+    document.getElementById("adminMenu")
+      .classList.remove("hidden");
+
+  }
 }
 
 
@@ -1587,7 +1493,6 @@ function openDeposit(){
   if(!currentUser){
 
     openModal("loginModal");
-
     return;
   }
 
@@ -1595,29 +1500,22 @@ function openDeposit(){
   document.getElementById("depositError")
     .style.display = "none";
 
-
   document.getElementById("depositSuccess")
     .style.display = "none";
-
 
   document.getElementById("paymentMethod")
     .value = "";
 
-
   document.getElementById("depositAmount")
     .value = "";
-
 
   document.getElementById("transactionId")
     .value = "";
 
-
   document.getElementById("paymentBox")
     .style.display = "none";
 
-
   openModal("depositModal");
-
 }
 
 
@@ -1628,8 +1526,7 @@ function openDeposit(){
 function showPaymentNumber(){
 
   const method =
-    document.getElementById("paymentMethod")
-      .value;
+    document.getElementById("paymentMethod").value;
 
   const box =
     document.getElementById("paymentBox");
@@ -1638,7 +1535,6 @@ function showPaymentNumber(){
   if(!method){
 
     box.style.display = "none";
-
     return;
   }
 
@@ -1649,7 +1545,6 @@ function showPaymentNumber(){
   document.getElementById("paymentNumber")
     .textContent =
     "01771332609";
-
 }
 
 
@@ -1659,12 +1554,19 @@ function showPaymentNumber(){
 
 async function copyPaymentNumber(){
 
-  await navigator.clipboard.writeText(
-    "01771332609"
-  );
+  try{
 
-  alert("Number copied.");
+    await navigator.clipboard.writeText(
+      "01771332609"
+    );
 
+    alert("Number copied.");
+
+  }catch(error){
+
+    alert("Number copy করা যায়নি।");
+
+  }
 }
 
 
@@ -1686,16 +1588,12 @@ async function submitDeposit(){
 
 
   const method =
-    document.getElementById("paymentMethod")
-      .value;
-
+    document.getElementById("paymentMethod").value;
 
   const amount =
     Number(
-      document.getElementById("depositAmount")
-        .value
+      document.getElementById("depositAmount").value
     );
-
 
   const transactionId =
     document.getElementById("transactionId")
@@ -1708,7 +1606,6 @@ async function submitDeposit(){
       "Payment Method নির্বাচন করুন।";
 
     errorBox.style.display = "block";
-
     return;
   }
 
@@ -1719,7 +1616,6 @@ async function submitDeposit(){
       "Minimum Deposit ৳500।";
 
     errorBox.style.display = "block";
-
     return;
   }
 
@@ -1730,7 +1626,6 @@ async function submitDeposit(){
       "Transaction ID দিন।";
 
     errorBox.style.display = "block";
-
     return;
   }
 
@@ -1741,17 +1636,10 @@ async function submitDeposit(){
       await supabaseClient.rpc(
         "submit_deposit",
         {
-
           p_payment_method:method,
-
-          p_payment_number:
-            "01771332609",
-
+          p_payment_number:"01771332609",
           p_amount:amount,
-
-          p_transaction_id:
-            transactionId
-
+          p_transaction_id:transactionId
         }
       );
 
@@ -1760,8 +1648,7 @@ async function submitDeposit(){
 
 
     successBox.textContent =
-      "Deposit submit হয়েছে। Admin verification-এর অপেক্ষায় আছে।";
-
+      "Deposit submit হয়েছে। Admin verification-এর অপেক্ষায় আছে.";
 
     successBox.style.display = "block";
 
@@ -1769,21 +1656,17 @@ async function submitDeposit(){
     document.getElementById("depositAmount")
       .value = "";
 
-
     document.getElementById("transactionId")
       .value = "";
-
 
   }catch(error){
 
     errorBox.textContent =
       error.message ||
-      "Deposit submit করা যায়নি।";
+      "Deposit submit করা যায়নি.";
 
     errorBox.style.display = "block";
-
   }
-
 }
 
 
@@ -1796,7 +1679,6 @@ async function openTransactions(type){
   if(!currentUser){
 
     openModal("loginModal");
-
     return;
   }
 
@@ -1804,21 +1686,17 @@ async function openTransactions(type){
   document.getElementById("dashboardPage")
     .style.display = "none";
 
-
   document.getElementById("homePage")
     .style.display = "none";
 
-
   document.getElementById("adminPage")
     .classList.remove("active");
-
 
   document.getElementById("transactionsPage")
     .classList.add("active");
 
 
   await loadTransactions(type);
-
 }
 
 
@@ -1834,7 +1712,6 @@ async function loadTransactions(type){
 
   const depositTab =
     document.getElementById("depositTab");
-
 
   const withdrawTab =
     document.getElementById("withdrawTab");
@@ -1889,7 +1766,6 @@ async function loadTransactions(type){
           "created_at",
           {ascending:false}
         );
-
   }
 
 
@@ -1909,7 +1785,6 @@ async function loadTransactions(type){
       `;
 
     return;
-
   }
 
 
@@ -1923,7 +1798,6 @@ async function loadTransactions(type){
       `;
 
     return;
-
   }
 
 
@@ -1933,10 +1807,8 @@ async function loadTransactions(type){
       const status =
         item.status || "pending";
 
-
       const method =
         item.payment_method || "-";
-
 
       const date =
         item.created_at
@@ -2032,7 +1904,6 @@ async function loadTransactions(type){
       `;
 
     }).join("");
-
 }
 
 
@@ -2045,21 +1916,17 @@ async function backDashboard(){
   document.getElementById("transactionsPage")
     .classList.remove("active");
 
-
   document.getElementById("adminPage")
     .classList.remove("active");
 
-
   document.getElementById("homePage")
     .style.display = "none";
-
 
   document.getElementById("dashboardPage")
     .style.display = "block";
 
 
   await refreshBalance();
-
 }
 
 
@@ -2071,10 +1938,7 @@ async function openAdminPanel(){
 
   if(!isAdmin()){
 
-    alert(
-      "Admin access required."
-    );
-
+    alert("Admin access required.");
     return;
   }
 
@@ -2082,21 +1946,17 @@ async function openAdminPanel(){
   document.getElementById("dashboardPage")
     .style.display = "none";
 
-
   document.getElementById("homePage")
     .style.display = "none";
 
-
   document.getElementById("transactionsPage")
     .classList.remove("active");
-
 
   document.getElementById("adminPage")
     .classList.add("active");
 
 
   await loadAdminDeposits();
-
 }
 
 
@@ -2126,24 +1986,20 @@ async function loadAdminDeposits(){
 
     console.error(error);
 
-
     list.innerHTML =
       `
-
       <div class="empty">
 
-        Admin deposits load করা যায়নি।
+        Admin deposits load করা যায়নি.
 
         <br><br>
 
         ${escapeHtml(error.message)}
 
       </div>
-
       `;
 
     return;
-
   }
 
 
@@ -2157,7 +2013,6 @@ async function loadAdminDeposits(){
       `;
 
     return;
-
   }
 
 
@@ -2166,7 +2021,6 @@ async function loadAdminDeposits(){
 
       const status =
         deposit.status || "pending";
-
 
       const date =
         deposit.created_at
@@ -2255,9 +2109,7 @@ async function loadAdminDeposits(){
 
 
           <div class="muted">
-
             ${escapeHtml(date)}
-
           </div>
 
 
@@ -2303,7 +2155,6 @@ async function loadAdminDeposits(){
       `;
 
     }).join("");
-
 }
 
 
@@ -2333,13 +2184,8 @@ async function processDeposit(
       await supabaseClient.rpc(
         "admin_update_deposit",
         {
-
-          p_deposit_id:
-            depositId,
-
-          p_status:
-            status
-
+          p_deposit_id:depositId,
+          p_status:status
         }
       );
 
@@ -2356,7 +2202,6 @@ async function processDeposit(
 
     await loadAdminDeposits();
 
-
   }catch(error){
 
     alert(
@@ -2364,11 +2209,8 @@ async function processDeposit(
       "Deposit process করা যায়নি।"
     );
 
-
     console.error(error);
-
   }
-
 }
 
 
@@ -2382,7 +2224,6 @@ function showComingSoon(name){
     name +
     " system পরবর্তী ধাপে চালু করা হবে।"
   );
-
 }
 
 
@@ -2401,42 +2242,32 @@ supabaseClient.auth.onAuthStateChange(
 
       setTimeout(
         async () => {
-
           await loadDashboard();
-
         },
         100
       );
-
 
     }else{
 
       currentProfile = null;
 
-
       document.getElementById("dashboardPage")
         .style.display = "none";
-
 
       document.getElementById("transactionsPage")
         .classList.remove("active");
 
-
       document.getElementById("adminPage")
         .classList.remove("active");
-
 
       document.getElementById("homePage")
         .style.display = "block";
 
-
       document.getElementById("guestButtons")
         .classList.remove("hidden");
 
-
       document.getElementById("userButtons")
         .classList.add("hidden");
-
     }
 
   }
