@@ -9,250 +9,72 @@
 
 <style>
 *{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Arial,"Noto Sans Bengali",sans-serif;
-  background:#f5f7f9;
-  color:#17202a;
-}
-header{
-  background:#16834b;
-  color:white;
-  padding:15px 18px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:20;
-}
+body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;background:#f5f7f9;color:#17202a}
+header{background:#16834b;color:white;padding:15px 18px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20}
 .logo{font-size:22px;font-weight:bold}
 .container{max-width:900px;margin:auto;padding:18px}
-button{
-  border:0;
-  border-radius:10px;
-  padding:12px 16px;
-  cursor:pointer;
-  font-size:15px;
-}
+button{border:0;border-radius:10px;padding:12px 16px;cursor:pointer;font-size:15px}
 .primary{background:#16834b;color:white}
 .secondary{background:#e9f5ee;color:#16834b}
 .danger{background:#dc3545;color:white}
-.warning{background:#f59e0b;color:white}
 .hidden{display:none!important}
 
-.hero{
-  text-align:center;
-  padding:55px 15px 35px;
-}
+.hero{text-align:center;padding:55px 15px 35px}
 .hero h1{font-size:34px;margin:10px 0}
 .hero p{color:#667085;line-height:1.7}
+.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 
-.actions{
-  display:flex;
-  gap:10px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
+.bonus{background:white;border-radius:16px;padding:20px;margin:20px 0;text-align:center;box-shadow:0 3px 15px #0000000d}
 
-.bonus{
-  background:white;
-  border-radius:16px;
-  padding:20px;
-  margin:20px 0;
-  text-align:center;
-  box-shadow:0 3px 15px #0000000d;
-}
+.dashboard-header{background:white;border-radius:18px;padding:22px;box-shadow:0 3px 15px #0000000d;margin-bottom:15px}
+.balance{font-size:34px;font-weight:bold;color:#16834b;margin:10px 0}
+.refresh{font-size:13px;padding:8px 12px}
 
-.dashboard-header{
-  background:white;
-  border-radius:18px;
-  padding:22px;
-  box-shadow:0 3px 15px #0000000d;
-  margin-bottom:15px;
-}
-
-.balance{
-  font-size:34px;
-  font-weight:bold;
-  color:#16834b;
-  margin:10px 0;
-}
-
-.refresh{
-  font-size:13px;
-  padding:8px 12px;
-}
-
-.menu-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-}
-
-.menu-card{
-  background:white;
-  padding:20px;
-  border-radius:15px;
-  box-shadow:0 3px 15px #0000000d;
-  cursor:pointer;
-  font-size:17px;
-  text-align:center;
-}
-
+.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.menu-card{background:white;padding:20px;border-radius:15px;box-shadow:0 3px 15px #0000000d;cursor:pointer;font-size:17px;text-align:center}
 .menu-card:hover{background:#f0faf4}
+.admin-menu{border:2px solid #f59e0b}
 
-.admin-menu{
-  border:2px solid #f59e0b;
-}
+.page{display:none}
+.page.active{display:block}
 
-.page{
-  display:none;
-}
+.back{margin-bottom:15px}
+.card{background:white;border-radius:16px;padding:20px;margin-bottom:15px;box-shadow:0 3px 15px #0000000d}
 
-.page.active{
-  display:block;
-}
+input,select{width:100%;padding:13px;margin:7px 0 14px;border:1px solid #d8dee5;border-radius:10px;font-size:15px}
+label{font-size:14px;font-weight:bold}
 
-.back{
-  margin-bottom:15px;
-}
+.modal{position:fixed;inset:0;background:#0008;display:flex;justify-content:center;align-items:center;padding:15px;z-index:50}
+.modal-box{background:white;width:100%;max-width:430px;border-radius:18px;padding:22px;max-height:90vh;overflow:auto}
+.modal-title{font-size:22px;font-weight:bold;margin-bottom:15px}
+.close{float:right;background:#eee;padding:5px 10px}
 
-.card{
-  background:white;
-  border-radius:16px;
-  padding:20px;
-  margin-bottom:15px;
-  box-shadow:0 3px 15px #0000000d;
-}
+.method-box{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.method{padding:15px;background:#f1f3f5;border-radius:10px;text-align:center;cursor:pointer}
+.method.selected{background:#16834b;color:white}
 
-input,select{
-  width:100%;
-  padding:13px;
-  margin:7px 0 14px;
-  border:1px solid #d8dee5;
-  border-radius:10px;
-  font-size:15px;
-}
+.payment-number{background:#eaf7ef;color:#16834b;padding:14px;border-radius:10px;font-size:18px;font-weight:bold;margin:10px 0}
+.notice{padding:12px;background:#fff7df;border-radius:10px;font-size:14px;line-height:1.6}
 
-label{
-  font-size:14px;
-  font-weight:bold;
-}
+.claim-box{text-align:center}
+.claim-amount{font-size:34px;font-weight:bold;color:#16834b;margin:15px 0}
+.countdown{font-size:18px;font-weight:bold;margin:15px 0;color:#555}
 
-.modal{
-  position:fixed;
-  inset:0;
-  background:#0008;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:15px;
-  z-index:50;
-}
-
-.modal-box{
-  background:white;
-  width:100%;
-  max-width:430px;
-  border-radius:18px;
-  padding:22px;
-  max-height:90vh;
-  overflow:auto;
-}
-
-.modal-title{
-  font-size:22px;
-  font-weight:bold;
-  margin-bottom:15px;
-}
-
-.close{
-  float:right;
-  background:#eee;
-  padding:5px 10px;
-}
-
-.method-box{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-bottom:10px;
-}
-
-.method{
-  padding:15px;
-  background:#f1f3f5;
-  border-radius:10px;
-  text-align:center;
-  cursor:pointer;
-}
-
-.method.selected{
-  background:#16834b;
-  color:white;
-}
-
-.payment-number{
-  background:#eaf7ef;
-  color:#16834b;
-  padding:14px;
-  border-radius:10px;
-  font-size:18px;
-  font-weight:bold;
-  margin:10px 0;
-}
-
-.notice{
-  padding:12px;
-  background:#fff7df;
-  border-radius:10px;
-  font-size:14px;
-  line-height:1.6;
-}
-
-.status{
-  display:inline-block;
-  padding:5px 9px;
-  border-radius:20px;
-  font-size:12px;
-  font-weight:bold;
-}
+.status{display:inline-block;padding:5px 9px;border-radius:20px;font-size:12px;font-weight:bold}
 .pending{background:#fff3cd;color:#856404}
 .approved{background:#d1e7dd;color:#0f5132}
 .rejected{background:#f8d7da;color:#842029}
 
-.tx-item{
-  border:1px solid #e4e7eb;
-  border-radius:12px;
-  padding:14px;
-  margin-bottom:10px;
-}
+.tx-item{border:1px solid #e4e7eb;border-radius:12px;padding:14px;margin-bottom:10px}
+.admin-item{border:1px solid #ddd;border-radius:14px;padding:15px;margin-bottom:12px}
+.admin-actions{display:flex;gap:8px;margin-top:12px}
 
-.admin-item{
-  border:1px solid #ddd;
-  border-radius:14px;
-  padding:15px;
-  margin-bottom:12px;
-}
-
-.admin-actions{
-  display:flex;
-  gap:8px;
-  margin-top:12px;
-}
-
-footer{
-  text-align:center;
-  color:#888;
-  padding:30px 10px;
-  font-size:13px;
-}
+footer{text-align:center;color:#888;padding:30px 10px;font-size:13px}
 
 @media(max-width:600px){
-  .menu-grid{grid-template-columns:1fr 1fr}
-  .hero h1{font-size:28px}
-  .balance{font-size:30px}
+.menu-grid{grid-template-columns:1fr 1fr}
+.hero h1{font-size:28px}
+.balance{font-size:30px}
 }
 </style>
 </head>
@@ -260,342 +82,416 @@ footer{
 <body>
 
 <header>
-  <div class="logo">Amar Taka</div>
-  <div id="headerButtons">
-    <button class="secondary" onclick="openLogin()">Login</button>
-    <button class="secondary" onclick="openRegister()">Create Account</button>
-  </div>
+<div class="logo">Amar Taka</div>
+
+<div id="headerButtons">
+<button class="secondary" onclick="openLogin()">Login</button>
+<button class="secondary" onclick="openRegister()">Create Account</button>
+</div>
 </header>
+
 
 <!-- HOME -->
 <section id="homePage" class="page active">
-  <div class="container">
+<div class="container">
 
-    <div class="hero">
-      <h1>আপনার টাকা, আপনার নিয়ন্ত্রণে</h1>
-      <p>
-        Amar Taka-তে আপনার account, deposit,
-        withdrawal এবং transaction এক জায়গা থেকে পরিচালনা করুন।
-      </p>
+<div class="hero">
+<h1>আপনার টাকা, আপনার নিয়ন্ত্রণে</h1>
 
-      <div class="actions">
-        <button class="primary" onclick="openRegister()">Create Account</button>
-        <button class="secondary" onclick="openLogin()">Login</button>
-      </div>
-    </div>
+<p>
+Amar Taka-তে আপনার account, deposit,
+withdrawal এবং transaction এক জায়গা থেকে পরিচালনা করুন।
+</p>
 
-    <div class="bonus">
-      🎁 <b>Welcome Bonus ৳100</b>
-      <p>Account তৈরি সম্পন্ন করলে Welcome Bonus প্রযোজ্য হবে।</p>
-    </div>
+<div class="actions">
+<button class="primary" onclick="openRegister()">Create Account</button>
+<button class="secondary" onclick="openLogin()">Login</button>
+</div>
+</div>
 
-  </div>
+<div class="bonus">
+🎁 <b>Welcome Bonus ৳100</b>
+<p>Account তৈরি সম্পন্ন করলে Welcome Bonus প্রযোজ্য হবে।</p>
+</div>
+
+</div>
 </section>
 
 
 <!-- DASHBOARD -->
 <section id="dashboardPage" class="page">
-  <div class="container">
+<div class="container">
 
-    <div class="dashboard-header">
-      <div id="welcomeText">Welcome 👋</div>
-      <div id="userIdText" style="font-size:13px;color:#777"></div>
+<div class="dashboard-header">
 
-      <div class="balance" id="balance">৳ 0.00</div>
+<div id="welcomeText">Welcome 👋</div>
 
-      <button class="secondary refresh" onclick="refreshBalance()">
-        ↻ Refresh Balance
-      </button>
-    </div>
+<div id="userIdText" style="font-size:13px;color:#777"></div>
 
-    <div class="menu-grid">
+<div class="balance" id="balance">৳ 0.00</div>
 
-      <div class="menu-card" onclick="openDeposit()">
-        💰<br>Deposit
-      </div>
+<button class="secondary refresh" onclick="refreshBalance()">
+↻ Refresh Balance
+</button>
 
-      <div class="menu-card" onclick="openTransactions()">
-        📜<br>Transactions
-      </div>
+</div>
 
-      <div class="menu-card" onclick="openWithdrawal()">
-        💸<br>Withdraw
-      </div>
 
-      <div class="menu-card" onclick="showComingSoon('Daily Claim')">
-        🎁<br>Daily Claim
-      </div>
+<div class="menu-grid">
 
-      <div class="menu-card" onclick="showComingSoon('VIP Plans')">
-        ⭐<br>VIP Plans
-      </div>
+<div class="menu-card" onclick="openDeposit()">
+💰<br>Deposit
+</div>
 
-      <div class="menu-card" onclick="showComingSoon('Referral')">
-        👥<br>Referral
-      </div>
+<div class="menu-card" onclick="openTransactions()">
+📜<br>Transactions
+</div>
 
-      <div class="menu-card" onclick="showComingSoon('Support')">
-        💬<br>Support
-      </div>
+<div class="menu-card" onclick="openWithdrawal()">
+💸<br>Withdraw
+</div>
 
-      <div id="adminMenu"
-           class="menu-card admin-menu hidden"
-           onclick="openAdminPanel()">
-        🛡️<br>Admin Panel
-      </div>
+<div class="menu-card" onclick="openDailyClaim()">
+🎁<br>Daily Claim
+</div>
 
-      <div class="menu-card" onclick="logout()">
-        🚪<br>Logout
-      </div>
+<div class="menu-card" onclick="showComingSoon('VIP Plans')">
+⭐<br>VIP Plans
+</div>
 
-    </div>
+<div class="menu-card" onclick="showComingSoon('Referral')">
+👥<br>Referral
+</div>
 
-  </div>
+<div class="menu-card" onclick="showComingSoon('Support')">
+💬<br>Support
+</div>
+
+<div id="adminMenu"
+class="menu-card admin-menu hidden"
+onclick="openAdminPanel()">
+🛡️<br>Admin Panel
+</div>
+
+<div class="menu-card" onclick="logout()">
+🚪<br>Logout
+</div>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- DAILY CLAIM -->
+<section id="dailyClaimPage" class="page">
+<div class="container">
+
+<button class="secondary back" onclick="showDashboard()">
+← Dashboard
+</button>
+
+<div class="card claim-box">
+
+<h2>🎁 Daily Claim</h2>
+
+<p>
+প্রতি ২৪ ঘণ্টায় একবার Daily Claim করা যাবে।
+</p>
+
+<div class="claim-amount">৳20</div>
+
+<div id="claimStatus">
+Checking...
+</div>
+
+<div id="claimCountdown" class="countdown"></div>
+
+<button id="claimButton"
+class="primary"
+style="width:100%;margin-top:10px"
+onclick="claimDaily()">
+Claim ৳20
+</button>
+
+<p id="claimMessage"></p>
+
+</div>
+
+<div class="card">
+<b>📌 নিয়ম</b>
+<p style="color:#666;line-height:1.7">
+• প্রতি ২৪ ঘণ্টায় একবার claim করা যাবে।<br>
+• Claim সফল হলে ৳20 balance-এ যোগ হবে।<br>
+• ২৪ ঘণ্টা পূর্ণ হওয়ার আগে আবার claim করা যাবে না।
+</p>
+</div>
+
+</div>
 </section>
 
 
 <!-- TRANSACTIONS -->
 <section id="transactionsPage" class="page">
-  <div class="container">
+<div class="container">
 
-    <button class="secondary back" onclick="showDashboard()">
-      ← Dashboard
-    </button>
+<button class="secondary back" onclick="showDashboard()">
+← Dashboard
+</button>
 
-    <div class="card">
-      <h2>📜 Transactions</h2>
+<div class="card">
 
-      <div class="actions" style="justify-content:flex-start">
-        <button class="primary" onclick="loadTransactions('deposit')">
-          Deposit
-        </button>
+<h2>📜 Transactions</h2>
 
-        <button class="secondary" onclick="loadTransactions('withdrawal')">
-          Withdrawal
-        </button>
-      </div>
-    </div>
+<div class="actions" style="justify-content:flex-start">
 
-    <div id="transactionsList"></div>
+<button class="primary"
+onclick="loadTransactions('deposit')">
+Deposit
+</button>
 
-  </div>
+<button class="secondary"
+onclick="loadTransactions('withdrawal')">
+Withdrawal
+</button>
+
+<button class="secondary"
+onclick="loadTransactions('daily_claim')">
+Daily Claim
+</button>
+
+</div>
+
+</div>
+
+<div id="transactionsList"></div>
+
+</div>
 </section>
 
 
 <!-- ADMIN -->
 <section id="adminPage" class="page">
-  <div class="container">
+<div class="container">
 
-    <button class="secondary back" onclick="showDashboard()">
-      ← Dashboard
-    </button>
+<button class="secondary back" onclick="showDashboard()">
+← Dashboard
+</button>
 
-    <div class="card">
-      <h2>🛡️ Admin Panel</h2>
-      <p style="color:#777">
-        Deposit এবং Withdrawal requests এখানে manage করুন।
-      </p>
-    </div>
+<div class="card">
+<h2>🛡️ Admin Panel</h2>
+<p style="color:#777">
+Deposit, Withdrawal এবং request manage করুন।
+</p>
+</div>
 
-    <div class="card">
-      <h3>💰 Deposit Requests</h3>
-      <div id="adminDeposits">Loading...</div>
-    </div>
+<div class="card">
+<h3>💰 Deposit Requests</h3>
+<div id="adminDeposits">Loading...</div>
+</div>
 
-    <div class="card">
-      <h3>💸 Withdrawal Requests</h3>
-      <div id="adminWithdrawals">Loading...</div>
-    </div>
+<div class="card">
+<h3>💸 Withdrawal Requests</h3>
+<div id="adminWithdrawals">Loading...</div>
+</div>
 
-  </div>
+</div>
 </section>
 
 
-<!-- LOGIN MODAL -->
+<!-- LOGIN -->
 <div id="loginModal" class="modal hidden">
-  <div class="modal-box">
+<div class="modal-box">
 
-    <button class="close" onclick="closeModal('loginModal')">×</button>
+<button class="close"
+onclick="closeModal('loginModal')">×</button>
 
-    <div class="modal-title">Login</div>
+<div class="modal-title">Login</div>
 
-    <label>Email</label>
-    <input id="loginEmail" type="email">
+<label>Email</label>
+<input id="loginEmail" type="email">
 
-    <label>Password</label>
-    <input id="loginPassword" type="password">
+<label>Password</label>
+<input id="loginPassword" type="password">
 
-    <button class="primary" style="width:100%" onclick="login()">
-      Login
-    </button>
+<button class="primary"
+style="width:100%"
+onclick="login()">
+Login
+</button>
 
-    <p id="loginMessage"></p>
+<p id="loginMessage"></p>
 
-  </div>
+</div>
 </div>
 
 
-<!-- REGISTER MODAL -->
+<!-- REGISTER -->
 <div id="registerModal" class="modal hidden">
-  <div class="modal-box">
+<div class="modal-box">
 
-    <button class="close" onclick="closeModal('registerModal')">×</button>
+<button class="close"
+onclick="closeModal('registerModal')">×</button>
 
-    <div class="modal-title">Create Account</div>
+<div class="modal-title">Create Account</div>
 
-    <label>Name</label>
-    <input id="regName">
+<label>Name</label>
+<input id="regName">
 
-    <label>Mobile</label>
-    <input id="regPhone">
+<label>Mobile</label>
+<input id="regPhone">
 
-    <label>Email</label>
-    <input id="regEmail" type="email">
+<label>Email</label>
+<input id="regEmail" type="email">
 
-    <label>Password</label>
-    <input id="regPassword" type="password">
+<label>Password</label>
+<input id="regPassword" type="password">
 
-    <label>Referral Code (Optional)</label>
-    <input id="regReferral">
+<label>Referral Code (Optional)</label>
+<input id="regReferral">
 
-    <button class="primary" style="width:100%" onclick="register()">
-      Create Account
-    </button>
+<button class="primary"
+style="width:100%"
+onclick="register()">
+Create Account
+</button>
 
-    <p id="registerMessage"></p>
+<p id="registerMessage"></p>
 
-  </div>
+</div>
 </div>
 
 
-<!-- DEPOSIT MODAL -->
+<!-- DEPOSIT -->
 <div id="depositModal" class="modal hidden">
-  <div class="modal-box">
+<div class="modal-box">
 
-    <button class="close" onclick="closeModal('depositModal')">×</button>
+<button class="close"
+onclick="closeModal('depositModal')">×</button>
 
-    <div class="modal-title">💰 Deposit</div>
+<div class="modal-title">💰 Deposit</div>
 
-    <p>Payment Method নির্বাচন করুন:</p>
+<p>Payment Method নির্বাচন করুন:</p>
 
-    <div class="method-box">
-      <div id="bkashMethod"
-           class="method"
-           onclick="selectDepositMethod('bkash')">
-        bKash
-      </div>
+<div class="method-box">
 
-      <div id="nagadMethod"
-           class="method"
-           onclick="selectDepositMethod('nagad')">
-        Nagad
-      </div>
-    </div>
+<div id="bkashMethod"
+class="method"
+onclick="selectDepositMethod('bkash')">
+bKash
+</div>
 
-    <div id="depositPaymentBox" class="hidden">
+<div id="nagadMethod"
+class="method"
+onclick="selectDepositMethod('nagad')">
+Nagad
+</div>
 
-      <div class="payment-number">
-        <span id="depositNumber">01771332609</span>
-        <button class="secondary" onclick="copyPaymentNumber()">
-          Copy
-        </button>
-      </div>
+</div>
 
-      <div class="notice">
-        নির্বাচিত নম্বরে <b>Send Money করুন</b>।
-        তারপর Transaction ID নিচে দিন।
-      </div>
+<div id="depositPaymentBox" class="hidden">
 
-      <label>Amount</label>
-      <input id="depositAmount" type="number" min="500"
-             placeholder="Minimum ৳500">
+<div class="payment-number">
+<span id="depositNumber">01771332609</span>
+<button class="secondary" onclick="copyPaymentNumber()">
+Copy
+</button>
+</div>
 
-      <label>Transaction ID</label>
-      <input id="depositTransactionId"
-             placeholder="Transaction ID">
+<div class="notice">
+নির্বাচিত নম্বরে <b>Send Money করুন</b>।
+তারপর Transaction ID নিচে দিন।
+</div>
 
-      <button class="primary"
-              style="width:100%"
-              onclick="submitDeposit()">
-        Submit Deposit
-      </button>
+<label>Amount</label>
+<input id="depositAmount"
+type="number"
+min="500"
+placeholder="Minimum ৳500">
 
-    </div>
+<label>Transaction ID</label>
+<input id="depositTransactionId"
+placeholder="Transaction ID">
 
-    <p id="depositMessage"></p>
+<button class="primary"
+style="width:100%"
+onclick="submitDeposit()">
+Submit Deposit
+</button>
 
-  </div>
+</div>
+
+<p id="depositMessage"></p>
+
+</div>
 </div>
 
 
-<!-- WITHDRAWAL MODAL -->
+<!-- WITHDRAW -->
 <div id="withdrawModal" class="modal hidden">
-  <div class="modal-box">
+<div class="modal-box">
 
-    <button class="close" onclick="closeModal('withdrawModal')">×</button>
+<button class="close"
+onclick="closeModal('withdrawModal')">×</button>
 
-    <div class="modal-title">💸 Withdraw</div>
+<div class="modal-title">💸 Withdraw</div>
 
-    <div class="notice">
-      Minimum Withdrawal: <b>৳500</b><br>
-      Withdrawal Fee: <b>৳0</b>
-    </div>
+<div class="notice">
+Minimum Withdrawal: <b>৳500</b><br>
+Withdrawal Fee: <b>৳0</b>
+</div>
 
-    <p>Payment Method নির্বাচন করুন:</p>
+<p>Payment Method নির্বাচন করুন:</p>
 
-    <div class="method-box">
+<div class="method-box">
 
-      <div id="withdrawBkash"
-           class="method"
-           onclick="selectWithdrawMethod('bkash')">
-        bKash
-      </div>
+<div id="withdrawBkash"
+class="method"
+onclick="selectWithdrawMethod('bkash')">
+bKash
+</div>
 
-      <div id="withdrawNagad"
-           class="method"
-           onclick="selectWithdrawMethod('nagad')">
-        Nagad
-      </div>
+<div id="withdrawNagad"
+class="method"
+onclick="selectWithdrawMethod('nagad')">
+Nagad
+</div>
 
-    </div>
+</div>
 
-    <div id="withdrawForm" class="hidden">
+<div id="withdrawForm" class="hidden">
 
-      <label>Payment Number</label>
-      <input id="withdrawNumber"
-             type="tel"
-             placeholder="bKash/Nagad Number">
+<label>Payment Number</label>
+<input id="withdrawNumber"
+type="tel"
+placeholder="bKash/Nagad Number">
 
-      <label>Amount</label>
-      <input id="withdrawAmount"
-             type="number"
-             min="500"
-             placeholder="Minimum ৳500">
+<label>Amount</label>
+<input id="withdrawAmount"
+type="number"
+min="500"
+placeholder="Minimum ৳500">
 
-      <button class="primary"
-              style="width:100%"
-              onclick="submitWithdrawal()">
-        Submit Withdrawal
-      </button>
+<button class="primary"
+style="width:100%"
+onclick="submitWithdrawal()">
+Submit Withdrawal
+</button>
 
-    </div>
+</div>
 
-    <p id="withdrawMessage"></p>
+<p id="withdrawMessage"></p>
 
-  </div>
+</div>
 </div>
 
 
 <footer>
-  © 2026 Amar Taka
+© 2026 Amar Taka
 </footer>
 
 
 <script>
-
-/* ==========================================
-   SUPABASE
-========================================== */
 
 const SUPABASE_URL =
 "https://xwdljcjotlspmecezhcl.supabase.co";
@@ -605,14 +501,9 @@ const SUPABASE_KEY =
 
 const supabaseClient =
 supabase.createClient(
-  SUPABASE_URL,
-  SUPABASE_KEY
+SUPABASE_URL,
+SUPABASE_KEY
 );
-
-
-/* ==========================================
-   SETTINGS
-========================================== */
 
 const ADMIN_EMAIL =
 "ruhiaexpress@gmail.com";
@@ -620,1087 +511,1279 @@ const ADMIN_EMAIL =
 const PAYMENT_NUMBER =
 "01771332609";
 
-let currentUser = null;
-let currentProfile = null;
-let depositMethod = null;
-let withdrawMethod = null;
+let currentUser=null;
+let currentProfile=null;
+let depositMethod=null;
+let withdrawMethod=null;
+let countdownTimer=null;
 
 
-/* ==========================================
-   HELPERS
-========================================== */
+/* ================================
+HELPERS
+================================ */
 
 function $(id){
-  return document.getElementById(id);
+return document.getElementById(id);
 }
 
 function money(value){
-  return "৳ " + Number(value || 0).toFixed(2);
+return "৳ " + Number(value || 0).toFixed(2);
 }
 
 function escapeHtml(value){
-  return String(value ?? "")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+return String(value ?? "")
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
 }
 
 function formatDate(date){
-  if(!date) return "";
-  return new Date(date).toLocaleString("en-BD");
+if(!date)return "";
+return new Date(date).toLocaleString("en-BD");
 }
 
 function statusHtml(status){
 
-  const s = String(status || "").toLowerCase();
+const s=String(status||"").toLowerCase();
 
-  if(s === "approved"){
-    return '<span class="status approved">Approved</span>';
-  }
+if(s==="approved")
+return '<span class="status approved">Approved</span>';
 
-  if(s === "rejected"){
-    return '<span class="status rejected">Rejected</span>';
-  }
+if(s==="rejected")
+return '<span class="status rejected">Rejected</span>';
 
-  return '<span class="status pending">Pending</span>';
+return '<span class="status pending">Pending</span>';
 }
 
 
-/* ==========================================
-   PAGE CONTROL
-========================================== */
+/* ================================
+PAGES
+================================ */
 
 function hidePages(){
 
-  $("homePage").classList.remove("active");
-  $("dashboardPage").classList.remove("active");
-  $("transactionsPage").classList.remove("active");
-  $("adminPage").classList.remove("active");
+$("homePage").classList.remove("active");
+$("dashboardPage").classList.remove("active");
+$("dailyClaimPage").classList.remove("active");
+$("transactionsPage").classList.remove("active");
+$("adminPage").classList.remove("active");
+
 }
 
 function showHome(){
 
-  hidePages();
-  $("homePage").classList.add("active");
+hidePages();
 
-  $("headerButtons").innerHTML = `
-    <button class="secondary" onclick="openLogin()">Login</button>
-    <button class="secondary" onclick="openRegister()">Create Account</button>
-  `;
+$("homePage").classList.add("active");
+
+$("headerButtons").innerHTML=`
+<button class="secondary" onclick="openLogin()">Login</button>
+<button class="secondary" onclick="openRegister()">Create Account</button>
+`;
+
 }
 
 function showDashboard(){
 
-  if(!currentUser){
-    showHome();
-    return;
-  }
+if(!currentUser){
+showHome();
+return;
+}
 
-  hidePages();
-  $("dashboardPage").classList.add("active");
+hidePages();
 
-  refreshBalance();
+$("dashboardPage").classList.add("active");
+
+refreshBalance();
+
 }
 
 function closeModal(id){
-  $(id).classList.add("hidden");
+$(id).classList.add("hidden");
 }
 
 function openLogin(){
-  $("loginModal").classList.remove("hidden");
+$("loginModal").classList.remove("hidden");
 }
 
 function openRegister(){
-  $("registerModal").classList.remove("hidden");
+$("registerModal").classList.remove("hidden");
 }
 
 
-/* ==========================================
-   REGISTER
-========================================== */
+/* ================================
+REGISTER
+================================ */
 
 async function register(){
 
-  const name = $("regName").value.trim();
-  const phone = $("regPhone").value.trim();
-  const email = $("regEmail").value.trim();
-  const password = $("regPassword").value;
-  const referral = $("regReferral").value.trim();
+const name=$("regName").value.trim();
+const phone=$("regPhone").value.trim();
+const email=$("regEmail").value.trim();
+const password=$("regPassword").value;
+const referral=$("regReferral").value.trim();
 
-  if(!name || !phone || !email || !password){
+if(!name||!phone||!email||!password){
 
-    $("registerMessage").innerHTML =
-      '<span style="color:red">সব প্রয়োজনীয় তথ্য দিন।</span>';
+$("registerMessage").innerHTML=
+'<span style="color:red">সব প্রয়োজনীয় তথ্য দিন।</span>';
 
-    return;
-  }
+return;
+}
 
-  if(password.length < 6){
+if(password.length<6){
 
-    $("registerMessage").innerHTML =
-      '<span style="color:red">Password কমপক্ষে 6 characters হতে হবে।</span>';
+$("registerMessage").innerHTML=
+'<span style="color:red">Password কমপক্ষে 6 characters হতে হবে।</span>';
 
-    return;
-  }
+return;
+}
 
-  $("registerMessage").innerHTML =
-    "Account তৈরি হচ্ছে...";
+$("registerMessage").innerText="Account তৈরি হচ্ছে...";
 
-  const {data,error} =
-    await supabaseClient.auth.signUp({
+const {data,error}=
+await supabaseClient.auth.signUp({
 
-      email:email,
+email,
+password,
 
-      password:password,
+options:{
+data:{
+name,
+phone,
+referral_code:referral||null
+}
+}
 
-      options:{
-        data:{
-          name:name,
-          phone:phone,
-          referral_code:referral || null
-        }
-      }
+});
 
-    });
+if(error){
 
-  if(error){
+$("registerMessage").innerHTML=
+'<span style="color:red">'+
+escapeHtml(error.message)+
+'</span>';
 
-    $("registerMessage").innerHTML =
-      '<span style="color:red">'+
-      escapeHtml(error.message)+
-      '</span>';
+return;
+}
 
-    return;
-  }
-
-  $("registerMessage").innerHTML =
-    '<span style="color:green">Account তৈরি হয়েছে। Login করা হচ্ছে...</span>';
-
-  if(data.session){
-
-    closeModal("registerModal");
-
-  }else{
-
-    $("registerMessage").innerHTML =
-      '<span style="color:green">Account তৈরি হয়েছে। এখন Login করুন।</span>';
-
-  }
+$("registerMessage").innerHTML=
+'<span style="color:green">Account তৈরি হয়েছে। এখন Login করুন।</span>';
 
 }
 
 
-/* ==========================================
-   LOGIN
-========================================== */
+/* ================================
+LOGIN
+================================ */
 
 async function login(){
 
-  const email =
-    $("loginEmail").value.trim();
+const email=$("loginEmail").value.trim();
+const password=$("loginPassword").value;
 
-  const password =
-    $("loginPassword").value;
+if(!email||!password){
 
-  if(!email || !password){
+$("loginMessage").innerHTML=
+'<span style="color:red">Email ও Password দিন।</span>';
 
-    $("loginMessage").innerHTML =
-      '<span style="color:red">Email ও Password দিন।</span>';
+return;
+}
 
-    return;
-  }
+$("loginMessage").innerText="Login হচ্ছে...";
 
-  $("loginMessage").innerHTML =
-    "Login হচ্ছে...";
+const {data,error}=
+await supabaseClient.auth.signInWithPassword({
+email,
+password
+});
 
-  const {data,error} =
-    await supabaseClient.auth.signInWithPassword({
+if(error){
 
-      email:email,
-      password:password
+$("loginMessage").innerHTML=
+'<span style="color:red">'+
+escapeHtml(error.message)+
+'</span>';
 
-    });
+return;
+}
 
-  if(error){
+closeModal("loginModal");
 
-    $("loginMessage").innerHTML =
-      '<span style="color:red">'+
-      escapeHtml(error.message)+
-      '</span>';
+currentUser=data.user;
 
-    return;
-  }
-
-  closeModal("loginModal");
-
-  currentUser = data.user;
-
-  await loadDashboard();
+await loadDashboard();
 
 }
 
 
-/* ==========================================
-   LOGOUT
-========================================== */
+/* ================================
+LOGOUT
+================================ */
 
 async function logout(){
 
-  await supabaseClient.auth.signOut();
+await supabaseClient.auth.signOut();
 
-  currentUser = null;
-  currentProfile = null;
+currentUser=null;
+currentProfile=null;
 
-  showHome();
+if(countdownTimer){
+clearInterval(countdownTimer);
+countdownTimer=null;
+}
+
+showHome();
+
 }
 
 
-/* ==========================================
-   DASHBOARD
-========================================== */
+/* ================================
+DASHBOARD
+================================ */
 
 async function loadDashboard(){
 
-  if(!currentUser) return;
+if(!currentUser)return;
 
-  const {data,error} =
-    await supabaseClient
-      .from("profiles")
-      .select("id,balance,role")
-      .eq("id",currentUser.id)
-      .single();
+const {data,error}=
+await supabaseClient
+.from("profiles")
+.select("id,balance,role")
+.eq("id",currentUser.id)
+.single();
 
-  if(error){
+if(error){
 
-    console.error("Profile error:",error);
+console.error(error);
 
-    currentProfile = {
-      id:currentUser.id,
-      balance:0,
-      role:"user"
-    };
+currentProfile={
+id:currentUser.id,
+balance:0,
+role:"user"
+};
 
-  }else{
+}else{
 
-    currentProfile = data;
+currentProfile=data;
 
-  }
+}
 
-  $("welcomeText").innerHTML =
-    "Welcome, " +
-    escapeHtml(
-      currentUser.user_metadata?.name || "User"
-    ) +
-    " 👋";
+$("welcomeText").innerHTML=
+"Welcome, "+
+escapeHtml(
+currentUser.user_metadata?.name||"User"
+)+
+" 👋";
 
-  $("userIdText").innerText =
-    "User ID: " + currentUser.id;
+$("userIdText").innerText=
+"User ID: "+currentUser.id;
 
-  $("balance").innerText =
-    money(currentProfile.balance);
+$("balance").innerText=
+money(currentProfile.balance);
 
-  $("headerButtons").innerHTML =
-    `<button class="secondary" onclick="showDashboard()">Dashboard</button>`;
+$("headerButtons").innerHTML=
+`<button class="secondary" onclick="showDashboard()">Dashboard</button>`;
 
-  if(isAdmin()){
+if(isAdmin()){
 
-    $("adminMenu").classList.remove("hidden");
+$("adminMenu").classList.remove("hidden");
 
-  }else{
+}else{
 
-    $("adminMenu").classList.add("hidden");
+$("adminMenu").classList.add("hidden");
 
-  }
+}
 
-  hidePages();
-  $("dashboardPage").classList.add("active");
+hidePages();
+
+$("dashboardPage").classList.add("active");
+
 }
 
 
-/* ==========================================
-   BALANCE
-========================================== */
+/* ================================
+BALANCE
+================================ */
 
 async function refreshBalance(){
 
-  if(!currentUser) return;
+if(!currentUser)return;
 
-  const {data,error} =
-    await supabaseClient
-      .from("profiles")
-      .select("id,balance,role")
-      .eq("id",currentUser.id)
-      .single();
+const {data,error}=
+await supabaseClient
+.from("profiles")
+.select("id,balance,role")
+.eq("id",currentUser.id)
+.single();
 
-  if(error){
+if(error){
 
-    console.error("Balance error:",error);
+console.error(error);
 
-    return;
-  }
+return;
+}
 
-  currentProfile = data;
+currentProfile=data;
 
-  $("balance").innerText =
-    money(data.balance);
+$("balance").innerText=
+money(data.balance);
 
 }
 
 
-/* ==========================================
-   ADMIN CHECK
-========================================== */
+/* ================================
+ADMIN CHECK
+================================ */
 
 function isAdmin(){
 
-  if(!currentUser) return false;
+if(!currentUser)return false;
 
-  const email =
-    String(currentUser.email || "").toLowerCase();
+const email=
+String(currentUser.email||"").toLowerCase();
 
-  return (
-    email === ADMIN_EMAIL.toLowerCase() ||
-    currentProfile?.role === "admin"
-  );
+return(
+email===ADMIN_EMAIL.toLowerCase()||
+currentProfile?.role==="admin"
+);
+
 }
 
 
-/* ==========================================
-   DEPOSIT
-========================================== */
+/* ================================
+DAILY CLAIM
+================================ */
+
+async function openDailyClaim(){
+
+hidePages();
+
+$("dailyClaimPage").classList.add("active");
+
+$("claimMessage").innerHTML="";
+
+await checkDailyClaim();
+
+}
+
+
+/*
+শেষ claim বের করা
+*/
+
+async function getLastClaim(){
+
+const {data,error}=
+await supabaseClient
+.from("daily_claims")
+.select("claimed_at,amount")
+.eq("user_id",currentUser.id)
+.order("claimed_at",{ascending:false})
+.limit(1);
+
+if(error){
+
+console.error(error);
+
+return null;
+}
+
+return data && data.length ? data[0] : null;
+
+}
+
+
+/*
+Daily Claim status
+*/
+
+async function checkDailyClaim(){
+
+if(!currentUser)return;
+
+const lastClaim=
+await getLastClaim();
+
+const button=
+$("claimButton");
+
+const status=
+$("claimStatus");
+
+const countdown=
+$("claimCountdown");
+
+if(countdownTimer){
+
+clearInterval(countdownTimer);
+countdownTimer=null;
+
+}
+
+if(!lastClaim){
+
+status.innerHTML=
+'<span style="color:#16834b;font-weight:bold">আপনার Daily Claim এখন Available 🎉</span>';
+
+countdown.innerText="";
+
+button.disabled=false;
+button.style.opacity="1";
+button.innerText="Claim ৳20";
+
+return;
+
+}
+
+const lastTime=
+new Date(lastClaim.claimed_at).getTime();
+
+const nextTime=
+lastTime+(24*60*60*1000);
+
+function updateCountdown(){
+
+const now=Date.now();
+
+const remaining=
+nextTime-now;
+
+if(remaining<=0){
+
+clearInterval(countdownTimer);
+
+status.innerHTML=
+'<span style="color:#16834b;font-weight:bold">Daily Claim এখন Available 🎉</span>';
+
+countdown.innerText="";
+
+button.disabled=false;
+button.style.opacity="1";
+button.innerText="Claim ৳20";
+
+return;
+
+}
+
+const hours=
+Math.floor(remaining/(1000*60*60));
+
+const minutes=
+Math.floor(
+(remaining%(1000*60*60))/(1000*60)
+);
+
+const seconds=
+Math.floor(
+(remaining%(1000*60))/1000
+);
+
+status.innerHTML=
+"পরবর্তী Claim-এর জন্য অপেক্ষা করুন";
+
+countdown.innerText=
+"⏳ "+hours+" ঘণ্টা "+
+minutes+" মিনিট "+
+seconds+" সেকেন্ড";
+
+button.disabled=true;
+button.style.opacity=".5";
+button.innerText="Claim Available Soon";
+
+}
+
+updateCountdown();
+
+countdownTimer=
+setInterval(updateCountdown,1000);
+
+}
+
+
+/*
+Claim submit
+*/
+
+async function claimDaily(){
+
+if(!currentUser)return;
+
+const button=
+$("claimButton");
+
+button.disabled=true;
+
+$("claimMessage").innerText=
+"Daily Claim হচ্ছে...";
+
+const {data,error}=
+await supabaseClient.rpc(
+"claim_daily"
+);
+
+if(error){
+
+$("claimMessage").innerHTML=
+'<span style="color:red">'+
+escapeHtml(error.message)+
+'</span>';
+
+button.disabled=false;
+
+await checkDailyClaim();
+
+return;
+
+}
+
+$("claimMessage").innerHTML=
+'<span style="color:green;font-weight:bold">'+
+"🎉 Daily Claim সফল! ৳20 balance-এ যোগ হয়েছে।"+
+'</span>';
+
+await refreshBalance();
+
+await checkDailyClaim();
+
+}
+
+
+/* ================================
+DEPOSIT
+================================ */
 
 function openDeposit(){
 
-  $("depositModal").classList.remove("hidden");
+$("depositModal").classList.remove("hidden");
 
-  $("depositPaymentBox").classList.add("hidden");
+$("depositPaymentBox").classList.add("hidden");
 
-  depositMethod = null;
+depositMethod=null;
 
-  $("bkashMethod").classList.remove("selected");
-  $("nagadMethod").classList.remove("selected");
+$("bkashMethod").classList.remove("selected");
+$("nagadMethod").classList.remove("selected");
 
-  $("depositMessage").innerHTML = "";
+$("depositMessage").innerHTML="";
 
 }
 
 function selectDepositMethod(method){
 
-  depositMethod = method;
+depositMethod=method;
 
-  $("bkashMethod").classList.remove("selected");
-  $("nagadMethod").classList.remove("selected");
+$("bkashMethod").classList.remove("selected");
+$("nagadMethod").classList.remove("selected");
 
-  if(method === "bkash"){
+if(method==="bkash")
+$("bkashMethod").classList.add("selected");
+else
+$("nagadMethod").classList.add("selected");
 
-    $("bkashMethod").classList.add("selected");
+$("depositNumber").innerText=
+PAYMENT_NUMBER;
 
-  }else{
+$("depositPaymentBox").classList.remove("hidden");
 
-    $("nagadMethod").classList.add("selected");
-
-  }
-
-  $("depositNumber").innerText =
-    PAYMENT_NUMBER;
-
-  $("depositPaymentBox").classList.remove("hidden");
 }
 
 async function copyPaymentNumber(){
 
-  try{
+try{
 
-    await navigator.clipboard.writeText(PAYMENT_NUMBER);
+await navigator.clipboard.writeText(PAYMENT_NUMBER);
 
-    alert("Payment number copied");
+alert("Payment number copied");
 
-  }catch(e){
+}catch(e){
 
-    alert(PAYMENT_NUMBER);
+alert(PAYMENT_NUMBER);
 
-  }
+}
+
 }
 
 async function submitDeposit(){
 
-  if(!depositMethod){
+if(!depositMethod){
 
-    $("depositMessage").innerHTML =
-      '<span style="color:red">Payment method নির্বাচন করুন।</span>';
+$("depositMessage").innerHTML=
+'<span style="color:red">Payment method নির্বাচন করুন।</span>';
 
-    return;
-  }
+return;
+}
 
-  const amount =
-    Number($("depositAmount").value);
+const amount=
+Number($("depositAmount").value);
 
-  const transactionId =
-    $("depositTransactionId").value.trim();
+const transactionId=
+$("depositTransactionId").value.trim();
 
-  if(amount < 500){
+if(amount<500){
 
-    $("depositMessage").innerHTML =
-      '<span style="color:red">Minimum Deposit ৳500</span>';
+$("depositMessage").innerHTML=
+'<span style="color:red">Minimum Deposit ৳500</span>';
 
-    return;
-  }
+return;
+}
 
-  if(!transactionId){
+if(!transactionId){
 
-    $("depositMessage").innerHTML =
-      '<span style="color:red">Transaction ID দিন।</span>';
+$("depositMessage").innerHTML=
+'<span style="color:red">Transaction ID দিন।</span>';
 
-    return;
-  }
+return;
+}
 
-  $("depositMessage").innerHTML =
-    "Deposit submit হচ্ছে...";
+$("depositMessage").innerText=
+"Deposit submit হচ্ছে...";
 
-  const {data,error} =
-    await supabaseClient.rpc(
-      "submit_deposit",
-      {
-        p_payment_method:depositMethod,
-        p_payment_number:PAYMENT_NUMBER,
-        p_amount:amount,
-        p_transaction_id:transactionId
-      }
-    );
+const {error}=
+await supabaseClient.rpc(
+"submit_deposit",
+{
+p_payment_method:depositMethod,
+p_payment_number:PAYMENT_NUMBER,
+p_amount:amount,
+p_transaction_id:transactionId
+}
+);
 
-  if(error){
+if(error){
 
-    $("depositMessage").innerHTML =
-      '<span style="color:red">'+
-      escapeHtml(error.message)+
-      '</span>';
+$("depositMessage").innerHTML=
+'<span style="color:red">'+
+escapeHtml(error.message)+
+'</span>';
 
-    return;
-  }
+return;
+}
 
-  $("depositMessage").innerHTML =
-    '<span style="color:green">Deposit submitted। Admin approval-এর অপেক্ষায় আছে।</span>';
+$("depositMessage").innerHTML=
+'<span style="color:green">Deposit submitted। Admin approval-এর অপেক্ষায় আছে।</span>';
 
-  $("depositAmount").value = "";
-  $("depositTransactionId").value = "";
+$("depositAmount").value="";
+$("depositTransactionId").value="";
 
-  setTimeout(()=>{
+setTimeout(()=>{
 
-    closeModal("depositModal");
+closeModal("depositModal");
 
-    refreshBalance();
+refreshBalance();
 
-  },1500);
+},1500);
 
 }
 
 
-/* ==========================================
-   WITHDRAWAL
-========================================== */
+/* ================================
+WITHDRAWAL
+================================ */
 
 function openWithdrawal(){
 
-  $("withdrawModal").classList.remove("hidden");
+$("withdrawModal").classList.remove("hidden");
 
-  withdrawMethod = null;
+withdrawMethod=null;
 
-  $("withdrawBkash").classList.remove("selected");
-  $("withdrawNagad").classList.remove("selected");
+$("withdrawBkash").classList.remove("selected");
+$("withdrawNagad").classList.remove("selected");
 
-  $("withdrawForm").classList.add("hidden");
+$("withdrawForm").classList.add("hidden");
 
-  $("withdrawMessage").innerHTML = "";
+$("withdrawMessage").innerHTML="";
 
-  $("withdrawNumber").value = "";
-  $("withdrawAmount").value = "";
 }
-
 
 function selectWithdrawMethod(method){
 
-  withdrawMethod = method;
+withdrawMethod=method;
 
-  $("withdrawBkash").classList.remove("selected");
-  $("withdrawNagad").classList.remove("selected");
+$("withdrawBkash").classList.remove("selected");
+$("withdrawNagad").classList.remove("selected");
 
-  if(method === "bkash"){
+if(method==="bkash")
+$("withdrawBkash").classList.add("selected");
+else
+$("withdrawNagad").classList.add("selected");
 
-    $("withdrawBkash").classList.add("selected");
+$("withdrawForm").classList.remove("hidden");
 
-  }else{
-
-    $("withdrawNagad").classList.add("selected");
-
-  }
-
-  $("withdrawForm").classList.remove("hidden");
 }
-
 
 async function submitWithdrawal(){
 
-  if(!withdrawMethod){
+if(!withdrawMethod){
 
-    $("withdrawMessage").innerHTML =
-      '<span style="color:red">Payment method নির্বাচন করুন।</span>';
+$("withdrawMessage").innerHTML=
+'<span style="color:red">Payment method নির্বাচন করুন।</span>';
 
-    return;
-  }
+return;
+}
 
-  const number =
-    $("withdrawNumber").value.trim();
+const number=
+$("withdrawNumber").value.trim();
 
-  const amount =
-    Number($("withdrawAmount").value);
+const amount=
+Number($("withdrawAmount").value);
 
-  if(!number){
+if(!number){
 
-    $("withdrawMessage").innerHTML =
-      '<span style="color:red">Payment number দিন।</span>';
+$("withdrawMessage").innerHTML=
+'<span style="color:red">Payment number দিন।</span>';
 
-    return;
-  }
+return;
+}
 
-  if(amount < 500){
+if(amount<500){
 
-    $("withdrawMessage").innerHTML =
-      '<span style="color:red">Minimum Withdrawal ৳500</span>';
+$("withdrawMessage").innerHTML=
+'<span style="color:red">Minimum Withdrawal ৳500</span>';
 
-    return;
-  }
+return;
+}
 
-  $("withdrawMessage").innerHTML =
-    "Withdrawal submit হচ্ছে...";
+$("withdrawMessage").innerText=
+"Withdrawal submit হচ্ছে...";
 
-  const {data,error} =
-    await supabaseClient.rpc(
-      "submit_withdrawal",
-      {
-        p_payment_method:withdrawMethod,
-        p_payment_number:number,
-        p_amount:amount
-      }
-    );
+const {error}=
+await supabaseClient.rpc(
+"submit_withdrawal",
+{
+p_payment_method:withdrawMethod,
+p_payment_number:number,
+p_amount:amount
+}
+);
 
-  if(error){
+if(error){
 
-    $("withdrawMessage").innerHTML =
-      '<span style="color:red">'+
-      escapeHtml(error.message)+
-      '</span>';
+$("withdrawMessage").innerHTML=
+'<span style="color:red">'+
+escapeHtml(error.message)+
+'</span>';
 
-    return;
-  }
+return;
+}
 
-  $("withdrawMessage").innerHTML =
-    '<span style="color:green">Withdrawal submitted। Admin approval-এর অপেক্ষায় আছে।</span>';
+$("withdrawMessage").innerHTML=
+'<span style="color:green">Withdrawal submitted। Admin approval-এর অপেক্ষায় আছে।</span>';
 
-  $("withdrawNumber").value = "";
-  $("withdrawAmount").value = "";
+await refreshBalance();
 
-  await refreshBalance();
+setTimeout(()=>{
 
-  setTimeout(()=>{
+closeModal("withdrawModal");
 
-    closeModal("withdrawModal");
+},1500);
 
-  },1500);
 }
 
 
-/* ==========================================
-   TRANSACTIONS
-========================================== */
+/* ================================
+TRANSACTIONS
+================================ */
 
 async function openTransactions(){
 
-  hidePages();
+hidePages();
 
-  $("transactionsPage").classList.add("active");
+$("transactionsPage").classList.add("active");
 
-  await loadTransactions("deposit");
+await loadTransactions("deposit");
+
 }
-
 
 async function loadTransactions(type){
 
-  if(!currentUser) return;
+if(!currentUser)return;
 
-  const list =
-    $("transactionsList");
+const list=
+$("transactionsList");
 
-  list.innerHTML =
-    "Loading...";
+list.innerHTML="Loading...";
 
-  let result;
+let result;
 
-  if(type === "deposit"){
+if(type==="deposit"){
 
-    result =
-      await supabaseClient
-        .from("deposits")
-        .select(
-          "amount,payment_method,payment_number,transaction_id,status,created_at"
-        )
-        .eq("user_id",currentUser.id)
-        .order("created_at",{ascending:false});
+result=
+await supabaseClient
+.from("deposits")
+.select("amount,payment_method,payment_number,transaction_id,status,created_at")
+.eq("user_id",currentUser.id)
+.order("created_at",{ascending:false});
 
-  }else{
+}else if(type==="withdrawal"){
 
-    result =
-      await supabaseClient
-        .from("withdrawals")
-        .select(
-          "amount,payment_method,payment_number,status,created_at"
-        )
-        .eq("user_id",currentUser.id)
-        .order("created_at",{ascending:false});
+result=
+await supabaseClient
+.from("withdrawals")
+.select("amount,payment_method,payment_number,status,created_at")
+.eq("user_id",currentUser.id)
+.order("created_at",{ascending:false});
 
-  }
+}else{
 
-  if(result.error){
+result=
+await supabaseClient
+.from("daily_claims")
+.select("amount,claimed_at")
+.eq("user_id",currentUser.id)
+.order("claimed_at",{ascending:false});
 
-    list.innerHTML =
-      '<div class="card" style="color:red">'+
-      escapeHtml(result.error.message)+
-      '</div>';
+}
 
-    return;
-  }
+if(result.error){
 
-  const rows = result.data || [];
+list.innerHTML=
+'<div class="card" style="color:red">'+
+escapeHtml(result.error.message)+
+'</div>';
 
-  if(rows.length === 0){
+return;
+}
 
-    list.innerHTML =
-      '<div class="card">কোনো transaction পাওয়া যায়নি।</div>';
+const rows=result.data||[];
 
-    return;
-  }
+if(rows.length===0){
 
-  list.innerHTML =
-    rows.map(row=>{
+list.innerHTML=
+'<div class="card">কোনো transaction পাওয়া যায়নি।</div>';
 
-      const method =
-        String(row.payment_method || "")
-          .toUpperCase();
+return;
+}
 
-      return `
-        <div class="tx-item">
+list.innerHTML=
+rows.map(row=>{
 
-          <b>${type === "deposit" ? "💰 Deposit" : "💸 Withdrawal"}</b>
+if(type==="daily_claim"){
 
-          <div style="font-size:23px;font-weight:bold;margin:8px 0">
-            ${money(row.amount)}
-          </div>
+return`
+<div class="tx-item">
 
-          <div>Method: ${escapeHtml(method)}</div>
+<b>🎁 Daily Claim</b>
 
-          ${
-            type === "deposit"
-            ?
-            `<div>Transaction ID:
-              ${escapeHtml(row.transaction_id)}
-            </div>`
-            :
-            `<div>Payment:
-              ${escapeHtml(row.payment_number)}
-            </div>`
-          }
+<div style="font-size:23px;font-weight:bold;margin:8px 0">
+${money(row.amount)}
+</div>
 
-          <div style="margin-top:8px">
-            ${statusHtml(row.status)}
-          </div>
+<div>
+<span class="status approved">Claimed</span>
+</div>
 
-          <div style="font-size:12px;color:#888;margin-top:8px">
-            ${formatDate(row.created_at)}
-          </div>
+<div style="font-size:12px;color:#888;margin-top:8px">
+${formatDate(row.claimed_at)}
+</div>
 
-        </div>
-      `;
+</div>
+`;
 
-    }).join("");
+}
+
+const method=
+String(row.payment_method||"").toUpperCase();
+
+return`
+<div class="tx-item">
+
+<b>
+${type==="deposit"?"💰 Deposit":"💸 Withdrawal"}
+</b>
+
+<div style="font-size:23px;font-weight:bold;margin:8px 0">
+${money(row.amount)}
+</div>
+
+<div>Method: ${escapeHtml(method)}</div>
+
+${
+type==="deposit"
+?
+`<div>Transaction ID:
+${escapeHtml(row.transaction_id)}
+</div>`
+:
+`<div>Payment:
+${escapeHtml(row.payment_number)}
+</div>`
+}
+
+<div style="margin-top:8px">
+${statusHtml(row.status)}
+</div>
+
+<div style="font-size:12px;color:#888;margin-top:8px">
+${formatDate(row.created_at)}
+</div>
+
+</div>
+`;
+
+}).join("");
 
 }
 
 
-/* ==========================================
-   ADMIN PANEL
-========================================== */
+/* ================================
+ADMIN PANEL
+================================ */
 
 async function openAdminPanel(){
 
-  if(!isAdmin()){
+if(!isAdmin()){
 
-    alert("Admin access required");
+alert("Admin access required");
 
-    return;
-  }
+return;
+}
 
-  hidePages();
+hidePages();
 
-  $("adminPage").classList.add("active");
+$("adminPage").classList.add("active");
 
-  await loadAdminDeposits();
-  await loadAdminWithdrawals();
+await loadAdminDeposits();
+
+await loadAdminWithdrawals();
+
 }
 
 
-/* ==========================================
-   ADMIN DEPOSITS
-========================================== */
+/* ================================
+ADMIN DEPOSIT
+================================ */
 
 async function loadAdminDeposits(){
 
-  const box =
-    $("adminDeposits");
+const box=$("adminDeposits");
 
-  box.innerHTML =
-    "Loading...";
+box.innerHTML="Loading...";
 
-  const {data,error} =
-    await supabaseClient.rpc(
-      "admin_get_deposits"
-    );
+const {data,error}=
+await supabaseClient.rpc(
+"admin_get_deposits"
+);
 
-  if(error){
+if(error){
 
-    box.innerHTML =
-      '<div style="color:red">'+
-      escapeHtml(error.message)+
-      '</div>';
+box.innerHTML=
+'<div style="color:red">'+
+escapeHtml(error.message)+
+'</div>';
 
-    return;
-  }
-
-  const rows =
-    Array.isArray(data)
-    ? data
-    : [];
-
-  if(rows.length === 0){
-
-    box.innerHTML =
-      "কোনো Deposit request নেই।";
-
-    return;
-  }
-
-  box.innerHTML =
-    rows.map(row=>{
-
-      const pending =
-        String(row.status).toLowerCase()
-        === "pending";
-
-      return `
-        <div class="admin-item">
-
-          <b>💰 Deposit</b>
-
-          <div style="font-size:23px;font-weight:bold;margin:8px 0">
-            ${money(row.amount)}
-          </div>
-
-          <div>User:
-            ${escapeHtml(row.user_email)}
-          </div>
-
-          <div>Method:
-            ${escapeHtml(row.payment_method)}
-          </div>
-
-          <div>Number:
-            ${escapeHtml(row.payment_number)}
-          </div>
-
-          <div>Transaction ID:
-            ${escapeHtml(row.transaction_id)}
-          </div>
-
-          <div style="margin-top:8px">
-            ${statusHtml(row.status)}
-          </div>
-
-          ${
-            pending
-            ?
-            `
-            <div class="admin-actions">
-
-              <button class="primary"
-                onclick="processDeposit('${row.id}','approved')">
-                ✓ Approve
-              </button>
-
-              <button class="danger"
-                onclick="processDeposit('${row.id}','rejected')">
-                ✕ Reject
-              </button>
-
-            </div>
-            `
-            :
-            ""
-          }
-
-        </div>
-      `;
-
-    }).join("");
+return;
 }
 
+const rows=
+Array.isArray(data)?data:[];
 
-/* ==========================================
-   ADMIN DEPOSIT PROCESS
-========================================== */
+if(rows.length===0){
+
+box.innerHTML=
+"কোনো Deposit request নেই।";
+
+return;
+}
+
+box.innerHTML=
+rows.map(row=>{
+
+const pending=
+String(row.status).toLowerCase()==="pending";
+
+return`
+<div class="admin-item">
+
+<b>💰 Deposit</b>
+
+<div style="font-size:23px;font-weight:bold;margin:8px 0">
+${money(row.amount)}
+</div>
+
+<div>User:
+${escapeHtml(row.user_email)}
+</div>
+
+<div>Method:
+${escapeHtml(row.payment_method)}
+</div>
+
+<div>Number:
+${escapeHtml(row.payment_number)}
+</div>
+
+<div>Transaction ID:
+${escapeHtml(row.transaction_id)}
+</div>
+
+<div style="margin-top:8px">
+${statusHtml(row.status)}
+</div>
+
+${
+pending
+?
+`
+<div class="admin-actions">
+
+<button class="primary"
+onclick="processDeposit('${row.id}','approved')">
+✓ Approve
+</button>
+
+<button class="danger"
+onclick="processDeposit('${row.id}','rejected')">
+✕ Reject
+</button>
+
+</div>
+`
+:""
+}
+
+</div>
+`;
+
+}).join("");
+
+}
 
 async function processDeposit(id,status){
 
-  const text =
-    status === "approved"
-    ? "Deposit Approve করবেন?"
-    : "Deposit Reject করবেন?";
+if(!confirm(
+status==="approved"
+?"Deposit Approve করবেন?"
+:"Deposit Reject করবেন?"
+))return;
 
-  if(!confirm(text)) return;
+const {error}=
+await supabaseClient.rpc(
+"admin_update_deposit",
+{
+p_deposit_id:id,
+p_status:status
+}
+);
 
-  const {data,error} =
-    await supabaseClient.rpc(
-      "admin_update_deposit",
-      {
-        p_deposit_id:id,
-        p_status:status
-      }
-    );
+if(error){
 
-  if(error){
+alert(error.message);
 
-    alert(error.message);
+return;
+}
 
-    return;
-  }
+alert(
+status==="approved"
+?"Deposit Approved"
+:"Deposit Rejected"
+);
 
-  alert(
-    status === "approved"
-    ? "Deposit Approved"
-    : "Deposit Rejected"
-  );
+await loadAdminDeposits();
 
-  await loadAdminDeposits();
 }
 
 
-/* ==========================================
-   ADMIN WITHDRAWALS
-========================================== */
+/* ================================
+ADMIN WITHDRAWAL
+================================ */
 
 async function loadAdminWithdrawals(){
 
-  const box =
-    $("adminWithdrawals");
+const box=$("adminWithdrawals");
 
-  box.innerHTML =
-    "Loading...";
+box.innerHTML="Loading...";
 
-  const {data,error} =
-    await supabaseClient.rpc(
-      "admin_get_withdrawals"
-    );
+const {data,error}=
+await supabaseClient.rpc(
+"admin_get_withdrawals"
+);
 
-  if(error){
+if(error){
 
-    box.innerHTML =
-      '<div style="color:red">'+
-      escapeHtml(error.message)+
-      '</div>';
+box.innerHTML=
+'<div style="color:red">'+
+escapeHtml(error.message)+
+'</div>';
 
-    return;
-  }
-
-  const rows =
-    Array.isArray(data)
-    ? data
-    : [];
-
-  if(rows.length === 0){
-
-    box.innerHTML =
-      "কোনো Withdrawal request নেই।";
-
-    return;
-  }
-
-  box.innerHTML =
-    rows.map(row=>{
-
-      const pending =
-        String(row.status).toLowerCase()
-        === "pending";
-
-      return `
-        <div class="admin-item">
-
-          <b>💸 Withdrawal</b>
-
-          <div style="font-size:23px;font-weight:bold;margin:8px 0">
-            ${money(row.amount)}
-          </div>
-
-          <div>User:
-            ${escapeHtml(row.user_email)}
-          </div>
-
-          <div>Method:
-            ${escapeHtml(row.payment_method)}
-          </div>
-
-          <div>Payment Number:
-            ${escapeHtml(row.payment_number)}
-          </div>
-
-          <div style="margin-top:8px">
-            ${statusHtml(row.status)}
-          </div>
-
-          <div style="font-size:12px;color:#888;margin-top:8px">
-            ${formatDate(row.created_at)}
-          </div>
-
-          ${
-            pending
-            ?
-            `
-            <div class="admin-actions">
-
-              <button class="primary"
-                onclick="processWithdrawal('${row.id}','approved')">
-                ✓ Approve
-              </button>
-
-              <button class="danger"
-                onclick="processWithdrawal('${row.id}','rejected')">
-                ✕ Reject
-              </button>
-
-            </div>
-            `
-            :
-            ""
-          }
-
-        </div>
-      `;
-
-    }).join("");
+return;
 }
 
+const rows=
+Array.isArray(data)?data:[];
 
-/* ==========================================
-   ADMIN WITHDRAWAL PROCESS
-========================================== */
+if(rows.length===0){
+
+box.innerHTML=
+"কোনো Withdrawal request নেই।";
+
+return;
+}
+
+box.innerHTML=
+rows.map(row=>{
+
+const pending=
+String(row.status).toLowerCase()==="pending";
+
+return`
+<div class="admin-item">
+
+<b>💸 Withdrawal</b>
+
+<div style="font-size:23px;font-weight:bold;margin:8px 0">
+${money(row.amount)}
+</div>
+
+<div>User:
+${escapeHtml(row.user_email)}
+</div>
+
+<div>Method:
+${escapeHtml(row.payment_method)}
+</div>
+
+<div>Payment Number:
+${escapeHtml(row.payment_number)}
+</div>
+
+<div style="margin-top:8px">
+${statusHtml(row.status)}
+</div>
+
+<div style="font-size:12px;color:#888;margin-top:8px">
+${formatDate(row.created_at)}
+</div>
+
+${
+pending
+?
+`
+<div class="admin-actions">
+
+<button class="primary"
+onclick="processWithdrawal('${row.id}','approved')">
+✓ Approve
+</button>
+
+<button class="danger"
+onclick="processWithdrawal('${row.id}','rejected')">
+✕ Reject
+</button>
+
+</div>
+`
+:""
+}
+
+</div>
+`;
+
+}).join("");
+
+}
 
 async function processWithdrawal(id,status){
 
-  const text =
-    status === "approved"
-    ? "Withdrawal Approve করবেন?"
-    : "Withdrawal Reject করবেন?";
+if(!confirm(
+status==="approved"
+?"Withdrawal Approve করবেন?"
+:"Withdrawal Reject করবেন?"
+))return;
 
-  if(!confirm(text)) return;
+const {error}=
+await supabaseClient.rpc(
+"admin_update_withdrawal",
+{
+p_withdrawal_id:id,
+p_status:status
+}
+);
 
-  const {data,error} =
-    await supabaseClient.rpc(
-      "admin_update_withdrawal",
-      {
-        p_withdrawal_id:id,
-        p_status:status
-      }
-    );
+if(error){
 
-  if(error){
+alert(error.message);
 
-    alert(error.message);
+return;
+}
 
-    return;
-  }
+alert(
+status==="approved"
+?
+"Withdrawal Approved"
+:
+"Withdrawal Rejected এবং টাকা ফেরত দেওয়া হয়েছে"
+);
 
-  alert(
-    status === "approved"
-    ? "Withdrawal Approved"
-    : "Withdrawal Rejected এবং টাকা ফেরত দেওয়া হয়েছে"
-  );
+await loadAdminWithdrawals();
 
-  await loadAdminWithdrawals();
 }
 
 
-/* ==========================================
-   COMING SOON
-========================================== */
+/* ================================
+COMING SOON
+================================ */
 
 function showComingSoon(name){
 
-  alert(
-    name +
-    " system পরবর্তী ধাপে চালু করা হবে।"
-  );
+alert(
+name+
+" system পরবর্তী ধাপে চালু করা হবে।"
+);
+
 }
 
 
-/* ==========================================
-   AUTH STATE
-========================================== */
+/* ================================
+AUTH
+================================ */
 
 supabaseClient.auth.onAuthStateChange(
-  async(event,session)=>{
+async(event,session)=>{
 
-    if(session?.user){
+if(session?.user){
 
-      currentUser = session.user;
+currentUser=session.user;
 
-      setTimeout(async()=>{
+setTimeout(async()=>{
 
-        await loadDashboard();
+await loadDashboard();
 
-      },0);
+},0);
 
-    }else{
+}else{
 
-      currentUser = null;
-      currentProfile = null;
+currentUser=null;
+currentProfile=null;
 
-      showHome();
+showHome();
 
-    }
+}
 
-  }
-);
+});
 
 
-/* ==========================================
-   INITIAL SESSION
-========================================== */
+/* ================================
+INITIAL SESSION
+================================ */
 
 (async function(){
 
-  const {data} =
-    await supabaseClient.auth.getSession();
+const {data}=
+await supabaseClient.auth.getSession();
 
-  if(data.session?.user){
+if(data.session?.user){
 
-    currentUser =
-      data.session.user;
+currentUser=data.session.user;
 
-    await loadDashboard();
+await loadDashboard();
 
-  }else{
+}else{
 
-    showHome();
+showHome();
 
-  }
+}
 
 })();
 
