@@ -9,101 +9,291 @@
 
 <style>
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,"Noto Sans Bengali",sans-serif;background:#f5f7f9;color:#17202a}
-header{background:#16834b;color:white;padding:15px 18px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20}
+body{
+margin:0;
+font-family:Arial,"Noto Sans Bengali",sans-serif;
+background:#f5f7f9;
+color:#17202a
+}
+header{
+background:#16834b;
+color:white;
+padding:15px 18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:20
+}
 .logo{font-size:22px;font-weight:bold}
 .container{max-width:900px;margin:auto;padding:18px}
-button{border:0;border-radius:10px;padding:12px 16px;cursor:pointer;font-size:15px}
-button:disabled{cursor:not-allowed}
+
+button{
+border:0;
+border-radius:10px;
+padding:12px 16px;
+cursor:pointer;
+font-size:15px
+}
+button:disabled{
+cursor:not-allowed;
+opacity:.55
+}
 .primary{background:#16834b;color:white}
 .secondary{background:#e9f5ee;color:#16834b}
 .danger{background:#dc3545;color:white}
 .hidden{display:none!important}
 
-.hero{text-align:center;padding:55px 15px 35px}
-.hero h1{font-size:34px;margin:10px 0}
-.hero p{color:#667085;line-height:1.7}
-.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.hero{
+text-align:center;
+padding:55px 15px 35px
+}
+.hero h1{
+font-size:34px;
+margin:10px 0
+}
+.hero p{
+color:#667085;
+line-height:1.7
+}
+.actions{
+display:flex;
+gap:10px;
+justify-content:center;
+flex-wrap:wrap
+}
 
-.bonus{background:white;border-radius:16px;padding:20px;margin:20px 0;text-align:center;box-shadow:0 3px 15px #0000000d}
+.bonus{
+background:white;
+border-radius:16px;
+padding:20px;
+margin:20px 0;
+text-align:center;
+box-shadow:0 3px 15px #0000000d
+}
 
-.dashboard-header{background:white;border-radius:18px;padding:22px;box-shadow:0 3px 15px #0000000d;margin-bottom:15px}
-.balance{font-size:34px;font-weight:bold;color:#16834b;margin:10px 0}
-.refresh{font-size:13px;padding:8px 12px}
+.dashboard-header{
+background:white;
+border-radius:18px;
+padding:22px;
+box-shadow:0 3px 15px #0000000d;
+margin-bottom:15px
+}
+.balance{
+font-size:34px;
+font-weight:bold;
+color:#16834b;
+margin:10px 0
+}
+.refresh{
+font-size:13px;
+padding:8px 12px
+}
 
-.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.menu-card{background:white;padding:20px;border-radius:15px;box-shadow:0 3px 15px #0000000d;cursor:pointer;font-size:17px;text-align:center}
-.menu-card:hover{background:#f0faf4}
-.admin-menu{border:2px solid #f59e0b}
+.menu-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px
+}
+.menu-card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 3px 15px #0000000d;
+cursor:pointer;
+font-size:17px;
+text-align:center
+}
+.menu-card:hover{
+background:#f0faf4
+}
+.admin-menu{
+border:2px solid #f59e0b
+}
 
 .page{display:none}
 .page.active{display:block}
 
-.back{margin-bottom:15px}
-.card{background:white;border-radius:16px;padding:20px;margin-bottom:15px;box-shadow:0 3px 15px #0000000d}
+.back{
+margin-bottom:15px
+}
+.card{
+background:white;
+border-radius:16px;
+padding:20px;
+margin-bottom:15px;
+box-shadow:0 3px 15px #0000000d
+}
 
-input,select{width:100%;padding:13px;margin:7px 0 14px;border:1px solid #d8dee5;border-radius:10px;font-size:15px}
-label{font-size:14px;font-weight:bold}
+input,select{
+width:100%;
+padding:13px;
+margin:7px 0 14px;
+border:1px solid #d8dee5;
+border-radius:10px;
+font-size:15px
+}
+label{
+font-size:14px;
+font-weight:bold
+}
 
-.modal{position:fixed;inset:0;background:#0008;display:flex;justify-content:center;align-items:center;padding:15px;z-index:50}
-.modal-box{background:white;width:100%;max-width:430px;border-radius:18px;padding:22px;max-height:90vh;overflow:auto}
-.modal-title{font-size:22px;font-weight:bold;margin-bottom:15px}
-.close{float:right;background:#eee;padding:5px 10px}
+.modal{
+position:fixed;
+inset:0;
+background:#0008;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:15px;
+z-index:50
+}
+.modal-box{
+background:white;
+width:100%;
+max-width:430px;
+border-radius:18px;
+padding:22px;
+max-height:90vh;
+overflow:auto
+}
+.modal-title{
+font-size:22px;
+font-weight:bold;
+margin-bottom:15px
+}
+.close{
+float:right;
+background:#eee;
+padding:5px 10px
+}
 
-.method-box{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
-.method{padding:15px;background:#f1f3f5;border-radius:10px;text-align:center;cursor:pointer}
-.method.selected{background:#16834b;color:white}
+.method-box{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-bottom:10px
+}
+.method{
+padding:15px;
+background:#f1f3f5;
+border-radius:10px;
+text-align:center;
+cursor:pointer
+}
+.method.selected{
+background:#16834b;
+color:white
+}
 
-.payment-number{background:#eaf7ef;color:#16834b;padding:14px;border-radius:10px;font-size:18px;font-weight:bold;margin:10px 0;display:flex;justify-content:space-between;align-items:center;gap:10px}
-.notice{padding:12px;background:#fff7df;border-radius:10px;font-size:14px;line-height:1.6}
+.payment-number{
+background:#eaf7ef;
+color:#16834b;
+padding:14px;
+border-radius:10px;
+font-size:18px;
+font-weight:bold;
+margin:10px 0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:10px
+}
+
+.notice{
+padding:12px;
+background:#fff7df;
+border-radius:10px;
+font-size:14px;
+line-height:1.6
+}
 
 .claim-box{text-align:center}
-.claim-amount{font-size:34px;font-weight:bold;color:#16834b;margin:15px 0}
-.countdown{font-size:18px;font-weight:bold;margin:15px 0;color:#555}
+.claim-amount{
+font-size:34px;
+font-weight:bold;
+color:#16834b;
+margin:15px 0
+}
+.countdown{
+font-size:18px;
+font-weight:bold;
+margin:15px 0;
+color:#555
+}
 
-.status{display:inline-block;padding:5px 9px;border-radius:20px;font-size:12px;font-weight:bold}
-.pending{background:#fff3cd;color:#856404}
-.approved{background:#d1e7dd;color:#0f5132}
-.rejected{background:#f8d7da;color:#842029}
+.status{
+display:inline-block;
+padding:5px 9px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold
+}
+.pending{
+background:#fff3cd;
+color:#856404
+}
+.approved{
+background:#d1e7dd;
+color:#0f5132
+}
+.rejected{
+background:#f8d7da;
+color:#842029
+}
 
-.tx-item{border:1px solid #e4e7eb;border-radius:12px;padding:14px;margin-bottom:10px}
-.admin-item{border:1px solid #ddd;border-radius:14px;padding:15px;margin-bottom:12px}
-.admin-actions{display:flex;gap:8px;margin-top:12px}
+.tx-item{
+border:1px solid #e4e7eb;
+border-radius:12px;
+padding:14px;
+margin-bottom:10px
+}
+.admin-item{
+border:1px solid #ddd;
+border-radius:14px;
+padding:15px;
+margin-bottom:12px
+}
+.admin-actions{
+display:flex;
+gap:8px;
+margin-top:12px
+}
 
 .vip-active{
 background:linear-gradient(135deg,#fff7df,#ffffff);
-border:2px solid #f59e0b;
+border:2px solid #f59e0b
 }
 
 .vip-number{
 font-size:42px;
 font-weight:bold;
 color:#f59e0b;
-margin:10px 0;
+margin:10px 0
 }
 
 .vip-daily{
 font-size:32px;
 font-weight:bold;
 color:#16834b;
-margin:10px 0;
+margin:10px 0
 }
 
 .vip-grid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:10px;
+gap:10px
 }
 
 .vip-plan{
 background:#f8faf9;
 border:1px solid #e3e8e5;
 border-radius:12px;
-padding:15px;
+padding:15px
 }
-
 .vip-plan h3{
-margin:0 0 8px;
+margin:0 0 8px
 }
 
 .success-box{
@@ -111,16 +301,29 @@ background:#eaf7ef;
 color:#16834b;
 padding:14px;
 border-radius:10px;
-margin-top:12px;
+margin-top:12px
 }
 
-footer{text-align:center;color:#888;padding:30px 10px;font-size:13px}
+footer{
+text-align:center;
+color:#888;
+padding:30px 10px;
+font-size:13px
+}
 
 @media(max-width:600px){
-.menu-grid{grid-template-columns:1fr 1fr}
-.hero h1{font-size:28px}
-.balance{font-size:30px}
-.vip-grid{grid-template-columns:1fr}
+.menu-grid{
+grid-template-columns:1fr 1fr
+}
+.hero h1{
+font-size:28px
+}
+.balance{
+font-size:30px
+}
+.vip-grid{
+grid-template-columns:1fr
+}
 }
 </style>
 </head>
@@ -128,20 +331,31 @@ footer{text-align:center;color:#888;padding:30px 10px;font-size:13px}
 <body>
 
 <header>
+
 <div class="logo">Amar Taka</div>
 
 <div id="headerButtons">
-<button class="secondary" onclick="openLogin()">Login</button>
-<button class="secondary" onclick="openRegister()">Create Account</button>
+
+<button class="secondary" onclick="openLogin()">
+Login
+</button>
+
+<button class="secondary" onclick="openRegister()">
+Create Account
+</button>
+
 </div>
+
 </header>
 
 
 <!-- HOME -->
 <section id="homePage" class="page active">
+
 <div class="container">
 
 <div class="hero">
+
 <h1>আপনার টাকা, আপনার নিয়ন্ত্রণে</h1>
 
 <p>
@@ -150,33 +364,55 @@ withdrawal এবং transaction এক জায়গা থেকে পরি�
 </p>
 
 <div class="actions">
-<button class="primary" onclick="openRegister()">Create Account</button>
-<button class="secondary" onclick="openLogin()">Login</button>
+
+<button class="primary" onclick="openRegister()">
+Create Account
+</button>
+
+<button class="secondary" onclick="openLogin()">
+Login
+</button>
+
 </div>
+
 </div>
 
 <div class="bonus">
+
 🎁 <b>Welcome Bonus ৳100</b>
-<p>Account তৈরি সম্পন্ন করলে Welcome Bonus প্রযোজ্য হবে।</p>
+
+<p>
+Account তৈরি সম্পন্ন করলে Welcome Bonus প্রযোজ্য হবে।
+</p>
+
 </div>
 
 </div>
+
 </section>
 
 
 <!-- DASHBOARD -->
 <section id="dashboardPage" class="page">
+
 <div class="container">
 
 <div class="dashboard-header">
 
-<div id="welcomeText">Welcome 👋</div>
+<div id="welcomeText">
+Welcome 👋
+</div>
 
-<div id="userIdText" style="font-size:13px;color:#777"></div>
+<div id="userIdText"
+style="font-size:13px;color:#777">
+</div>
 
-<div class="balance" id="balance">৳ 0.00</div>
+<div class="balance" id="balance">
+৳ 0.00
+</div>
 
-<button class="secondary refresh" onclick="refreshBalance()">
+<button class="secondary refresh"
+onclick="refreshBalance()">
 ↻ Refresh Balance
 </button>
 
@@ -184,31 +420,38 @@ withdrawal এবং transaction এক জায়গা থেকে পরি�
 
 <div class="menu-grid">
 
-<div class="menu-card" onclick="openDeposit()">
+<div class="menu-card"
+onclick="openDeposit()">
 💰<br>Deposit
 </div>
 
-<div class="menu-card" onclick="openTransactions()">
+<div class="menu-card"
+onclick="openTransactions()">
 📜<br>Transactions
 </div>
 
-<div class="menu-card" onclick="openWithdrawal()">
+<div class="menu-card"
+onclick="openWithdrawal()">
 💸<br>Withdraw
 </div>
 
-<div class="menu-card" onclick="openDailyClaim()">
+<div class="menu-card"
+onclick="openDailyClaim()">
 🎁<br>Daily Claim
 </div>
 
-<div class="menu-card" onclick="openVIPPlans()">
+<div class="menu-card"
+onclick="openVIPPlans()">
 ⭐<br>VIP Plans
 </div>
 
-<div class="menu-card" onclick="showComingSoon('Referral')">
+<div class="menu-card"
+onclick="showComingSoon('Referral')">
 👥<br>Referral
 </div>
 
-<div class="menu-card" onclick="showComingSoon('Support')">
+<div class="menu-card"
+onclick="showComingSoon('Support')">
 💬<br>Support
 </div>
 
@@ -218,21 +461,25 @@ onclick="openAdminPanel()">
 🛡️<br>Admin Panel
 </div>
 
-<div class="menu-card" onclick="logout()">
+<div class="menu-card"
+onclick="logout()">
 🚪<br>Logout
 </div>
 
 </div>
 
 </div>
+
 </section>
 
 
-<!-- NORMAL DAILY CLAIM -->
+<!-- DAILY CLAIM -->
 <section id="dailyClaimPage" class="page">
+
 <div class="container">
 
-<button class="secondary back" onclick="showDashboard()">
+<button class="secondary back"
+onclick="showDashboard()">
 ← Dashboard
 </button>
 
@@ -241,16 +488,24 @@ onclick="openAdminPanel()">
 <h2>🎁 Daily Claim</h2>
 
 <p>
-প্রতি ২৪ ঘণ্টায় একবার Daily Claim করা যাবে।
+আপনার Active VIP থাকলে VIP অনুযায়ী Daily Claim পাবেন।
+VIP না থাকলে Base Daily Claim প্রযোজ্য হবে।
 </p>
 
-<div class="claim-amount">৳20</div>
+<div id="claimPlanInfo"></div>
+
+<div class="claim-amount"
+id="claimAmount">
+৳20
+</div>
 
 <div id="claimStatus">
 Checking...
 </div>
 
-<div id="claimCountdown" class="countdown"></div>
+<div id="claimCountdown"
+class="countdown">
+</div>
 
 <button id="claimButton"
 class="primary"
@@ -264,34 +519,43 @@ Claim ৳20
 </div>
 
 <div class="card">
+
 <b>📌 নিয়ম</b>
 
 <p style="color:#666;line-height:1.7">
+
 • প্রতি ২৪ ঘণ্টায় একবার claim করা যাবে।<br>
-• Claim সফল হলে ৳20 balance-এ যোগ হবে।<br>
-• ২৪ ঘণ্টা পূর্ণ হওয়ার আগে আবার claim করা যাবে না।
+• Active VIP থাকলে VIP Daily Claim প্রযোজ্য হবে।<br>
+• VIP না থাকলে Base Daily Claim ৳20।<br>
+• Claim সফল হলে reward Main Balance-এ যোগ হবে।
+
 </p>
 
 </div>
 
 </div>
+
 </section>
 
 
-<!-- VIP PLANS -->
+<!-- VIP -->
 <section id="vipPage" class="page">
+
 <div class="container">
 
-<button class="secondary back" onclick="showDashboard()">
+<button class="secondary back"
+onclick="showDashboard()">
 ← Dashboard
 </button>
 
 <div class="card">
+
 <h2>⭐ VIP Plans</h2>
 
 <p style="color:#666">
 Approved Deposit হলে আপনার VIP automatically active হবে।
 </p>
+
 </div>
 
 <div id="vipContent">
@@ -299,14 +563,17 @@ Loading...
 </div>
 
 </div>
+
 </section>
 
 
 <!-- TRANSACTIONS -->
 <section id="transactionsPage" class="page">
+
 <div class="container">
 
-<button class="secondary back" onclick="showDashboard()">
+<button class="secondary back"
+onclick="showDashboard()">
 ← Dashboard
 </button>
 
@@ -314,7 +581,8 @@ Loading...
 
 <h2>📜 Transactions</h2>
 
-<div class="actions" style="justify-content:flex-start">
+<div class="actions"
+style="justify-content:flex-start">
 
 <button class="primary"
 onclick="loadTransactions('deposit')">
@@ -338,54 +606,87 @@ Daily Claim
 <div id="transactionsList"></div>
 
 </div>
+
 </section>
 
 
 <!-- ADMIN -->
 <section id="adminPage" class="page">
+
 <div class="container">
 
-<button class="secondary back" onclick="showDashboard()">
+<button class="secondary back"
+onclick="showDashboard()">
 ← Dashboard
 </button>
 
 <div class="card">
+
 <h2>🛡️ Admin Panel</h2>
+
 <p style="color:#777">
 Deposit, Withdrawal এবং request manage করুন।
 </p>
+
 </div>
 
 <div class="card">
+
 <h3>💰 Deposit Requests</h3>
-<div id="adminDeposits">Loading...</div>
+
+<div id="adminDeposits">
+Loading...
+</div>
+
 </div>
 
 <div class="card">
+
 <h3>💸 Withdrawal Requests</h3>
-<div id="adminWithdrawals">Loading...</div>
+
+<div id="adminWithdrawals">
+Loading...
 </div>
 
 </div>
+
+</div>
+
 </section>
 
 
 <!-- LOGIN -->
 <div id="loginModal" class="modal hidden">
+
 <div class="modal-box">
 
 <button class="close"
-onclick="closeModal('loginModal')">×</button>
+onclick="closeModal('loginModal')">
+×
+</button>
 
-<div class="modal-title">Login</div>
+<div class="modal-title">
+Login
+</div>
 
 <label>Email</label>
-<input id="loginEmail" type="email">
+
+<input
+id="loginEmail"
+type="email"
+autocomplete="email"
+placeholder="আপনার Email">
 
 <label>Password</label>
-<input id="loginPassword" type="password">
 
-<button class="primary"
+<input
+id="loginPassword"
+type="password"
+autocomplete="current-password"
+placeholder="Password">
+
+<button
+class="primary"
 style="width:100%"
 onclick="login()">
 Login
@@ -394,34 +695,63 @@ Login
 <p id="loginMessage"></p>
 
 </div>
+
 </div>
 
 
 <!-- REGISTER -->
 <div id="registerModal" class="modal hidden">
+
 <div class="modal-box">
 
 <button class="close"
-onclick="closeModal('registerModal')">×</button>
+onclick="closeModal('registerModal')">
+×
+</button>
 
-<div class="modal-title">Create Account</div>
+<div class="modal-title">
+Create Account
+</div>
 
 <label>Name</label>
-<input id="regName">
+
+<input
+id="regName"
+autocomplete="name"
+placeholder="আপনার নাম">
 
 <label>Mobile</label>
-<input id="regPhone">
+
+<input
+id="regPhone"
+type="tel"
+autocomplete="tel"
+placeholder="01XXXXXXXXX">
 
 <label>Email</label>
-<input id="regEmail" type="email">
+
+<input
+id="regEmail"
+type="email"
+autocomplete="email"
+placeholder="আপনার Email">
 
 <label>Password</label>
-<input id="regPassword" type="password">
+
+<input
+id="regPassword"
+type="password"
+autocomplete="new-password"
+placeholder="কমপক্ষে 6 characters">
 
 <label>Referral Code (Optional)</label>
-<input id="regReferral">
 
-<button class="primary"
+<input
+id="regReferral"
+placeholder="Referral Code">
+
+<button
+class="primary"
 style="width:100%"
 onclick="register()">
 Create Account
@@ -430,19 +760,27 @@ Create Account
 <p id="registerMessage"></p>
 
 </div>
+
 </div>
 
 
 <!-- DEPOSIT -->
 <div id="depositModal" class="modal hidden">
+
 <div class="modal-box">
 
 <button class="close"
-onclick="closeModal('depositModal')">×</button>
+onclick="closeModal('depositModal')">
+×
+</button>
 
-<div class="modal-title">💰 Deposit</div>
+<div class="modal-title">
+💰 Deposit
+</div>
 
-<p>Payment Method নির্বাচন করুন:</p>
+<p>
+Payment Method নির্বাচন করুন:
+</p>
 
 <div class="method-box">
 
@@ -460,35 +798,47 @@ Nagad
 
 </div>
 
-<div id="depositPaymentBox" class="hidden">
+<div id="depositPaymentBox"
+class="hidden">
 
 <div class="payment-number">
-<span id="depositNumber">01771332609</span>
+
+<span id="depositNumber">
+01771332609
+</span>
 
 <button class="secondary"
 onclick="copyPaymentNumber()">
 Copy
 </button>
+
 </div>
 
 <div class="notice">
-নির্বাচিত নম্বরে <b>Send Money করুন</b>।
+
+নির্বাচিত নম্বরে
+<b>Send Money করুন</b>।
+
 তারপর Transaction ID নিচে দিন।
+
 </div>
 
 <label>Amount</label>
 
-<input id="depositAmount"
+<input
+id="depositAmount"
 type="number"
 min="500"
 placeholder="Minimum ৳500">
 
 <label>Transaction ID</label>
 
-<input id="depositTransactionId"
+<input
+id="depositTransactionId"
 placeholder="Transaction ID">
 
-<button class="primary"
+<button
+class="primary"
 style="width:100%"
 onclick="submitDeposit()">
 Submit Deposit
@@ -499,24 +849,39 @@ Submit Deposit
 <p id="depositMessage"></p>
 
 </div>
+
 </div>
 
 
 <!-- WITHDRAW -->
 <div id="withdrawModal" class="modal hidden">
+
 <div class="modal-box">
 
 <button class="close"
-onclick="closeModal('withdrawModal')">×</button>
+onclick="closeModal('withdrawModal')">
+×
+</button>
 
-<div class="modal-title">💸 Withdraw</div>
-
-<div class="notice">
-Minimum Withdrawal: <b>৳500</b><br>
-Withdrawal Fee: <b>৳0</b>
+<div class="modal-title">
+💸 Withdraw
 </div>
 
-<p>Payment Method নির্বাচন করুন:</p>
+<div class="notice">
+
+Minimum Withdrawal:
+<b>৳500</b>
+
+<br>
+
+Withdrawal Fee:
+<b>৳0</b>
+
+</div>
+
+<p>
+Payment Method নির্বাচন করুন:
+</p>
 
 <div class="method-box">
 
@@ -534,22 +899,26 @@ Nagad
 
 </div>
 
-<div id="withdrawForm" class="hidden">
+<div id="withdrawForm"
+class="hidden">
 
 <label>Payment Number</label>
 
-<input id="withdrawNumber"
+<input
+id="withdrawNumber"
 type="tel"
 placeholder="bKash/Nagad Number">
 
 <label>Amount</label>
 
-<input id="withdrawAmount"
+<input
+id="withdrawAmount"
 type="number"
 min="500"
 placeholder="Minimum ৳500">
 
-<button class="primary"
+<button
+class="primary"
 style="width:100%"
 onclick="submitWithdrawal()">
 Submit Withdrawal
@@ -560,6 +929,7 @@ Submit Withdrawal
 <p id="withdrawMessage"></p>
 
 </div>
+
 </div>
 
 
@@ -588,13 +958,15 @@ const ADMIN_EMAIL =
 const PAYMENT_NUMBER =
 "01771332609";
 
-let currentUser=null;
-let currentProfile=null;
-let depositMethod=null;
-let withdrawMethod=null;
+let currentUser = null;
+let currentProfile = null;
 
-let countdownTimer=null;
-let vipCountdownTimer=null;
+let depositMethod = null;
+let withdrawMethod = null;
+
+let countdownTimer = null;
+let vipCountdownTimer = null;
+let vipClaimTimer = null;
 
 
 /* ================================
@@ -610,30 +982,37 @@ return "৳ " + Number(value || 0).toFixed(2);
 }
 
 function escapeHtml(value){
+
 return String(value ?? "")
 .replace(/&/g,"&amp;")
 .replace(/</g,"&lt;")
 .replace(/>/g,"&gt;")
 .replace(/"/g,"&quot;")
 .replace(/'/g,"&#039;");
+
 }
 
 function formatDate(date){
+
 if(!date)return "";
+
 return new Date(date).toLocaleString("en-BD");
+
 }
 
 function statusHtml(status){
 
-const s=String(status||"").toLowerCase();
+const s =
+String(status || "").toLowerCase();
 
-if(s==="approved")
+if(s === "approved")
 return '<span class="status approved">Approved</span>';
 
-if(s==="rejected")
+if(s === "rejected")
 return '<span class="status rejected">Rejected</span>';
 
 return '<span class="status pending">Pending</span>';
+
 }
 
 
@@ -651,13 +1030,24 @@ $("transactionsPage").classList.remove("active");
 $("adminPage").classList.remove("active");
 
 if(countdownTimer){
+
 clearInterval(countdownTimer);
-countdownTimer=null;
+countdownTimer = null;
+
 }
 
 if(vipCountdownTimer){
+
 clearInterval(vipCountdownTimer);
-vipCountdownTimer=null;
+vipCountdownTimer = null;
+
+}
+
+if(vipClaimTimer){
+
+clearInterval(vipClaimTimer);
+vipClaimTimer = null;
+
 }
 
 }
@@ -668,9 +1058,18 @@ hidePages();
 
 $("homePage").classList.add("active");
 
-$("headerButtons").innerHTML=`
-<button class="secondary" onclick="openLogin()">Login</button>
-<button class="secondary" onclick="openRegister()">Create Account</button>
+$("headerButtons").innerHTML = `
+
+<button class="secondary"
+onclick="openLogin()">
+Login
+</button>
+
+<button class="secondary"
+onclick="openRegister()">
+Create Account
+</button>
+
 `;
 
 }
@@ -678,8 +1077,11 @@ $("headerButtons").innerHTML=`
 function showDashboard(){
 
 if(!currentUser){
+
 showHome();
+
 return;
+
 }
 
 hidePages();
@@ -691,15 +1093,37 @@ refreshBalance();
 }
 
 function closeModal(id){
+
 $(id).classList.add("hidden");
+
 }
 
 function openLogin(){
+
+$("loginMessage").innerHTML = "";
+
 $("loginModal").classList.remove("hidden");
+
+setTimeout(()=>{
+
+$("loginEmail").focus();
+
+},100);
+
 }
 
 function openRegister(){
+
+$("registerMessage").innerHTML = "";
+
 $("registerModal").classList.remove("hidden");
+
+setTimeout(()=>{
+
+$("regName").focus();
+
+},100);
+
 }
 
 
@@ -709,31 +1133,43 @@ REGISTER
 
 async function register(){
 
-const name=$("regName").value.trim();
-const phone=$("regPhone").value.trim();
-const email=$("regEmail").value.trim();
-const password=$("regPassword").value;
-const referral=$("regReferral").value.trim();
+const name =
+$("regName").value.trim();
 
-if(!name||!phone||!email||!password){
+const phone =
+$("regPhone").value.trim();
 
-$("registerMessage").innerHTML=
+const email =
+$("regEmail").value.trim();
+
+const password =
+$("regPassword").value;
+
+const referral =
+$("regReferral").value.trim();
+
+if(!name || !phone || !email || !password){
+
+$("registerMessage").innerHTML =
 '<span style="color:red">সব প্রয়োজনীয় তথ্য দিন।</span>';
 
 return;
+
 }
 
-if(password.length<6){
+if(password.length < 6){
 
-$("registerMessage").innerHTML=
+$("registerMessage").innerHTML =
 '<span style="color:red">Password কমপক্ষে 6 characters হতে হবে।</span>';
 
 return;
+
 }
 
-$("registerMessage").innerText="Account তৈরি হচ্ছে...";
+$("registerMessage").innerText =
+"Account তৈরি হচ্ছে...";
 
-const {data,error}=
+const {data,error} =
 await supabaseClient.auth.signUp({
 
 email,
@@ -741,9 +1177,9 @@ password,
 
 options:{
 data:{
-name,
-phone,
-referral_code:referral||null
+name:name,
+phone:phone,
+referral_code:referral || null
 }
 }
 
@@ -751,16 +1187,30 @@ referral_code:referral||null
 
 if(error){
 
-$("registerMessage").innerHTML=
+$("registerMessage").innerHTML =
 '<span style="color:red">'+
 escapeHtml(error.message)+
 '</span>';
 
 return;
+
 }
 
-$("registerMessage").innerHTML=
-'<span style="color:green">Account তৈরি হয়েছে। এখন Login করুন।</span>';
+if(data && data.user){
+
+$("registerMessage").innerHTML =
+'<span style="color:green;font-weight:bold">'+
+"Account তৈরি হয়েছে। এখন Login করুন।"+
+'</span>';
+
+$("regPassword").value = "";
+
+}else{
+
+$("registerMessage").innerHTML =
+'<span style="color:red">Account তৈরি করা যায়নি। আবার চেষ্টা করুন।</span>';
+
+}
 
 }
 
@@ -771,38 +1221,56 @@ LOGIN
 
 async function login(){
 
-const email=$("loginEmail").value.trim();
-const password=$("loginPassword").value;
+const email =
+$("loginEmail").value.trim();
 
-if(!email||!password){
+const password =
+$("loginPassword").value;
 
-$("loginMessage").innerHTML=
+if(!email || !password){
+
+$("loginMessage").innerHTML =
 '<span style="color:red">Email ও Password দিন।</span>';
 
 return;
+
 }
 
-$("loginMessage").innerText="Login হচ্ছে...";
+$("loginMessage").innerText =
+"Login হচ্ছে...";
 
-const {data,error}=
+const {data,error} =
 await supabaseClient.auth.signInWithPassword({
-email,
-password
+
+email:email,
+password:password
+
 });
 
 if(error){
 
-$("loginMessage").innerHTML=
+$("loginMessage").innerHTML =
 '<span style="color:red">'+
 escapeHtml(error.message)+
 '</span>';
 
 return;
+
 }
 
-closeModal("loginModal");
+if(!data || !data.user){
 
-currentUser=data.user;
+$("loginMessage").innerHTML =
+'<span style="color:red">Login করা যায়নি।</span>';
+
+return;
+
+}
+
+currentUser =
+data.user;
+
+closeModal("loginModal");
 
 await loadDashboard();
 
@@ -817,18 +1285,8 @@ async function logout(){
 
 await supabaseClient.auth.signOut();
 
-currentUser=null;
-currentProfile=null;
-
-if(countdownTimer){
-clearInterval(countdownTimer);
-countdownTimer=null;
-}
-
-if(vipCountdownTimer){
-clearInterval(vipCountdownTimer);
-vipCountdownTimer=null;
-}
+currentUser = null;
+currentProfile = null;
 
 showHome();
 
@@ -843,7 +1301,7 @@ async function loadDashboard(){
 
 if(!currentUser)return;
 
-const {data,error}=
+const {data,error} =
 await supabaseClient
 .from("profiles")
 .select("id,balance,role")
@@ -854,33 +1312,41 @@ if(error){
 
 console.error(error);
 
-currentProfile={
+currentProfile = {
+
 id:currentUser.id,
 balance:0,
 role:"user"
+
 };
 
 }else{
 
-currentProfile=data;
+currentProfile = data;
 
 }
 
-$("welcomeText").innerHTML=
+$("welcomeText").innerHTML =
 "Welcome, "+
 escapeHtml(
-currentUser.user_metadata?.name||"User"
+currentUser.user_metadata?.name || "User"
 )+
 " 👋";
 
-$("userIdText").innerText=
+$("userIdText").innerText =
 "User ID: "+currentUser.id;
 
-$("balance").innerText=
+$("balance").innerText =
 money(currentProfile.balance);
 
-$("headerButtons").innerHTML=
-`<button class="secondary" onclick="showDashboard()">Dashboard</button>`;
+$("headerButtons").innerHTML = `
+
+<button class="secondary"
+onclick="showDashboard()">
+Dashboard
+</button>
+
+`;
 
 if(isAdmin()){
 
@@ -907,7 +1373,7 @@ async function refreshBalance(){
 
 if(!currentUser)return;
 
-const {data,error}=
+const {data,error} =
 await supabaseClient
 .from("profiles")
 .select("id,balance,role")
@@ -919,11 +1385,12 @@ if(error){
 console.error(error);
 
 return;
+
 }
 
-currentProfile=data;
+currentProfile = data;
 
-$("balance").innerText=
+$("balance").innerText =
 money(data.balance);
 
 }
@@ -937,233 +1404,27 @@ function isAdmin(){
 
 if(!currentUser)return false;
 
-const email=
-String(currentUser.email||"").toLowerCase();
+const email =
+String(currentUser.email || "")
+.toLowerCase();
 
 return(
-email===ADMIN_EMAIL.toLowerCase()||
-currentProfile?.role==="admin"
+email === ADMIN_EMAIL.toLowerCase() ||
+currentProfile?.role === "admin"
 );
 
 }
 
 
 /* ================================
-NORMAL DAILY CLAIM
+GET ACTIVE VIP
 ================================ */
 
-async function openDailyClaim(){
+async function getActiveVIP(){
 
-hidePages();
+if(!currentUser)return null;
 
-$("dailyClaimPage").classList.add("active");
-
-$("claimMessage").innerHTML="";
-
-await checkDailyClaim();
-
-}
-
-async function getLastClaim(){
-
-const {data,error}=
-await supabaseClient
-.from("daily_claims")
-.select("claimed_at,amount")
-.eq("user_id",currentUser.id)
-.eq("claim_type","daily")
-.order("claimed_at",{ascending:false})
-.limit(1);
-
-if(error){
-
-console.error(error);
-
-return null;
-}
-
-return data && data.length ? data[0] : null;
-
-}
-
-async function checkDailyClaim(){
-
-if(!currentUser)return;
-
-const lastClaim=
-await getLastClaim();
-
-const button=
-$("claimButton");
-
-const status=
-$("claimStatus");
-
-const countdown=
-$("claimCountdown");
-
-if(countdownTimer){
-
-clearInterval(countdownTimer);
-countdownTimer=null;
-
-}
-
-if(!lastClaim){
-
-status.innerHTML=
-'<span style="color:#16834b;font-weight:bold">আপনার Daily Claim এখন Available 🎉</span>';
-
-countdown.innerText="";
-
-button.disabled=false;
-button.style.opacity="1";
-button.innerText="Claim ৳20";
-
-return;
-
-}
-
-const lastTime=
-new Date(lastClaim.claimed_at).getTime();
-
-const nextTime=
-lastTime+(24*60*60*1000);
-
-function updateCountdown(){
-
-const now=Date.now();
-
-const remaining=
-nextTime-now;
-
-if(remaining<=0){
-
-clearInterval(countdownTimer);
-
-status.innerHTML=
-'<span style="color:#16834b;font-weight:bold">Daily Claim এখন Available 🎉</span>';
-
-countdown.innerText="";
-
-button.disabled=false;
-button.style.opacity="1";
-button.innerText="Claim ৳20";
-
-return;
-
-}
-
-const hours=
-Math.floor(remaining/(1000*60*60));
-
-const minutes=
-Math.floor(
-(remaining%(1000*60*60))/(1000*60)
-);
-
-const seconds=
-Math.floor(
-(remaining%(1000*60))/1000
-);
-
-status.innerHTML=
-"পরবর্তী Claim-এর জন্য অপেক্ষা করুন";
-
-countdown.innerText=
-"⏳ "+hours+" ঘণ্টা "+
-minutes+" মিনিট "+
-seconds+" সেকেন্ড";
-
-button.disabled=true;
-button.style.opacity=".5";
-button.innerText="Claim Available Soon";
-
-}
-
-updateCountdown();
-
-countdownTimer=
-setInterval(updateCountdown,1000);
-
-}
-
-async function claimDaily(){
-
-if(!currentUser)return;
-
-const button=
-$("claimButton");
-
-button.disabled=true;
-
-$("claimMessage").innerText=
-"Daily Claim হচ্ছে...";
-
-const {data,error}=
-await supabaseClient.rpc(
-"claim_daily"
-);
-
-if(error){
-
-$("claimMessage").innerHTML=
-'<span style="color:red">'+
-escapeHtml(error.message)+
-'</span>';
-
-button.disabled=false;
-
-await checkDailyClaim();
-
-return;
-
-}
-
-$("claimMessage").innerHTML=
-'<span style="color:green;font-weight:bold">'+
-"🎉 Daily Claim সফল! ৳20 balance-এ যোগ হয়েছে।"+
-'</span>';
-
-await refreshBalance();
-
-await checkDailyClaim();
-
-}
-
-
-/* ================================
-VIP PLANS
-================================ */
-
-async function openVIPPlans(){
-
-if(!currentUser){
-showHome();
-return;
-}
-
-hidePages();
-
-$("vipPage").classList.add("active");
-
-await loadVIP();
-
-}
-
-async function loadVIP(){
-
-const box=
-$("vipContent");
-
-box.innerHTML="Loading...";
-
-if(vipCountdownTimer){
-clearInterval(vipCountdownTimer);
-vipCountdownTimer=null;
-}
-
-const {data,error}=
+const {data,error} =
 await supabaseClient
 .from("vip_activations")
 .select(`
@@ -1184,42 +1445,351 @@ status
 
 if(error){
 
-box.innerHTML=
-'<div class="card" style="color:red">'+
-escapeHtml(error.message)+
-'</div>';
+console.error("VIP error:",error);
+
+return null;
+
+}
+
+return data && data.length
+?data[0]
+:null;
+
+}
+
+
+/* ================================
+DAILY CLAIM
+================================ */
+
+async function openDailyClaim(){
+
+hidePages();
+
+$("dailyClaimPage").classList.add("active");
+
+$("claimMessage").innerHTML = "";
+
+await checkDailyClaim();
+
+}
+
+async function getLastClaim(){
+
+const {data,error} =
+await supabaseClient
+.from("daily_claims")
+.select("claimed_at,amount,claim_type")
+.eq("user_id",currentUser.id)
+.order("claimed_at",{ascending:false})
+.limit(1);
+
+if(error){
+
+console.error(error);
+
+return null;
+
+}
+
+return data && data.length
+?data[0]
+:null;
+
+}
+
+async function checkDailyClaim(){
+
+if(!currentUser)return;
+
+const vip =
+await getActiveVIP();
+
+let claimAmount = 20;
+
+let claimType = "daily";
+
+if(vip){
+
+claimAmount =
+Number(vip.daily_amount || 20);
+
+claimType = "vip";
+
+$("claimPlanInfo").innerHTML = `
+
+<div class="success-box">
+
+⭐ <b>Active VIP ${escapeHtml(vip.vip_number)}</b>
+
+<br>
+
+VIP Daily Claim:
+<b>${money(claimAmount)}</b>
+
+</div>
+
+`;
+
+}else{
+
+$("claimPlanInfo").innerHTML = `
+
+<div class="notice">
+
+আপনার কোনো Active VIP নেই।
+
+<br>
+
+Base Daily Claim:
+<b>৳20</b>
+
+</div>
+
+`;
+
+}
+
+$("claimAmount").innerText =
+money(claimAmount);
+
+$("claimButton").innerText =
+"Claim "+money(claimAmount);
+
+const lastClaim =
+await getLastClaim();
+
+const button =
+$("claimButton");
+
+const status =
+$("claimStatus");
+
+const countdown =
+$("claimCountdown");
+
+if(countdownTimer){
+
+clearInterval(countdownTimer);
+countdownTimer = null;
+
+}
+
+if(!lastClaim){
+
+status.innerHTML =
+'<span style="color:#16834b;font-weight:bold">🎉 Daily Claim এখন Available</span>';
+
+countdown.innerText = "";
+
+button.disabled = false;
 
 return;
 
 }
 
-const vip=
-data && data.length
-?data[0]
-:null;
+const lastTime =
+new Date(lastClaim.claimed_at).getTime();
+
+const nextTime =
+lastTime + (24*60*60*1000);
+
+function updateCountdown(){
+
+const remaining =
+nextTime - Date.now();
+
+if(remaining <= 0){
+
+if(countdownTimer){
+
+clearInterval(countdownTimer);
+
+}
+
+status.innerHTML =
+'<span style="color:#16834b;font-weight:bold">🎉 Daily Claim এখন Available</span>';
+
+countdown.innerText = "";
+
+button.disabled = false;
+
+return;
+
+}
+
+const hours =
+Math.floor(
+remaining/(1000*60*60)
+);
+
+const minutes =
+Math.floor(
+(remaining%(1000*60*60))/
+(1000*60)
+);
+
+const seconds =
+Math.floor(
+(remaining%(1000*60))/1000
+);
+
+status.innerHTML =
+"পরবর্তী Claim-এর জন্য অপেক্ষা করুন";
+
+countdown.innerText =
+"⏳ "+hours+
+" ঘণ্টা "+
+minutes+
+" মিনিট "+
+seconds+
+" সেকেন্ড";
+
+button.disabled = true;
+
+}
+
+updateCountdown();
+
+countdownTimer =
+setInterval(updateCountdown,1000);
+
+}
 
 
-/* NO VIP */
+/* ================================
+CLAIM DAILY
+================================ */
+
+async function claimDaily(){
+
+if(!currentUser)return;
+
+const button =
+$("claimButton");
+
+button.disabled = true;
+
+$("claimMessage").innerText =
+"Daily Claim হচ্ছে...";
+
+const {data,error} =
+await supabaseClient.rpc(
+"claim_daily"
+);
+
+if(error){
+
+$("claimMessage").innerHTML =
+'<span style="color:red">'+
+escapeHtml(error.message)+
+'</span>';
+
+button.disabled = false;
+
+await checkDailyClaim();
+
+return;
+
+}
+
+const amount =
+Number(
+data?.amount ||
+data?.reward ||
+data?.claim_amount ||
+20
+);
+
+$("claimMessage").innerHTML =
+'<span style="color:green;font-weight:bold">'+
+"🎉 Daily Claim সফল! "+
+money(amount)+
+" balance-এ যোগ হয়েছে।"+
+'</span>';
+
+await refreshBalance();
+
+await checkDailyClaim();
+
+}
+
+
+/* ================================
+VIP PLANS
+================================ */
+
+async function openVIPPlans(){
+
+if(!currentUser){
+
+showHome();
+
+return;
+
+}
+
+hidePages();
+
+$("vipPage").classList.add("active");
+
+await loadVIP();
+
+}
+
+async function loadVIP(){
+
+const box =
+$("vipContent");
+
+box.innerHTML = "Loading...";
+
+if(vipCountdownTimer){
+
+clearInterval(vipCountdownTimer);
+vipCountdownTimer = null;
+
+}
+
+if(vipClaimTimer){
+
+clearInterval(vipClaimTimer);
+vipClaimTimer = null;
+
+}
+
+const vip =
+await getActiveVIP();
 
 if(!vip){
 
-box.innerHTML=`
+box.innerHTML = `
 
-<div class="card" style="text-align:center">
+<div class="card"
+style="text-align:center">
 
-<div style="font-size:48px">⭐</div>
+<div style="font-size:48px">
+⭐
+</div>
 
-<h2>কোনো Active VIP নেই</h2>
+<h2>
+কোনো Active VIP নেই
+</h2>
 
 <p style="color:#777;line-height:1.7">
-Approved Deposit হলে VIP automatically active হবে।
+
+Approved Deposit হলে
+VIP automatically active হবে।
+
 </p>
 
 </div>
 
 <div class="card">
 
-<h3>⭐ VIP Plans</h3>
+<h3>
+⭐ VIP Plans
+</h3>
 
 <div class="vip-grid">
 
@@ -1261,17 +1831,17 @@ Duration: 30 দিন
 </div>
 
 </div>
+
 `;
 
 return;
+
 }
 
 
-/* ================================
-LAST VIP CLAIM
-================================ */
+/* LAST VIP CLAIM */
 
-const {data:lastClaims,error:claimError}=
+const {data:lastClaims,error:claimError} =
 await supabaseClient
 .from("daily_claims")
 .select("claimed_at,amount")
@@ -1282,7 +1852,7 @@ await supabaseClient
 
 if(claimError){
 
-box.innerHTML=
+box.innerHTML =
 '<div class="card" style="color:red">'+
 escapeHtml(claimError.message)+
 '</div>';
@@ -1291,17 +1861,15 @@ return;
 
 }
 
-const lastClaim=
+const lastClaim =
 lastClaims && lastClaims.length
 ?lastClaims[0]
 :null;
 
 
-/* ================================
-VIP CARD
-================================ */
+/* VIP CARD */
 
-box.innerHTML=`
+box.innerHTML = `
 
 <div class="card vip-active">
 
@@ -1331,46 +1899,68 @@ Daily Claim
 
 <div class="vip-plan">
 <b>Deposit Plan</b>
+
 <div style="font-size:20px;margin-top:6px">
 ${money(vip.deposit_amount)}
 </div>
+
 </div>
 
 <div class="vip-plan">
+
 <b>Daily Claim</b>
+
 <div style="font-size:20px;margin-top:6px;color:#16834b">
 ${money(vip.daily_amount)}
 </div>
+
 </div>
 
 <div class="vip-plan">
+
 <b>Duration</b>
+
 <div style="margin-top:6px">
 ${vip.duration_days} দিন
 </div>
+
 </div>
 
 <div class="vip-plan">
+
 <b>Status</b>
+
 <div style="margin-top:6px;color:#16834b;font-weight:bold">
 Active
 </div>
-</div>
 
 </div>
 
-<div class="tx-item" style="margin-top:12px">
-<b>VIP Started</b>
+</div>
+
+<div class="tx-item"
+style="margin-top:12px">
+
+<b>
+VIP Started
+</b>
+
 <div style="margin-top:5px">
 ${formatDate(vip.started_at)}
 </div>
+
 </div>
 
 <div class="tx-item">
-<b>VIP Expires</b>
+
+<b>
+VIP Expires
+</b>
+
 <div style="margin-top:5px">
 ${formatDate(vip.expires_at)}
 </div>
+
 </div>
 
 <div id="vipTimeRemaining"
@@ -1391,7 +1981,9 @@ Claim ${money(vip.daily_amount)}
 
 </button>
 
-<p id="vipClaimMessage" style="text-align:center"></p>
+<p id="vipClaimMessage"
+style="text-align:center">
+</p>
 
 </div>
 
@@ -1412,134 +2004,128 @@ Claim ${money(vip.daily_amount)}
 </p>
 
 </div>
+
 `;
 
 
-/* ================================
-VIP EXPIRY COUNTDOWN
-================================ */
+/* VIP EXPIRY */
 
 function updateVIPExpiry(){
 
-const remaining=
-new Date(vip.expires_at).getTime()-Date.now();
+const remaining =
+new Date(vip.expires_at).getTime() -
+Date.now();
 
-if(remaining<=0){
+if(remaining <= 0){
 
-if(vipCountdownTimer){
-clearInterval(vipCountdownTimer);
-}
-
-$("vipTimeRemaining").innerText=
+$("vipTimeRemaining").innerText =
 "VIP-এর মেয়াদ শেষ হয়েছে";
 
 return;
 
 }
 
-const days=
+const days =
 Math.floor(
 remaining/(1000*60*60*24)
 );
 
-const hours=
+const hours =
 Math.floor(
 (remaining%(1000*60*60*24))/
 (1000*60*60)
 );
 
-$("vipTimeRemaining").innerText=
+$("vipTimeRemaining").innerText =
 "⭐ VIP বাকি: "+
-days+" দিন "+hours+" ঘণ্টা";
+days+
+" দিন "+
+hours+
+" ঘণ্টা";
 
 }
 
 updateVIPExpiry();
 
-vipCountdownTimer=
+vipCountdownTimer =
 setInterval(updateVIPExpiry,1000);
 
 
-/* ================================
-VIP CLAIM COUNTDOWN
-================================ */
+/* VIP CLAIM */
 
-const button=
+const button =
 $("vipClaimButton");
 
-const status=
+const status =
 $("vipClaimStatus");
 
 if(!lastClaim){
 
-status.innerHTML=
+status.innerHTML =
 '<span style="color:#16834b;font-weight:bold">🎉 VIP Daily Claim Available</span>';
 
-button.disabled=false;
+button.disabled = false;
 
 }else{
 
-const lastTime=
+const lastTime =
 new Date(lastClaim.claimed_at).getTime();
 
-const nextTime=
+const nextTime =
 lastTime+(24*60*60*1000);
 
 function updateVIPClaim(){
 
-const remaining=
+const remaining =
 nextTime-Date.now();
 
-if(remaining<=0){
+if(remaining <= 0){
 
-status.innerHTML=
+status.innerHTML =
 '<span style="color:#16834b;font-weight:bold">🎉 VIP Daily Claim Available</span>';
 
-button.disabled=false;
+button.disabled = false;
 
 return;
 
 }
 
-const hours=
+const hours =
 Math.floor(
 remaining/(1000*60*60)
 );
 
-const minutes=
+const minutes =
 Math.floor(
 (remaining%(1000*60*60))/
 (1000*60)
 );
 
-const seconds=
+const seconds =
 Math.floor(
 (remaining%(1000*60))/
 1000
 );
 
-status.innerText=
+status.innerText =
 "পরবর্তী VIP Claim-এর জন্য অপেক্ষা করুন";
 
-$("vipTimeRemaining").innerText=
-"⭐ VIP বাকি: "+
-Math.floor(
-(new Date(vip.expires_at).getTime()-Date.now())/
-(1000*60*60*24)
-)+" দিন";
+$("vipClaimMessage").innerText =
+"⏳ "+
+hours+
+" ঘণ্টা "+
+minutes+
+" মিনিট "+
+seconds+
+" সেকেন্ড";
 
-$("vipClaimMessage").innerText=
-"⏳ "+hours+
-" ঘণ্টা "+minutes+
-" মিনিট "+seconds+" সেকেন্ড";
-
-button.disabled=true;
+button.disabled = true;
 
 }
 
 updateVIPClaim();
 
-const vipClaimTimer=
+vipClaimTimer =
 setInterval(updateVIPClaim,1000);
 
 }
@@ -1555,30 +2141,30 @@ async function claimVIPDaily(){
 
 if(!currentUser)return;
 
-const button=
+const button =
 $("vipClaimButton");
 
-const message=
+const message =
 $("vipClaimMessage");
 
-button.disabled=true;
+button.disabled = true;
 
-message.innerText=
+message.innerText =
 "VIP Daily Claim হচ্ছে...";
 
-const {data,error}=
+const {data,error} =
 await supabaseClient.rpc(
 "claim_vip_daily"
 );
 
 if(error){
 
-message.innerHTML=
+message.innerHTML =
 '<span style="color:red">'+
 escapeHtml(error.message)+
 '</span>';
 
-button.disabled=false;
+button.disabled = false;
 
 await loadVIP();
 
@@ -1586,10 +2172,18 @@ return;
 
 }
 
-message.innerHTML=
+const amount =
+Number(
+data?.amount ||
+data?.reward ||
+data?.claim_amount ||
+0
+);
+
+message.innerHTML =
 '<span style="color:green;font-weight:bold">'+
 "🎉 VIP Daily Claim সফল! "+
-money(data.amount)+
+money(amount)+
 " Main Balance-এ যোগ হয়েছে।"+
 '</span>';
 
@@ -1610,28 +2204,33 @@ $("depositModal").classList.remove("hidden");
 
 $("depositPaymentBox").classList.add("hidden");
 
-depositMethod=null;
+depositMethod = null;
 
 $("bkashMethod").classList.remove("selected");
 $("nagadMethod").classList.remove("selected");
 
-$("depositMessage").innerHTML="";
+$("depositMessage").innerHTML = "";
 
 }
 
 function selectDepositMethod(method){
 
-depositMethod=method;
+depositMethod = method;
 
 $("bkashMethod").classList.remove("selected");
 $("nagadMethod").classList.remove("selected");
 
-if(method==="bkash")
+if(method === "bkash"){
+
 $("bkashMethod").classList.add("selected");
-else
+
+}else{
+
 $("nagadMethod").classList.add("selected");
 
-$("depositNumber").innerText=
+}
+
+$("depositNumber").innerText =
 PAYMENT_NUMBER;
 
 $("depositPaymentBox").classList.remove("hidden");
@@ -1642,7 +2241,9 @@ async function copyPaymentNumber(){
 
 try{
 
-await navigator.clipboard.writeText(PAYMENT_NUMBER);
+await navigator.clipboard.writeText(
+PAYMENT_NUMBER
+);
 
 alert("Payment number copied");
 
@@ -1656,40 +2257,52 @@ alert(PAYMENT_NUMBER);
 
 async function submitDeposit(){
 
+if(!currentUser){
+
+$("depositMessage").innerHTML =
+'<span style="color:red">আগে Login করুন।</span>';
+
+return;
+
+}
+
 if(!depositMethod){
 
-$("depositMessage").innerHTML=
+$("depositMessage").innerHTML =
 '<span style="color:red">Payment method নির্বাচন করুন।</span>';
 
 return;
+
 }
 
-const amount=
+const amount =
 Number($("depositAmount").value);
 
-const transactionId=
+const transactionId =
 $("depositTransactionId").value.trim();
 
-if(amount<500){
+if(amount < 500){
 
-$("depositMessage").innerHTML=
+$("depositMessage").innerHTML =
 '<span style="color:red">Minimum Deposit ৳500</span>';
 
 return;
+
 }
 
 if(!transactionId){
 
-$("depositMessage").innerHTML=
+$("depositMessage").innerHTML =
 '<span style="color:red">Transaction ID দিন।</span>';
 
 return;
+
 }
 
-$("depositMessage").innerText=
+$("depositMessage").innerText =
 "Deposit submit হচ্ছে...";
 
-const {error}=
+const {error} =
 await supabaseClient.rpc(
 "submit_deposit",
 {
@@ -1702,19 +2315,20 @@ p_transaction_id:transactionId
 
 if(error){
 
-$("depositMessage").innerHTML=
+$("depositMessage").innerHTML =
 '<span style="color:red">'+
 escapeHtml(error.message)+
 '</span>';
 
 return;
+
 }
 
-$("depositMessage").innerHTML=
+$("depositMessage").innerHTML =
 '<span style="color:green">Deposit submitted। Admin approval-এর অপেক্ষায় আছে।</span>';
 
-$("depositAmount").value="";
-$("depositTransactionId").value="";
+$("depositAmount").value = "";
+$("depositTransactionId").value = "";
 
 setTimeout(()=>{
 
@@ -1735,28 +2349,33 @@ function openWithdrawal(){
 
 $("withdrawModal").classList.remove("hidden");
 
-withdrawMethod=null;
+withdrawMethod = null;
 
 $("withdrawBkash").classList.remove("selected");
 $("withdrawNagad").classList.remove("selected");
 
 $("withdrawForm").classList.add("hidden");
 
-$("withdrawMessage").innerHTML="";
+$("withdrawMessage").innerHTML = "";
 
 }
 
 function selectWithdrawMethod(method){
 
-withdrawMethod=method;
+withdrawMethod = method;
 
 $("withdrawBkash").classList.remove("selected");
 $("withdrawNagad").classList.remove("selected");
 
-if(method==="bkash")
+if(method === "bkash"){
+
 $("withdrawBkash").classList.add("selected");
-else
+
+}else{
+
 $("withdrawNagad").classList.add("selected");
+
+}
 
 $("withdrawForm").classList.remove("hidden");
 
@@ -1764,40 +2383,52 @@ $("withdrawForm").classList.remove("hidden");
 
 async function submitWithdrawal(){
 
+if(!currentUser){
+
+$("withdrawMessage").innerHTML =
+'<span style="color:red">আগে Login করুন।</span>';
+
+return;
+
+}
+
 if(!withdrawMethod){
 
-$("withdrawMessage").innerHTML=
+$("withdrawMessage").innerHTML =
 '<span style="color:red">Payment method নির্বাচন করুন।</span>';
 
 return;
+
 }
 
-const number=
+const number =
 $("withdrawNumber").value.trim();
 
-const amount=
+const amount =
 Number($("withdrawAmount").value);
 
 if(!number){
 
-$("withdrawMessage").innerHTML=
+$("withdrawMessage").innerHTML =
 '<span style="color:red">Payment number দিন।</span>';
 
 return;
+
 }
 
-if(amount<500){
+if(amount < 500){
 
-$("withdrawMessage").innerHTML=
+$("withdrawMessage").innerHTML =
 '<span style="color:red">Minimum Withdrawal ৳500</span>';
 
 return;
+
 }
 
-$("withdrawMessage").innerText=
+$("withdrawMessage").innerText =
 "Withdrawal submit হচ্ছে...";
 
-const {error}=
+const {error} =
 await supabaseClient.rpc(
 "submit_withdrawal",
 {
@@ -1809,15 +2440,16 @@ p_amount:amount
 
 if(error){
 
-$("withdrawMessage").innerHTML=
+$("withdrawMessage").innerHTML =
 '<span style="color:red">'+
 escapeHtml(error.message)+
 '</span>';
 
 return;
+
 }
 
-$("withdrawMessage").innerHTML=
+$("withdrawMessage").innerHTML =
 '<span style="color:green">Withdrawal submitted। Admin approval-এর অপেক্ষায় আছে।</span>';
 
 await refreshBalance();
@@ -1849,25 +2481,26 @@ async function loadTransactions(type){
 
 if(!currentUser)return;
 
-const list=
+const list =
 $("transactionsList");
 
-list.innerHTML="Loading...";
+list.innerHTML =
+"Loading...";
 
 let result;
 
-if(type==="deposit"){
+if(type === "deposit"){
 
-result=
+result =
 await supabaseClient
 .from("deposits")
 .select("amount,payment_method,payment_number,transaction_id,status,created_at")
 .eq("user_id",currentUser.id)
 .order("created_at",{ascending:false});
 
-}else if(type==="withdrawal"){
+}else if(type === "withdrawal"){
 
-result=
+result =
 await supabaseClient
 .from("withdrawals")
 .select("amount,payment_method,payment_number,status,created_at")
@@ -1876,7 +2509,7 @@ await supabaseClient
 
 }else{
 
-result=
+result =
 await supabaseClient
 .from("daily_claims")
 .select("amount,claim_type,claimed_at")
@@ -1887,38 +2520,45 @@ await supabaseClient
 
 if(result.error){
 
-list.innerHTML=
+list.innerHTML =
 '<div class="card" style="color:red">'+
 escapeHtml(result.error.message)+
 '</div>';
 
 return;
+
 }
 
-const rows=result.data||[];
+const rows =
+result.data || [];
 
-if(rows.length===0){
+if(rows.length === 0){
 
-list.innerHTML=
+list.innerHTML =
 '<div class="card">কোনো transaction পাওয়া যায়নি।</div>';
 
 return;
+
 }
 
-list.innerHTML=
+list.innerHTML =
 rows.map(row=>{
 
-if(type==="daily_claim"){
+if(type === "daily_claim"){
 
-const claimType=
-String(row.claim_type||"daily").toLowerCase();
+const claimType =
+String(row.claim_type || "daily")
+.toLowerCase();
 
-const title=
-claimType==="vip"
-?"⭐ VIP Daily Claim"
-:"🎁 Daily Claim";
+const title =
+claimType === "vip"
+?
+"⭐ VIP Daily Claim"
+:
+"🎁 Daily Claim";
 
-return`
+return `
+
 <div class="tx-item">
 
 <b>${title}</b>
@@ -1928,7 +2568,9 @@ ${money(row.amount)}
 </div>
 
 <div>
-<span class="status approved">Claimed</span>
+<span class="status approved">
+Claimed
+</span>
 </div>
 
 <div style="font-size:12px;color:#888;margin-top:8px">
@@ -1936,36 +2578,48 @@ ${formatDate(row.claimed_at)}
 </div>
 
 </div>
+
 `;
 
 }
 
-const method=
-String(row.payment_method||"").toUpperCase();
+const method =
+String(row.payment_method || "")
+.toUpperCase();
 
-return`
+return `
+
 <div class="tx-item">
 
 <b>
-${type==="deposit"?"💰 Deposit":"💸 Withdrawal"}
+${type === "deposit" ? "💰 Deposit" : "💸 Withdrawal"}
 </b>
 
 <div style="font-size:23px;font-weight:bold;margin:8px 0">
 ${money(row.amount)}
 </div>
 
-<div>Method: ${escapeHtml(method)}</div>
+<div>
+Method:
+${escapeHtml(method)}
+</div>
 
 ${
-type==="deposit"
+type === "deposit"
 ?
-`<div>Transaction ID:
+`
+<div>
+Transaction ID:
 ${escapeHtml(row.transaction_id)}
-</div>`
+</div>
+`
 :
-`<div>Payment:
+`
+<div>
+Payment:
 ${escapeHtml(row.payment_number)}
-</div>`
+</div>
+`
 }
 
 <div style="margin-top:8px">
@@ -1977,6 +2631,7 @@ ${formatDate(row.created_at)}
 </div>
 
 </div>
+
 `;
 
 }).join("");
@@ -1995,6 +2650,7 @@ if(!isAdmin()){
 alert("Admin access required");
 
 return;
+
 }
 
 hidePages();
@@ -2014,43 +2670,52 @@ ADMIN DEPOSIT
 
 async function loadAdminDeposits(){
 
-const box=$("adminDeposits");
+const box =
+$("adminDeposits");
 
-box.innerHTML="Loading...";
+box.innerHTML =
+"Loading...";
 
-const {data,error}=
+const {data,error} =
 await supabaseClient.rpc(
 "admin_get_deposits"
 );
 
 if(error){
 
-box.innerHTML=
+box.innerHTML =
 '<div style="color:red">'+
 escapeHtml(error.message)+
 '</div>';
 
 return;
+
 }
 
-const rows=
-Array.isArray(data)?data:[];
+const rows =
+Array.isArray(data)
+?data
+:[];
 
-if(rows.length===0){
+if(rows.length === 0){
 
-box.innerHTML=
+box.innerHTML =
 "কোনো Deposit request নেই।";
 
 return;
+
 }
 
-box.innerHTML=
+box.innerHTML =
 rows.map(row=>{
 
-const pending=
-String(row.status).toLowerCase()==="pending";
+const pending =
+String(row.status).toLowerCase()
+===
+"pending";
 
-return`
+return `
+
 <div class="admin-item">
 
 <b>💰 Deposit</b>
@@ -2059,19 +2724,23 @@ return`
 ${money(row.amount)}
 </div>
 
-<div>User:
+<div>
+User:
 ${escapeHtml(row.user_email)}
 </div>
 
-<div>Method:
+<div>
+Method:
 ${escapeHtml(row.payment_method)}
 </div>
 
-<div>Number:
+<div>
+Number:
 ${escapeHtml(row.payment_number)}
 </div>
 
-<div>Transaction ID:
+<div>
+Transaction ID:
 ${escapeHtml(row.transaction_id)}
 </div>
 
@@ -2083,24 +2752,29 @@ ${
 pending
 ?
 `
+
 <div class="admin-actions">
 
-<button class="primary"
+<button
+class="primary"
 onclick="processDeposit('${row.id}','approved')">
 ✓ Approve
 </button>
 
-<button class="danger"
+<button
+class="danger"
 onclick="processDeposit('${row.id}','rejected')">
 ✕ Reject
 </button>
 
 </div>
+
 `
 :""
 }
 
 </div>
+
 `;
 
 }).join("");
@@ -2110,12 +2784,14 @@ onclick="processDeposit('${row.id}','rejected')">
 async function processDeposit(id,status){
 
 if(!confirm(
-status==="approved"
-?"Deposit Approve করবেন?"
-:"Deposit Reject করবেন?"
+status === "approved"
+?
+"Deposit Approve করবেন?"
+:
+"Deposit Reject করবেন?"
 ))return;
 
-const {error}=
+const {error} =
 await supabaseClient.rpc(
 "admin_update_deposit",
 {
@@ -2129,12 +2805,15 @@ if(error){
 alert(error.message);
 
 return;
+
 }
 
 alert(
-status==="approved"
-?"Deposit Approved"
-:"Deposit Rejected"
+status === "approved"
+?
+"Deposit Approved"
+:
+"Deposit Rejected"
 );
 
 await loadAdminDeposits();
@@ -2148,43 +2827,52 @@ ADMIN WITHDRAWAL
 
 async function loadAdminWithdrawals(){
 
-const box=$("adminWithdrawals");
+const box =
+$("adminWithdrawals");
 
-box.innerHTML="Loading...";
+box.innerHTML =
+"Loading...";
 
-const {data,error}=
+const {data,error} =
 await supabaseClient.rpc(
 "admin_get_withdrawals"
 );
 
 if(error){
 
-box.innerHTML=
+box.innerHTML =
 '<div style="color:red">'+
 escapeHtml(error.message)+
 '</div>';
 
 return;
+
 }
 
-const rows=
-Array.isArray(data)?data:[];
+const rows =
+Array.isArray(data)
+?data
+:[];
 
-if(rows.length===0){
+if(rows.length === 0){
 
-box.innerHTML=
+box.innerHTML =
 "কোনো Withdrawal request নেই।";
 
 return;
+
 }
 
-box.innerHTML=
+box.innerHTML =
 rows.map(row=>{
 
-const pending=
-String(row.status).toLowerCase()==="pending";
+const pending =
+String(row.status).toLowerCase()
+===
+"pending";
 
-return`
+return `
+
 <div class="admin-item">
 
 <b>💸 Withdrawal</b>
@@ -2193,15 +2881,18 @@ return`
 ${money(row.amount)}
 </div>
 
-<div>User:
+<div>
+User:
 ${escapeHtml(row.user_email)}
 </div>
 
-<div>Method:
+<div>
+Method:
 ${escapeHtml(row.payment_method)}
 </div>
 
-<div>Payment Number:
+<div>
+Payment Number:
 ${escapeHtml(row.payment_number)}
 </div>
 
@@ -2217,24 +2908,29 @@ ${
 pending
 ?
 `
+
 <div class="admin-actions">
 
-<button class="primary"
+<button
+class="primary"
 onclick="processWithdrawal('${row.id}','approved')">
 ✓ Approve
 </button>
 
-<button class="danger"
+<button
+class="danger"
 onclick="processWithdrawal('${row.id}','rejected')">
 ✕ Reject
 </button>
 
 </div>
+
 `
 :""
 }
 
 </div>
+
 `;
 
 }).join("");
@@ -2244,12 +2940,14 @@ onclick="processWithdrawal('${row.id}','rejected')">
 async function processWithdrawal(id,status){
 
 if(!confirm(
-status==="approved"
-?"Withdrawal Approve করবেন?"
-:"Withdrawal Reject করবেন?"
+status === "approved"
+?
+"Withdrawal Approve করবেন?"
+:
+"Withdrawal Reject করবেন?"
 ))return;
 
-const {error}=
+const {error} =
 await supabaseClient.rpc(
 "admin_update_withdrawal",
 {
@@ -2263,10 +2961,11 @@ if(error){
 alert(error.message);
 
 return;
+
 }
 
 alert(
-status==="approved"
+status === "approved"
 ?
 "Withdrawal Approved"
 :
@@ -2289,17 +2988,20 @@ name+
 " system পরবর্তী ধাপে চালু করা হবে।"
 );
 
+}
+
 
 /* ================================
-AUTH
+AUTH STATE
 ================================ */
 
 supabaseClient.auth.onAuthStateChange(
 async(event,session)=>{
 
-if(session?.user){
+if(session && session.user){
 
-currentUser=session.user;
+currentUser =
+session.user;
 
 setTimeout(async()=>{
 
@@ -2309,8 +3011,8 @@ await loadDashboard();
 
 }else{
 
-currentUser=null;
-currentProfile=null;
+currentUser = null;
+currentProfile = null;
 
 showHome();
 
@@ -2325,16 +3027,37 @@ INITIAL SESSION
 
 (async function(){
 
-const {data}=
+try{
+
+const {data,error} =
 await supabaseClient.auth.getSession();
 
-if(data.session?.user){
+if(error){
 
-currentUser=data.session.user;
+console.error(error);
+
+showHome();
+
+return;
+
+}
+
+if(data && data.session && data.session.user){
+
+currentUser =
+data.session.user;
 
 await loadDashboard();
 
 }else{
+
+showHome();
+
+}
+
+}catch(error){
+
+console.error(error);
 
 showHome();
 
