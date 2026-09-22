@@ -14,6 +14,7 @@ header{background:#16834b;color:white;padding:15px 18px;display:flex;justify-con
 .logo{font-size:22px;font-weight:bold}
 .container{max-width:900px;margin:auto;padding:18px}
 button{border:0;border-radius:10px;padding:12px 16px;cursor:pointer;font-size:15px}
+button:disabled{cursor:not-allowed}
 .primary{background:#16834b;color:white}
 .secondary{background:#e9f5ee;color:#16834b}
 .danger{background:#dc3545;color:white}
@@ -53,7 +54,7 @@ label{font-size:14px;font-weight:bold}
 .method{padding:15px;background:#f1f3f5;border-radius:10px;text-align:center;cursor:pointer}
 .method.selected{background:#16834b;color:white}
 
-.payment-number{background:#eaf7ef;color:#16834b;padding:14px;border-radius:10px;font-size:18px;font-weight:bold;margin:10px 0}
+.payment-number{background:#eaf7ef;color:#16834b;padding:14px;border-radius:10px;font-size:18px;font-weight:bold;margin:10px 0;display:flex;justify-content:space-between;align-items:center;gap:10px}
 .notice{padding:12px;background:#fff7df;border-radius:10px;font-size:14px;line-height:1.6}
 
 .claim-box{text-align:center}
@@ -69,12 +70,57 @@ label{font-size:14px;font-weight:bold}
 .admin-item{border:1px solid #ddd;border-radius:14px;padding:15px;margin-bottom:12px}
 .admin-actions{display:flex;gap:8px;margin-top:12px}
 
+.vip-active{
+background:linear-gradient(135deg,#fff7df,#ffffff);
+border:2px solid #f59e0b;
+}
+
+.vip-number{
+font-size:42px;
+font-weight:bold;
+color:#f59e0b;
+margin:10px 0;
+}
+
+.vip-daily{
+font-size:32px;
+font-weight:bold;
+color:#16834b;
+margin:10px 0;
+}
+
+.vip-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
+.vip-plan{
+background:#f8faf9;
+border:1px solid #e3e8e5;
+border-radius:12px;
+padding:15px;
+}
+
+.vip-plan h3{
+margin:0 0 8px;
+}
+
+.success-box{
+background:#eaf7ef;
+color:#16834b;
+padding:14px;
+border-radius:10px;
+margin-top:12px;
+}
+
 footer{text-align:center;color:#888;padding:30px 10px;font-size:13px}
 
 @media(max-width:600px){
 .menu-grid{grid-template-columns:1fr 1fr}
 .hero h1{font-size:28px}
 .balance{font-size:30px}
+.vip-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -136,7 +182,6 @@ withdrawal এবং transaction এক জায়গা থেকে পরি�
 
 </div>
 
-
 <div class="menu-grid">
 
 <div class="menu-card" onclick="openDeposit()">
@@ -155,7 +200,7 @@ withdrawal এবং transaction এক জায়গা থেকে পরি�
 🎁<br>Daily Claim
 </div>
 
-<div class="menu-card" onclick="showComingSoon('VIP Plans')">
+<div class="menu-card" onclick="openVIPPlans()">
 ⭐<br>VIP Plans
 </div>
 
@@ -183,7 +228,7 @@ onclick="openAdminPanel()">
 </section>
 
 
-<!-- DAILY CLAIM -->
+<!-- NORMAL DAILY CLAIM -->
 <section id="dailyClaimPage" class="page">
 <div class="container">
 
@@ -220,11 +265,37 @@ Claim ৳20
 
 <div class="card">
 <b>📌 নিয়ম</b>
+
 <p style="color:#666;line-height:1.7">
 • প্রতি ২৪ ঘণ্টায় একবার claim করা যাবে।<br>
 • Claim সফল হলে ৳20 balance-এ যোগ হবে।<br>
 • ২৪ ঘণ্টা পূর্ণ হওয়ার আগে আবার claim করা যাবে না।
 </p>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- VIP PLANS -->
+<section id="vipPage" class="page">
+<div class="container">
+
+<button class="secondary back" onclick="showDashboard()">
+← Dashboard
+</button>
+
+<div class="card">
+<h2>⭐ VIP Plans</h2>
+
+<p style="color:#666">
+Approved Deposit হলে আপনার VIP automatically active হবে।
+</p>
+</div>
+
+<div id="vipContent">
+Loading...
 </div>
 
 </div>
@@ -393,7 +464,9 @@ Nagad
 
 <div class="payment-number">
 <span id="depositNumber">01771332609</span>
-<button class="secondary" onclick="copyPaymentNumber()">
+
+<button class="secondary"
+onclick="copyPaymentNumber()">
 Copy
 </button>
 </div>
@@ -404,12 +477,14 @@ Copy
 </div>
 
 <label>Amount</label>
+
 <input id="depositAmount"
 type="number"
 min="500"
 placeholder="Minimum ৳500">
 
 <label>Transaction ID</label>
+
 <input id="depositTransactionId"
 placeholder="Transaction ID">
 
@@ -462,11 +537,13 @@ Nagad
 <div id="withdrawForm" class="hidden">
 
 <label>Payment Number</label>
+
 <input id="withdrawNumber"
 type="tel"
 placeholder="bKash/Nagad Number">
 
 <label>Amount</label>
+
 <input id="withdrawAmount"
 type="number"
 min="500"
@@ -515,7 +592,9 @@ let currentUser=null;
 let currentProfile=null;
 let depositMethod=null;
 let withdrawMethod=null;
+
 let countdownTimer=null;
+let vipCountdownTimer=null;
 
 
 /* ================================
@@ -567,8 +646,19 @@ function hidePages(){
 $("homePage").classList.remove("active");
 $("dashboardPage").classList.remove("active");
 $("dailyClaimPage").classList.remove("active");
+$("vipPage").classList.remove("active");
 $("transactionsPage").classList.remove("active");
 $("adminPage").classList.remove("active");
+
+if(countdownTimer){
+clearInterval(countdownTimer);
+countdownTimer=null;
+}
+
+if(vipCountdownTimer){
+clearInterval(vipCountdownTimer);
+vipCountdownTimer=null;
+}
 
 }
 
@@ -735,6 +825,11 @@ clearInterval(countdownTimer);
 countdownTimer=null;
 }
 
+if(vipCountdownTimer){
+clearInterval(vipCountdownTimer);
+vipCountdownTimer=null;
+}
+
 showHome();
 
 }
@@ -854,7 +949,7 @@ currentProfile?.role==="admin"
 
 
 /* ================================
-DAILY CLAIM
+NORMAL DAILY CLAIM
 ================================ */
 
 async function openDailyClaim(){
@@ -869,11 +964,6 @@ await checkDailyClaim();
 
 }
 
-
-/*
-শেষ claim বের করা
-*/
-
 async function getLastClaim(){
 
 const {data,error}=
@@ -881,6 +971,7 @@ await supabaseClient
 .from("daily_claims")
 .select("claimed_at,amount")
 .eq("user_id",currentUser.id)
+.eq("claim_type","daily")
 .order("claimed_at",{ascending:false})
 .limit(1);
 
@@ -894,11 +985,6 @@ return null;
 return data && data.length ? data[0] : null;
 
 }
-
-
-/*
-Daily Claim status
-*/
 
 async function checkDailyClaim(){
 
@@ -1002,11 +1088,6 @@ setInterval(updateCountdown,1000);
 
 }
 
-
-/*
-Claim submit
-*/
-
 async function claimDaily(){
 
 if(!currentUser)return;
@@ -1047,6 +1128,474 @@ $("claimMessage").innerHTML=
 await refreshBalance();
 
 await checkDailyClaim();
+
+}
+
+
+/* ================================
+VIP PLANS
+================================ */
+
+async function openVIPPlans(){
+
+if(!currentUser){
+showHome();
+return;
+}
+
+hidePages();
+
+$("vipPage").classList.add("active");
+
+await loadVIP();
+
+}
+
+async function loadVIP(){
+
+const box=
+$("vipContent");
+
+box.innerHTML="Loading...";
+
+if(vipCountdownTimer){
+clearInterval(vipCountdownTimer);
+vipCountdownTimer=null;
+}
+
+const {data,error}=
+await supabaseClient
+.from("vip_activations")
+.select(`
+id,
+vip_number,
+deposit_amount,
+daily_amount,
+duration_days,
+started_at,
+expires_at,
+status
+`)
+.eq("user_id",currentUser.id)
+.eq("status","active")
+.gt("expires_at",new Date().toISOString())
+.order("started_at",{ascending:false})
+.limit(1);
+
+if(error){
+
+box.innerHTML=
+'<div class="card" style="color:red">'+
+escapeHtml(error.message)+
+'</div>';
+
+return;
+
+}
+
+const vip=
+data && data.length
+?data[0]
+:null;
+
+
+/* NO VIP */
+
+if(!vip){
+
+box.innerHTML=`
+
+<div class="card" style="text-align:center">
+
+<div style="font-size:48px">⭐</div>
+
+<h2>কোনো Active VIP নেই</h2>
+
+<p style="color:#777;line-height:1.7">
+Approved Deposit হলে VIP automatically active হবে।
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>⭐ VIP Plans</h3>
+
+<div class="vip-grid">
+
+<div class="vip-plan">
+<h3>VIP 1</h3>
+Deposit: ৳500<br>
+Daily Claim: <b>৳100</b><br>
+Duration: 30 দিন
+</div>
+
+<div class="vip-plan">
+<h3>VIP 2</h3>
+Deposit: ৳1,000<br>
+Daily Claim: <b>৳200</b><br>
+Duration: 30 দিন
+</div>
+
+<div class="vip-plan">
+<h3>VIP 3</h3>
+Deposit: ৳1,500<br>
+Daily Claim: <b>৳300</b><br>
+Duration: 30 দিন
+</div>
+
+<div class="vip-plan">
+<h3>VIP 4</h3>
+Deposit: ৳2,000<br>
+Daily Claim: <b>৳400</b><br>
+Duration: 30 দিন
+</div>
+
+<div class="vip-plan">
+<h3>VIP 5</h3>
+Deposit: ৳4,000<br>
+Daily Claim: <b>৳1,000</b><br>
+Duration: 30 দিন
+</div>
+
+</div>
+
+</div>
+`;
+
+return;
+}
+
+
+/* ================================
+LAST VIP CLAIM
+================================ */
+
+const {data:lastClaims,error:claimError}=
+await supabaseClient
+.from("daily_claims")
+.select("claimed_at,amount")
+.eq("user_id",currentUser.id)
+.eq("claim_type","vip")
+.order("claimed_at",{ascending:false})
+.limit(1);
+
+if(claimError){
+
+box.innerHTML=
+'<div class="card" style="color:red">'+
+escapeHtml(claimError.message)+
+'</div>';
+
+return;
+
+}
+
+const lastClaim=
+lastClaims && lastClaims.length
+?lastClaims[0]
+:null;
+
+
+/* ================================
+VIP CARD
+================================ */
+
+box.innerHTML=`
+
+<div class="card vip-active">
+
+<div style="text-align:center">
+
+<div class="vip-number">
+⭐ VIP ${escapeHtml(vip.vip_number)}
+</div>
+
+<div style="color:#666">
+Active VIP
+</div>
+
+<div class="vip-daily">
+${money(vip.daily_amount)}
+</div>
+
+<div style="color:#16834b;font-weight:bold">
+Daily Claim
+</div>
+
+</div>
+
+<hr style="border:0;border-top:1px solid #eee;margin:20px 0">
+
+<div class="vip-grid">
+
+<div class="vip-plan">
+<b>Deposit Plan</b>
+<div style="font-size:20px;margin-top:6px">
+${money(vip.deposit_amount)}
+</div>
+</div>
+
+<div class="vip-plan">
+<b>Daily Claim</b>
+<div style="font-size:20px;margin-top:6px;color:#16834b">
+${money(vip.daily_amount)}
+</div>
+</div>
+
+<div class="vip-plan">
+<b>Duration</b>
+<div style="margin-top:6px">
+${vip.duration_days} দিন
+</div>
+</div>
+
+<div class="vip-plan">
+<b>Status</b>
+<div style="margin-top:6px;color:#16834b;font-weight:bold">
+Active
+</div>
+</div>
+
+</div>
+
+<div class="tx-item" style="margin-top:12px">
+<b>VIP Started</b>
+<div style="margin-top:5px">
+${formatDate(vip.started_at)}
+</div>
+</div>
+
+<div class="tx-item">
+<b>VIP Expires</b>
+<div style="margin-top:5px">
+${formatDate(vip.expires_at)}
+</div>
+</div>
+
+<div id="vipTimeRemaining"
+class="countdown">
+</div>
+
+<div id="vipClaimStatus"
+style="text-align:center;margin:10px 0">
+</div>
+
+<button
+id="vipClaimButton"
+class="primary"
+style="width:100%"
+onclick="claimVIPDaily()">
+
+Claim ${money(vip.daily_amount)}
+
+</button>
+
+<p id="vipClaimMessage" style="text-align:center"></p>
+
+</div>
+
+
+<div class="card">
+
+<b>📌 VIP নিয়ম</b>
+
+<p style="color:#666;line-height:1.8">
+
+• Approved Deposit হলে VIP Active হবে।<br>
+• Deposit-এর টাকা Main Balance-এ যোগ হবে না।<br>
+• VIP অনুযায়ী Daily Claim পাওয়া যাবে।<br>
+• প্রতি ২৪ ঘণ্টায় একবার VIP Claim করা যাবে।<br>
+• VIP-এর মেয়াদ ৩০ দিন।<br>
+• VIP Claim-এর টাকা Main Balance-এ যোগ হবে।
+
+</p>
+
+</div>
+`;
+
+
+/* ================================
+VIP EXPIRY COUNTDOWN
+================================ */
+
+function updateVIPExpiry(){
+
+const remaining=
+new Date(vip.expires_at).getTime()-Date.now();
+
+if(remaining<=0){
+
+if(vipCountdownTimer){
+clearInterval(vipCountdownTimer);
+}
+
+$("vipTimeRemaining").innerText=
+"VIP-এর মেয়াদ শেষ হয়েছে";
+
+return;
+
+}
+
+const days=
+Math.floor(
+remaining/(1000*60*60*24)
+);
+
+const hours=
+Math.floor(
+(remaining%(1000*60*60*24))/
+(1000*60*60)
+);
+
+$("vipTimeRemaining").innerText=
+"⭐ VIP বাকি: "+
+days+" দিন "+hours+" ঘণ্টা";
+
+}
+
+updateVIPExpiry();
+
+vipCountdownTimer=
+setInterval(updateVIPExpiry,1000);
+
+
+/* ================================
+VIP CLAIM COUNTDOWN
+================================ */
+
+const button=
+$("vipClaimButton");
+
+const status=
+$("vipClaimStatus");
+
+if(!lastClaim){
+
+status.innerHTML=
+'<span style="color:#16834b;font-weight:bold">🎉 VIP Daily Claim Available</span>';
+
+button.disabled=false;
+
+}else{
+
+const lastTime=
+new Date(lastClaim.claimed_at).getTime();
+
+const nextTime=
+lastTime+(24*60*60*1000);
+
+function updateVIPClaim(){
+
+const remaining=
+nextTime-Date.now();
+
+if(remaining<=0){
+
+status.innerHTML=
+'<span style="color:#16834b;font-weight:bold">🎉 VIP Daily Claim Available</span>';
+
+button.disabled=false;
+
+return;
+
+}
+
+const hours=
+Math.floor(
+remaining/(1000*60*60)
+);
+
+const minutes=
+Math.floor(
+(remaining%(1000*60*60))/
+(1000*60)
+);
+
+const seconds=
+Math.floor(
+(remaining%(1000*60))/
+1000
+);
+
+status.innerText=
+"পরবর্তী VIP Claim-এর জন্য অপেক্ষা করুন";
+
+$("vipTimeRemaining").innerText=
+"⭐ VIP বাকি: "+
+Math.floor(
+(new Date(vip.expires_at).getTime()-Date.now())/
+(1000*60*60*24)
+)+" দিন";
+
+$("vipClaimMessage").innerText=
+"⏳ "+hours+
+" ঘণ্টা "+minutes+
+" মিনিট "+seconds+" সেকেন্ড";
+
+button.disabled=true;
+
+}
+
+updateVIPClaim();
+
+const vipClaimTimer=
+setInterval(updateVIPClaim,1000);
+
+}
+
+}
+
+
+/* ================================
+VIP DAILY CLAIM
+================================ */
+
+async function claimVIPDaily(){
+
+if(!currentUser)return;
+
+const button=
+$("vipClaimButton");
+
+const message=
+$("vipClaimMessage");
+
+button.disabled=true;
+
+message.innerText=
+"VIP Daily Claim হচ্ছে...";
+
+const {data,error}=
+await supabaseClient.rpc(
+"claim_vip_daily"
+);
+
+if(error){
+
+message.innerHTML=
+'<span style="color:red">'+
+escapeHtml(error.message)+
+'</span>';
+
+button.disabled=false;
+
+await loadVIP();
+
+return;
+
+}
+
+message.innerHTML=
+'<span style="color:green;font-weight:bold">'+
+"🎉 VIP Daily Claim সফল! "+
+money(data.amount)+
+" Main Balance-এ যোগ হয়েছে।"+
+'</span>';
+
+await refreshBalance();
+
+await loadVIP();
 
 }
 
@@ -1330,7 +1879,7 @@ await supabaseClient
 result=
 await supabaseClient
 .from("daily_claims")
-.select("amount,claimed_at")
+.select("amount,claim_type,claimed_at")
 .eq("user_id",currentUser.id)
 .order("claimed_at",{ascending:false});
 
@@ -1361,10 +1910,18 @@ rows.map(row=>{
 
 if(type==="daily_claim"){
 
+const claimType=
+String(row.claim_type||"daily").toLowerCase();
+
+const title=
+claimType==="vip"
+?"⭐ VIP Daily Claim"
+:"🎁 Daily Claim";
+
 return`
 <div class="tx-item">
 
-<b>🎁 Daily Claim</b>
+<b>${title}</b>
 
 <div style="font-size:23px;font-weight:bold;margin:8px 0">
 ${money(row.amount)}
@@ -1731,8 +2288,6 @@ alert(
 name+
 " system পরবর্তী ধাপে চালু করা হবে।"
 );
-
-}
 
 
 /* ================================
