@@ -29,10 +29,7 @@ top:0;
 z-index:20
 }
 
-.logo{
-font-size:22px;
-font-weight:bold
-}
+.logo{font-size:22px;font-weight:bold}
 
 .container{
 max-width:900px;
@@ -48,44 +45,16 @@ cursor:pointer;
 font-size:15px
 }
 
-button:disabled{
-cursor:not-allowed;
-opacity:.55
-}
+button:disabled{cursor:not-allowed;opacity:.55}
 
-.primary{
-background:#16834b;
-color:white
-}
+.primary{background:#16834b;color:white}
+.secondary{background:#e9f5ee;color:#16834b}
+.danger{background:#dc3545;color:white}
+.hidden{display:none!important}
 
-.secondary{
-background:#e9f5ee;
-color:#16834b
-}
-
-.danger{
-background:#dc3545;
-color:white
-}
-
-.hidden{
-display:none!important
-}
-
-.hero{
-text-align:center;
-padding:55px 15px 35px
-}
-
-.hero h1{
-font-size:34px;
-margin:10px 0
-}
-
-.hero p{
-color:#667085;
-line-height:1.7
-}
+.hero{text-align:center;padding:55px 15px 35px}
+.hero h1{font-size:34px;margin:10px 0}
+.hero p{color:#667085;line-height:1.7}
 
 .actions{
 display:flex;
@@ -118,10 +87,7 @@ color:#16834b;
 margin:10px 0
 }
 
-.refresh{
-font-size:13px;
-padding:8px 12px
-}
+.refresh{font-size:13px;padding:8px 12px}
 
 .menu-grid{
 display:grid;
@@ -139,25 +105,12 @@ font-size:17px;
 text-align:center
 }
 
-.menu-card:hover{
-background:#f0faf4
-}
+.menu-card:hover{background:#f0faf4}
+.admin-menu{border:2px solid #f59e0b}
 
-.admin-menu{
-border:2px solid #f59e0b
-}
-
-.page{
-display:none
-}
-
-.page.active{
-display:block
-}
-
-.back{
-margin-bottom:15px
-}
+.page{display:none}
+.page.active{display:block}
+.back{margin-bottom:15px}
 
 .card{
 background:white;
@@ -176,10 +129,7 @@ border-radius:10px;
 font-size:15px
 }
 
-label{
-font-size:14px;
-font-weight:bold
-}
+label{font-size:14px;font-weight:bold}
 
 .modal{
 position:fixed;
@@ -256,9 +206,7 @@ font-size:14px;
 line-height:1.6
 }
 
-.claim-box{
-text-align:center
-}
+.claim-box{text-align:center}
 
 .claim-amount{
 font-size:34px;
@@ -282,20 +230,9 @@ font-size:12px;
 font-weight:bold
 }
 
-.pending{
-background:#fff3cd;
-color:#856404
-}
-
-.approved{
-background:#d1e7dd;
-color:#0f5132
-}
-
-.rejected{
-background:#f8d7da;
-color:#842029
-}
+.pending{background:#fff3cd;color:#856404}
+.approved{background:#d1e7dd;color:#0f5132}
+.rejected{background:#f8d7da;color:#842029}
 
 .tx-item{
 border:1px solid #e4e7eb;
@@ -349,9 +286,7 @@ border-radius:12px;
 padding:15px
 }
 
-.vip-plan h3{
-margin:0 0 8px
-}
+.vip-plan h3{margin:0 0 8px}
 
 .success-box{
 background:#eaf7ef;
@@ -418,6 +353,127 @@ color:#16834b;
 margin:10px 0
 }
 
+/* SUPPORT */
+
+.support-box{
+background:white;
+border-radius:16px;
+padding:20px;
+box-shadow:0 3px 15px #0000000d
+}
+
+.chat-box{
+height:420px;
+overflow-y:auto;
+background:#f5f7f9;
+border:1px solid #e1e5e8;
+border-radius:14px;
+padding:12px;
+margin-bottom:12px
+}
+
+.chat-row{
+display:flex;
+margin:8px 0
+}
+
+.chat-row.user{
+justify-content:flex-end
+}
+
+.chat-row.admin{
+justify-content:flex-start
+}
+
+.chat-message{
+max-width:80%;
+padding:10px 13px;
+border-radius:14px;
+line-height:1.5;
+word-break:break-word
+}
+
+.chat-row.user .chat-message{
+background:#16834b;
+color:white;
+border-bottom-right-radius:4px
+}
+
+.chat-row.admin .chat-message{
+background:white;
+color:#17202a;
+border:1px solid #ddd;
+border-bottom-left-radius:4px
+}
+
+.chat-time{
+font-size:10px;
+opacity:.7;
+margin-top:5px
+}
+
+.chat-input-row{
+display:flex;
+gap:8px;
+align-items:flex-end
+}
+
+.chat-input-row textarea{
+flex:1;
+resize:none;
+min-height:48px;
+max-height:120px;
+padding:12px;
+border:1px solid #d8dee5;
+border-radius:12px;
+font-size:15px;
+font-family:inherit
+}
+
+.chat-send{
+min-width:90px
+}
+
+/* ADMIN SUPPORT */
+
+.support-user-list{
+border:1px solid #e1e5e8;
+border-radius:12px;
+overflow:hidden;
+margin-bottom:15px
+}
+
+.support-user{
+padding:13px;
+border-bottom:1px solid #eee;
+cursor:pointer;
+background:white
+}
+
+.support-user:last-child{border-bottom:0}
+
+.support-user:hover,
+.support-user.selected{
+background:#eaf7ef
+}
+
+.support-user-name{
+font-weight:bold
+}
+
+.support-user-time{
+font-size:11px;
+color:#888;
+margin-top:4px
+}
+
+.admin-chat-title{
+background:#eaf7ef;
+border-radius:10px;
+padding:12px;
+margin-bottom:10px
+}
+
 footer{
 text-align:center;
 color:#888;
@@ -427,29 +483,14 @@ font-size:13px
 
 @media(max-width:600px){
 
-.menu-grid{
-grid-template-columns:1fr 1fr
-}
-
-.hero h1{
-font-size:28px
-}
-
-.balance{
-font-size:30px
-}
-
-.vip-grid{
-grid-template-columns:1fr
-}
-
-.referral-stats{
-grid-template-columns:1fr 1fr
-}
-
-.referral-code{
-font-size:23px
-}
+.menu-grid{grid-template-columns:1fr 1fr}
+.hero h1{font-size:28px}
+.balance{font-size:30px}
+.vip-grid{grid-template-columns:1fr}
+.referral-stats{grid-template-columns:1fr 1fr}
+.referral-code{font-size:23px}
+.chat-message{max-width:88%}
+.chat-send{min-width:75px;padding:12px 10px}
 
 }
 </style>
@@ -463,13 +504,9 @@ font-size:23px
 
 <div id="headerButtons">
 
-<button class="secondary" onclick="openLogin()">
-Login
-</button>
+<button class="secondary" onclick="openLogin()">Login</button>
 
-<button class="secondary" onclick="openRegister()">
-Create Account
-</button>
+<button class="secondary" onclick="openRegister()">Create Account</button>
 
 </div>
 
@@ -528,20 +565,13 @@ Account তৈরি সম্পন্ন করলে Welcome Bonus প্র�
 
 <div class="dashboard-header">
 
-<div id="welcomeText">
-Welcome 👋
-</div>
+<div id="welcomeText">Welcome 👋</div>
 
-<div id="userIdText"
-style="font-size:13px;color:#777">
-</div>
+<div id="userIdText" style="font-size:13px;color:#777"></div>
 
-<div class="balance" id="balance">
-৳ 0.00
-</div>
+<div class="balance" id="balance">৳ 0.00</div>
 
-<button class="secondary refresh"
-onclick="refreshBalance()">
+<button class="secondary refresh" onclick="refreshBalance()">
 ↻ Refresh Balance
 </button>
 
@@ -549,38 +579,31 @@ onclick="refreshBalance()">
 
 <div class="menu-grid">
 
-<div class="menu-card"
-onclick="openDeposit()">
+<div class="menu-card" onclick="openDeposit()">
 💰<br>Deposit
 </div>
 
-<div class="menu-card"
-onclick="openTransactions()">
+<div class="menu-card" onclick="openTransactions()">
 📜<br>Transactions
 </div>
 
-<div class="menu-card"
-onclick="openWithdrawal()">
+<div class="menu-card" onclick="openWithdrawal()">
 💸<br>Withdraw
 </div>
 
-<div class="menu-card"
-onclick="openDailyClaim()">
+<div class="menu-card" onclick="openDailyClaim()">
 🎁<br>Daily Claim
 </div>
 
-<div class="menu-card"
-onclick="openVIPPlans()">
+<div class="menu-card" onclick="openVIPPlans()">
 ⭐<br>VIP Plans
 </div>
 
-<div class="menu-card"
-onclick="openReferral()">
+<div class="menu-card" onclick="openReferral()">
 👥<br>Referral
 </div>
 
-<div class="menu-card"
-onclick="showComingSoon('Support')">
+<div class="menu-card" onclick="openSupport()">
 💬<br>Support
 </div>
 
@@ -590,8 +613,7 @@ onclick="openAdminPanel()">
 🛡️<br>Admin Panel
 </div>
 
-<div class="menu-card"
-onclick="logout()">
+<div class="menu-card" onclick="logout()">
 🚪<br>Logout
 </div>
 
@@ -608,8 +630,7 @@ onclick="logout()">
 
 <div class="container">
 
-<button class="secondary back"
-onclick="showDashboard()">
+<button class="secondary back" onclick="showDashboard()">
 ← Dashboard
 </button>
 
@@ -624,18 +645,11 @@ VIP না থাকলে Base Daily Claim প্রযোজ্য হবে�
 
 <div id="claimPlanInfo"></div>
 
-<div class="claim-amount"
-id="claimAmount">
-৳20
-</div>
+<div class="claim-amount" id="claimAmount">৳20</div>
 
-<div id="claimStatus">
-Checking...
-</div>
+<div id="claimStatus">Checking...</div>
 
-<div id="claimCountdown"
-class="countdown">
-</div>
+<div id="claimCountdown" class="countdown"></div>
 
 <button id="claimButton"
 class="primary"
@@ -674,8 +688,7 @@ Claim ৳20
 
 <div class="container">
 
-<button class="secondary back"
-onclick="showDashboard()">
+<button class="secondary back" onclick="showDashboard()">
 ← Dashboard
 </button>
 
@@ -689,9 +702,7 @@ Approved Deposit হলে আপনার VIP automatically active হবে।
 
 </div>
 
-<div id="vipContent">
-Loading...
-</div>
+<div id="vipContent">Loading...</div>
 
 </div>
 
@@ -704,8 +715,7 @@ Loading...
 
 <div class="container">
 
-<button class="secondary back"
-onclick="showDashboard()">
+<button class="secondary back" onclick="showDashboard()">
 ← Dashboard
 </button>
 
@@ -731,14 +741,11 @@ Admin approve করলে আপনি ৳200 Referral Reward পাবেন�
 Your Referral Code
 </div>
 
-<div id="myReferralCode"
-class="referral-code">
+<div id="myReferralCode" class="referral-code">
 Loading...
 </div>
 
-<button
-class="primary"
-onclick="copyReferralCode()">
+<button class="primary" onclick="copyReferralCode()">
 📋 Copy Code
 </button>
 
@@ -746,25 +753,21 @@ onclick="copyReferralCode()">
 
 </div>
 
-
 <div class="card">
 
 <h3>🔗 আপনার Referral Link</h3>
 
-<div id="myReferralLink"
-class="referral-link">
+<div id="myReferralLink" class="referral-link">
 Loading...
 </div>
 
-<button
-class="secondary"
+<button class="secondary"
 style="width:100%"
 onclick="copyReferralLink()">
 📋 Copy Referral Link
 </button>
 
 </div>
-
 
 <div class="card">
 
@@ -773,57 +776,28 @@ onclick="copyReferralLink()">
 <div class="referral-stats">
 
 <div class="referral-stat">
-
 <div>👥 Total Referrals</div>
-
-<div
-id="refTotal"
-class="referral-stat-number">
-0
-</div>
-
+<div id="refTotal" class="referral-stat-number">0</div>
 </div>
 
 <div class="referral-stat">
-
 <div>⏳ Pending</div>
-
-<div
-id="refPending"
-class="referral-stat-number">
-0
-</div>
-
+<div id="refPending" class="referral-stat-number">0</div>
 </div>
 
 <div class="referral-stat">
-
 <div>✅ Paid</div>
-
-<div
-id="refPaid"
-class="referral-stat-number">
-0
-</div>
-
+<div id="refPaid" class="referral-stat-number">0</div>
 </div>
 
 <div class="referral-stat">
-
 <div>💰 Total Reward</div>
-
-<div
-id="refReward"
-class="reward-big">
-৳0
+<div id="refReward" class="reward-big">৳0</div>
 </div>
 
 </div>
 
 </div>
-
-</div>
-
 
 <div class="card">
 
@@ -846,14 +820,66 @@ class="reward-big">
 </section>
 
 
+<!-- SUPPORT USER -->
+
+<section id="supportPage" class="page">
+
+<div class="container">
+
+<button class="secondary back" onclick="showDashboard()">
+← Dashboard
+</button>
+
+<div class="support-box">
+
+<h2>💬 Live Support</h2>
+
+<p style="color:#666;line-height:1.6">
+আপনার কোনো সমস্যা বা প্রশ্ন থাকলে এখানে message পাঠান।
+Admin আপনার message-এর reply দেবেন।
+</p>
+
+<div id="userChatBox" class="chat-box">
+<div style="text-align:center;color:#888;padding:30px">
+Loading...
+</div>
+</div>
+
+<div class="chat-input-row">
+
+<textarea
+id="userChatInput"
+placeholder="আপনার message লিখুন..."
+maxlength="2000"
+onkeydown="userChatKeydown(event)"></textarea>
+
+<button
+id="userChatSend"
+class="primary chat-send"
+onclick="sendUserSupportMessage()">
+Send
+</button>
+
+</div>
+
+<p id="userChatMessage"
+style="font-size:13px">
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
 <!-- TRANSACTIONS -->
 
 <section id="transactionsPage" class="page">
 
 <div class="container">
 
-<button class="secondary back"
-onclick="showDashboard()">
+<button class="secondary back" onclick="showDashboard()">
 ← Dashboard
 </button>
 
@@ -861,21 +887,17 @@ onclick="showDashboard()">
 
 <h2>📜 Transactions</h2>
 
-<div class="actions"
-style="justify-content:flex-start">
+<div class="actions" style="justify-content:flex-start">
 
-<button class="primary"
-onclick="loadTransactions('deposit')">
+<button class="primary" onclick="loadTransactions('deposit')">
 Deposit
 </button>
 
-<button class="secondary"
-onclick="loadTransactions('withdrawal')">
+<button class="secondary" onclick="loadTransactions('withdrawal')">
 Withdrawal
 </button>
 
-<button class="secondary"
-onclick="loadTransactions('daily_claim')">
+<button class="secondary" onclick="loadTransactions('daily_claim')">
 Daily Claim
 </button>
 
@@ -896,8 +918,7 @@ Daily Claim
 
 <div class="container">
 
-<button class="secondary back"
-onclick="showDashboard()">
+<button class="secondary back" onclick="showDashboard()">
 ← Dashboard
 </button>
 
@@ -906,10 +927,51 @@ onclick="showDashboard()">
 <h2>🛡️ Admin Panel</h2>
 
 <p style="color:#777">
-Deposit, Withdrawal এবং request manage করুন।
+Deposit, Withdrawal এবং Support request manage করুন।
 </p>
 
 </div>
+
+<div class="card">
+
+<h3>💬 Support Messages</h3>
+
+<div id="adminSupportUsers">
+Loading...
+</div>
+
+<div id="adminSupportChatSection" class="hidden">
+
+<div id="adminChatTitle" class="admin-chat-title">
+Select a user
+</div>
+
+<div id="adminChatBox" class="chat-box">
+</div>
+
+<div class="chat-input-row">
+
+<textarea
+id="adminChatInput"
+placeholder="Admin reply লিখুন..."
+maxlength="2000"
+onkeydown="adminChatKeydown(event)"></textarea>
+
+<button
+id="adminChatSend"
+class="primary chat-send"
+onclick="sendAdminSupportMessage()">
+Reply
+</button>
+
+</div>
+
+<p id="adminChatMessage" style="font-size:13px"></p>
+
+</div>
+
+</div>
+
 
 <div class="card">
 
@@ -942,14 +1004,11 @@ Loading...
 
 <div class="modal-box">
 
-<button class="close"
-onclick="closeModal('loginModal')">
+<button class="close" onclick="closeModal('loginModal')">
 ×
 </button>
 
-<div class="modal-title">
-Login
-</div>
+<div class="modal-title">Login</div>
 
 <label>Email</label>
 
@@ -967,8 +1026,7 @@ type="password"
 autocomplete="current-password"
 placeholder="Password">
 
-<button
-class="primary"
+<button class="primary"
 style="width:100%"
 onclick="login()">
 Login
@@ -987,37 +1045,23 @@ Login
 
 <div class="modal-box">
 
-<button class="close"
-onclick="closeModal('registerModal')">
+<button class="close" onclick="closeModal('registerModal')">
 ×
 </button>
 
-<div class="modal-title">
-Create Account
-</div>
+<div class="modal-title">Create Account</div>
 
 <label>Name</label>
 
-<input
-id="regName"
-autocomplete="name"
-placeholder="আপনার নাম">
+<input id="regName" autocomplete="name" placeholder="আপনার নাম">
 
 <label>Mobile</label>
 
-<input
-id="regPhone"
-type="tel"
-autocomplete="tel"
-placeholder="01XXXXXXXXX">
+<input id="regPhone" type="tel" autocomplete="tel" placeholder="01XXXXXXXXX">
 
 <label>Email</label>
 
-<input
-id="regEmail"
-type="email"
-autocomplete="email"
-placeholder="আপনার Email">
+<input id="regEmail" type="email" autocomplete="email" placeholder="আপনার Email">
 
 <label>Password</label>
 
@@ -1029,12 +1073,9 @@ placeholder="কমপক্ষে 6 characters">
 
 <label>Referral Code (Optional)</label>
 
-<input
-id="regReferral"
-placeholder="Referral Code">
+<input id="regReferral" placeholder="Referral Code">
 
-<button
-class="primary"
+<button class="primary"
 style="width:100%"
 onclick="register()">
 Create Account
@@ -1053,18 +1094,13 @@ Create Account
 
 <div class="modal-box">
 
-<button class="close"
-onclick="closeModal('depositModal')">
+<button class="close" onclick="closeModal('depositModal')">
 ×
 </button>
 
-<div class="modal-title">
-💰 Deposit
-</div>
+<div class="modal-title">💰 Deposit</div>
 
-<p>
-Payment Method নির্বাচন করুন:
-</p>
+<p>Payment Method নির্বাচন করুন:</p>
 
 <div class="method-box">
 
@@ -1082,29 +1118,21 @@ Nagad
 
 </div>
 
-<div id="depositPaymentBox"
-class="hidden">
+<div id="depositPaymentBox" class="hidden">
 
 <div class="payment-number">
 
-<span id="depositNumber">
-01771332609
-</span>
+<span id="depositNumber">01771332609</span>
 
-<button class="secondary"
-onclick="copyPaymentNumber()">
+<button class="secondary" onclick="copyPaymentNumber()">
 Copy
 </button>
 
 </div>
 
 <div class="notice">
-
-নির্বাচিত নম্বরে
-<b>Send Money করুন</b>।
-
+নির্বাচিত নম্বরে <b>Send Money করুন</b>।
 তারপর Transaction ID নিচে দিন।
-
 </div>
 
 <label>Amount</label>
@@ -1117,12 +1145,9 @@ placeholder="Minimum ৳500">
 
 <label>Transaction ID</label>
 
-<input
-id="depositTransactionId"
-placeholder="Transaction ID">
+<input id="depositTransactionId" placeholder="Transaction ID">
 
-<button
-class="primary"
+<button class="primary"
 style="width:100%"
 onclick="submitDeposit()">
 Submit Deposit
@@ -1143,30 +1168,19 @@ Submit Deposit
 
 <div class="modal-box">
 
-<button class="close"
-onclick="closeModal('withdrawModal')">
+<button class="close" onclick="closeModal('withdrawModal')">
 ×
 </button>
 
-<div class="modal-title">
-💸 Withdraw
-</div>
+<div class="modal-title">💸 Withdraw</div>
 
 <div class="notice">
-
-Minimum Withdrawal:
-<b>৳500</b>
-
+Minimum Withdrawal: <b>৳500</b>
 <br>
-
-Withdrawal Fee:
-<b>৳0</b>
-
+Withdrawal Fee: <b>৳0</b>
 </div>
 
-<p>
-Payment Method নির্বাচন করুন:
-</p>
+<p>Payment Method নির্বাচন করুন:</p>
 
 <div class="method-box">
 
@@ -1184,8 +1198,7 @@ Nagad
 
 </div>
 
-<div id="withdrawForm"
-class="hidden">
+<div id="withdrawForm" class="hidden">
 
 <label>Payment Number</label>
 
@@ -1229,10 +1242,7 @@ const SUPABASE_KEY =
 "sb_publishable_relELN9M0XEqVuF7UKlAsQ_1cB8lSh_";
 
 const supabaseClient =
-supabase.createClient(
-SUPABASE_URL,
-SUPABASE_KEY
-);
+supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 
 const ADMIN_EMAIL =
 "ruhiaexpress@gmail.com";
@@ -1250,6 +1260,10 @@ let countdownTimer = null;
 let vipCountdownTimer = null;
 let vipClaimTimer = null;
 
+let userSupportTimer = null;
+let adminSupportTimer = null;
+let selectedSupportUser = null;
+
 
 /* ================================
 HELPERS
@@ -1264,37 +1278,30 @@ return "৳ " + Number(value || 0).toFixed(2);
 }
 
 function escapeHtml(value){
-
 return String(value ?? "")
 .replace(/&/g,"&amp;")
 .replace(/</g,"&lt;")
 .replace(/>/g,"&gt;")
 .replace(/"/g,"&quot;")
 .replace(/'/g,"&#039;");
-
 }
 
 function formatDate(date){
-
 if(!date)return "";
-
 return new Date(date).toLocaleString("en-BD");
-
 }
 
 function statusHtml(status){
 
-const s =
-String(status || "").toLowerCase();
+const s=String(status||"").toLowerCase();
 
-if(s === "approved")
+if(s==="approved")
 return '<span class="status approved">Approved</span>';
 
-if(s === "rejected")
+if(s==="rejected")
 return '<span class="status rejected">Rejected</span>';
 
 return '<span class="status pending">Pending</span>';
-
 }
 
 
@@ -1304,27 +1311,32 @@ PAGES
 
 function hidePages(){
 
-$("homePage").classList.remove("active");
-$("dashboardPage").classList.remove("active");
-$("dailyClaimPage").classList.remove("active");
-$("vipPage").classList.remove("active");
-$("referralPage").classList.remove("active");
-$("transactionsPage").classList.remove("active");
-$("adminPage").classList.remove("active");
+[
+"homePage",
+"dashboardPage",
+"dailyClaimPage",
+"vipPage",
+"referralPage",
+"supportPage",
+"transactionsPage",
+"adminPage"
+].forEach(id=>{
+$(id).classList.remove("active");
+});
 
 if(countdownTimer){
 clearInterval(countdownTimer);
-countdownTimer = null;
+countdownTimer=null;
 }
 
 if(vipCountdownTimer){
 clearInterval(vipCountdownTimer);
-vipCountdownTimer = null;
+vipCountdownTimer=null;
 }
 
 if(vipClaimTimer){
 clearInterval(vipClaimTimer);
-vipClaimTimer = null;
+vipClaimTimer=null;
 }
 
 }
@@ -1335,30 +1347,24 @@ hidePages();
 
 $("homePage").classList.add("active");
 
-$("headerButtons").innerHTML = `
+$("headerButtons").innerHTML=`
 
-<button class="secondary"
-onclick="openLogin()">
+<button class="secondary" onclick="openLogin()">
 Login
 </button>
 
-<button class="secondary"
-onclick="openRegister()">
+<button class="secondary" onclick="openRegister()">
 Create Account
 </button>
 
 `;
-
 }
 
 function showDashboard(){
 
 if(!currentUser){
-
 showHome();
-
 return;
-
 }
 
 hidePages();
@@ -1370,14 +1376,12 @@ refreshBalance();
 }
 
 function closeModal(id){
-
 $(id).classList.add("hidden");
-
 }
 
 function openLogin(){
 
-$("loginMessage").innerHTML = "";
+$("loginMessage").innerHTML="";
 
 $("loginModal").classList.remove("hidden");
 
@@ -1389,7 +1393,9 @@ $("loginEmail").focus();
 
 function openRegister(){
 
-$("registerMessage").innerHTML = "";
+$("registerMessage").innerHTML="";
+
+getReferralFromUrl();
 
 $("registerModal").classList.remove("hidden");
 
@@ -1401,48 +1407,36 @@ $("regName").focus();
 
 
 /* ================================
-REGISTER + REFERRAL
+REGISTER
 ================================ */
 
 async function register(){
 
-const name =
-$("regName").value.trim();
+const name=$("regName").value.trim();
+const phone=$("regPhone").value.trim();
+const email=$("regEmail").value.trim();
+const password=$("regPassword").value;
+const referral=$("regReferral").value.trim();
 
-const phone =
-$("regPhone").value.trim();
+if(!name||!phone||!email||!password){
 
-const email =
-$("regEmail").value.trim();
-
-const password =
-$("regPassword").value;
-
-const referral =
-$("regReferral").value.trim();
-
-if(!name || !phone || !email || !password){
-
-$("registerMessage").innerHTML =
+$("registerMessage").innerHTML=
 '<span style="color:red">সব প্রয়োজনীয় তথ্য দিন।</span>';
 
 return;
-
 }
 
-if(password.length < 6){
+if(password.length<6){
 
-$("registerMessage").innerHTML =
+$("registerMessage").innerHTML=
 '<span style="color:red">Password কমপক্ষে 6 characters হতে হবে।</span>';
 
 return;
-
 }
 
-$("registerMessage").innerText =
-"Account তৈরি হচ্ছে...";
+$("registerMessage").innerText="Account তৈরি হচ্ছে...";
 
-const {data,error} =
+const {data,error}=
 await supabaseClient.auth.signUp({
 
 email,
@@ -1452,7 +1446,7 @@ options:{
 data:{
 name:name,
 phone:phone,
-referral_code:referral || null
+referral_code:referral||null
 }
 }
 
@@ -1460,27 +1454,21 @@ referral_code:referral || null
 
 if(error){
 
-$("registerMessage").innerHTML =
+$("registerMessage").innerHTML=
 '<span style="color:red">'+
 escapeHtml(error.message)+
 '</span>';
 
 return;
-
 }
 
-if(data && data.user){
-
-/*
-Referral Code থাকলে নতুন account-এর
-সঙ্গে referral relationship তৈরি করা হবে।
-*/
+if(data&&data.user){
 
 if(referral){
 
 if(data.session){
 
-const {error:refError} =
+const {error:refError}=
 await supabaseClient.rpc(
 "apply_referral_code",
 {
@@ -1489,21 +1477,10 @@ p_referral_code:referral
 );
 
 if(refError){
-
-console.error(
-"Referral apply error:",
-refError
-);
-
+console.warn("Referral apply:",refError.message);
 }
 
 }else{
-
-/*
-Email confirmation যদি ভবিষ্যতে ON করা হয়,
-তাহলে login করার পর referral apply করার
-জন্য code localStorage-এ রাখা হবে।
-*/
 
 localStorage.setItem(
 "pendingReferralCode",
@@ -1514,16 +1491,16 @@ referral
 
 }
 
-$("registerMessage").innerHTML =
+$("registerMessage").innerHTML=
 '<span style="color:green;font-weight:bold">'+
 "Account তৈরি হয়েছে। এখন Login করুন।"+
 '</span>';
 
-$("regPassword").value = "";
+$("regPassword").value="";
 
 }else{
 
-$("registerMessage").innerHTML =
+$("registerMessage").innerHTML=
 '<span style="color:red">Account তৈরি করা যায়নি। আবার চেষ্টা করুন।</span>';
 
 }
@@ -1537,54 +1514,44 @@ LOGIN
 
 async function login(){
 
-const email =
-$("loginEmail").value.trim();
+const email=$("loginEmail").value.trim();
+const password=$("loginPassword").value;
 
-const password =
-$("loginPassword").value;
+if(!email||!password){
 
-if(!email || !password){
-
-$("loginMessage").innerHTML =
+$("loginMessage").innerHTML=
 '<span style="color:red">Email ও Password দিন।</span>';
 
 return;
-
 }
 
-$("loginMessage").innerText =
-"Login হচ্ছে...";
+$("loginMessage").innerText="Login হচ্ছে...";
 
-const {data,error} =
+const {data,error}=
 await supabaseClient.auth.signInWithPassword({
-
-email:email,
-password:password
-
+email,
+password
 });
 
 if(error){
 
-$("loginMessage").innerHTML =
+$("loginMessage").innerHTML=
 '<span style="color:red">'+
 escapeHtml(error.message)+
 '</span>';
 
 return;
-
 }
 
-if(!data || !data.user){
+if(!data||!data.user){
 
-$("loginMessage").innerHTML =
+$("loginMessage").innerHTML=
 '<span style="color:red">Login করা যায়নি।</span>';
 
 return;
-
 }
 
-currentUser =
-data.user;
+currentUser=data.user;
 
 closeModal("loginModal");
 
@@ -1603,14 +1570,12 @@ async function applyPendingReferral(){
 
 if(!currentUser)return;
 
-const pending =
-localStorage.getItem(
-"pendingReferralCode"
-);
+const pending=
+localStorage.getItem("pendingReferralCode");
 
 if(!pending)return;
 
-const {error} =
+const {error}=
 await supabaseClient.rpc(
 "apply_referral_code",
 {
@@ -1620,9 +1585,7 @@ p_referral_code:pending
 
 if(!error){
 
-localStorage.removeItem(
-"pendingReferralCode"
-);
+localStorage.removeItem("pendingReferralCode");
 
 }
 
@@ -1635,10 +1598,21 @@ LOGOUT
 
 async function logout(){
 
+if(userSupportTimer){
+clearInterval(userSupportTimer);
+userSupportTimer=null;
+}
+
+if(adminSupportTimer){
+clearInterval(adminSupportTimer);
+adminSupportTimer=null;
+}
+
 await supabaseClient.auth.signOut();
 
-currentUser = null;
-currentProfile = null;
+currentUser=null;
+currentProfile=null;
+selectedSupportUser=null;
 
 showHome();
 
@@ -1653,7 +1627,7 @@ async function loadDashboard(){
 
 if(!currentUser)return;
 
-const {data,error} =
+const {data,error}=
 await supabaseClient
 .from("profiles")
 .select("id,balance,role,referral_code")
@@ -1664,51 +1638,44 @@ if(error){
 
 console.error(error);
 
-currentProfile = {
-
+currentProfile={
 id:currentUser.id,
 balance:0,
 role:"user",
 referral_code:null
-
 };
 
 }else{
 
-currentProfile = data;
+currentProfile=data;
 
 }
 
-$("welcomeText").innerHTML =
+$("welcomeText").innerHTML=
 "Welcome, "+
 escapeHtml(
-currentUser.user_metadata?.name || "User"
+currentUser.user_metadata?.name||"User"
 )+
 " 👋";
 
-$("userIdText").innerText =
+$("userIdText").innerText=
 "User ID: "+currentUser.id;
 
-$("balance").innerText =
+$("balance").innerText=
 money(currentProfile.balance);
 
-$("headerButtons").innerHTML = `
+$("headerButtons").innerHTML=`
 
-<button class="secondary"
-onclick="showDashboard()">
+<button class="secondary" onclick="showDashboard()">
 Dashboard
 </button>
 
 `;
 
 if(isAdmin()){
-
 $("adminMenu").classList.remove("hidden");
-
 }else{
-
 $("adminMenu").classList.add("hidden");
-
 }
 
 hidePages();
@@ -1717,16 +1684,11 @@ $("dashboardPage").classList.add("active");
 
 }
 
-
-/* ================================
-BALANCE
-================================ */
-
 async function refreshBalance(){
 
 if(!currentUser)return;
 
-const {data,error} =
+const {data,error}=
 await supabaseClient
 .from("profiles")
 .select("id,balance,role,referral_code")
@@ -1734,53 +1696,41 @@ await supabaseClient
 .single();
 
 if(error){
-
 console.error(error);
-
 return;
-
 }
 
-currentProfile = data;
+currentProfile=data;
 
-$("balance").innerText =
+$("balance").innerText=
 money(data.balance);
 
 }
-
-
-/* ================================
-ADMIN CHECK
-================================ */
 
 function isAdmin(){
 
 if(!currentUser)return false;
 
-const email =
-String(currentUser.email || "")
-.toLowerCase();
+const email=
+String(currentUser.email||"").toLowerCase();
 
 return(
-email === ADMIN_EMAIL.toLowerCase() ||
-currentProfile?.role === "admin"
+email===ADMIN_EMAIL.toLowerCase()||
+currentProfile?.role==="admin"
 );
 
 }
 
 
 /* ================================
-REFERRAL PAGE
+REFERRAL
 ================================ */
 
 async function openReferral(){
 
 if(!currentUser){
-
 showHome();
-
 return;
-
 }
 
 hidePages();
@@ -1791,20 +1741,16 @@ await loadReferral();
 
 }
 
-
 async function loadReferral(){
 
 if(!currentUser)return;
 
-$("myReferralCode").innerText =
-"Loading...";
-
-$("myReferralLink").innerText =
-"Loading...";
+$("myReferralCode").innerText="Loading...";
+$("myReferralLink").innerText="Loading...";
 
 try{
 
-const {data:profile,error:profileError} =
+const {data:profile,error:profileError}=
 await supabaseClient
 .from("profiles")
 .select("referral_code")
@@ -1815,46 +1761,36 @@ if(profileError){
 
 console.error(profileError);
 
-$("myReferralCode").innerText =
-"Not available";
-
-$("myReferralLink").innerText =
-"Referral Code পাওয়া যায়নি";
+$("myReferralCode").innerText="Not available";
+$("myReferralLink").innerText="Referral Code পাওয়া যায়নি";
 
 return;
-
 }
 
-const code =
-profile?.referral_code || "";
+const code=profile?.referral_code||"";
 
-$("myReferralCode").innerText =
-code || "Not available";
-
+$("myReferralCode").innerText=
+code||"Not available";
 
 if(code){
 
-const baseUrl =
-window.location.origin +
+const baseUrl=
+window.location.origin+
 window.location.pathname;
 
-const link =
-baseUrl +
-"?ref=" +
+$("myReferralLink").innerText=
+baseUrl+
+"?ref="+
 encodeURIComponent(code);
-
-$("myReferralLink").innerText =
-link;
 
 }else{
 
-$("myReferralLink").innerText =
+$("myReferralLink").innerText=
 "Referral Code পাওয়া যায়নি";
 
 }
 
-
-const {data,error} =
+const {data,error}=
 await supabaseClient.rpc(
 "get_my_referral_summary"
 );
@@ -1863,26 +1799,25 @@ if(error){
 
 console.error(error);
 
-$("refTotal").innerText = "0";
-$("refPending").innerText = "0";
-$("refPaid").innerText = "0";
-$("refReward").innerText = "৳0";
+$("refTotal").innerText="0";
+$("refPending").innerText="0";
+$("refPaid").innerText="0";
+$("refReward").innerText="৳0";
 
 return;
-
 }
 
-$("refTotal").innerText =
-Number(data?.total_referrals || 0);
+$("refTotal").innerText=
+Number(data?.total_referrals||0);
 
-$("refPending").innerText =
-Number(data?.pending_referrals || 0);
+$("refPending").innerText=
+Number(data?.pending_referrals||0);
 
-$("refPaid").innerText =
-Number(data?.paid_referrals || 0);
+$("refPaid").innerText=
+Number(data?.paid_referrals||0);
 
-$("refReward").innerText =
-money(data?.total_reward || 0);
+$("refReward").innerText=
+money(data?.total_reward||0);
 
 }catch(error){
 
@@ -1892,16 +1827,16 @@ console.error(error);
 
 }
 
-
 async function copyReferralCode(){
 
-const code =
+const code=
 $("myReferralCode").innerText.trim();
 
-if(!code || code === "Loading..." || code === "Not available"){
+if(!code||
+code==="Loading..."||
+code==="Not available"){
 
 alert("Referral Code পাওয়া যায়নি।");
-
 return;
 
 }
@@ -1920,16 +1855,16 @@ alert(code);
 
 }
 
-
 async function copyReferralLink(){
 
-const link =
+const link=
 $("myReferralLink").innerText.trim();
 
-if(!link || link === "Loading..." || link === "Referral Code পাওয়া যায়নি"){
+if(!link||
+link==="Loading..."||
+link==="Referral Code পাওয়া যায়নি"){
 
-alert("Referral Link পাওয়া যায়নি।");
-
+alert("Referral Link পাওয়া যায়নি.");
 return;
 
 }
@@ -1948,28 +1883,17 @@ alert(link);
 
 }
 
-
-/* ================================
-READ REFERRAL FROM URL
-================================ */
-
 function getReferralFromUrl(){
 
 try{
 
-const params =
-new URLSearchParams(
-window.location.search
-);
+const params=
+new URLSearchParams(window.location.search);
 
-const code =
-params.get("ref");
+const code=params.get("ref");
 
 if(code){
-
-$("regReferral").value =
-code.toUpperCase();
-
+$("regReferral").value=code.toUpperCase();
 }
 
 }catch(error){
@@ -1982,14 +1906,499 @@ console.error(error);
 
 
 /* ================================
-GET ACTIVE VIP
+SUPPORT — USER
+================================ */
+
+function openSupport(){
+
+if(!currentUser){
+
+openLogin();
+return;
+
+}
+
+hidePages();
+
+$("supportPage").classList.add("active");
+
+$("userChatMessage").innerText="";
+
+loadUserSupportMessages();
+
+if(userSupportTimer){
+clearInterval(userSupportTimer);
+}
+
+userSupportTimer=
+setInterval(
+loadUserSupportMessages,
+5000
+);
+
+}
+
+async function loadUserSupportMessages(){
+
+if(!currentUser)return;
+
+const box=$("userChatBox");
+
+const {data,error}=
+await supabaseClient
+.from("support_messages")
+.select("id,user_id,sender_id,message,sender_role,is_read,created_at")
+.eq("user_id",currentUser.id)
+.order("created_at",{ascending:true});
+
+if(error){
+
+console.error(error);
+
+box.innerHTML=
+'<div style="color:red;padding:20px">'+
+escapeHtml(error.message)+
+'</div>';
+
+return;
+
+}
+
+const rows=data||[];
+
+if(rows.length===0){
+
+box.innerHTML=`
+<div style="text-align:center;color:#888;padding:50px 20px">
+💬<br><br>
+এখনো কোনো message নেই।<br>
+নিচে আপনার message লিখে পাঠান।
+</div>
+`;
+
+return;
+
+}
+
+box.innerHTML=
+rows.map(row=>{
+
+const isUser=
+String(row.sender_id)===
+String(currentUser.id);
+
+return `
+
+<div class="chat-row ${isUser?"user":"admin"}">
+
+<div class="chat-message">
+
+<div>
+${escapeHtml(row.message).replace(/\n/g,"<br>")}
+</div>
+
+<div class="chat-time">
+${isUser?"You":"Support"} •
+${formatDate(row.created_at)}
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}).join("");
+
+box.scrollTop=box.scrollHeight;
+
+}
+
+async function sendUserSupportMessage(){
+
+if(!currentUser)return;
+
+const input=$("userChatInput");
+const button=$("userChatSend");
+
+const message=input.value.trim();
+
+if(!message)return;
+
+button.disabled=true;
+
+$("userChatMessage").innerText=
+"Message পাঠানো হচ্ছে...";
+
+const {error}=
+await supabaseClient
+.from("support_messages")
+.insert({
+
+user_id:currentUser.id,
+sender_id:currentUser.id,
+message:message,
+sender_role:"user",
+is_read:false
+
+});
+
+if(error){
+
+$("userChatMessage").innerHTML=
+'<span style="color:red">'+
+escapeHtml(error.message)+
+'</span>';
+
+button.disabled=false;
+return;
+
+}
+
+input.value="";
+
+$("userChatMessage").innerHTML=
+'<span style="color:green">Message পাঠানো হয়েছে।</span>';
+
+button.disabled=false;
+
+await loadUserSupportMessages();
+
+setTimeout(()=>{
+$("userChatMessage").innerText="";
+},2000);
+
+}
+
+function userChatKeydown(event){
+
+if(event.key==="Enter"&&!event.shiftKey){
+
+event.preventDefault();
+
+sendUserSupportMessage();
+
+}
+
+}
+
+
+/* ================================
+SUPPORT — ADMIN USER LIST
+================================ */
+
+async function loadAdminSupportUsers(){
+
+if(!isAdmin())return;
+
+const box=$("adminSupportUsers");
+
+box.innerHTML="Loading...";
+
+const {data,error}=
+await supabaseClient
+.from("support_messages")
+.select("id,user_id,sender_id,message,sender_role,is_read,created_at")
+.order("created_at",{ascending:false});
+
+if(error){
+
+box.innerHTML=
+'<div style="color:red">'+
+escapeHtml(error.message)+
+'</div>';
+
+return;
+
+}
+
+const rows=data||[];
+
+if(rows.length===0){
+
+box.innerHTML=
+'<div style="color:#888">কোনো Support message নেই।</div>';
+
+return;
+
+}
+
+/*
+প্রতি user-এর সর্বশেষ message আলাদা করে রাখা।
+*/
+
+const users=new Map();
+
+rows.forEach(row=>{
+
+if(!users.has(row.user_id)){
+users.set(row.user_id,row);
+}
+
+});
+
+const list=Array.from(users.values());
+
+box.innerHTML=
+'<div class="support-user-list">'+
+
+list.map(row=>{
+
+const selected=
+String(selectedSupportUser)===
+String(row.user_id);
+
+const unread=
+!row.is_read &&
+String(row.sender_role).toLowerCase()==="user";
+
+return `
+
+<div
+class="support-user ${selected?"selected":""}"
+onclick="selectAdminSupportUser('${row.user_id}')">
+
+<div class="support-user-name">
+
+👤 User
+
+${unread
+?'<span class="status pending" style="margin-left:5px">New</span>'
+:""}
+
+</div>
+
+<div style="font-size:11px;color:#777">
+${escapeHtml(row.user_id)}
+</div>
+
+<div class="support-user-time">
+${escapeHtml(row.message).slice(0,80)}
+${String(row.message).length>80?"...":""}
+<br>
+${formatDate(row.created_at)}
+</div>
+
+</div>
+
+`;
+
+}).join("")+
+
+'</div>';
+
+}
+
+
+/* ================================
+ADMIN SELECT USER
+================================ */
+
+async function selectAdminSupportUser(userId){
+
+if(!isAdmin())return;
+
+selectedSupportUser=userId;
+
+$("adminSupportChatSection").classList.remove("hidden");
+
+$("adminChatTitle").innerHTML=
+"💬 User Support<br>"+
+'<span style="font-size:11px;color:#666">'+
+escapeHtml(userId)+
+'</span>';
+
+await loadAdminSupportMessages();
+
+await markAdminMessagesRead();
+
+await loadAdminSupportUsers();
+
+if(adminSupportTimer){
+clearInterval(adminSupportTimer);
+}
+
+adminSupportTimer=
+setInterval(
+loadAdminSupportMessages,
+5000
+);
+
+}
+
+
+/* ================================
+ADMIN CHAT
+================================ */
+
+async function loadAdminSupportMessages(){
+
+if(!isAdmin()||!selectedSupportUser)return;
+
+const box=$("adminChatBox");
+
+const {data,error}=
+await supabaseClient
+.from("support_messages")
+.select("id,user_id,sender_id,message,sender_role,is_read,created_at")
+.eq("user_id",selectedSupportUser)
+.order("created_at",{ascending:true});
+
+if(error){
+
+box.innerHTML=
+'<div style="color:red;padding:20px">'+
+escapeHtml(error.message)+
+'</div>';
+
+return;
+
+}
+
+const rows=data||[];
+
+if(rows.length===0){
+
+box.innerHTML=
+'<div style="text-align:center;color:#888;padding:40px">'+
+"No messages"+
+'</div>';
+
+return;
+
+}
+
+box.innerHTML=
+rows.map(row=>{
+
+const isAdminMessage=
+String(row.sender_role).toLowerCase()==="admin"||
+String(row.sender_id)===String(currentUser.id);
+
+return `
+
+<div class="chat-row ${isAdminMessage?"admin":"user"}">
+
+<div class="chat-message">
+
+<div>
+${escapeHtml(row.message).replace(/\n/g,"<br>")}
+</div>
+
+<div class="chat-time">
+${isAdminMessage?"Admin":"User"} •
+${formatDate(row.created_at)}
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}).join("");
+
+box.scrollTop=box.scrollHeight;
+
+}
+
+async function markAdminMessagesRead(){
+
+if(!isAdmin()||!selectedSupportUser)return;
+
+const {error}=
+await supabaseClient
+.from("support_messages")
+.update({is_read:true})
+.eq("user_id",selectedSupportUser)
+.eq("is_read",false);
+
+if(error){
+console.error("Read update:",error);
+}
+
+}
+
+async function sendAdminSupportMessage(){
+
+if(!isAdmin()||!selectedSupportUser)return;
+
+const input=$("adminChatInput");
+const button=$("adminChatSend");
+
+const message=input.value.trim();
+
+if(!message)return;
+
+button.disabled=true;
+
+$("adminChatMessage").innerText=
+"Reply পাঠানো হচ্ছে...";
+
+const {error}=
+await supabaseClient
+.from("support_messages")
+.insert({
+
+user_id:selectedSupportUser,
+sender_id:currentUser.id,
+message:message,
+sender_role:"admin",
+is_read:false
+
+});
+
+if(error){
+
+$("adminChatMessage").innerHTML=
+'<span style="color:red">'+
+escapeHtml(error.message)+
+'</span>';
+
+button.disabled=false;
+return;
+
+}
+
+input.value="";
+
+button.disabled=false;
+
+$("adminChatMessage").innerHTML=
+'<span style="color:green">Reply পাঠানো হয়েছে।</span>';
+
+await loadAdminSupportMessages();
+
+await loadAdminSupportUsers();
+
+setTimeout(()=>{
+$("adminChatMessage").innerText="";
+},2000);
+
+}
+
+function adminChatKeydown(event){
+
+if(event.key==="Enter"&&!event.shiftKey){
+
+event.preventDefault();
+
+sendAdminSupportMessage();
+
+}
+
+}
+
+
+/* ================================
+VIP
 ================================ */
 
 async function getActiveVIP(){
 
 if(!currentUser)return null;
 
-const {data,error} =
+const {data,error}=
 await supabaseClient
 .from("vip_activations")
 .select(`
@@ -2016,9 +2425,7 @@ return null;
 
 }
 
-return data && data.length
-?data[0]
-:null;
+return data&&data.length?data[0]:null;
 
 }
 
@@ -2033,16 +2440,15 @@ hidePages();
 
 $("dailyClaimPage").classList.add("active");
 
-$("claimMessage").innerHTML = "";
+$("claimMessage").innerHTML="";
 
 await checkDailyClaim();
 
 }
 
-
 async function getLastClaim(){
 
-const {data,error} =
+const {data,error}=
 await supabaseClient
 .from("daily_claims")
 .select("claimed_at,amount,claim_type")
@@ -2053,33 +2459,27 @@ await supabaseClient
 if(error){
 
 console.error(error);
-
 return null;
 
 }
 
-return data && data.length
-?data[0]
-:null;
+return data&&data.length?data[0]:null;
 
 }
-
 
 async function checkDailyClaim(){
 
 if(!currentUser)return;
 
-const vip =
-await getActiveVIP();
+const vip=await getActiveVIP();
 
-let claimAmount = 20;
+let claimAmount=20;
 
 if(vip){
 
-claimAmount =
-Number(vip.daily_amount || 20);
+claimAmount=Number(vip.daily_amount||20);
 
-$("claimPlanInfo").innerHTML = `
+$("claimPlanInfo").innerHTML=`
 
 <div class="success-box">
 
@@ -2091,12 +2491,11 @@ VIP Daily Claim:
 <b>${money(claimAmount)}</b>
 
 </div>
-
 `;
 
 }else{
 
-$("claimPlanInfo").innerHTML = `
+$("claimPlanInfo").innerHTML=`
 
 <div class="notice">
 
@@ -2108,148 +2507,117 @@ Base Daily Claim:
 <b>৳20</b>
 
 </div>
-
 `;
 
 }
 
-$("claimAmount").innerText =
-money(claimAmount);
+$("claimAmount").innerText=money(claimAmount);
 
-$("claimButton").innerText =
+$("claimButton").innerText=
 "Claim "+money(claimAmount);
 
-const lastClaim =
-await getLastClaim();
+const lastClaim=await getLastClaim();
 
-const button =
-$("claimButton");
-
-const status =
-$("claimStatus");
-
-const countdown =
-$("claimCountdown");
+const button=$("claimButton");
+const status=$("claimStatus");
+const countdown=$("claimCountdown");
 
 if(countdownTimer){
-
 clearInterval(countdownTimer);
-
-countdownTimer = null;
-
+countdownTimer=null;
 }
 
 if(!lastClaim){
 
-status.innerHTML =
+status.innerHTML=
 '<span style="color:#16834b;font-weight:bold">🎉 Daily Claim এখন Available</span>';
 
-countdown.innerText = "";
-
-button.disabled = false;
+countdown.innerText="";
+button.disabled=false;
 
 return;
 
 }
 
-const lastTime =
+const lastTime=
 new Date(lastClaim.claimed_at).getTime();
 
-const nextTime =
-lastTime + (24*60*60*1000);
+const nextTime=
+lastTime+(24*60*60*1000);
 
 function updateCountdown(){
 
-const remaining =
-nextTime - Date.now();
+const remaining=nextTime-Date.now();
 
-if(remaining <= 0){
+if(remaining<=0){
 
-if(countdownTimer){
+if(countdownTimer)clearInterval(countdownTimer);
 
-clearInterval(countdownTimer);
-
-}
-
-status.innerHTML =
+status.innerHTML=
 '<span style="color:#16834b;font-weight:bold">🎉 Daily Claim এখন Available</span>';
 
-countdown.innerText = "";
-
-button.disabled = false;
+countdown.innerText="";
+button.disabled=false;
 
 return;
 
 }
 
-const hours =
+const hours=
+Math.floor(remaining/(1000*60*60));
+
+const minutes=
 Math.floor(
-remaining/(1000*60*60)
+(remaining%(1000*60*60))/(1000*60)
 );
 
-const minutes =
-Math.floor(
-(remaining%(1000*60*60))/
-(1000*60)
-);
-
-const seconds =
+const seconds=
 Math.floor(
 (remaining%(1000*60))/1000
 );
 
-status.innerHTML =
+status.innerHTML=
 "পরবর্তী Claim-এর জন্য অপেক্ষা করুন";
 
-countdown.innerText =
+countdown.innerText=
 "⏳ "+hours+
-" ঘণ্টা "+
-minutes+
-" মিনিট "+
-seconds+
+" ঘণ্টা "+minutes+
+" মিনিট "+seconds+
 " সেকেন্ড";
 
-button.disabled = true;
+button.disabled=true;
 
 }
 
 updateCountdown();
 
-countdownTimer =
+countdownTimer=
 setInterval(updateCountdown,1000);
 
 }
-
-
-/* ================================
-CLAIM DAILY
-================================ */
 
 async function claimDaily(){
 
 if(!currentUser)return;
 
-const button =
-$("claimButton");
+const button=$("claimButton");
 
-button.disabled = true;
+button.disabled=true;
 
-$("claimMessage").innerText =
+$("claimMessage").innerText=
 "Daily Claim হচ্ছে...";
 
-const {data,error} =
-await supabaseClient.rpc(
-"claim_daily"
-);
+const {data,error}=
+await supabaseClient.rpc("claim_daily");
 
 if(error){
 
-$("claimMessage").innerHTML =
+$("claimMessage").innerHTML=
 '<span style="color:red">'+
 escapeHtml(error.message)+
 '</span>';
 
-button.disabled = false;
+button.disabled=false;
 
 await checkDailyClaim();
 
@@ -2257,15 +2625,15 @@ return;
 
 }
 
-const amount =
+const amount=
 Number(
-data?.amount ||
-data?.reward ||
-data?.claim_amount ||
+data?.amount||
+data?.reward||
+data?.claim_amount||
 20
 );
 
-$("claimMessage").innerHTML =
+$("claimMessage").innerHTML=
 '<span style="color:green;font-weight:bold">'+
 "🎉 Daily Claim সফল! "+
 money(amount)+
@@ -2273,24 +2641,20 @@ money(amount)+
 '</span>';
 
 await refreshBalance();
-
 await checkDailyClaim();
 
 }
 
 
 /* ================================
-VIP PLANS
+VIP PAGE
 ================================ */
 
 async function openVIPPlans(){
 
 if(!currentUser){
-
 showHome();
-
 return;
-
 }
 
 hidePages();
@@ -2301,62 +2665,43 @@ await loadVIP();
 
 }
 
-
 async function loadVIP(){
 
-const box =
-$("vipContent");
+const box=$("vipContent");
 
-box.innerHTML = "Loading...";
+box.innerHTML="Loading...";
 
 if(vipCountdownTimer){
-
 clearInterval(vipCountdownTimer);
-
-vipCountdownTimer = null;
-
+vipCountdownTimer=null;
 }
 
 if(vipClaimTimer){
-
 clearInterval(vipClaimTimer);
-
-vipClaimTimer = null;
-
+vipClaimTimer=null;
 }
 
-const vip =
-await getActiveVIP();
+const vip=await getActiveVIP();
 
 if(!vip){
 
-box.innerHTML = `
+box.innerHTML=`
 
-<div class="card"
-style="text-align:center">
+<div class="card" style="text-align:center">
 
-<div style="font-size:48px">
-⭐
-</div>
+<div style="font-size:48px">⭐</div>
 
-<h2>
-কোনো Active VIP নেই
-</h2>
+<h2>কোনো Active VIP নেই</h2>
 
 <p style="color:#777;line-height:1.7">
-
-Approved Deposit হলে
-VIP automatically active হবে।
-
+Approved Deposit হলে VIP automatically active হবে।
 </p>
 
 </div>
 
 <div class="card">
 
-<h3>
-⭐ VIP Plans
-</h3>
+<h3>⭐ VIP Plans</h3>
 
 <div class="vip-grid">
 
@@ -2398,15 +2743,13 @@ Duration: 30 দিন
 </div>
 
 </div>
-
 `;
 
 return;
 
 }
 
-
-const {data:lastClaims,error:claimError} =
+const {data:lastClaims,error:claimError}=
 await supabaseClient
 .from("daily_claims")
 .select("claimed_at,amount")
@@ -2417,7 +2760,7 @@ await supabaseClient
 
 if(claimError){
 
-box.innerHTML =
+box.innerHTML=
 '<div class="card" style="color:red">'+
 escapeHtml(claimError.message)+
 '</div>';
@@ -2426,13 +2769,10 @@ return;
 
 }
 
-const lastClaim =
-lastClaims && lastClaims.length
-?lastClaims[0]
-:null;
+const lastClaim=
+lastClaims&&lastClaims.length?lastClaims[0]:null;
 
-
-box.innerHTML = `
+box.innerHTML=`
 
 <div class="card vip-active">
 
@@ -2442,9 +2782,7 @@ box.innerHTML = `
 ⭐ VIP ${escapeHtml(vip.vip_number)}
 </div>
 
-<div style="color:#666">
-Active VIP
-</div>
+<div style="color:#666">Active VIP</div>
 
 <div class="vip-daily">
 ${money(vip.daily_amount)}
@@ -2462,73 +2800,49 @@ Daily Claim
 
 <div class="vip-plan">
 <b>Deposit Plan</b>
-
 <div style="font-size:20px;margin-top:6px">
 ${money(vip.deposit_amount)}
 </div>
-
 </div>
 
 <div class="vip-plan">
-
 <b>Daily Claim</b>
-
 <div style="font-size:20px;margin-top:6px;color:#16834b">
 ${money(vip.daily_amount)}
 </div>
-
 </div>
 
 <div class="vip-plan">
-
 <b>Duration</b>
-
 <div style="margin-top:6px">
 ${vip.duration_days} দিন
 </div>
-
 </div>
 
 <div class="vip-plan">
-
 <b>Status</b>
-
 <div style="margin-top:6px;color:#16834b;font-weight:bold">
 Active
 </div>
-
 </div>
 
 </div>
 
-<div class="tx-item"
-style="margin-top:12px">
-
-<b>
-VIP Started
-</b>
-
+<div class="tx-item" style="margin-top:12px">
+<b>VIP Started</b>
 <div style="margin-top:5px">
 ${formatDate(vip.started_at)}
 </div>
-
 </div>
 
 <div class="tx-item">
-
-<b>
-VIP Expires
-</b>
-
+<b>VIP Expires</b>
 <div style="margin-top:5px">
 ${formatDate(vip.expires_at)}
 </div>
-
 </div>
 
-<div id="vipTimeRemaining"
-class="countdown">
-</div>
+<div id="vipTimeRemaining" class="countdown"></div>
 
 <div id="vipClaimStatus"
 style="text-align:center;margin:10px 0">
@@ -2544,12 +2858,9 @@ Claim ${money(vip.daily_amount)}
 
 </button>
 
-<p id="vipClaimMessage"
-style="text-align:center">
-</p>
+<p id="vipClaimMessage" style="text-align:center"></p>
 
 </div>
-
 
 <div class="card">
 
@@ -2567,163 +2878,136 @@ style="text-align:center">
 </p>
 
 </div>
-
 `;
-
 
 function updateVIPExpiry(){
 
-const remaining =
-new Date(vip.expires_at).getTime() -
-Date.now();
+const remaining=
+new Date(vip.expires_at).getTime()-Date.now();
 
-if(remaining <= 0){
+if(remaining<=0){
 
-$("vipTimeRemaining").innerText =
+$("vipTimeRemaining").innerText=
 "VIP-এর মেয়াদ শেষ হয়েছে";
 
 return;
 
 }
 
-const days =
+const days=
 Math.floor(
 remaining/(1000*60*60*24)
 );
 
-const hours =
+const hours=
 Math.floor(
 (remaining%(1000*60*60*24))/
 (1000*60*60)
 );
 
-$("vipTimeRemaining").innerText =
+$("vipTimeRemaining").innerText=
 "⭐ VIP বাকি: "+
-days+
-" দিন "+
-hours+
-" ঘণ্টা";
+days+" দিন "+hours+" ঘণ্টা";
 
 }
 
 updateVIPExpiry();
 
-vipCountdownTimer =
+vipCountdownTimer=
 setInterval(updateVIPExpiry,1000);
 
-
-const button =
-$("vipClaimButton");
-
-const status =
-$("vipClaimStatus");
+const button=$("vipClaimButton");
+const status=$("vipClaimStatus");
 
 if(!lastClaim){
 
-status.innerHTML =
+status.innerHTML=
 '<span style="color:#16834b;font-weight:bold">🎉 VIP Daily Claim Available</span>';
 
-button.disabled = false;
+button.disabled=false;
 
 }else{
 
-const lastTime =
+const lastTime=
 new Date(lastClaim.claimed_at).getTime();
 
-const nextTime =
+const nextTime=
 lastTime+(24*60*60*1000);
 
 function updateVIPClaim(){
 
-const remaining =
-nextTime-Date.now();
+const remaining=nextTime-Date.now();
 
-if(remaining <= 0){
+if(remaining<=0){
 
-status.innerHTML =
+status.innerHTML=
 '<span style="color:#16834b;font-weight:bold">🎉 VIP Daily Claim Available</span>';
 
-button.disabled = false;
+button.disabled=false;
 
 return;
 
 }
 
-const hours =
+const hours=
 Math.floor(
 remaining/(1000*60*60)
 );
 
-const minutes =
+const minutes=
 Math.floor(
-(remaining%(1000*60*60))/
-(1000*60)
+(remaining%(1000*60*60))/(1000*60)
 );
 
-const seconds =
+const seconds=
 Math.floor(
-(remaining%(1000*60))/
-1000
+(remaining%(1000*60))/1000
 );
 
-status.innerText =
+status.innerText=
 "পরবর্তী VIP Claim-এর জন্য অপেক্ষা করুন";
 
-$("vipClaimMessage").innerText =
-"⏳ "+
-hours+
-" ঘণ্টা "+
-minutes+
-" মিনিট "+
-seconds+
+$("vipClaimMessage").innerText=
+"⏳ "+hours+
+" ঘণ্টা "+minutes+
+" মিনিট "+seconds+
 " সেকেন্ড";
 
-button.disabled = true;
+button.disabled=true;
 
 }
 
 updateVIPClaim();
 
-vipClaimTimer =
+vipClaimTimer=
 setInterval(updateVIPClaim,1000);
 
 }
 
 }
 
-
-/* ================================
-VIP DAILY CLAIM
-================================ */
-
 async function claimVIPDaily(){
 
 if(!currentUser)return;
 
-const button =
-$("vipClaimButton");
+const button=$("vipClaimButton");
+const message=$("vipClaimMessage");
 
-const message =
-$("vipClaimMessage");
+button.disabled=true;
 
-button.disabled = true;
+message.innerText="VIP Daily Claim হচ্ছে...";
 
-message.innerText =
-"VIP Daily Claim হচ্ছে...";
-
-const {data,error} =
-await supabaseClient.rpc(
-"claim_vip_daily"
-);
+const {data,error}=
+await supabaseClient.rpc("claim_vip_daily");
 
 if(error){
 
-message.innerHTML =
+message.innerHTML=
 '<span style="color:red">'+
 escapeHtml(error.message)+
 '</span>';
 
-button.disabled = false;
+button.disabled=false;
 
 await loadVIP();
 
@@ -2731,15 +3015,15 @@ return;
 
 }
 
-const amount =
+const amount=
 Number(
-data?.amount ||
-data?.reward ||
-data?.claim_amount ||
+data?.amount||
+data?.reward||
+data?.claim_amount||
 0
 );
 
-message.innerHTML =
+message.innerHTML=
 '<span style="color:green;font-weight:bold">'+
 "🎉 VIP Daily Claim সফল! "+
 money(amount)+
@@ -2747,7 +3031,6 @@ money(amount)+
 '</span>';
 
 await refreshBalance();
-
 await loadVIP();
 
 }
@@ -2763,34 +3046,29 @@ $("depositModal").classList.remove("hidden");
 
 $("depositPaymentBox").classList.add("hidden");
 
-depositMethod = null;
+depositMethod=null;
 
 $("bkashMethod").classList.remove("selected");
 $("nagadMethod").classList.remove("selected");
 
-$("depositMessage").innerHTML = "";
+$("depositMessage").innerHTML="";
 
 }
 
 function selectDepositMethod(method){
 
-depositMethod = method;
+depositMethod=method;
 
 $("bkashMethod").classList.remove("selected");
 $("nagadMethod").classList.remove("selected");
 
-if(method === "bkash"){
-
+if(method==="bkash"){
 $("bkashMethod").classList.add("selected");
-
 }else{
-
 $("nagadMethod").classList.add("selected");
-
 }
 
-$("depositNumber").innerText =
-PAYMENT_NUMBER;
+$("depositNumber").innerText=PAYMENT_NUMBER;
 
 $("depositPaymentBox").classList.remove("hidden");
 
@@ -2800,9 +3078,7 @@ async function copyPaymentNumber(){
 
 try{
 
-await navigator.clipboard.writeText(
-PAYMENT_NUMBER
-);
+await navigator.clipboard.writeText(PAYMENT_NUMBER);
 
 alert("Payment number copied");
 
@@ -2818,7 +3094,7 @@ async function submitDeposit(){
 
 if(!currentUser){
 
-$("depositMessage").innerHTML =
+$("depositMessage").innerHTML=
 '<span style="color:red">আগে Login করুন।</span>';
 
 return;
@@ -2827,22 +3103,20 @@ return;
 
 if(!depositMethod){
 
-$("depositMessage").innerHTML =
+$("depositMessage").innerHTML=
 '<span style="color:red">Payment method নির্বাচন করুন।</span>';
 
 return;
 
 }
 
-const amount =
-Number($("depositAmount").value);
-
-const transactionId =
+const amount=Number($("depositAmount").value);
+const transactionId=
 $("depositTransactionId").value.trim();
 
-if(amount < 500){
+if(amount<500){
 
-$("depositMessage").innerHTML =
+$("depositMessage").innerHTML=
 '<span style="color:red">Minimum Deposit ৳500</span>';
 
 return;
@@ -2851,17 +3125,17 @@ return;
 
 if(!transactionId){
 
-$("depositMessage").innerHTML =
+$("depositMessage").innerHTML=
 '<span style="color:red">Transaction ID দিন।</span>';
 
 return;
 
 }
 
-$("depositMessage").innerText =
+$("depositMessage").innerText=
 "Deposit submit হচ্ছে...";
 
-const {error} =
+const {error}=
 await supabaseClient.rpc(
 "submit_deposit",
 {
@@ -2874,7 +3148,7 @@ p_transaction_id:transactionId
 
 if(error){
 
-$("depositMessage").innerHTML =
+$("depositMessage").innerHTML=
 '<span style="color:red">'+
 escapeHtml(error.message)+
 '</span>';
@@ -2883,16 +3157,15 @@ return;
 
 }
 
-$("depositMessage").innerHTML =
+$("depositMessage").innerHTML=
 '<span style="color:green">Deposit submitted। Admin approval-এর অপেক্ষায় আছে।</span>';
 
-$("depositAmount").value = "";
-$("depositTransactionId").value = "";
+$("depositAmount").value="";
+$("depositTransactionId").value="";
 
 setTimeout(()=>{
 
 closeModal("depositModal");
-
 refreshBalance();
 
 },1500);
@@ -2901,39 +3174,35 @@ refreshBalance();
 
 
 /* ================================
-WITHDRAWAL
+WITHDRAW
 ================================ */
 
 function openWithdrawal(){
 
 $("withdrawModal").classList.remove("hidden");
 
-withdrawMethod = null;
+withdrawMethod=null;
 
 $("withdrawBkash").classList.remove("selected");
 $("withdrawNagad").classList.remove("selected");
 
 $("withdrawForm").classList.add("hidden");
 
-$("withdrawMessage").innerHTML = "";
+$("withdrawMessage").innerHTML="";
 
 }
 
 function selectWithdrawMethod(method){
 
-withdrawMethod = method;
+withdrawMethod=method;
 
 $("withdrawBkash").classList.remove("selected");
 $("withdrawNagad").classList.remove("selected");
 
-if(method === "bkash"){
-
+if(method==="bkash"){
 $("withdrawBkash").classList.add("selected");
-
 }else{
-
 $("withdrawNagad").classList.add("selected");
-
 }
 
 $("withdrawForm").classList.remove("hidden");
@@ -2944,7 +3213,7 @@ async function submitWithdrawal(){
 
 if(!currentUser){
 
-$("withdrawMessage").innerHTML =
+$("withdrawMessage").innerHTML=
 '<span style="color:red">আগে Login করুন।</span>';
 
 return;
@@ -2953,41 +3222,38 @@ return;
 
 if(!withdrawMethod){
 
-$("withdrawMessage").innerHTML =
+$("withdrawMessage").innerHTML=
 '<span style="color:red">Payment method নির্বাচন করুন।</span>';
 
 return;
 
 }
 
-const number =
-$("withdrawNumber").value.trim();
-
-const amount =
-Number($("withdrawAmount").value);
+const number=$("withdrawNumber").value.trim();
+const amount=Number($("withdrawAmount").value);
 
 if(!number){
 
-$("withdrawMessage").innerHTML =
+$("withdrawMessage").innerHTML=
 '<span style="color:red">Payment number দিন।</span>';
 
 return;
 
 }
 
-if(amount < 500){
+if(amount<500){
 
-$("withdrawMessage").innerHTML =
+$("withdrawMessage").innerHTML=
 '<span style="color:red">Minimum Withdrawal ৳500</span>';
 
 return;
 
 }
 
-$("withdrawMessage").innerText =
+$("withdrawMessage").innerText=
 "Withdrawal submit হচ্ছে...";
 
-const {error} =
+const {error}=
 await supabaseClient.rpc(
 "submit_withdrawal",
 {
@@ -2999,7 +3265,7 @@ p_amount:amount
 
 if(error){
 
-$("withdrawMessage").innerHTML =
+$("withdrawMessage").innerHTML=
 '<span style="color:red">'+
 escapeHtml(error.message)+
 '</span>';
@@ -3008,15 +3274,13 @@ return;
 
 }
 
-$("withdrawMessage").innerHTML =
+$("withdrawMessage").innerHTML=
 '<span style="color:green">Withdrawal submitted। Admin approval-এর অপেক্ষায় আছে।</span>';
 
 await refreshBalance();
 
 setTimeout(()=>{
-
 closeModal("withdrawModal");
-
 },1500);
 
 }
@@ -3040,26 +3304,24 @@ async function loadTransactions(type){
 
 if(!currentUser)return;
 
-const list =
-$("transactionsList");
+const list=$("transactionsList");
 
-list.innerHTML =
-"Loading...";
+list.innerHTML="Loading...";
 
 let result;
 
-if(type === "deposit"){
+if(type==="deposit"){
 
-result =
+result=
 await supabaseClient
 .from("deposits")
 .select("amount,payment_method,payment_number,transaction_id,status,created_at")
 .eq("user_id",currentUser.id)
 .order("created_at",{ascending:false});
 
-}else if(type === "withdrawal"){
+}else if(type==="withdrawal"){
 
-result =
+result=
 await supabaseClient
 .from("withdrawals")
 .select("amount,payment_method,payment_number,status,created_at")
@@ -3068,7 +3330,7 @@ await supabaseClient
 
 }else{
 
-result =
+result=
 await supabaseClient
 .from("daily_claims")
 .select("amount,claim_type,claimed_at")
@@ -3079,7 +3341,7 @@ await supabaseClient
 
 if(result.error){
 
-list.innerHTML =
+list.innerHTML=
 '<div class="card" style="color:red">'+
 escapeHtml(result.error.message)+
 '</div>';
@@ -3088,33 +3350,29 @@ return;
 
 }
 
-const rows =
-result.data || [];
+const rows=result.data||[];
 
-if(rows.length === 0){
+if(rows.length===0){
 
-list.innerHTML =
+list.innerHTML=
 '<div class="card">কোনো transaction পাওয়া যায়নি।</div>';
 
 return;
 
 }
 
-list.innerHTML =
+list.innerHTML=
 rows.map(row=>{
 
-if(type === "daily_claim"){
+if(type==="daily_claim"){
 
-const claimType =
-String(row.claim_type || "daily")
-.toLowerCase();
+const claimType=
+String(row.claim_type||"daily").toLowerCase();
 
-const title =
-claimType === "vip"
-?
-"⭐ VIP Daily Claim"
-:
-"🎁 Daily Claim";
+const title=
+claimType==="vip"
+?"⭐ VIP Daily Claim"
+:"🎁 Daily Claim";
 
 return `
 
@@ -3127,9 +3385,7 @@ ${money(row.amount)}
 </div>
 
 <div>
-<span class="status approved">
-Claimed
-</span>
+<span class="status approved">Claimed</span>
 </div>
 
 <div style="font-size:12px;color:#888;margin-top:8px">
@@ -3142,16 +3398,15 @@ ${formatDate(row.claimed_at)}
 
 }
 
-const method =
-String(row.payment_method || "")
-.toUpperCase();
+const method=
+String(row.payment_method||"").toUpperCase();
 
 return `
 
 <div class="tx-item">
 
 <b>
-${type === "deposit" ? "💰 Deposit" : "💸 Withdrawal"}
+${type==="deposit"?"💰 Deposit":"💸 Withdrawal"}
 </b>
 
 <div style="font-size:23px;font-weight:bold;margin:8px 0">
@@ -3159,26 +3414,15 @@ ${money(row.amount)}
 </div>
 
 <div>
-Method:
-${escapeHtml(method)}
+Method: ${escapeHtml(method)}
 </div>
 
 ${
-type === "deposit"
+type==="deposit"
 ?
-`
-<div>
-Transaction ID:
-${escapeHtml(row.transaction_id)}
-</div>
-`
+`<div>Transaction ID: ${escapeHtml(row.transaction_id)}</div>`
 :
-`
-<div>
-Payment:
-${escapeHtml(row.payment_number)}
-</div>
-`
+`<div>Payment: ${escapeHtml(row.payment_number)}</div>`
 }
 
 <div style="margin-top:8px">
@@ -3216,33 +3460,24 @@ hidePages();
 
 $("adminPage").classList.add("active");
 
+await loadAdminSupportUsers();
 await loadAdminDeposits();
-
 await loadAdminWithdrawals();
 
 }
 
-
-/* ================================
-ADMIN DEPOSIT
-================================ */
-
 async function loadAdminDeposits(){
 
-const box =
-$("adminDeposits");
+const box=$("adminDeposits");
 
-box.innerHTML =
-"Loading...";
+box.innerHTML="Loading...";
 
-const {data,error} =
-await supabaseClient.rpc(
-"admin_get_deposits"
-);
+const {data,error}=
+await supabaseClient.rpc("admin_get_deposits");
 
 if(error){
 
-box.innerHTML =
+box.innerHTML=
 '<div style="color:red">'+
 escapeHtml(error.message)+
 '</div>';
@@ -3251,27 +3486,20 @@ return;
 
 }
 
-const rows =
-Array.isArray(data)
-?data
-:[];
+const rows=Array.isArray(data)?data:[];
 
-if(rows.length === 0){
+if(rows.length===0){
 
-box.innerHTML =
-"কোনো Deposit request নেই।";
-
+box.innerHTML="কোনো Deposit request নেই।";
 return;
 
 }
 
-box.innerHTML =
+box.innerHTML=
 rows.map(row=>{
 
-const pending =
-String(row.status).toLowerCase()
-===
-"pending";
+const pending=
+String(row.status).toLowerCase()==="pending";
 
 return `
 
@@ -3283,25 +3511,13 @@ return `
 ${money(row.amount)}
 </div>
 
-<div>
-User:
-${escapeHtml(row.user_email)}
-</div>
+<div>User: ${escapeHtml(row.user_email)}</div>
 
-<div>
-Method:
-${escapeHtml(row.payment_method)}
-</div>
+<div>Method: ${escapeHtml(row.payment_method)}</div>
 
-<div>
-Number:
-${escapeHtml(row.payment_number)}
-</div>
+<div>Number: ${escapeHtml(row.payment_number)}</div>
 
-<div>
-Transaction ID:
-${escapeHtml(row.transaction_id)}
-</div>
+<div>Transaction ID: ${escapeHtml(row.transaction_id)}</div>
 
 <div style="margin-top:8px">
 ${statusHtml(row.status)}
@@ -3314,20 +3530,17 @@ pending
 
 <div class="admin-actions">
 
-<button
-class="primary"
+<button class="primary"
 onclick="processDeposit('${row.id}','approved')">
 ✓ Approve
 </button>
 
-<button
-class="danger"
+<button class="danger"
 onclick="processDeposit('${row.id}','rejected')">
 ✕ Reject
 </button>
 
 </div>
-
 `
 :""
 }
@@ -3343,14 +3556,12 @@ onclick="processDeposit('${row.id}','rejected')">
 async function processDeposit(id,status){
 
 if(!confirm(
-status === "approved"
-?
-"Deposit Approve করবেন?"
-:
-"Deposit Reject করবেন?"
+status==="approved"
+?"Deposit Approve করবেন?"
+:"Deposit Reject করবেন?"
 ))return;
 
-const {error} =
+const {error}=
 await supabaseClient.rpc(
 "admin_update_deposit",
 {
@@ -3362,44 +3573,32 @@ p_status:status
 if(error){
 
 alert(error.message);
-
 return;
 
 }
 
 alert(
-status === "approved"
-?
-"Deposit Approved"
-:
-"Deposit Rejected"
+status==="approved"
+?"Deposit Approved"
+:"Deposit Rejected"
 );
 
 await loadAdminDeposits();
 
 }
 
-
-/* ================================
-ADMIN WITHDRAWAL
-================================ */
-
 async function loadAdminWithdrawals(){
 
-const box =
-$("adminWithdrawals");
+const box=$("adminWithdrawals");
 
-box.innerHTML =
-"Loading...";
+box.innerHTML="Loading...";
 
-const {data,error} =
-await supabaseClient.rpc(
-"admin_get_withdrawals"
-);
+const {data,error}=
+await supabaseClient.rpc("admin_get_withdrawals");
 
 if(error){
 
-box.innerHTML =
+box.innerHTML=
 '<div style="color:red">'+
 escapeHtml(error.message)+
 '</div>';
@@ -3408,27 +3607,20 @@ return;
 
 }
 
-const rows =
-Array.isArray(data)
-?data
-:[];
+const rows=Array.isArray(data)?data:[];
 
-if(rows.length === 0){
+if(rows.length===0){
 
-box.innerHTML =
-"কোনো Withdrawal request নেই।";
-
+box.innerHTML="কোনো Withdrawal request নেই।";
 return;
 
 }
 
-box.innerHTML =
+box.innerHTML=
 rows.map(row=>{
 
-const pending =
-String(row.status).toLowerCase()
-===
-"pending";
+const pending=
+String(row.status).toLowerCase()==="pending";
 
 return `
 
@@ -3440,20 +3632,11 @@ return `
 ${money(row.amount)}
 </div>
 
-<div>
-User:
-${escapeHtml(row.user_email)}
-</div>
+<div>User: ${escapeHtml(row.user_email)}</div>
 
-<div>
-Method:
-${escapeHtml(row.payment_method)}
-</div>
+<div>Method: ${escapeHtml(row.payment_method)}</div>
 
-<div>
-Payment Number:
-${escapeHtml(row.payment_number)}
-</div>
+<div>Payment Number: ${escapeHtml(row.payment_number)}</div>
 
 <div style="margin-top:8px">
 ${statusHtml(row.status)}
@@ -3470,20 +3653,17 @@ pending
 
 <div class="admin-actions">
 
-<button
-class="primary"
+<button class="primary"
 onclick="processWithdrawal('${row.id}','approved')">
 ✓ Approve
 </button>
 
-<button
-class="danger"
+<button class="danger"
 onclick="processWithdrawal('${row.id}','rejected')">
 ✕ Reject
 </button>
 
 </div>
-
 `
 :""
 }
@@ -3499,14 +3679,12 @@ onclick="processWithdrawal('${row.id}','rejected')">
 async function processWithdrawal(id,status){
 
 if(!confirm(
-status === "approved"
-?
-"Withdrawal Approve করবেন?"
-:
-"Withdrawal Reject করবেন?"
+status==="approved"
+?"Withdrawal Approve করবেন?"
+:"Withdrawal Reject করবেন?"
 ))return;
 
-const {error} =
+const {error}=
 await supabaseClient.rpc(
 "admin_update_withdrawal",
 {
@@ -3518,17 +3696,14 @@ p_status:status
 if(error){
 
 alert(error.message);
-
 return;
 
 }
 
 alert(
-status === "approved"
-?
-"Withdrawal Approved"
-:
-"Withdrawal Rejected এবং টাকা ফেরত দেওয়া হয়েছে"
+status==="approved"
+?"Withdrawal Approved"
+:"Withdrawal Rejected এবং টাকা ফেরত দেওয়া হয়েছে"
 );
 
 await loadAdminWithdrawals();
@@ -3537,30 +3712,15 @@ await loadAdminWithdrawals();
 
 
 /* ================================
-COMING SOON
-================================ */
-
-function showComingSoon(name){
-
-alert(
-name+
-" system পরবর্তী ধাপে চালু করা হবে।"
-);
-
-}
-
-
-/* ================================
-AUTH STATE
+AUTH
 ================================ */
 
 supabaseClient.auth.onAuthStateChange(
 async(event,session)=>{
 
-if(session && session.user){
+if(session&&session.user){
 
-currentUser =
-session.user;
+currentUser=session.user;
 
 setTimeout(async()=>{
 
@@ -3572,8 +3732,19 @@ await loadDashboard();
 
 }else{
 
-currentUser = null;
-currentProfile = null;
+currentUser=null;
+currentProfile=null;
+selectedSupportUser=null;
+
+if(userSupportTimer){
+clearInterval(userSupportTimer);
+userSupportTimer=null;
+}
+
+if(adminSupportTimer){
+clearInterval(adminSupportTimer);
+adminSupportTimer=null;
+}
 
 showHome();
 
@@ -3590,7 +3761,7 @@ INITIAL SESSION
 
 try{
 
-const {data,error} =
+const {data,error}=
 await supabaseClient.auth.getSession();
 
 if(error){
@@ -3603,10 +3774,9 @@ return;
 
 }
 
-if(data && data.session && data.session.user){
+if(data&&data.session&&data.session.user){
 
-currentUser =
-data.session.user;
+currentUser=data.session.user;
 
 await applyPendingReferral();
 
@@ -3630,7 +3800,7 @@ showHome();
 
 
 /* ================================
-REFERRAL URL AUTO-FILL
+REFERRAL URL
 ================================ */
 
 getReferralFromUrl();
