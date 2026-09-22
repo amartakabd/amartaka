@@ -18,18 +18,52 @@ color:#17202a
 }
 
 header{
-background:#16834b;
+background:linear-gradient(135deg,#075e54,#16834b,#20a464);
 color:white;
-padding:15px 18px;
+padding:13px 18px;
 display:flex;
 justify-content:space-between;
 align-items:center;
 position:sticky;
 top:0;
-z-index:20
+z-index:20;
+box-shadow:0 3px 15px #0002
 }
 
-.logo{font-size:22px;font-weight:bold}
+/* LOGO */
+
+.logo-wrap{
+display:flex;
+align-items:center;
+gap:10px
+}
+
+.logo-icon{
+width:44px;
+height:44px;
+border-radius:50%;
+background:linear-gradient(135deg,#ffd54a,#f59e0b);
+display:flex;
+align-items:center;
+justify-content:center;
+color:#075e54;
+font-size:25px;
+font-weight:900;
+box-shadow:0 3px 10px #0003;
+border:3px solid #fff8
+}
+
+.logo-text{
+font-size:21px;
+font-weight:900;
+letter-spacing:.2px
+}
+
+.logo-sub{
+font-size:9px;
+opacity:.85;
+margin-top:2px
+}
 
 .container{
 max-width:900px;
@@ -42,19 +76,48 @@ border:0;
 border-radius:10px;
 padding:12px 16px;
 cursor:pointer;
-font-size:15px
+font-size:15px;
+font-weight:600
 }
 
-button:disabled{cursor:not-allowed;opacity:.55}
+button:disabled{
+cursor:not-allowed;
+opacity:.55
+}
 
-.primary{background:#16834b;color:white}
-.secondary{background:#e9f5ee;color:#16834b}
-.danger{background:#dc3545;color:white}
-.hidden{display:none!important}
+.primary{
+background:#16834b;
+color:white
+}
 
-.hero{text-align:center;padding:55px 15px 35px}
-.hero h1{font-size:34px;margin:10px 0}
-.hero p{color:#667085;line-height:1.7}
+.secondary{
+background:#e9f5ee;
+color:#16834b
+}
+
+.danger{
+background:#dc3545;
+color:white
+}
+
+.hidden{
+display:none!important
+}
+
+.hero{
+text-align:center;
+padding:55px 15px 35px
+}
+
+.hero h1{
+font-size:34px;
+margin:10px 0
+}
+
+.hero p{
+color:#667085;
+line-height:1.7
+}
 
 .actions{
 display:flex;
@@ -72,45 +135,136 @@ text-align:center;
 box-shadow:0 3px 15px #0000000d
 }
 
+/* DASHBOARD HEADER */
+
 .dashboard-header{
-background:white;
-border-radius:18px;
-padding:22px;
-box-shadow:0 3px 15px #0000000d;
-margin-bottom:15px
+background:linear-gradient(135deg,#ffffff,#effaf4);
+border-radius:20px;
+padding:24px;
+box-shadow:0 5px 20px #00000012;
+margin-bottom:17px;
+border:1px solid #dcefe4
+}
+
+#welcomeText{
+font-size:22px;
+font-weight:800;
+color:#17202a
+}
+
+.user-id-label{
+font-size:12px;
+color:#777;
+margin-top:7px;
+word-break:break-all
+}
+
+.balance-label{
+font-size:14px;
+font-weight:700;
+color:#667085;
+margin-top:18px
 }
 
 .balance{
-font-size:34px;
-font-weight:bold;
+font-size:38px;
+font-weight:900;
 color:#16834b;
-margin:10px 0
+margin:5px 0 12px
 }
 
-.refresh{font-size:13px;padding:8px 12px}
+.refresh{
+font-size:13px;
+padding:8px 12px
+}
+
+/* COLORED DASHBOARD */
 
 .menu-grid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:12px
+gap:13px
 }
 
 .menu-card{
-background:white;
-padding:20px;
-border-radius:15px;
-box-shadow:0 3px 15px #0000000d;
+min-height:112px;
+padding:18px 10px;
+border-radius:18px;
+box-shadow:0 5px 15px #00000012;
 cursor:pointer;
 font-size:17px;
-text-align:center
+font-weight:800;
+text-align:center;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:7px;
+transition:.2s;
+color:white;
+border:1px solid #ffffff55
 }
 
-.menu-card:hover{background:#f0faf4}
-.admin-menu{border:2px solid #f59e0b}
+.menu-card:hover{
+transform:translateY(-3px);
+box-shadow:0 8px 20px #0003
+}
 
-.page{display:none}
-.page.active{display:block}
-.back{margin-bottom:15px}
+.menu-icon{
+font-size:32px;
+line-height:1
+}
+
+.menu-card.deposit{
+background:linear-gradient(135deg,#00897b,#00bfa5)
+}
+
+.menu-card.transactions{
+background:linear-gradient(135deg,#3949ab,#5c6bc0)
+}
+
+.menu-card.withdraw{
+background:linear-gradient(135deg,#e53935,#ef5350)
+}
+
+.menu-card.daily{
+background:linear-gradient(135deg,#f57c00,#ffb300)
+}
+
+.menu-card.vip{
+background:linear-gradient(135deg,#7b1fa2,#ab47bc)
+}
+
+.menu-card.referral{
+background:linear-gradient(135deg,#0277bd,#29b6f6)
+}
+
+.menu-card.support{
+background:linear-gradient(135deg,#00838f,#26c6da)
+}
+
+.menu-card.admin-menu{
+background:linear-gradient(135deg,#37474f,#607d8b);
+border:2px solid #ffd54f
+}
+
+.menu-card.logout{
+background:linear-gradient(135deg,#b71c1c,#ef5350)
+}
+
+/* PAGES */
+
+.page{
+display:none
+}
+
+.page.active{
+display:block
+}
+
+.back{
+margin-bottom:15px
+}
 
 .card{
 background:white;
@@ -129,7 +283,10 @@ border-radius:10px;
 font-size:15px
 }
 
-label{font-size:14px;font-weight:bold}
+label{
+font-size:14px;
+font-weight:bold
+}
 
 .modal{
 position:fixed;
@@ -206,7 +363,9 @@ font-size:14px;
 line-height:1.6
 }
 
-.claim-box{text-align:center}
+.claim-box{
+text-align:center
+}
 
 .claim-amount{
 font-size:34px;
@@ -230,9 +389,20 @@ font-size:12px;
 font-weight:bold
 }
 
-.pending{background:#fff3cd;color:#856404}
-.approved{background:#d1e7dd;color:#0f5132}
-.rejected{background:#f8d7da;color:#842029}
+.pending{
+background:#fff3cd;
+color:#856404
+}
+
+.approved{
+background:#d1e7dd;
+color:#0f5132
+}
+
+.rejected{
+background:#f8d7da;
+color:#842029
+}
 
 .tx-item{
 border:1px solid #e4e7eb;
@@ -245,7 +415,8 @@ margin-bottom:10px
 border:1px solid #ddd;
 border-radius:14px;
 padding:15px;
-margin-bottom:12px
+margin-bottom:12px;
+background:#fff
 }
 
 .admin-actions{
@@ -253,6 +424,8 @@ display:flex;
 gap:8px;
 margin-top:12px
 }
+
+/* VIP */
 
 .vip-active{
 background:linear-gradient(135deg,#fff7df,#ffffff);
@@ -276,24 +449,69 @@ margin:10px 0
 .vip-grid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:10px
+gap:14px
 }
 
 .vip-plan{
-background:#f8faf9;
-border:1px solid #e3e8e5;
-border-radius:12px;
-padding:15px
+border-radius:18px;
+padding:24px 18px;
+min-height:175px;
+box-shadow:0 5px 16px #0002;
+color:white;
+position:relative;
+overflow:hidden;
+border:2px solid #ffffff55
 }
 
-.vip-plan h3{margin:0 0 8px}
+.vip-plan:after{
+content:"★";
+position:absolute;
+right:-8px;
+bottom:-20px;
+font-size:90px;
+opacity:.12
+}
 
-.success-box{
-background:#eaf7ef;
-color:#16834b;
-padding:14px;
-border-radius:10px;
-margin-top:12px
+.vip-plan h3{
+margin:0 0 15px;
+font-size:24px
+}
+
+.vip-plan .vip-price{
+font-size:22px;
+font-weight:900;
+margin:8px 0
+}
+
+.vip-plan .vip-daily-text{
+font-size:18px;
+font-weight:800;
+margin:7px 0
+}
+
+.vip1{
+background:linear-gradient(135deg,#00897b,#26a69a)
+}
+
+.vip2{
+background:linear-gradient(135deg,#1565c0,#42a5f5)
+}
+
+.vip3{
+background:linear-gradient(135deg,#6a1b9a,#ab47bc)
+}
+
+.vip4{
+background:linear-gradient(135deg,#ef6c00,#ffa726)
+}
+
+.vip5{
+background:linear-gradient(135deg,#b8860b,#fbc02d);
+color:#3b2a00
+}
+
+.vip5 .vip-daily-text{
+color:#3b2a00
 }
 
 /* REFERRAL */
@@ -434,6 +652,63 @@ font-family:inherit
 min-width:90px
 }
 
+/* ADMIN */
+
+.admin-title-card{
+background:linear-gradient(135deg,#263238,#546e7a);
+color:white;
+border-radius:18px;
+padding:22px;
+margin-bottom:15px;
+box-shadow:0 5px 18px #0003
+}
+
+.total-users-card{
+background:linear-gradient(135deg,#1565c0,#42a5f5);
+color:white;
+border-radius:18px;
+padding:25px;
+margin-bottom:18px;
+text-align:center;
+box-shadow:0 6px 20px #0002
+}
+
+.total-users-icon{
+font-size:38px
+}
+
+.total-users-number{
+font-size:42px;
+font-weight:900;
+margin:7px 0
+}
+
+.admin-section{
+border-radius:18px;
+padding:18px;
+margin-bottom:16px;
+box-shadow:0 4px 15px #00000012
+}
+
+.admin-section.support-section{
+background:#e0f7fa;
+border:2px solid #26c6da
+}
+
+.admin-section.deposit-section{
+background:#e0f2f1;
+border:2px solid #26a69a
+}
+
+.admin-section.withdraw-section{
+background:#ffebee;
+border:2px solid #ef5350
+}
+
+.admin-section h3{
+margin-top:0
+}
+
 /* ADMIN SUPPORT */
 
 .support-user-list{
@@ -450,7 +725,9 @@ cursor:pointer;
 background:white
 }
 
-.support-user:last-child{border-bottom:0}
+.support-user:last-child{
+border-bottom:0
+}
 
 .support-user:hover,
 .support-user.selected{
@@ -483,14 +760,66 @@ font-size:13px
 
 @media(max-width:600px){
 
-.menu-grid{grid-template-columns:1fr 1fr}
-.hero h1{font-size:28px}
-.balance{font-size:30px}
-.vip-grid{grid-template-columns:1fr}
-.referral-stats{grid-template-columns:1fr 1fr}
-.referral-code{font-size:23px}
-.chat-message{max-width:88%}
-.chat-send{min-width:75px;padding:12px 10px}
+.menu-grid{
+grid-template-columns:1fr 1fr
+}
+
+.hero h1{
+font-size:28px
+}
+
+.balance{
+font-size:30px
+}
+
+.vip-grid{
+grid-template-columns:1fr
+}
+
+.vip-plan{
+min-height:160px
+}
+
+.referral-stats{
+grid-template-columns:1fr 1fr
+}
+
+.referral-code{
+font-size:23px
+}
+
+.chat-message{
+max-width:88%
+}
+
+.chat-send{
+min-width:75px;
+padding:12px 10px
+}
+
+.logo-text{
+font-size:18px
+}
+
+.logo-icon{
+width:40px;
+height:40px;
+font-size:22px
+}
+
+}
+
+/* very small phones */
+
+@media(max-width:380px){
+
+.menu-grid{
+grid-template-columns:1fr
+}
+
+.referral-stats{
+grid-template-columns:1fr
+}
 
 }
 </style>
@@ -500,13 +829,26 @@ font-size:13px
 
 <header>
 
-<div class="logo">Amar Taka</div>
+<div class="logo-wrap">
+
+<div class="logo-icon">৳</div>
+
+<div>
+<div class="logo-text">Amar Taka</div>
+<div class="logo-sub">আপনার টাকা, আপনার নিয়ন্ত্রণে</div>
+</div>
+
+</div>
 
 <div id="headerButtons">
 
-<button class="secondary" onclick="openLogin()">Login</button>
+<button class="secondary" onclick="openLogin()">
+Login
+</button>
 
-<button class="secondary" onclick="openRegister()">Create Account</button>
+<button class="secondary" onclick="openRegister()">
+Create Account
+</button>
 
 </div>
 
@@ -565,11 +907,19 @@ Account তৈরি সম্পন্ন করলে Welcome Bonus প্র�
 
 <div class="dashboard-header">
 
-<div id="welcomeText">Welcome 👋</div>
+<div id="welcomeText">Welcome, User 👋</div>
 
-<div id="userIdText" style="font-size:13px;color:#777"></div>
+<div id="userIdText" class="user-id-label">
+User ID: -
+</div>
 
-<div class="balance" id="balance">৳ 0.00</div>
+<div class="balance-label">
+আপনার মোট ব্যালেন্স
+</div>
+
+<div class="balance" id="balance">
+৳ 0.00
+</div>
 
 <button class="secondary refresh" onclick="refreshBalance()">
 ↻ Refresh Balance
@@ -579,42 +929,51 @@ Account তৈরি সম্পন্ন করলে Welcome Bonus প্র�
 
 <div class="menu-grid">
 
-<div class="menu-card" onclick="openDeposit()">
-💰<br>Deposit
+<div class="menu-card deposit" onclick="openDeposit()">
+<div class="menu-icon">💰</div>
+<div>Deposit</div>
 </div>
 
-<div class="menu-card" onclick="openTransactions()">
-📜<br>Transactions
+<div class="menu-card transactions" onclick="openTransactions()">
+<div class="menu-icon">📜</div>
+<div>Transactions</div>
 </div>
 
-<div class="menu-card" onclick="openWithdrawal()">
-💸<br>Withdraw
+<div class="menu-card withdraw" onclick="openWithdrawal()">
+<div class="menu-icon">💸</div>
+<div>Withdraw</div>
 </div>
 
-<div class="menu-card" onclick="openDailyClaim()">
-🎁<br>Daily Claim
+<div class="menu-card daily" onclick="openDailyClaim()">
+<div class="menu-icon">🎁</div>
+<div>Daily Claim</div>
 </div>
 
-<div class="menu-card" onclick="openVIPPlans()">
-⭐<br>VIP Plans
+<div class="menu-card vip" onclick="openVIPPlans()">
+<div class="menu-icon">⭐</div>
+<div>VIP Plans</div>
 </div>
 
-<div class="menu-card" onclick="openReferral()">
-👥<br>Referral
+<div class="menu-card referral" onclick="openReferral()">
+<div class="menu-icon">👥</div>
+<div>Referral</div>
 </div>
 
-<div class="menu-card" onclick="openSupport()">
-💬<br>Support
+<div class="menu-card support" onclick="openSupport()">
+<div class="menu-icon">💬</div>
+<div>Support</div>
 </div>
 
 <div id="adminMenu"
 class="menu-card admin-menu hidden"
 onclick="openAdminPanel()">
-🛡️<br>Admin Panel
+<div class="menu-icon">🛡️</div>
+<div>Admin Panel</div>
 </div>
 
-<div class="menu-card" onclick="logout()">
-🚪<br>Logout
+<div class="menu-card logout" onclick="logout()">
+<div class="menu-icon">🚪</div>
+<div>Logout</div>
 </div>
 
 </div>
@@ -922,19 +1281,48 @@ Daily Claim
 ← Dashboard
 </button>
 
-<div class="card">
+<div class="admin-title-card">
 
-<h2>🛡️ Admin Panel</h2>
+<h2 style="margin:0 0 8px">🛡️ Admin Panel</h2>
 
-<p style="color:#777">
-Deposit, Withdrawal এবং Support request manage করুন।
+<p style="margin:0;opacity:.9">
+Deposit, Withdrawal, Support এবং User information manage করুন।
 </p>
 
 </div>
 
-<div class="card">
+<!-- TOTAL USERS -->
 
-<h3>💬 Support Messages</h3>
+<div class="total-users-card">
+
+<div class="total-users-icon">👥</div>
+
+<div style="font-size:15px;font-weight:bold">
+Total Users
+</div>
+
+<div id="adminTotalUsers" class="total-users-number">
+0
+</div>
+
+<div style="font-size:13px;opacity:.9">
+মোট Registered User
+</div>
+
+<button
+class="secondary"
+style="margin-top:12px"
+onclick="loadAdminTotalUsers()">
+↻ Refresh Users
+</button>
+
+</div>
+
+<!-- SUPPORT ROW -->
+
+<div class="admin-section support-section">
+
+<h3>💬 Support</h3>
 
 <div id="adminSupportUsers">
 Loading...
@@ -972,10 +1360,11 @@ Reply
 
 </div>
 
+<!-- DEPOSIT ROW -->
 
-<div class="card">
+<div class="admin-section deposit-section">
 
-<h3>💰 Deposit Requests</h3>
+<h3>💰 Deposit</h3>
 
 <div id="adminDeposits">
 Loading...
@@ -983,9 +1372,11 @@ Loading...
 
 </div>
 
-<div class="card">
+<!-- WITHDRAW ROW -->
 
-<h3>💸 Withdrawal Requests</h3>
+<div class="admin-section withdraw-section">
+
+<h3>💸 Withdraw</h3>
 
 <div id="adminWithdrawals">
 Loading...
@@ -1651,11 +2042,14 @@ currentProfile=data;
 
 }
 
+const userName =
+currentUser.user_metadata?.name ||
+currentUser.user_metadata?.full_name ||
+"User";
+
 $("welcomeText").innerHTML=
 "Welcome, "+
-escapeHtml(
-currentUser.user_metadata?.name||"User"
-)+
+escapeHtml(userName)+
 " 👋";
 
 $("userIdText").innerText=
@@ -1705,6 +2099,10 @@ currentProfile=data;
 $("balance").innerText=
 money(data.balance);
 
+if(isAdmin()){
+$("adminMenu").classList.remove("hidden");
+}
+
 }
 
 function isAdmin(){
@@ -1718,6 +2116,39 @@ return(
 email===ADMIN_EMAIL.toLowerCase()||
 currentProfile?.role==="admin"
 );
+
+}
+
+
+/* ================================
+ADMIN TOTAL USERS
+================================ */
+
+async function loadAdminTotalUsers(){
+
+if(!isAdmin())return;
+
+const box=$("adminTotalUsers");
+
+box.innerText="...";
+
+const {data,error}=
+await supabaseClient.rpc(
+"admin_get_total_users"
+);
+
+if(error){
+
+console.error("Total users:",error);
+
+box.innerText="0";
+
+return;
+
+}
+
+box.innerText=
+Number(data||0).toLocaleString("en-US");
 
 }
 
@@ -2122,10 +2553,6 @@ box.innerHTML=
 return;
 
 }
-
-/*
-প্রতি user-এর সর্বশেষ message আলাদা করে রাখা।
-*/
 
 const users=new Map();
 
@@ -2665,6 +3092,36 @@ await loadVIP();
 
 }
 
+function vipPlanCard(number,deposit,daily,cssClass){
+
+return `
+
+<div class="vip-plan ${cssClass}">
+
+<h3>⭐ VIP ${number}</h3>
+
+<div style="font-size:14px;opacity:.9">
+Deposit
+</div>
+
+<div class="vip-price">
+৳${Number(deposit).toLocaleString("en-US")}
+</div>
+
+<div class="vip-daily-text">
+Daily Claim: ৳${Number(daily).toLocaleString("en-US")}
+</div>
+
+<div style="font-size:14px;margin-top:10px">
+Duration: <b>30 দিন</b>
+</div>
+
+</div>
+
+`;
+
+}
+
 async function loadVIP(){
 
 const box=$("vipContent");
@@ -2705,40 +3162,11 @@ Approved Deposit হলে VIP automatically active হবে।
 
 <div class="vip-grid">
 
-<div class="vip-plan">
-<h3>VIP 1</h3>
-Deposit: ৳500<br>
-Daily Claim: <b>৳100</b><br>
-Duration: 30 দিন
-</div>
-
-<div class="vip-plan">
-<h3>VIP 2</h3>
-Deposit: ৳1,000<br>
-Daily Claim: <b>৳200</b><br>
-Duration: 30 দিন
-</div>
-
-<div class="vip-plan">
-<h3>VIP 3</h3>
-Deposit: ৳1,500<br>
-Daily Claim: <b>৳300</b><br>
-Duration: 30 দিন
-</div>
-
-<div class="vip-plan">
-<h3>VIP 4</h3>
-Deposit: ৳2,000<br>
-Daily Claim: <b>৳400</b><br>
-Duration: 30 দিন
-</div>
-
-<div class="vip-plan">
-<h3>VIP 5</h3>
-Deposit: ৳4,000<br>
-Daily Claim: <b>৳1,000</b><br>
-Duration: 30 দিন
-</div>
+${vipPlanCard(1,500,100,"vip1")}
+${vipPlanCard(2,1000,200,"vip2")}
+${vipPlanCard(3,1500,300,"vip3")}
+${vipPlanCard(4,2000,400,"vip4")}
+${vipPlanCard(5,4000,1000,"vip5")}
 
 </div>
 
@@ -2798,30 +3226,30 @@ Daily Claim
 
 <div class="vip-grid">
 
-<div class="vip-plan">
+<div class="vip-plan vip1">
 <b>Deposit Plan</b>
 <div style="font-size:20px;margin-top:6px">
 ${money(vip.deposit_amount)}
 </div>
 </div>
 
-<div class="vip-plan">
+<div class="vip-plan vip2">
 <b>Daily Claim</b>
-<div style="font-size:20px;margin-top:6px;color:#16834b">
+<div style="font-size:20px;margin-top:6px">
 ${money(vip.daily_amount)}
 </div>
 </div>
 
-<div class="vip-plan">
+<div class="vip-plan vip3">
 <b>Duration</b>
 <div style="margin-top:6px">
 ${vip.duration_days} দিন
 </div>
 </div>
 
-<div class="vip-plan">
+<div class="vip-plan vip4">
 <b>Status</b>
-<div style="margin-top:6px;color:#16834b;font-weight:bold">
+<div style="margin-top:6px;font-weight:bold">
 Active
 </div>
 </div>
@@ -3460,11 +3888,17 @@ hidePages();
 
 $("adminPage").classList.add("active");
 
+await loadAdminTotalUsers();
 await loadAdminSupportUsers();
 await loadAdminDeposits();
 await loadAdminWithdrawals();
 
 }
+
+
+/* ================================
+ADMIN DEPOSITS
+================================ */
 
 async function loadAdminDeposits(){
 
@@ -3586,6 +4020,11 @@ status==="approved"
 await loadAdminDeposits();
 
 }
+
+
+/* ================================
+ADMIN WITHDRAWALS
+================================ */
 
 async function loadAdminWithdrawals(){
 
