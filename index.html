@@ -3,1139 +3,1042 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Amar Taka</title>
+
+<meta name="description"
+content="Amar Taka - সহজ ও নিরাপদ ডিজিটাল অ্যাকাউন্ট প্ল্যাটফর্ম">
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
+
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
-  font-family:Arial,sans-serif;
 }
 
 body{
-  background:#f6f8fb;
-  color:#172033;
-  line-height:1.6;
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  background:#f5f7f9;
+  color:#17202a;
 }
+
+button,
+input,
+select{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* =========================
+   HEADER
+========================= */
 
 header{
-  background:#fff;
-  border-bottom:1px solid #e5e7eb;
+  background:#16834b;
+  color:white;
+  padding:14px 18px;
   position:sticky;
   top:0;
-  z-index:20;
+  z-index:100;
 }
 
-.nav{
+.header-inner{
   max-width:1100px;
   margin:auto;
-  padding:14px 18px;
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
 
 .logo{
-  font-size:25px;
+  font-size:22px;
   font-weight:800;
-  color:#16834b;
 }
 
-.nav-buttons{
+.header-buttons{
   display:flex;
   gap:8px;
 }
 
-button,.btn{
-  border:0;
-  padding:11px 17px;
+.btn{
+  border:none;
   border-radius:10px;
-  cursor:pointer;
+  padding:11px 15px;
   font-weight:700;
-  text-decoration:none;
-  display:inline-block;
+  font-size:14px;
 }
 
-.primary{
+.btn-primary{
   background:#16834b;
-  color:#fff;
+  color:white;
 }
 
-.login{
-  background:#eef2f7;
-  color:#172033;
+.btn-light{
+  background:white;
+  color:#16834b;
 }
 
-/* HOME */
+.btn-danger{
+  background:#dc3545;
+  color:white;
+}
+
+.btn-warning{
+  background:#f59e0b;
+  color:white;
+}
+
+.btn-success{
+  background:#16834b;
+  color:white;
+}
+
+/* =========================
+   PAGE
+========================= */
+
+.container{
+  width:92%;
+  max-width:1100px;
+  margin:25px auto;
+}
+
+.hidden{
+  display:none !important;
+}
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
-  max-width:900px;
-  margin:auto;
-  padding:65px 20px 45px;
+  background:white;
+  border-radius:18px;
+  padding:35px 22px;
   text-align:center;
+  box-shadow:0 4px 18px rgba(0,0,0,.06);
 }
 
-.badge{
-  display:inline-block;
-  background:#e9f8f0;
-  color:#16834b;
-  padding:7px 13px;
-  border-radius:30px;
-  font-weight:700;
-  margin-bottom:18px;
-}
-
-h1{
-  font-size:clamp(35px,8vw,60px);
-  line-height:1.15;
-  margin-bottom:18px;
-}
-
-h1 span{
+.hero h1{
+  font-size:30px;
+  margin-bottom:12px;
   color:#16834b;
 }
 
 .hero p{
-  max-width:650px;
-  margin:auto;
-  color:#667085;
-  font-size:17px;
-}
-
-.hero-buttons{
-  margin-top:28px;
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-}
-
-.section{
-  max-width:1000px;
-  margin:auto;
-  padding:40px 20px;
+  color:#59636e;
+  line-height:1.7;
 }
 
 .bonus{
-  background:white;
-  border:1px solid #dcefe4;
-  border-radius:18px;
-  padding:30px;
-  text-align:center;
+  margin:20px auto 0;
+  max-width:500px;
+  background:#fff8e8;
+  border:1px solid #f3d38a;
+  padding:16px;
+  border-radius:14px;
+  font-weight:700;
 }
 
-.bonus h2{
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard-top{
+  background:linear-gradient(135deg,#16834b,#0d673a);
+  color:white;
+  padding:22px;
+  border-radius:18px;
+  margin-bottom:18px;
+}
+
+.dashboard-top h2{
+  margin-bottom:7px;
+}
+
+.balance{
+  font-size:34px;
+  font-weight:800;
+  margin-top:12px;
+}
+
+.user-id{
+  font-size:13px;
+  opacity:.85;
+  word-break:break-all;
+}
+
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.menu-card{
+  background:white;
+  border-radius:16px;
+  padding:22px 12px;
+  text-align:center;
+  box-shadow:0 3px 14px rgba(0,0,0,.06);
+  border:1px solid #e8ecef;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.menu-card:hover{
+  transform:translateY(-2px);
+}
+
+.menu-icon{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.menu-title{
+  font-weight:800;
+  font-size:14px;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+  background:white;
+  border-radius:18px;
+  padding:22px;
+  margin-bottom:18px;
+  box-shadow:0 3px 14px rgba(0,0,0,.05);
+}
+
+.section h2{
+  margin-bottom:16px;
   color:#16834b;
 }
 
-.bonus strong{
-  display:block;
-  font-size:38px;
-  margin:5px 0;
+/* =========================
+   FORM
+========================= */
+
+.form-group{
+  margin-bottom:15px;
 }
 
-/* MODAL */
+.form-group label{
+  display:block;
+  font-weight:700;
+  margin-bottom:7px;
+  font-size:14px;
+}
+
+.form-group input,
+.form-group select{
+  width:100%;
+  padding:13px;
+  border:1px solid #d9dee3;
+  border-radius:10px;
+  outline:none;
+  background:white;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+  border-color:#16834b;
+}
+
+/* =========================
+   MODAL
+========================= */
 
 .modal{
-  display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.45);
-  z-index:100;
+  background:rgba(0,0,0,.55);
+  display:flex;
   align-items:center;
   justify-content:center;
-  padding:18px;
-  overflow-y:auto;
+  padding:15px;
+  z-index:500;
 }
 
 .modal-box{
-  width:100%;
-  max-width:430px;
   background:white;
-  border-radius:18px;
-  padding:25px;
-  position:relative;
+  width:100%;
+  max-width:500px;
   max-height:90vh;
-  overflow-y:auto;
+  overflow:auto;
+  border-radius:18px;
+  padding:22px;
 }
 
-.modal-box h2{
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   margin-bottom:18px;
 }
 
 .close{
-  position:absolute;
-  right:15px;
-  top:12px;
-  background:#eef2f7;
+  background:#f0f2f4;
+  border:none;
+  width:35px;
+  height:35px;
   border-radius:50%;
-  width:34px;
-  height:34px;
-  padding:0;
+  font-size:20px;
 }
 
-input,select{
-  width:100%;
-  padding:13px;
-  margin:7px 0 12px;
-  border:1px solid #d8dde6;
-  border-radius:9px;
-  font-size:15px;
-  background:white;
-}
-
-.form-button{
-  width:100%;
-  margin-top:5px;
-}
-
-.switch{
-  margin-top:15px;
-  text-align:center;
-  font-size:14px;
-  color:#667085;
-}
-
-.switch button{
-  background:none;
-  color:#16834b;
-  padding:0;
-}
-
-.message{
-  margin-top:12px;
-  padding:10px;
-  border-radius:8px;
-  display:none;
-  font-size:14px;
-}
-
-/* DASHBOARD */
-
-.dashboard{
-  display:none;
-  min-height:80vh;
-  padding:18px 12px 35px;
-}
-
-.dashboard-inner{
-  max-width:700px;
-  margin:auto;
-}
-
-.user-id-bar{
-  background:white;
-  border:1px solid #e7eaf0;
-  border-radius:12px;
-  padding:10px 12px;
-  margin-bottom:12px;
-  font-size:13px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:8px;
-  overflow:hidden;
-}
-
-.user-id-text{
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
-.copy-user-btn{
-  flex-shrink:0;
-  background:#eef7f1;
-  color:#16834b;
-  padding:6px 9px;
-  border-radius:7px;
-}
-
-.welcome-card{
-  background:linear-gradient(135deg,#16834b,#20a35f);
-  color:white;
-  border-radius:22px;
-  padding:25px 20px;
-  margin-bottom:16px;
-  text-align:center;
-  box-shadow:0 8px 22px rgba(22,131,75,.18);
-}
-
-.welcome-card h2{
-  font-size:26px;
-  margin-bottom:8px;
-}
-
-.balance{
-  font-size:42px;
-  font-weight:800;
-  margin:12px 0 2px;
-}
-
-.balance-label{
-  font-size:14px;
-  opacity:.95;
-}
-
-/* DASHBOARD CARDS */
-
-.dashboard-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-}
-
-.dashboard-card{
-  background:white;
-  border:2px solid #dce9df;
-  border-radius:18px;
-  min-height:150px;
-  padding:18px 9px;
-  cursor:pointer;
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  box-shadow:0 3px 10px rgba(0,0,0,.05);
-  transition:.15s;
-}
-
-.dashboard-card:active{
-  transform:scale(.97);
-}
-
-.dashboard-icon{
-  font-size:42px;
-  margin-bottom:7px;
-}
-
-.dashboard-card h3{
-  font-size:19px;
-  margin-bottom:5px;
-}
-
-.dashboard-card p{
-  color:#667085;
-  font-size:12px;
-  line-height:1.4;
-}
-
-/* MENU */
-
-.menu-btn{
-  background:#16834b;
-  color:white;
-  font-size:25px;
-  width:52px;
-  height:46px;
-  padding:0;
-}
-
-.menu-box{
-  display:none;
-  position:absolute;
-  right:12px;
-  top:66px;
-  background:white;
-  width:220px;
-  border-radius:14px;
-  box-shadow:0 8px 25px rgba(0,0,0,.15);
-  padding:10px;
-  z-index:50;
-}
-
-.menu-box button{
-  width:100%;
-  text-align:left;
-  background:white;
-  margin:2px 0;
-  color:#172033;
-}
-
-.menu-box button:hover{
-  background:#f1f7f3;
-}
-
-.logout-menu{
-  color:#c62828!important;
-}
-
-/* PAYMENT */
+/* =========================
+   PAYMENT
+========================= */
 
 .payment-box{
-  background:#e9f8f0;
-  border:1px solid #cfe9da;
-  border-radius:12px;
-  padding:15px;
-  margin:10px 0 15px;
+  background:#f5faf7;
+  border:1px solid #cfe8d9;
+  border-radius:14px;
+  padding:16px;
+  margin-bottom:16px;
 }
 
 .payment-number{
-  font-size:22px;
+  font-size:23px;
   font-weight:800;
   color:#16834b;
-  margin:5px 0;
+  margin:8px 0;
 }
 
 .copy-btn{
-  background:white;
-  border:1px solid #cfe9da;
-  color:#16834b;
-  padding:7px 12px;
-  border-radius:7px;
-  cursor:pointer;
-}
-
-/* TRANSACTIONS */
-
-.transactions-page{
-  display:none;
-  min-height:80vh;
-  padding:18px 12px 35px;
-}
-
-.transactions-inner{
-  max-width:700px;
-  margin:auto;
-}
-
-.page-title{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-bottom:16px;
-}
-
-.back-btn{
-  background:white;
-  border:1px solid #e0e5eb;
+  background:#16834b;
+  color:white;
+  border:none;
+  border-radius:8px;
   padding:8px 12px;
 }
 
-.transaction-tabs{
-  display:grid;
-  grid-template-columns:1fr 1fr;
+/* =========================
+   TRANSACTIONS
+========================= */
+
+.tabs{
+  display:flex;
   gap:8px;
-  margin-bottom:14px;
+  margin-bottom:15px;
 }
 
-.transaction-tab{
-  background:white;
-  color:#667085;
-  border:1px solid #e1e5ea;
+.tab{
+  flex:1;
+  padding:11px;
+  border:none;
+  border-radius:10px;
+  background:#edf0f2;
+  font-weight:700;
 }
 
-.transaction-tab.active{
+.tab.active{
   background:#16834b;
   color:white;
-  border-color:#16834b;
 }
 
-.transaction-list{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.transaction-item{
-  background:white;
-  border:1px solid #e5e9ee;
-  border-radius:15px;
+.transaction{
+  border:1px solid #e1e5e8;
+  border-radius:14px;
   padding:15px;
+  margin-bottom:12px;
 }
 
 .transaction-top{
   display:flex;
   justify-content:space-between;
-  align-items:center;
   gap:10px;
+  margin-bottom:9px;
 }
 
-.transaction-title{
+.amount{
+  font-size:20px;
   font-weight:800;
-}
-
-.transaction-amount{
-  font-size:19px;
-  font-weight:800;
-}
-
-.transaction-details{
-  color:#667085;
-  font-size:13px;
-  margin-top:8px;
 }
 
 .status{
-  display:inline-block;
-  padding:4px 9px;
+  padding:5px 9px;
   border-radius:20px;
-  font-size:11px;
+  font-size:12px;
   font-weight:800;
-  margin-top:8px;
 }
 
 .status-pending{
-  background:#fff4d6;
-  color:#9a6700;
+  background:#fff3cd;
+  color:#856404;
 }
 
 .status-approved{
-  background:#e6f7ed;
-  color:#16834b;
+  background:#d4edda;
+  color:#155724;
 }
 
 .status-rejected{
-  background:#ffe8e8;
-  color:#c62828;
+  background:#f8d7da;
+  color:#721c24;
 }
 
-.empty-transactions{
-  background:white;
-  border:1px dashed #d8dee6;
-  border-radius:15px;
-  padding:35px 15px;
-  text-align:center;
-  color:#667085;
+.small{
+  font-size:13px;
+  color:#68727c;
+  line-height:1.7;
 }
+
+/* =========================
+   ADMIN
+========================= */
+
+.admin-card{
+  border:1px solid #e1e5e8;
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:14px;
+}
+
+.admin-user{
+  font-weight:800;
+  margin-bottom:8px;
+}
+
+.admin-actions{
+  display:flex;
+  gap:8px;
+  margin-top:13px;
+}
+
+.admin-actions button{
+  flex:1;
+}
+
+/* =========================
+   LOADING
+========================= */
 
 .loading{
   text-align:center;
   padding:25px;
-  color:#667085;
+  color:#667;
 }
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-  background:#172033;
-  color:white;
-  margin-top:30px;
   text-align:center;
-  padding:35px 20px;
+  padding:30px 15px;
+  color:#7a838b;
+  font-size:13px;
 }
 
-footer p{
-  color:#b9c0cc;
-  margin-top:8px;
-  font-size:14px;
-}
+/* =========================
+   MOBILE
+========================= */
 
-/* MOBILE */
+@media(max-width:650px){
 
-@media(max-width:600px){
-
-  .nav{
-    padding:12px 14px;
-  }
-
-  .logo{
-    font-size:23px;
-  }
-
-  /* Guest অবস্থায় Login + Create Account দুটোই থাকবে */
-  .nav-buttons{
-    display:flex;
-    gap:5px;
-  }
-
-  .nav-buttons .login{
-    display:inline-block;
-    padding:9px 10px;
-    font-size:13px;
-  }
-
-  .nav-buttons .primary{
-    padding:9px 10px;
-    font-size:13px;
-  }
-
-  .hero{
-    padding:50px 18px 35px;
-  }
-
-  .hero p{
-    font-size:16px;
-  }
-
-  .hero-buttons{
-    gap:10px;
-  }
-
-  .hero-buttons button{
-    min-width:135px;
-  }
-
-  .section{
-    padding:30px 18px;
-  }
-
-  .bonus{
-    padding:25px 18px;
-  }
-
-  .dashboard{
-    padding:12px 10px 30px;
-  }
-
-  .dashboard-grid{
+  .menu-grid{
     grid-template-columns:repeat(2,1fr);
-    gap:10px;
   }
 
-  .dashboard-card{
-    min-height:145px;
-    padding:15px 7px;
-  }
-
-  .dashboard-icon{
-    font-size:38px;
-  }
-
-  .dashboard-card h3{
-    font-size:17px;
-  }
-
-  .dashboard-card p{
-    font-size:11px;
-  }
-
-  .welcome-card{
-    padding:22px 15px;
-  }
-
-  .welcome-card h2{
-    font-size:24px;
+  .hero h1{
+    font-size:25px;
   }
 
   .balance{
-    font-size:38px;
+    font-size:29px;
   }
 
-  .user-id-bar{
+  .header-buttons .btn{
+    padding:9px 10px;
     font-size:12px;
   }
 
-  .transaction-item{
-    padding:13px;
-  }
-
-  .transaction-amount{
-    font-size:17px;
-  }
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- =========================
+HEADER
+========================= -->
+
 <header>
 
-  <div class="nav">
+<div class="header-inner">
 
-    <div class="logo">
-      💰 Amar Taka
-    </div>
+<div class="logo">
+Amar Taka
+</div>
 
-    <!-- GUEST NAVIGATION -->
-    <div id="homeNav" class="nav-buttons">
+<div class="header-buttons" id="guestButtons">
 
-      <button class="btn login" onclick="openLogin()">
-        Login
-      </button>
+<button class="btn btn-light"
+onclick="openModal('loginModal')">
+Login
+</button>
 
-      <button class="btn primary" onclick="openSignup()">
-        Create Account
-      </button>
+<button class="btn btn-light"
+onclick="openModal('registerModal')">
+Create Account
+</button>
 
-    </div>
+</div>
 
-    <!-- LOGGED IN NAVIGATION -->
-    <div id="dashboardNav" style="display:none;">
+<div class="header-buttons hidden"
+id="userButtons">
 
-      <button class="menu-btn" onclick="toggleMenu()">
-        ☰
-      </button>
+<button class="btn btn-light"
+onclick="showPage('dashboard')">
+Dashboard
+</button>
 
-    </div>
+<button class="btn btn-light"
+onclick="logout()">
+Logout
+</button>
 
-  </div>
+</div>
 
-
-  <!-- DASHBOARD MENU -->
-  <div id="menuBox" class="menu-box">
-
-    <button onclick="closeMenu();showDashboard()">
-      🏠 Dashboard
-    </button>
-
-    <button onclick="closeMenu();openDeposit()">
-      💰 Deposit
-    </button>
-
-    <button onclick="closeMenu();openTransactions()">
-      📜 Transactions
-    </button>
-
-    <button class="logout-menu" onclick="closeMenu();logout()">
-      🚪 Logout
-    </button>
-
-  </div>
+</div>
 
 </header>
 
 
-<!-- ========================= -->
-<!-- GUEST HOME PAGE -->
-<!-- ========================= -->
+<!-- =========================
+GUEST HOME
+========================= -->
 
-<main id="homePage">
+<main class="container"
+id="guestHome">
 
-  <section class="hero">
+<div class="hero">
 
-    <div class="badge">
-      🟢 Amar Taka
-    </div>
+<h1>আপনার টাকা, আপনার নিয়ন্ত্রণে</h1>
 
-    <h1>
-      আপনার টাকা,<br>
-      <span>আপনার নিয়ন্ত্রণে</span>
-    </h1>
+<p>
+Amar Taka আপনার Account, Deposit, Withdrawal,
+Membership, Referral এবং Daily Claim
+এক জায়গায় পরিচালনা করার প্ল্যাটফর্ম।
+</p>
 
-    <p>
-      Amar Taka-তে আপনার account পরিচালনা
-      এবং প্রয়োজনীয় তথ্য এক জায়গা থেকে দেখুন।
-    </p>
+<div class="bonus">
+🎁 Welcome Bonus ৳100
+</div>
 
-    <div class="hero-buttons">
-
-      <button class="btn primary" onclick="openSignup()">
-        Create Account
-      </button>
-
-      <button class="btn login" onclick="openLogin()">
-        Login
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <!-- শুধু Guest Home-এ Welcome Bonus -->
-  <section class="section">
-
-    <div class="bonus">
-
-      <h2>🎁 Welcome Bonus</h2>
-
-      <strong>৳100</strong>
-
-      <p>
-        নতুন account তৈরি করলে Welcome Bonus পাওয়ার সুযোগ থাকবে।
-      </p>
-
-    </div>
-
-  </section>
+</div>
 
 </main>
 
 
-<!-- ========================= -->
-<!-- DASHBOARD - LOGIN এর পরে -->
-<!-- ========================= -->
+<!-- =========================
+DASHBOARD
+========================= -->
 
-<section id="dashboard" class="dashboard">
+<main class="container hidden"
+id="dashboardPage">
 
-  <div class="dashboard-inner">
+<div class="dashboard-top">
 
-    <div class="user-id-bar">
+<h2>
+Welcome, <span id="dashboardName">User</span> 👋
+</h2>
 
-      <div class="user-id-text">
-        Your User ID:
-        <strong id="userId">—</strong>
-      </div>
+<div class="user-id">
+User ID:
+<span id="dashboardUserId">---</span>
+</div>
 
-      <button class="copy-user-btn" onclick="copyUserId()">
-        📋
-      </button>
+<div class="balance">
+৳ <span id="dashboardBalance">0.00</span>
+</div>
 
-    </div>
+</div>
 
 
-    <div class="welcome-card">
+<div class="menu-grid">
 
-      <h2>
-        স্বাগতম,
-        <span id="userName">User</span>
-        👋
-      </h2>
+<div class="menu-card"
+onclick="openDeposit()">
 
-      <div class="balance">
-        ৳<span id="userBalance">0.00</span>
-      </div>
+<div class="menu-icon">💰</div>
 
-      <div class="balance-label">
-        আপনার বর্তমান ব্যালেন্স
-      </div>
+<div class="menu-title">
+Deposit
+</div>
 
-    </div>
+</div>
 
 
-    <div class="dashboard-grid">
+<div class="menu-card"
+onclick="showTransactions('deposit')">
 
-      <div class="dashboard-card" onclick="openDeposit()">
+<div class="menu-icon">📜</div>
 
-        <div class="dashboard-icon">💰</div>
+<div class="menu-title">
+Transactions
+</div>
 
-        <h3>ডিপোজিট</h3>
+</div>
 
-        <p>
-          bKash বা Nagad দিয়ে Deposit করুন।
-        </p>
 
-      </div>
+<div class="menu-card"
+onclick="showComingSoon('Daily Claim')">
 
+<div class="menu-icon">🎁</div>
 
-      <div class="dashboard-card">
+<div class="menu-title">
+Daily Claim
+</div>
 
-        <div class="dashboard-icon">🏧</div>
+</div>
 
-        <h3>উত্তোলন</h3>
 
-        <p>
-          আপনার balance থেকে withdrawal request দিন।
-        </p>
+<div class="menu-card"
+onclick="showComingSoon('Withdraw')">
 
-      </div>
+<div class="menu-icon">💸</div>
 
+<div class="menu-title">
+Withdraw
+</div>
 
-      <div class="dashboard-card">
+</div>
 
-        <div class="dashboard-icon">👑</div>
 
-        <h3>VIP Membership</h3>
+<div class="menu-card"
+onclick="showComingSoon('VIP Plans')">
 
-        <p>
-          আপনার VIP membership দেখুন।
-        </p>
+<div class="menu-icon">⭐</div>
 
-      </div>
+<div class="menu-title">
+VIP Plans
+</div>
 
+</div>
 
-      <div class="dashboard-card">
 
-        <div class="dashboard-icon">🎁</div>
+<div class="menu-card"
+onclick="showComingSoon('Referral')">
 
-        <h3>ডেইলি ক্লেইম</h3>
+<div class="menu-icon">👥</div>
 
-        <p>
-          প্রতিদিনের claim এখানে করুন।
-        </p>
+<div class="menu-title">
+Referral
+</div>
 
-      </div>
+</div>
 
 
-      <div class="dashboard-card">
+<div class="menu-card"
+onclick="showComingSoon('Support')">
 
-        <div class="dashboard-icon">👥</div>
+<div class="menu-icon">💬</div>
 
-        <h3>রেফার</h3>
+<div class="menu-title">
+Support
+</div>
 
-        <p>
-          বন্ধুদের refer করে তথ্য দেখুন।
-        </p>
+</div>
 
-      </div>
 
+<div class="menu-card hidden"
+id="adminMenu"
+onclick="showAdminPanel()">
 
-      <div class="dashboard-card">
+<div class="menu-icon">🛡️</div>
 
-        <div class="dashboard-icon">🟢</div>
+<div class="menu-title">
+Admin Panel
+</div>
 
-        <h3>লাইভ সাপোর্ট</h3>
+</div>
 
-        <p>
-          Admin-এর সাথে ব্যক্তিগতভাবে যোগাযোগ করুন।
-        </p>
+</div>
 
-      </div>
+</main>
 
-    </div>
 
-  </div>
+<!-- =========================
+TRANSACTIONS PAGE
+========================= -->
 
-</section>
+<main class="container hidden"
+id="transactionsPage">
 
+<div class="section">
 
-<!-- ========================= -->
-<!-- TRANSACTIONS -->
-<!-- ========================= -->
+<h2>📜 Transactions</h2>
 
-<section id="transactionsPage" class="transactions-page">
+<div class="tabs">
 
-  <div class="transactions-inner">
+<button
+id="depositTab"
+class="tab active"
+onclick="loadTransactions('deposit')">
 
-    <div class="page-title">
+Deposit
 
-      <button class="back-btn" onclick="showDashboard()">
-        ←
-      </button>
+</button>
 
-      <h2>📜 Transactions</h2>
+<button
+id="withdrawTab"
+class="tab"
+onclick="loadTransactions('withdrawal')">
 
-    </div>
+Withdrawal
 
+</button>
 
-    <div class="transaction-tabs">
+</div>
 
-      <button
-        id="depositTab"
-        class="transaction-tab active"
-        onclick="showTransactionType('deposit')">
-        💰 Deposit
-      </button>
+<div id="transactionsList">
+<div class="loading">
+Loading...
+</div>
+</div>
 
-      <button
-        id="withdrawalTab"
-        class="transaction-tab"
-        onclick="showTransactionType('withdrawal')">
-        🏧 Withdrawal
-      </button>
+</div>
 
-    </div>
+</main>
 
 
-    <div id="transactionList"
-      class="transaction-list">
+<!-- =========================
+ADMIN PAGE
+========================= -->
 
-      <div class="loading">
-        Transactions loading...
-      </div>
+<main class="container hidden"
+id="adminPage">
 
-    </div>
+<div class="section">
 
-  </div>
+<h2>🛡️ Admin Panel</h2>
 
-</section>
+<p class="small">
+Deposit Management
+</p>
+
+<br>
+
+<button
+class="btn btn-success"
+onclick="loadAdminDeposits()">
+
+🔄 Refresh Deposits
+
+</button>
+
+<br><br>
+
+<div id="adminDepositList">
+
+<div class="loading">
+Loading deposits...
+</div>
+
+</div>
+
+</div>
+
+</main>
 
 
 <footer>
-
-  <strong>💰 Amar Taka</strong>
-
-  <p>
-    আপনার account পরিচালনার জন্য একটি সহজ digital platform।
-  </p>
-
-  <p>
-    © 2026 Amar Taka. All rights reserved.
-  </p>
-
+© 2026 Amar Taka
 </footer>
 
 
-<!-- ========================= -->
-<!-- SIGNUP MODAL -->
-<!-- ========================= -->
+<!-- =========================
+LOGIN MODAL
+========================= -->
 
-<div id="signupModal" class="modal">
+<div class="modal hidden"
+id="loginModal">
 
-  <div class="modal-box">
+<div class="modal-box">
 
-    <button class="close" onclick="closeModals()">
-      ×
-    </button>
+<div class="modal-head">
 
-    <h2>Create Account</h2>
+<h2>Login</h2>
 
-    <input id="signupName"
-      type="text"
-      placeholder="আপনার নাম">
-
-    <input id="signupPhone"
-      type="tel"
-      placeholder="মোবাইল নম্বর">
-
-    <input id="signupEmail"
-      type="email"
-      placeholder="Email">
-
-    <input id="signupPassword"
-      type="password"
-      placeholder="Password">
-
-    <input id="signupReferral"
-      type="text"
-      placeholder="Referral Code (Optional)">
-
-    <button class="btn primary form-button"
-      onclick="signup()">
-      Create Account
-    </button>
-
-    <div id="signupMessage" class="message"></div>
-
-    <div class="switch">
-      Already have an account?
-
-      <button onclick="switchToLogin()">
-        Login
-      </button>
-    </div>
-
-  </div>
+<button class="close"
+onclick="closeModal('loginModal')">
+×
+</button>
 
 </div>
 
 
-<!-- ========================= -->
-<!-- LOGIN MODAL -->
-<!-- ========================= -->
+<div class="form-group">
 
-<div id="loginModal" class="modal">
+<label>Email</label>
 
-  <div class="modal-box">
-
-    <button class="close" onclick="closeModals()">
-      ×
-    </button>
-
-    <h2>Login</h2>
-
-    <input id="loginEmail"
-      type="email"
-      placeholder="Email">
-
-    <input id="loginPassword"
-      type="password"
-      placeholder="Password">
-
-    <button class="btn primary form-button"
-      onclick="login()">
-      Login
-    </button>
-
-    <div id="loginMessage" class="message"></div>
-
-    <div class="switch">
-      New user?
-
-      <button onclick="switchToSignup()">
-        Create Account
-      </button>
-    </div>
-
-  </div>
+<input
+type="email"
+id="loginEmail"
+placeholder="আপনার Email">
 
 </div>
 
 
-<!-- ========================= -->
-<!-- DEPOSIT MODAL -->
-<!-- ========================= -->
+<div class="form-group">
 
-<div id="depositModal" class="modal">
+<label>Password</label>
 
-  <div class="modal-box">
+<input
+type="password"
+id="loginPassword"
+placeholder="Password">
 
-    <button class="close" onclick="closeModals()">
-      ×
-    </button>
-
-    <h2>💰 Deposit</h2>
-
-    <p style="color:#667085;font-size:14px;">
-      প্রথমে Payment Method নির্বাচন করুন।
-    </p>
-
-    <select id="paymentMethod"
-      onchange="updatePaymentInfo()">
-
-      <option value="">
-        Payment Method নির্বাচন করুন
-      </option>
-
-      <option value="bkash">
-        bKash
-      </option>
-
-      <option value="nagad">
-        Nagad
-      </option>
-
-    </select>
+</div>
 
 
-    <div id="paymentInfo"
-      class="payment-box"
-      style="display:none;">
+<button
+class="btn btn-success"
+style="width:100%"
+onclick="login()">
 
-      <strong id="paymentTitle">
-        Send Money করুন
-      </strong>
+Login
 
-      <div id="paymentNumber"
-        class="payment-number">
-        01771332609
-      </div>
+</button>
 
-      <button class="copy-btn"
-        onclick="copyPaymentNumber()">
-        📋 নম্বর Copy
-      </button>
+</div>
 
-      <p style="font-size:13px;margin-top:8px;">
-        উপরের নম্বরে Send Money করার পর
-        Transaction ID এখানে দিন।
-      </p>
-
-    </div>
+</div>
 
 
-    <label>
-      Amount
-    </label>
+<!-- =========================
+REGISTER MODAL
+========================= -->
 
-    <input id="depositAmount"
-      type="number"
-      min="500"
-      placeholder="Minimum ৳500">
+<div class="modal hidden"
+id="registerModal">
 
+<div class="modal-box">
 
-    <label>
-      Transaction ID
-    </label>
+<div class="modal-head">
 
-    <input id="depositTransactionId"
-      type="text"
-      placeholder="Transaction ID লিখুন">
+<h2>Create Account</h2>
 
+<button class="close"
+onclick="closeModal('registerModal')">
+×
+</button>
 
-    <button class="btn primary form-button"
-      onclick="submitDeposit()">
-      Deposit Submit
-    </button>
+</div>
 
 
-    <div id="depositMessage"
-      class="message">
-    </div>
+<div class="form-group">
 
-  </div>
+<label>Name</label>
+
+<input
+type="text"
+id="registerName"
+placeholder="আপনার নাম">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Mobile</label>
+
+<input
+type="text"
+id="registerPhone"
+placeholder="01XXXXXXXXX">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Email</label>
+
+<input
+type="email"
+id="registerEmail"
+placeholder="Email">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Password</label>
+
+<input
+type="password"
+id="registerPassword"
+placeholder="কমপক্ষে ৬ অক্ষর">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Referral Code (Optional)</label>
+
+<input
+type="text"
+id="registerReferral"
+placeholder="Referral Code">
+
+</div>
+
+
+<button
+class="btn btn-success"
+style="width:100%"
+onclick="register()">
+
+Create Account
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+DEPOSIT MODAL
+========================= -->
+
+<div class="modal hidden"
+id="depositModal">
+
+<div class="modal-box">
+
+<div class="modal-head">
+
+<h2>💰 Deposit</h2>
+
+<button class="close"
+onclick="closeModal('depositModal')">
+×
+</button>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Payment Method</label>
+
+<select
+id="paymentMethod"
+onchange="showPaymentNumber()">
+
+<option value="">
+Select Payment Method
+</option>
+
+<option value="bkash">
+bKash
+</option>
+
+<option value="nagad">
+Nagad
+</option>
+
+</select>
+
+</div>
+
+
+<div
+id="paymentInfo"
+class="payment-box hidden">
+
+<div>
+Payment Number
+</div>
+
+<div
+class="payment-number"
+id="paymentNumber">
+01771332609
+</div>
+
+<button
+class="copy-btn"
+onclick="copyPaymentNumber()">
+
+Copy Number
+
+</button>
+
+<p class="small"
+style="margin-top:10px">
+
+এই নম্বরে <b>Send Money করুন</b>।
+তারপর নিচে Transaction ID দিন।
+
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Amount</label>
+
+<input
+type="number"
+id="depositAmount"
+placeholder="Minimum ৳500"
+min="500">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Transaction ID</label>
+
+<input
+type="text"
+id="transactionId"
+placeholder="Transaction ID">
+
+</div>
+
+
+<button
+class="btn btn-success"
+style="width:100%"
+onclick="submitDeposit()">
+
+Submit Deposit
+
+</button>
+
+</div>
 
 </div>
 
 
 <script>
 
-/* ========================= */
-/* SUPABASE */
-/* ========================= */
+/* ==========================================
+   SUPABASE
+========================================== */
 
 const SUPABASE_URL =
 "https://xwdljcjotlspmecezhcl.supabase.co";
@@ -1144,172 +1047,316 @@ const SUPABASE_KEY =
 "sb_publishable_relELN9M0XEqVuF7UKlAsQ_1cB8lSh_";
 
 const supabaseClient =
-window.supabase.createClient(
+supabase.createClient(
   SUPABASE_URL,
   SUPABASE_KEY
 );
 
 
-/* ========================= */
-/* MODALS */
-/* ========================= */
+/* ==========================================
+   GLOBAL
+========================================== */
 
-function openSignup(){
+let currentUser = null;
+let currentProfile = null;
 
-  closeModals();
 
-  document.getElementById("signupModal")
-    .style.display="flex";
+/* ==========================================
+   HELPERS
+========================================== */
+
+function openModal(id){
+  document.getElementById(id)
+    .classList.remove("hidden");
 }
 
-function openLogin(){
-
-  closeModals();
-
-  document.getElementById("loginModal")
-    .style.display="flex";
+function closeModal(id){
+  document.getElementById(id)
+    .classList.add("hidden");
 }
 
-function openDeposit(){
-
-  closeModals();
-
-  document.getElementById("depositModal")
-    .style.display="flex";
+function money(value){
+  return Number(value || 0).toFixed(2);
 }
 
-function closeModals(){
+function escapeHtml(value){
 
-  document.getElementById("signupModal")
-    .style.display="none";
+  return String(value ?? "")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
-  document.getElementById("loginModal")
-    .style.display="none";
-
-  document.getElementById("depositModal")
-    .style.display="none";
 }
 
-function switchToLogin(){
+function statusHtml(status){
 
-  closeModals();
-  openLogin();
+  const s = String(status || "").toLowerCase();
+
+  if(s === "approved"){
+    return `<span class="status status-approved">Approved</span>`;
+  }
+
+  if(s === "rejected"){
+    return `<span class="status status-rejected">Rejected</span>`;
+  }
+
+  return `<span class="status status-pending">Pending</span>`;
+
 }
 
-function switchToSignup(){
+function formatDate(date){
 
-  closeModals();
-  openSignup();
-}
+  if(!date) return "";
 
+  try{
+    return new Date(date).toLocaleString("en-BD");
+  }catch(e){
+    return date;
+  }
 
-/* ========================= */
-/* MENU */
-/* ========================= */
-
-function toggleMenu(){
-
-  const menu =
-    document.getElementById("menuBox");
-
-  menu.style.display =
-    menu.style.display==="block"
-    ? "none"
-    : "block";
-}
-
-function closeMenu(){
-
-  document.getElementById("menuBox")
-    .style.display="none";
 }
 
 
-/* ========================= */
-/* MESSAGE */
-/* ========================= */
+/* ==========================================
+   AUTH CHECK
+========================================== */
 
-function showMessage(id,text,success=false){
+async function checkSession(){
 
-  const el =
-    document.getElementById(id);
+  const {
+    data,
+    error
+  } = await supabaseClient.auth.getSession();
 
-  if(!el) return;
+  if(error){
+    console.error(error);
+    return;
+  }
 
-  el.style.display="block";
-  el.textContent=text;
+  if(data.session){
 
-  if(success){
+    currentUser =
+      data.session.user;
 
-    el.style.background="#e9f8f0";
-    el.style.color="#16834b";
+    await loadUser();
 
   }else{
 
-    el.style.background="#fff0f0";
-    el.style.color="#c62828";
+    showGuest();
+
   }
+
 }
 
 
-/* ========================= */
-/* SIGNUP */
-/* ========================= */
+/* ==========================================
+   LOAD USER
+========================================== */
 
-async function signup(){
+async function loadUser(){
+
+  if(!currentUser){
+    showGuest();
+    return;
+  }
+
+  const {
+    data,
+    error
+  } = await supabaseClient
+    .from("profiles")
+    .select("*")
+    .eq("id",currentUser.id)
+    .single();
+
+  if(error){
+
+    console.error(
+      "Profile Error:",
+      error
+    );
+
+    currentProfile = {
+      id:currentUser.id,
+      name:
+        currentUser.user_metadata?.name
+        || "User",
+      balance:0,
+      role:"user"
+    };
+
+  }else{
+
+    currentProfile = data;
+
+  }
+
+  document
+    .getElementById("dashboardName")
+    .textContent =
+      currentProfile.name || "User";
+
+  document
+    .getElementById("dashboardUserId")
+    .textContent =
+      currentProfile.id || currentUser.id;
+
+  document
+    .getElementById("dashboardBalance")
+    .textContent =
+      money(currentProfile.balance);
+
+  document
+    .getElementById("guestHome")
+    .classList.add("hidden");
+
+  document
+    .getElementById("guestButtons")
+    .classList.add("hidden");
+
+  document
+    .getElementById("userButtons")
+    .classList.remove("hidden");
+
+  document
+    .getElementById("dashboardPage")
+    .classList.remove("hidden");
+
+  document
+    .getElementById("transactionsPage")
+    .classList.add("hidden");
+
+  document
+    .getElementById("adminPage")
+    .classList.add("hidden");
+
+
+  /* ADMIN MENU */
+
+  if(currentProfile.role === "admin"){
+
+    document
+      .getElementById("adminMenu")
+      .classList.remove("hidden");
+
+  }else{
+
+    document
+      .getElementById("adminMenu")
+      .classList.add("hidden");
+
+  }
+
+}
+
+
+/* ==========================================
+   GUEST
+========================================== */
+
+function showGuest(){
+
+  currentUser = null;
+  currentProfile = null;
+
+  document
+    .getElementById("guestHome")
+    .classList.remove("hidden");
+
+  document
+    .getElementById("guestButtons")
+    .classList.remove("hidden");
+
+  document
+    .getElementById("userButtons")
+    .classList.add("hidden");
+
+  document
+    .getElementById("dashboardPage")
+    .classList.add("hidden");
+
+  document
+    .getElementById("transactionsPage")
+    .classList.add("hidden");
+
+  document
+    .getElementById("adminPage")
+    .classList.add("hidden");
+
+}
+
+
+/* ==========================================
+   REGISTER
+========================================== */
+
+async function register(){
 
   const name =
-    document.getElementById("signupName")
-    .value.trim();
+    document
+      .getElementById("registerName")
+      .value
+      .trim();
 
   const phone =
-    document.getElementById("signupPhone")
-    .value.trim();
+    document
+      .getElementById("registerPhone")
+      .value
+      .trim();
 
   const email =
-    document.getElementById("signupEmail")
-    .value.trim();
+    document
+      .getElementById("registerEmail")
+      .value
+      .trim();
 
   const password =
-    document.getElementById("signupPassword")
-    .value;
+    document
+      .getElementById("registerPassword")
+      .value;
 
   const referral =
-    document.getElementById("signupReferral")
-    .value.trim();
+    document
+      .getElementById("registerReferral")
+      .value
+      .trim();
 
 
   if(!name || !phone || !email || !password){
 
-    showMessage(
-      "signupMessage",
-      "সব প্রয়োজনীয় তথ্য পূরণ করুন।"
+    alert(
+      "সব প্রয়োজনীয় তথ্য দিন"
     );
 
     return;
   }
 
 
-  if(password.length<6){
+  if(password.length < 6){
 
-    showMessage(
-      "signupMessage",
-      "Password কমপক্ষে ৬ অক্ষরের হতে হবে।"
+    alert(
+      "Password কমপক্ষে ৬ অক্ষরের হতে হবে"
     );
 
     return;
   }
 
 
-  const {data,error} =
+  const {
+    data,
+    error
+  } =
     await supabaseClient.auth.signUp({
 
-      email,
-      password,
+      email:email,
+
+      password:password,
 
       options:{
         data:{
-          full_name:name,
+          name:name,
           phone:phone,
           referral_code:referral
         }
@@ -1320,335 +1367,242 @@ async function signup(){
 
   if(error){
 
-    showMessage(
-      "signupMessage",
-      error.message
-    );
-
+    alert(error.message);
     return;
+
   }
 
 
-  /*
-   * Email confirmation OFF থাকলে
-   * Supabase session দিতে পারে।
-   * তখন Dashboard সরাসরি খুলবে।
-   */
-
-  if(data && data.session){
-
-    closeModals();
-
-    await loadDashboard();
-
-    return;
-  }
-
-
-  showMessage(
-    "signupMessage",
-    "Account সফলভাবে তৈরি হয়েছে। এখন Login করুন।",
-    true
+  alert(
+    "Account সফলভাবে তৈরি হয়েছে"
   );
+
+  closeModal("registerModal");
+
+  document
+    .getElementById("registerName")
+    .value="";
+
+  document
+    .getElementById("registerPhone")
+    .value="";
+
+  document
+    .getElementById("registerEmail")
+    .value="";
+
+  document
+    .getElementById("registerPassword")
+    .value="";
+
+  document
+    .getElementById("registerReferral")
+    .value="";
+
 }
 
 
-/* ========================= */
-/* LOGIN */
-/* ========================= */
+/* ==========================================
+   LOGIN
+========================================== */
 
 async function login(){
 
   const email =
-    document.getElementById("loginEmail")
-    .value.trim();
+    document
+      .getElementById("loginEmail")
+      .value
+      .trim();
 
   const password =
-    document.getElementById("loginPassword")
-    .value;
+    document
+      .getElementById("loginPassword")
+      .value;
 
 
   if(!email || !password){
 
-    showMessage(
-      "loginMessage",
-      "Email এবং Password দিন।"
+    alert(
+      "Email এবং Password দিন"
     );
 
     return;
   }
 
 
-  const {error} =
+  const {
+    data,
+    error
+  } =
     await supabaseClient.auth
       .signInWithPassword({
 
-        email,
-        password
+        email:email,
+        password:password
 
       });
 
 
   if(error){
 
-    showMessage(
-      "loginMessage",
-      "Login হয়নি: "+error.message
-    );
-
+    alert(error.message);
     return;
+
   }
 
 
-  closeModals();
+  closeModal("loginModal");
 
-  await loadDashboard();
+  currentUser =
+    data.user;
+
+  await loadUser();
+
 }
 
 
-/* ========================= */
-/* DASHBOARD */
-/* ========================= */
+/* ==========================================
+   LOGOUT
+========================================== */
 
-async function loadDashboard(){
+async function logout(){
 
-  const {
-    data:{user}
-  } =
-  await supabaseClient.auth.getUser();
+  await supabaseClient.auth.signOut();
+
+  showGuest();
+
+}
 
 
-  if(!user){
+/* ==========================================
+   DASHBOARD
+========================================== */
 
-    showHome();
+function showPage(page){
 
-    return;
+  if(page === "dashboard"){
+
+    document
+      .getElementById("dashboardPage")
+      .classList.remove("hidden");
+
+    document
+      .getElementById("transactionsPage")
+      .classList.add("hidden");
+
+    document
+      .getElementById("adminPage")
+      .classList.add("hidden");
+
   }
 
-
-  /*
-   * Login করা থাকলেই Home বন্ধ
-   * এবং Dashboard দেখা যাবে।
-   */
-
-  showDashboard();
-
-
-  let displayName =
-    user.user_metadata?.full_name || "User";
-
-  let displayUserId =
-    user.id;
-
-
-  const {data:profile} =
-    await supabaseClient
-      .from("profiles")
-      .select("user_id,full_name")
-      .eq("id",user.id)
-      .maybeSingle();
-
-
-  if(profile){
-
-    if(profile.full_name)
-      displayName=profile.full_name;
-
-    if(profile.user_id)
-      displayUserId=profile.user_id;
-  }
-
-
-  document.getElementById("userName")
-    .textContent=displayName;
-
-  document.getElementById("userId")
-    .textContent=displayUserId;
-
-  document.getElementById("userBalance")
-    .textContent="0.00";
 }
 
 
-/* ========================= */
-/* GUEST HOME */
-/* ========================= */
+/* ==========================================
+   DEPOSIT
+========================================== */
 
-function showHome(){
+function openDeposit(){
 
-  document.getElementById("dashboard")
-    .style.display="none";
+  openModal("depositModal");
 
-  document.getElementById("transactionsPage")
-    .style.display="none";
-
-  document.getElementById("homePage")
-    .style.display="block";
-
-  /*
-   * Guest অবস্থায়:
-   * Login + Create Account দেখাবে
-   */
-
-  document.getElementById("homeNav")
-    .style.display="flex";
-
-  document.getElementById("dashboardNav")
-    .style.display="none";
-
-  closeMenu();
 }
 
 
-/* ========================= */
-/* SHOW DASHBOARD */
-/* ========================= */
-
-function showDashboard(){
-
-  document.getElementById("homePage")
-    .style.display="none";
-
-  document.getElementById("transactionsPage")
-    .style.display="none";
-
-  document.getElementById("dashboard")
-    .style.display="block";
-
-  document.getElementById("homeNav")
-    .style.display="none";
-
-  document.getElementById("dashboardNav")
-    .style.display="block";
-
-  closeMenu();
-}
-
-
-/* ========================= */
-/* COPY USER ID */
-/* ========================= */
-
-async function copyUserId(){
-
-  const id =
-    document.getElementById("userId")
-    .textContent;
-
-  try{
-
-    await navigator.clipboard
-      .writeText(id);
-
-    alert("User ID Copy হয়েছে।");
-
-  }catch(e){
-
-    alert("User ID manually copy করুন।");
-  }
-}
-
-
-/* ========================= */
-/* PAYMENT INFO */
-/* ========================= */
-
-function updatePaymentInfo(){
+function showPaymentNumber(){
 
   const method =
-    document.getElementById("paymentMethod")
-    .value;
+    document
+      .getElementById("paymentMethod")
+      .value;
 
-  const info =
-    document.getElementById("paymentInfo");
+  const box =
+    document
+      .getElementById("paymentInfo");
 
 
-  if(!method){
+  if(method === "bkash" || method === "nagad"){
 
-    info.style.display="none";
-    return;
+    box.classList.remove("hidden");
+
+  }else{
+
+    box.classList.add("hidden");
+
   }
 
-
-  info.style.display="block";
-
-
-  document.getElementById("paymentTitle")
-    .textContent =
-      method==="bkash"
-      ? "bKash — Send Money করুন"
-      : "Nagad — Send Money করুন";
-
-
-  document.getElementById("paymentNumber")
-    .textContent="01771332609";
 }
 
-
-/* ========================= */
-/* COPY PAYMENT NUMBER */
-/* ========================= */
 
 async function copyPaymentNumber(){
 
   try{
 
-    await navigator.clipboard
-      .writeText("01771332609");
-
-    showMessage(
-      "depositMessage",
-      "Payment number Copy হয়েছে।",
-      true
+    await navigator.clipboard.writeText(
+      "01771332609"
     );
 
-  }catch(error){
-
-    showMessage(
-      "depositMessage",
-      "নম্বরটি manually copy করুন।"
+    alert(
+      "Payment Number Copy হয়েছে"
     );
+
+  }catch(e){
+
+    alert(
+      "Number: 01771332609"
+    );
+
   }
+
 }
 
 
-/* ========================= */
-/* SUBMIT DEPOSIT */
-/* ========================= */
-
 async function submitDeposit(){
 
-  const method =
-    document.getElementById("paymentMethod")
-    .value;
+  if(!currentUser){
 
-  const amount =
-    Number(
-      document.getElementById("depositAmount")
-      .value
-    );
-
-  const transactionId =
-    document.getElementById("depositTransactionId")
-    .value.trim();
-
-
-  if(!method){
-
-    showMessage(
-      "depositMessage",
-      "Payment Method নির্বাচন করুন।"
+    alert(
+      "আগে Login করুন"
     );
 
     return;
   }
 
 
-  if(!amount || amount<500){
+  const method =
+    document
+      .getElementById("paymentMethod")
+      .value;
 
-    showMessage(
-      "depositMessage",
-      "Minimum Deposit ৳500।"
+  const amount =
+    Number(
+      document
+        .getElementById("depositAmount")
+        .value
+    );
+
+  const transactionId =
+    document
+      .getElementById("transactionId")
+      .value
+      .trim();
+
+
+  if(!method){
+
+    alert(
+      "Payment Method নির্বাচন করুন"
+    );
+
+    return;
+  }
+
+
+  if(amount < 500){
+
+    alert(
+      "Minimum Deposit ৳500"
     );
 
     return;
@@ -1657,16 +1611,18 @@ async function submitDeposit(){
 
   if(!transactionId){
 
-    showMessage(
-      "depositMessage",
-      "Transaction ID দিন।"
+    alert(
+      "Transaction ID দিন"
     );
 
     return;
   }
 
 
-  const {error} =
+  const {
+    data,
+    error
+  } =
     await supabaseClient.rpc(
       "submit_deposit",
       {
@@ -1680,170 +1636,113 @@ async function submitDeposit(){
 
   if(error){
 
-    showMessage(
-      "depositMessage",
-      error.message
-    );
-
+    alert(error.message);
     return;
+
   }
 
 
-  showMessage(
-    "depositMessage",
-    "Deposit request সফলভাবে জমা হয়েছে। Admin verification-এর পর balance update হবে।",
-    true
+  alert(
+    "Deposit Submit হয়েছে। Admin verification-এর জন্য Pending আছে।"
   );
 
 
-  document.getElementById("depositAmount")
+  document
+    .getElementById("depositAmount")
     .value="";
 
-  document.getElementById("depositTransactionId")
+  document
+    .getElementById("transactionId")
     .value="";
 
-  document.getElementById("paymentMethod")
+  document
+    .getElementById("paymentMethod")
     .value="";
 
-  document.getElementById("paymentInfo")
-    .style.display="none";
+  document
+    .getElementById("paymentInfo")
+    .classList.add("hidden");
+
+  closeModal("depositModal");
+
 }
 
 
-/* ========================= */
-/* TRANSACTIONS */
-/* ========================= */
+/* ==========================================
+   TRANSACTIONS
+========================================== */
 
-let currentTransactionType="deposit";
+async function showTransactions(type){
 
+  document
+    .getElementById("dashboardPage")
+    .classList.add("hidden");
 
-async function openTransactions(){
+  document
+    .getElementById("adminPage")
+    .classList.add("hidden");
 
-  closeMenu();
-
-  document.getElementById("homePage")
-    .style.display="none";
-
-  document.getElementById("dashboard")
-    .style.display="none";
-
-  document.getElementById("transactionsPage")
-    .style.display="block";
-
-  document.getElementById("homeNav")
-    .style.display="none";
-
-  document.getElementById("dashboardNav")
-    .style.display="block";
-
-  await loadTransactions("deposit");
-}
-
-
-async function showTransactionType(type){
-
-  currentTransactionType=type;
-
-
-  document.getElementById("depositTab")
-    .classList.toggle(
-      "active",
-      type==="deposit"
-    );
-
-  document.getElementById("withdrawalTab")
-    .classList.toggle(
-      "active",
-      type==="withdrawal"
-    );
-
+  document
+    .getElementById("transactionsPage")
+    .classList.remove("hidden");
 
   await loadTransactions(type);
-}
 
-
-function formatDate(date){
-
-  if(!date) return "—";
-
-  try{
-
-    return new Date(date).toLocaleString(
-      "bn-BD",
-      {
-        day:"numeric",
-        month:"short",
-        year:"numeric",
-        hour:"numeric",
-        minute:"2-digit"
-      }
-    );
-
-  }catch(e){
-
-    return date;
-  }
-}
-
-
-function statusText(status){
-
-  if(status==="approved")
-    return "Approved";
-
-  if(status==="rejected")
-    return "Rejected";
-
-  return "Pending";
-}
-
-
-function statusClass(status){
-
-  if(status==="approved")
-    return "status-approved";
-
-  if(status==="rejected")
-    return "status-rejected";
-
-  return "status-pending";
 }
 
 
 async function loadTransactions(type){
 
-  const list =
-    document.getElementById("transactionList");
+  if(!currentUser){
 
-  list.innerHTML =
-    '<div class="loading">Loading...</div>';
-
-
-  const {
-    data:{user},
-    error:userError
-  } =
-  await supabaseClient.auth.getUser();
-
-
-  if(userError || !user){
-
-    list.innerHTML =
-      '<div class="empty-transactions">Login করুন।</div>';
-
+    alert("Login করুন");
     return;
+
   }
 
 
-  if(type==="deposit"){
+  const depositTab =
+    document
+      .getElementById("depositTab");
 
-    const {data,error} =
+  const withdrawTab =
+    document
+      .getElementById("withdrawTab");
+
+
+  if(type === "deposit"){
+
+    depositTab.classList.add("active");
+    withdrawTab.classList.remove("active");
+
+  }else{
+
+    depositTab.classList.remove("active");
+    withdrawTab.classList.add("active");
+
+  }
+
+
+  const list =
+    document
+      .getElementById("transactionsList");
+
+  list.innerHTML =
+    `<div class="loading">Loading...</div>`;
+
+
+  if(type === "deposit"){
+
+    const {
+      data,
+      error
+    } =
       await supabaseClient
         .from("deposits")
         .select(
           "amount,payment_method,payment_number,transaction_id,status,created_at"
         )
-        .eq("user_id",user.id)
+        .eq("user_id",currentUser.id)
         .order(
           "created_at",
           {ascending:false}
@@ -1853,60 +1752,49 @@ async function loadTransactions(type){
     if(error){
 
       list.innerHTML =
-        '<div class="empty-transactions">Transaction load হয়নি।</div>';
+        `<div class="loading">
+        ${escapeHtml(error.message)}
+        </div>`;
 
       return;
     }
 
 
-    if(!data || data.length===0){
+    if(!data || data.length === 0){
 
-      list.innerHTML = `
-        <div class="empty-transactions">
-          <div style="font-size:40px;">💰</div>
-          <strong>কোনো Deposit নেই</strong>
-          <p>আপনার Deposit করলে এখানে রেকর্ড দেখা যাবে।</p>
-        </div>
-      `;
+      list.innerHTML =
+        `<div class="loading">
+        কোনো Deposit পাওয়া যায়নি
+        </div>`;
 
       return;
     }
 
 
     list.innerHTML =
-      data.map(item=>`
+      data.map(item => `
 
-        <div class="transaction-item">
+        <div class="transaction">
 
           <div class="transaction-top">
 
-            <div>
-
-              <div class="transaction-title">
-                💰 Deposit
-              </div>
-
-              <div class="transaction-details">
-                ${item.payment_method
-                  ? item.payment_method.toUpperCase()
-                  : "—"}
-              </div>
-
+            <div class="amount">
+              +৳${money(item.amount)}
             </div>
 
-            <div class="transaction-amount">
-              ৳${Number(item.amount || 0).toFixed(2)}
-            </div>
+            ${statusHtml(item.status)}
 
           </div>
 
+          <div class="small">
 
-          <div class="transaction-details">
+            Method:
+            ${escapeHtml(item.payment_method)}
+
+            <br>
 
             Transaction ID:
-            <strong>
-              ${escapeHtml(item.transaction_id || "—")}
-            </strong>
+            ${escapeHtml(item.transaction_id)}
 
             <br>
 
@@ -1914,11 +1802,6 @@ async function loadTransactions(type){
             ${formatDate(item.created_at)}
 
           </div>
-
-
-          <span class="status ${statusClass(item.status)}">
-            ${statusText(item.status)}
-          </span>
 
         </div>
 
@@ -1926,13 +1809,16 @@ async function loadTransactions(type){
 
   }else{
 
-    const {data,error} =
+    const {
+      data,
+      error
+    } =
       await supabaseClient
         .from("withdrawals")
         .select(
           "amount,payment_method,payment_number,status,created_at"
         )
-        .eq("user_id",user.id)
+        .eq("user_id",currentUser.id)
         .order(
           "created_at",
           {ascending:false}
@@ -1942,60 +1828,49 @@ async function loadTransactions(type){
     if(error){
 
       list.innerHTML =
-        '<div class="empty-transactions">Withdrawal history load হয়নি।</div>';
+        `<div class="loading">
+        ${escapeHtml(error.message)}
+        </div>`;
 
       return;
     }
 
 
-    if(!data || data.length===0){
+    if(!data || data.length === 0){
 
-      list.innerHTML = `
-        <div class="empty-transactions">
-          <div style="font-size:40px;">🏧</div>
-          <strong>কোনো Withdrawal নেই</strong>
-          <p>Withdrawal request করলে এখানে রেকর্ড দেখা যাবে।</p>
-        </div>
-      `;
+      list.innerHTML =
+        `<div class="loading">
+        কোনো Withdrawal পাওয়া যায়নি
+        </div>`;
 
       return;
     }
 
 
     list.innerHTML =
-      data.map(item=>`
+      data.map(item => `
 
-        <div class="transaction-item">
+        <div class="transaction">
 
           <div class="transaction-top">
 
-            <div>
-
-              <div class="transaction-title">
-                🏧 Withdrawal
-              </div>
-
-              <div class="transaction-details">
-                ${item.payment_method
-                  ? item.payment_method.toUpperCase()
-                  : "—"}
-              </div>
-
+            <div class="amount">
+              -৳${money(item.amount)}
             </div>
 
-            <div class="transaction-amount">
-              ৳${Number(item.amount || 0).toFixed(2)}
-            </div>
+            ${statusHtml(item.status)}
 
           </div>
 
+          <div class="small">
 
-          <div class="transaction-details">
+            Method:
+            ${escapeHtml(item.payment_method)}
 
-            Payment Number:
-            <strong>
-              ${escapeHtml(item.payment_number || "—")}
-            </strong>
+            <br>
+
+            Number:
+            ${escapeHtml(item.payment_number)}
 
             <br>
 
@@ -2004,93 +1879,354 @@ async function loadTransactions(type){
 
           </div>
 
-
-          <span class="status ${statusClass(item.status)}">
-            ${statusText(item.status)}
-          </span>
-
         </div>
 
       `).join("");
+
   }
+
 }
 
 
-/* ========================= */
-/* SAFE HTML */
-/* ========================= */
+/* ==========================================
+   ADMIN CHECK
+========================================== */
 
-function escapeHtml(value){
+function isAdmin(){
 
-  return String(value)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+  return currentProfile &&
+         currentProfile.role === "admin";
+
 }
 
 
-/* ========================= */
-/* LOGOUT */
-/* ========================= */
+/* ==========================================
+   ADMIN PANEL
+========================================== */
 
-async function logout(){
+async function showAdminPanel(){
 
-  await supabaseClient.auth.signOut();
+  if(!isAdmin()){
 
-  showHome();
+    alert(
+      "Admin access required"
+    );
+
+    return;
+
+  }
+
+
+  document
+    .getElementById("dashboardPage")
+    .classList.add("hidden");
+
+  document
+    .getElementById("transactionsPage")
+    .classList.add("hidden");
+
+  document
+    .getElementById("adminPage")
+    .classList.remove("hidden");
+
+
+  await loadAdminDeposits();
+
 }
 
 
-/* ========================= */
-/* AUTH STATE */
-/* ========================= */
+/* ==========================================
+   LOAD ADMIN DEPOSITS
+========================================== */
 
-supabaseClient.auth.onAuthStateChange(
-  (event,session)=>{
+async function loadAdminDeposits(){
 
-    setTimeout(()=>{
+  if(!isAdmin()){
 
-      if(session){
+    alert(
+      "Admin access required"
+    );
 
-        loadDashboard();
+    return;
 
-      }else{
+  }
 
-        showHome();
+
+  const list =
+    document
+      .getElementById("adminDepositList");
+
+  list.innerHTML =
+    `<div class="loading">
+      Loading deposits...
+    </div>`;
+
+
+  const {
+    data,
+    error
+  } =
+    await supabaseClient.rpc(
+      "admin_get_deposits"
+    );
+
+
+  if(error){
+
+    list.innerHTML =
+      `<div class="loading">
+      ${escapeHtml(error.message)}
+      </div>`;
+
+    return;
+
+  }
+
+
+  let deposits = data;
+
+
+  if(typeof deposits === "string"){
+
+    try{
+      deposits = JSON.parse(deposits);
+    }catch(e){
+      deposits = [];
+    }
+
+  }
+
+
+  if(!deposits || deposits.length === 0){
+
+    list.innerHTML =
+      `<div class="loading">
+      কোনো Deposit নেই
+      </div>`;
+
+    return;
+
+  }
+
+
+  list.innerHTML =
+    deposits.map(item => {
+
+      const pending =
+        String(item.status).toLowerCase()
+        === "pending";
+
+
+      return `
+
+      <div class="admin-card">
+
+        <div class="admin-user">
+
+          👤
+          ${escapeHtml(item.user_name)}
+
+        </div>
+
+
+        <div class="small">
+
+          Email:
+          ${escapeHtml(item.user_email)}
+
+          <br>
+
+          Amount:
+          <b>৳${money(item.amount)}</b>
+
+          <br>
+
+          Payment:
+          ${escapeHtml(item.payment_method)}
+
+          <br>
+
+          Number:
+          ${escapeHtml(item.payment_number)}
+
+          <br>
+
+          Transaction ID:
+          <b>
+          ${escapeHtml(item.transaction_id)}
+          </b>
+
+          <br>
+
+          Date:
+          ${formatDate(item.created_at)}
+
+          <br><br>
+
+          Status:
+          ${statusHtml(item.status)}
+
+        </div>
+
+
+        ${
+          pending
+          ?
+          `
+
+          <div class="admin-actions">
+
+            <button
+              class="btn btn-success"
+              onclick="processDeposit(
+                '${item.id}',
+                'approved'
+              )">
+
+              ✓ Approve
+
+            </button>
+
+
+            <button
+              class="btn btn-danger"
+              onclick="processDeposit(
+                '${item.id}',
+                'rejected'
+              )">
+
+              ✕ Reject
+
+            </button>
+
+          </div>
+
+          `
+          :
+          ""
+        }
+
+      </div>
+
+      `;
+
+    }).join("");
+
+}
+
+
+/* ==========================================
+   ADMIN PROCESS DEPOSIT
+========================================== */
+
+async function processDeposit(
+  depositId,
+  status
+){
+
+  if(!isAdmin()){
+
+    alert(
+      "Admin access required"
+    );
+
+    return;
+
+  }
+
+
+  let message =
+    status === "approved"
+    ? "এই Deposit Approve করবেন?"
+    : "এই Deposit Reject করবেন?";
+
+
+  if(!confirm(message)){
+
+    return;
+
+  }
+
+
+  const {
+    data,
+    error
+  } =
+    await supabaseClient.rpc(
+      "admin_update_deposit",
+      {
+        p_deposit_id:depositId,
+        p_status:status
       }
+    );
 
-    },0);
+
+  if(error){
+
+    alert(error.message);
+    return;
+
   }
-);
 
 
-/* ========================= */
-/* INITIAL SESSION */
-/* ========================= */
+  alert(
+    status === "approved"
+    ? "Deposit Approved হয়েছে"
+    : "Deposit Rejected হয়েছে"
+  );
 
-window.addEventListener(
-  "DOMContentLoaded",
-  async()=>{
 
-    const {
-      data:{session}
-    } =
-    await supabaseClient.auth
-      .getSession();
+  await loadAdminDeposits();
 
+  await loadUser();
+
+}
+
+
+/* ==========================================
+   COMING SOON
+========================================== */
+
+function showComingSoon(name){
+
+  alert(
+    name +
+    " system পরবর্তী ধাপে চালু করা হবে।"
+  );
+
+}
+
+
+/* ==========================================
+   AUTH STATE
+========================================== */
+
+supabaseClient.auth
+.onAuthStateChange(
+  async (event,session) => {
 
     if(session){
 
-      await loadDashboard();
+      currentUser =
+        session.user;
+
+      await loadUser();
 
     }else{
 
-      showHome();
+      showGuest();
+
     }
+
   }
 );
+
+
+/* ==========================================
+   START
+========================================== */
+
+checkSession();
 
 </script>
 
