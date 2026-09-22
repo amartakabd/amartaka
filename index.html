@@ -6,13 +6,9 @@
 
 <title>Amar Taka</title>
 
-<meta name="description"
-content="Amar Taka - সহজ ও নিরাপদ ডিজিটাল অ্যাকাউন্ট প্ল্যাটফর্ম">
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-
 *{
   box-sizing:border-box;
   margin:0;
@@ -25,9 +21,7 @@ body{
   color:#17202a;
 }
 
-button,
-input,
-select{
+button,input,select{
   font-family:inherit;
 }
 
@@ -35,14 +29,9 @@ button{
   cursor:pointer;
 }
 
-a{
-  text-decoration:none;
-  color:inherit;
+.hidden{
+  display:none!important;
 }
-
-/* =========================
-   HEADER
-========================= */
 
 header{
   background:#16834b;
@@ -72,55 +61,33 @@ header{
 }
 
 .btn{
-  border:none;
+  border:0;
   border-radius:10px;
   padding:11px 15px;
   font-weight:700;
   font-size:14px;
 }
 
-.btn-primary{
+.btn-green{
   background:#16834b;
   color:white;
 }
 
-.btn-light{
+.btn-white{
   background:white;
   color:#16834b;
 }
 
-.btn-danger{
+.btn-red{
   background:#dc3545;
   color:white;
 }
-
-.btn-warning{
-  background:#f59e0b;
-  color:white;
-}
-
-.btn-success{
-  background:#16834b;
-  color:white;
-}
-
-/* =========================
-   PAGE
-========================= */
 
 .container{
   width:92%;
   max-width:1100px;
   margin:25px auto;
 }
-
-.hidden{
-  display:none !important;
-}
-
-/* =========================
-   HERO
-========================= */
 
 .hero{
   background:white;
@@ -131,9 +98,9 @@ header{
 }
 
 .hero h1{
+  color:#16834b;
   font-size:30px;
   margin-bottom:12px;
-  color:#16834b;
 }
 
 .hero p{
@@ -151,10 +118,6 @@ header{
   font-weight:700;
 }
 
-/* =========================
-   DASHBOARD
-========================= */
-
 .dashboard-top{
   background:linear-gradient(135deg,#16834b,#0d673a);
   color:white;
@@ -167,16 +130,16 @@ header{
   margin-bottom:7px;
 }
 
-.balance{
-  font-size:34px;
-  font-weight:800;
-  margin-top:12px;
-}
-
 .user-id{
   font-size:13px;
   opacity:.85;
   word-break:break-all;
+}
+
+.balance{
+  font-size:34px;
+  font-weight:800;
+  margin-top:12px;
 }
 
 .menu-grid{
@@ -192,8 +155,6 @@ header{
   text-align:center;
   box-shadow:0 3px 14px rgba(0,0,0,.06);
   border:1px solid #e8ecef;
-  cursor:pointer;
-  transition:.2s;
 }
 
 .menu-card:hover{
@@ -210,9 +171,10 @@ header{
   font-size:14px;
 }
 
-/* =========================
-   SECTION
-========================= */
+.admin-menu{
+  border:2px solid #16834b;
+  background:#effaf4;
+}
 
 .section{
   background:white;
@@ -223,13 +185,9 @@ header{
 }
 
 .section h2{
-  margin-bottom:16px;
   color:#16834b;
+  margin-bottom:16px;
 }
-
-/* =========================
-   FORM
-========================= */
 
 .form-group{
   margin-bottom:15px;
@@ -256,10 +214,6 @@ header{
 .form-group select:focus{
   border-color:#16834b;
 }
-
-/* =========================
-   MODAL
-========================= */
 
 .modal{
   position:fixed;
@@ -291,16 +245,12 @@ header{
 
 .close{
   background:#f0f2f4;
-  border:none;
+  border:0;
   width:35px;
   height:35px;
   border-radius:50%;
   font-size:20px;
 }
-
-/* =========================
-   PAYMENT
-========================= */
 
 .payment-box{
   background:#f5faf7;
@@ -320,14 +270,10 @@ header{
 .copy-btn{
   background:#16834b;
   color:white;
-  border:none;
+  border:0;
   border-radius:8px;
   padding:8px 12px;
 }
-
-/* =========================
-   TRANSACTIONS
-========================= */
 
 .tabs{
   display:flex;
@@ -338,7 +284,7 @@ header{
 .tab{
   flex:1;
   padding:11px;
-  border:none;
+  border:0;
   border-radius:10px;
   background:#edf0f2;
   font-weight:700;
@@ -396,10 +342,6 @@ header{
   line-height:1.7;
 }
 
-/* =========================
-   ADMIN
-========================= */
-
 .admin-card{
   border:1px solid #e1e5e8;
   border-radius:16px;
@@ -422,19 +364,11 @@ header{
   flex:1;
 }
 
-/* =========================
-   LOADING
-========================= */
-
 .loading{
   text-align:center;
   padding:25px;
   color:#667;
 }
-
-/* =========================
-   FOOTER
-========================= */
 
 footer{
   text-align:center;
@@ -442,10 +376,6 @@ footer{
   color:#7a838b;
   font-size:13px;
 }
-
-/* =========================
-   MOBILE
-========================= */
 
 @media(max-width:650px){
 
@@ -465,17 +395,11 @@ footer{
     padding:9px 10px;
     font-size:12px;
   }
-
 }
-
 </style>
 </head>
 
 <body>
-
-<!-- =========================
-HEADER
-========================= -->
 
 <header>
 
@@ -487,12 +411,12 @@ Amar Taka
 
 <div class="header-buttons" id="guestButtons">
 
-<button class="btn btn-light"
+<button class="btn btn-white"
 onclick="openModal('loginModal')">
 Login
 </button>
 
-<button class="btn btn-light"
+<button class="btn btn-white"
 onclick="openModal('registerModal')">
 Create Account
 </button>
@@ -502,12 +426,12 @@ Create Account
 <div class="header-buttons hidden"
 id="userButtons">
 
-<button class="btn btn-light"
-onclick="showPage('dashboard')">
+<button class="btn btn-white"
+onclick="showDashboard()">
 Dashboard
 </button>
 
-<button class="btn btn-light"
+<button class="btn btn-white"
 onclick="logout()">
 Logout
 </button>
@@ -519,12 +443,9 @@ Logout
 </header>
 
 
-<!-- =========================
-GUEST HOME
-========================= -->
+<!-- GUEST HOME -->
 
-<main class="container"
-id="guestHome">
+<main class="container" id="guestHome">
 
 <div class="hero">
 
@@ -545,12 +466,9 @@ Membership, Referral এবং Daily Claim
 </main>
 
 
-<!-- =========================
-DASHBOARD
-========================= -->
+<!-- DASHBOARD -->
 
-<main class="container hidden"
-id="dashboardPage">
+<main class="container hidden" id="dashboardPage">
 
 <div class="dashboard-top">
 
@@ -576,10 +494,7 @@ User ID:
 onclick="openDeposit()">
 
 <div class="menu-icon">💰</div>
-
-<div class="menu-title">
-Deposit
-</div>
+<div class="menu-title">Deposit</div>
 
 </div>
 
@@ -588,83 +503,64 @@ Deposit
 onclick="showTransactions('deposit')">
 
 <div class="menu-icon">📜</div>
-
-<div class="menu-title">
-Transactions
-</div>
+<div class="menu-title">Transactions</div>
 
 </div>
 
 
 <div class="menu-card"
-onclick="showComingSoon('Daily Claim')">
+onclick="comingSoon('Daily Claim')">
 
 <div class="menu-icon">🎁</div>
-
-<div class="menu-title">
-Daily Claim
-</div>
+<div class="menu-title">Daily Claim</div>
 
 </div>
 
 
 <div class="menu-card"
-onclick="showComingSoon('Withdraw')">
+onclick="comingSoon('Withdraw')">
 
 <div class="menu-icon">💸</div>
-
-<div class="menu-title">
-Withdraw
-</div>
+<div class="menu-title">Withdraw</div>
 
 </div>
 
 
 <div class="menu-card"
-onclick="showComingSoon('VIP Plans')">
+onclick="comingSoon('VIP Plans')">
 
 <div class="menu-icon">⭐</div>
-
-<div class="menu-title">
-VIP Plans
-</div>
+<div class="menu-title">VIP Plans</div>
 
 </div>
 
 
 <div class="menu-card"
-onclick="showComingSoon('Referral')">
+onclick="comingSoon('Referral')">
 
 <div class="menu-icon">👥</div>
-
-<div class="menu-title">
-Referral
-</div>
+<div class="menu-title">Referral</div>
 
 </div>
 
 
 <div class="menu-card"
-onclick="showComingSoon('Support')">
+onclick="comingSoon('Support')">
 
 <div class="menu-icon">💬</div>
-
-<div class="menu-title">
-Support
-</div>
+<div class="menu-title">Support</div>
 
 </div>
 
 
-<div class="menu-card hidden"
+<!-- ADMIN -->
+
+<div class="menu-card admin-menu hidden"
 id="adminMenu"
-onclick="showAdminPanel()">
+onclick="openAdminPanel()">
 
 <div class="menu-icon">🛡️</div>
-
-<div class="menu-title">
-Admin Panel
-</div>
+<div class="menu-title">Admin Panel</div>
 
 </div>
 
@@ -673,9 +569,7 @@ Admin Panel
 </main>
 
 
-<!-- =========================
-TRANSACTIONS PAGE
-========================= -->
+<!-- TRANSACTIONS -->
 
 <main class="container hidden"
 id="transactionsPage">
@@ -687,29 +581,23 @@ id="transactionsPage">
 <div class="tabs">
 
 <button
-id="depositTab"
 class="tab active"
+id="depositTab"
 onclick="loadTransactions('deposit')">
-
 Deposit
-
 </button>
 
 <button
-id="withdrawTab"
 class="tab"
+id="withdrawTab"
 onclick="loadTransactions('withdrawal')">
-
 Withdrawal
-
 </button>
 
 </div>
 
 <div id="transactionsList">
-<div class="loading">
-Loading...
-</div>
+<div class="loading">Loading...</div>
 </div>
 
 </div>
@@ -717,9 +605,7 @@ Loading...
 </main>
 
 
-<!-- =========================
-ADMIN PAGE
-========================= -->
+<!-- ADMIN PANEL -->
 
 <main class="container hidden"
 id="adminPage">
@@ -735,21 +621,17 @@ Deposit Management
 <br>
 
 <button
-class="btn btn-success"
+class="btn btn-green"
 onclick="loadAdminDeposits()">
-
-🔄 Refresh Deposits
-
+🔄 Refresh
 </button>
 
 <br><br>
 
 <div id="adminDepositList">
-
 <div class="loading">
 Loading deposits...
 </div>
-
 </div>
 
 </div>
@@ -762,12 +644,9 @@ Loading deposits...
 </footer>
 
 
-<!-- =========================
-LOGIN MODAL
-========================= -->
+<!-- LOGIN -->
 
-<div class="modal hidden"
-id="loginModal">
+<div class="modal hidden" id="loginModal">
 
 <div class="modal-box">
 
@@ -782,7 +661,6 @@ onclick="closeModal('loginModal')">
 
 </div>
 
-
 <div class="form-group">
 
 <label>Email</label>
@@ -790,10 +668,9 @@ onclick="closeModal('loginModal')">
 <input
 type="email"
 id="loginEmail"
-placeholder="আপনার Email">
+placeholder="Email">
 
 </div>
-
 
 <div class="form-group">
 
@@ -806,9 +683,8 @@ placeholder="Password">
 
 </div>
 
-
 <button
-class="btn btn-success"
+class="btn btn-green"
 style="width:100%"
 onclick="login()">
 
@@ -821,12 +697,9 @@ Login
 </div>
 
 
-<!-- =========================
-REGISTER MODAL
-========================= -->
+<!-- REGISTER -->
 
-<div class="modal hidden"
-id="registerModal">
+<div class="modal hidden" id="registerModal">
 
 <div class="modal-box">
 
@@ -841,7 +714,6 @@ onclick="closeModal('registerModal')">
 
 </div>
 
-
 <div class="form-group">
 
 <label>Name</label>
@@ -852,7 +724,6 @@ id="registerName"
 placeholder="আপনার নাম">
 
 </div>
-
 
 <div class="form-group">
 
@@ -865,7 +736,6 @@ placeholder="01XXXXXXXXX">
 
 </div>
 
-
 <div class="form-group">
 
 <label>Email</label>
@@ -876,7 +746,6 @@ id="registerEmail"
 placeholder="Email">
 
 </div>
-
 
 <div class="form-group">
 
@@ -889,21 +758,19 @@ placeholder="কমপক্ষে ৬ অক্ষর">
 
 </div>
 
-
 <div class="form-group">
 
-<label>Referral Code (Optional)</label>
+<label>Referral Code</label>
 
 <input
 type="text"
 id="registerReferral"
-placeholder="Referral Code">
+placeholder="Optional">
 
 </div>
 
-
 <button
-class="btn btn-success"
+class="btn btn-green"
 style="width:100%"
 onclick="register()">
 
@@ -916,12 +783,9 @@ Create Account
 </div>
 
 
-<!-- =========================
-DEPOSIT MODAL
-========================= -->
+<!-- DEPOSIT -->
 
-<div class="modal hidden"
-id="depositModal">
+<div class="modal hidden" id="depositModal">
 
 <div class="modal-box">
 
@@ -935,7 +799,6 @@ onclick="closeModal('depositModal')">
 </button>
 
 </div>
-
 
 <div class="form-group">
 
@@ -961,14 +824,11 @@ Nagad
 
 </div>
 
-
 <div
 id="paymentInfo"
 class="payment-box hidden">
 
-<div>
-Payment Number
-</div>
+<div>Payment Number</div>
 
 <div
 class="payment-number"
@@ -978,22 +838,16 @@ id="paymentNumber">
 
 <button
 class="copy-btn"
-onclick="copyPaymentNumber()">
-
+onclick="copyNumber()">
 Copy Number
-
 </button>
 
-<p class="small"
-style="margin-top:10px">
-
+<p class="small" style="margin-top:10px">
 এই নম্বরে <b>Send Money করুন</b>।
-তারপর নিচে Transaction ID দিন।
-
+তারপর Transaction ID দিন।
 </p>
 
 </div>
-
 
 <div class="form-group">
 
@@ -1007,7 +861,6 @@ min="500">
 
 </div>
 
-
 <div class="form-group">
 
 <label>Transaction ID</label>
@@ -1019,9 +872,8 @@ placeholder="Transaction ID">
 
 </div>
 
-
 <button
-class="btn btn-success"
+class="btn btn-green"
 style="width:100%"
 onclick="submitDeposit()">
 
@@ -1036,9 +888,9 @@ Submit Deposit
 
 <script>
 
-/* ==========================================
+/* ==============================
    SUPABASE
-========================================== */
+============================== */
 
 const SUPABASE_URL =
 "https://xwdljcjotlspmecezhcl.supabase.co";
@@ -1053,17 +905,21 @@ supabase.createClient(
 );
 
 
-/* ==========================================
-   GLOBAL
-========================================== */
+/* ==============================
+   ADMIN EMAIL
+============================== */
+
+const ADMIN_EMAIL =
+"ruhiaexpress@gmail.com";
+
 
 let currentUser = null;
 let currentProfile = null;
 
 
-/* ==========================================
-   HELPERS
-========================================== */
+/* ==============================
+   BASIC
+============================== */
 
 function openModal(id){
   document.getElementById(id)
@@ -1080,58 +936,92 @@ function money(value){
 }
 
 function escapeHtml(value){
-
   return String(value ?? "")
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
     .replace(/"/g,"&quot;")
     .replace(/'/g,"&#039;");
-
-}
-
-function statusHtml(status){
-
-  const s = String(status || "").toLowerCase();
-
-  if(s === "approved"){
-    return `<span class="status status-approved">Approved</span>`;
-  }
-
-  if(s === "rejected"){
-    return `<span class="status status-rejected">Rejected</span>`;
-  }
-
-  return `<span class="status status-pending">Pending</span>`;
-
 }
 
 function formatDate(date){
 
   if(!date) return "";
 
-  try{
-    return new Date(date).toLocaleString("en-BD");
-  }catch(e){
-    return date;
+  return new Date(date)
+    .toLocaleString("en-BD");
+}
+
+function statusHtml(status){
+
+  const s =
+    String(status || "").toLowerCase();
+
+  if(s === "approved"){
+    return `<span class="status status-approved">
+    Approved
+    </span>`;
   }
 
+  if(s === "rejected"){
+    return `<span class="status status-rejected">
+    Rejected
+    </span>`;
+  }
+
+  return `<span class="status status-pending">
+  Pending
+  </span>`;
 }
 
 
-/* ==========================================
-   AUTH CHECK
-========================================== */
+/* ==============================
+   IS ADMIN
+============================== */
+
+function isAdmin(){
+
+  if(!currentUser){
+    return false;
+  }
+
+  /* Admin email */
+
+  if(
+    String(currentUser.email || "")
+      .toLowerCase()
+      === ADMIN_EMAIL.toLowerCase()
+  ){
+    return true;
+  }
+
+  /* Database role */
+
+  if(
+    currentProfile &&
+    currentProfile.role === "admin"
+  ){
+    return true;
+  }
+
+  return false;
+}
+
+
+/* ==============================
+   SESSION
+============================== */
 
 async function checkSession(){
 
   const {
     data,
     error
-  } = await supabaseClient.auth.getSession();
+  } =
+  await supabaseClient.auth.getSession();
 
   if(error){
-    console.error(error);
+    console.log(error);
     return;
   }
 
@@ -1147,36 +1037,35 @@ async function checkSession(){
     showGuest();
 
   }
-
 }
 
 
-/* ==========================================
+/* ==============================
    LOAD USER
-========================================== */
+============================== */
 
 async function loadUser(){
 
   if(!currentUser){
+
     showGuest();
     return;
+
   }
+
 
   const {
     data,
     error
-  } = await supabaseClient
+  } =
+  await supabaseClient
     .from("profiles")
     .select("*")
     .eq("id",currentUser.id)
     .single();
 
-  if(error){
 
-    console.error(
-      "Profile Error:",
-      error
-    );
+  if(error){
 
     currentProfile = {
       id:currentUser.id,
@@ -1193,68 +1082,79 @@ async function loadUser(){
 
   }
 
+
   document
     .getElementById("dashboardName")
     .textContent =
       currentProfile.name || "User";
+
 
   document
     .getElementById("dashboardUserId")
     .textContent =
       currentProfile.id || currentUser.id;
 
+
   document
     .getElementById("dashboardBalance")
     .textContent =
       money(currentProfile.balance);
 
+
   document
     .getElementById("guestHome")
     .classList.add("hidden");
+
 
   document
     .getElementById("guestButtons")
     .classList.add("hidden");
 
+
   document
     .getElementById("userButtons")
     .classList.remove("hidden");
+
 
   document
     .getElementById("dashboardPage")
     .classList.remove("hidden");
 
+
   document
     .getElementById("transactionsPage")
     .classList.add("hidden");
+
 
   document
     .getElementById("adminPage")
     .classList.add("hidden");
 
 
-  /* ADMIN MENU */
+  /* =========================
+     ADMIN BUTTON
+  ========================= */
 
-  if(currentProfile.role === "admin"){
+  const adminMenu =
+    document.getElementById("adminMenu");
 
-    document
-      .getElementById("adminMenu")
-      .classList.remove("hidden");
+
+  if(isAdmin()){
+
+    adminMenu.classList.remove("hidden");
 
   }else{
 
-    document
-      .getElementById("adminMenu")
-      .classList.add("hidden");
+    adminMenu.classList.add("hidden");
 
   }
 
 }
 
 
-/* ==========================================
+/* ==============================
    GUEST
-========================================== */
+============================== */
 
 function showGuest(){
 
@@ -1288,59 +1188,46 @@ function showGuest(){
 }
 
 
-/* ==========================================
+/* ==============================
    REGISTER
-========================================== */
+============================== */
 
 async function register(){
 
   const name =
-    document
-      .getElementById("registerName")
-      .value
-      .trim();
+    document.getElementById("registerName")
+      .value.trim();
 
   const phone =
-    document
-      .getElementById("registerPhone")
-      .value
-      .trim();
+    document.getElementById("registerPhone")
+      .value.trim();
 
   const email =
-    document
-      .getElementById("registerEmail")
-      .value
-      .trim();
+    document.getElementById("registerEmail")
+      .value.trim();
 
   const password =
-    document
-      .getElementById("registerPassword")
+    document.getElementById("registerPassword")
       .value;
 
   const referral =
-    document
-      .getElementById("registerReferral")
-      .value
-      .trim();
+    document.getElementById("registerReferral")
+      .value.trim();
 
 
   if(!name || !phone || !email || !password){
 
-    alert(
-      "সব প্রয়োজনীয় তথ্য দিন"
-    );
-
+    alert("সব প্রয়োজনীয় তথ্য দিন");
     return;
+
   }
 
 
   if(password.length < 6){
 
-    alert(
-      "Password কমপক্ষে ৬ অক্ষরের হতে হবে"
-    );
-
+    alert("Password কমপক্ষে ৬ অক্ষরের হতে হবে");
     return;
+
   }
 
 
@@ -1348,19 +1235,70 @@ async function register(){
     data,
     error
   } =
-    await supabaseClient.auth.signUp({
+  await supabaseClient.auth.signUp({
+
+    email:email,
+
+    password:password,
+
+    options:{
+      data:{
+        name:name,
+        phone:phone,
+        referral_code:referral
+      }
+    }
+
+  });
+
+
+  if(error){
+
+    alert(error.message);
+    return;
+
+  }
+
+
+  alert("Account সফলভাবে তৈরি হয়েছে");
+
+  closeModal("registerModal");
+
+}
+
+
+/* ==============================
+   LOGIN
+============================== */
+
+async function login(){
+
+  const email =
+    document.getElementById("loginEmail")
+      .value.trim();
+
+  const password =
+    document.getElementById("loginPassword")
+      .value;
+
+
+  if(!email || !password){
+
+    alert("Email এবং Password দিন");
+    return;
+
+  }
+
+
+  const {
+    data,
+    error
+  } =
+  await supabaseClient.auth
+    .signInWithPassword({
 
       email:email,
-
-      password:password,
-
-      options:{
-        data:{
-          name:name,
-          phone:phone,
-          referral_code:referral
-        }
-      }
+      password:password
 
     });
 
@@ -1373,97 +1311,18 @@ async function register(){
   }
 
 
-  alert(
-    "Account সফলভাবে তৈরি হয়েছে"
-  );
-
-  closeModal("registerModal");
-
-  document
-    .getElementById("registerName")
-    .value="";
-
-  document
-    .getElementById("registerPhone")
-    .value="";
-
-  document
-    .getElementById("registerEmail")
-    .value="";
-
-  document
-    .getElementById("registerPassword")
-    .value="";
-
-  document
-    .getElementById("registerReferral")
-    .value="";
-
-}
-
-
-/* ==========================================
-   LOGIN
-========================================== */
-
-async function login(){
-
-  const email =
-    document
-      .getElementById("loginEmail")
-      .value
-      .trim();
-
-  const password =
-    document
-      .getElementById("loginPassword")
-      .value;
-
-
-  if(!email || !password){
-
-    alert(
-      "Email এবং Password দিন"
-    );
-
-    return;
-  }
-
-
-  const {
-    data,
-    error
-  } =
-    await supabaseClient.auth
-      .signInWithPassword({
-
-        email:email,
-        password:password
-
-      });
-
-
-  if(error){
-
-    alert(error.message);
-    return;
-
-  }
-
-
   closeModal("loginModal");
 
-  currentUser =
-    data.user;
+  currentUser = data.user;
 
   await loadUser();
 
 }
 
 
-/* ==========================================
+/* ==============================
    LOGOUT
-========================================== */
+============================== */
 
 async function logout(){
 
@@ -1474,34 +1333,30 @@ async function logout(){
 }
 
 
-/* ==========================================
+/* ==============================
    DASHBOARD
-========================================== */
+============================== */
 
-function showPage(page){
+function showDashboard(){
 
-  if(page === "dashboard"){
+  document
+    .getElementById("dashboardPage")
+    .classList.remove("hidden");
 
-    document
-      .getElementById("dashboardPage")
-      .classList.remove("hidden");
+  document
+    .getElementById("transactionsPage")
+    .classList.add("hidden");
 
-    document
-      .getElementById("transactionsPage")
-      .classList.add("hidden");
-
-    document
-      .getElementById("adminPage")
-      .classList.add("hidden");
-
-  }
+  document
+    .getElementById("adminPage")
+    .classList.add("hidden");
 
 }
 
 
-/* ==========================================
+/* ==============================
    DEPOSIT
-========================================== */
+============================== */
 
 function openDeposit(){
 
@@ -1513,45 +1368,38 @@ function openDeposit(){
 function showPaymentNumber(){
 
   const method =
-    document
-      .getElementById("paymentMethod")
+    document.getElementById("paymentMethod")
       .value;
 
-  const box =
-    document
-      .getElementById("paymentInfo");
+  const info =
+    document.getElementById("paymentInfo");
 
 
-  if(method === "bkash" || method === "nagad"){
+  if(method){
 
-    box.classList.remove("hidden");
+    info.classList.remove("hidden");
 
   }else{
 
-    box.classList.add("hidden");
+    info.classList.add("hidden");
 
   }
 
 }
 
 
-async function copyPaymentNumber(){
+async function copyNumber(){
 
   try{
 
-    await navigator.clipboard.writeText(
-      "01771332609"
-    );
+    await navigator.clipboard
+      .writeText("01771332609");
 
-    alert(
-      "Payment Number Copy হয়েছে"
-    );
+    alert("Number Copy হয়েছে");
 
   }catch(e){
 
-    alert(
-      "Number: 01771332609"
-    );
+    alert("01771332609");
 
   }
 
@@ -1562,60 +1410,48 @@ async function submitDeposit(){
 
   if(!currentUser){
 
-    alert(
-      "আগে Login করুন"
-    );
-
+    alert("আগে Login করুন");
     return;
+
   }
 
 
   const method =
-    document
-      .getElementById("paymentMethod")
+    document.getElementById("paymentMethod")
       .value;
 
   const amount =
     Number(
-      document
-        .getElementById("depositAmount")
+      document.getElementById("depositAmount")
         .value
     );
 
   const transactionId =
-    document
-      .getElementById("transactionId")
-      .value
-      .trim();
+    document.getElementById("transactionId")
+      .value.trim();
 
 
   if(!method){
 
-    alert(
-      "Payment Method নির্বাচন করুন"
-    );
-
+    alert("Payment Method নির্বাচন করুন");
     return;
+
   }
 
 
   if(amount < 500){
 
-    alert(
-      "Minimum Deposit ৳500"
-    );
-
+    alert("Minimum Deposit ৳500");
     return;
+
   }
 
 
   if(!transactionId){
 
-    alert(
-      "Transaction ID দিন"
-    );
-
+    alert("Transaction ID দিন");
     return;
+
   }
 
 
@@ -1623,15 +1459,15 @@ async function submitDeposit(){
     data,
     error
   } =
-    await supabaseClient.rpc(
-      "submit_deposit",
-      {
-        p_payment_method:method,
-        p_payment_number:"01771332609",
-        p_amount:amount,
-        p_transaction_id:transactionId
-      }
-    );
+  await supabaseClient.rpc(
+    "submit_deposit",
+    {
+      p_payment_method:method,
+      p_payment_number:"01771332609",
+      p_amount:amount,
+      p_transaction_id:transactionId
+    }
+  );
 
 
   if(error){
@@ -1647,20 +1483,16 @@ async function submitDeposit(){
   );
 
 
-  document
-    .getElementById("depositAmount")
+  document.getElementById("depositAmount")
     .value="";
 
-  document
-    .getElementById("transactionId")
+  document.getElementById("transactionId")
     .value="";
 
-  document
-    .getElementById("paymentMethod")
+  document.getElementById("paymentMethod")
     .value="";
 
-  document
-    .getElementById("paymentInfo")
+  document.getElementById("paymentInfo")
     .classList.add("hidden");
 
   closeModal("depositModal");
@@ -1668,9 +1500,9 @@ async function submitDeposit(){
 }
 
 
-/* ==========================================
+/* ==============================
    TRANSACTIONS
-========================================== */
+============================== */
 
 async function showTransactions(type){
 
@@ -1702,12 +1534,10 @@ async function loadTransactions(type){
 
 
   const depositTab =
-    document
-      .getElementById("depositTab");
+    document.getElementById("depositTab");
 
   const withdrawTab =
-    document
-      .getElementById("withdrawTab");
+    document.getElementById("withdrawTab");
 
 
   if(type === "deposit"){
@@ -1724,8 +1554,7 @@ async function loadTransactions(type){
 
 
   const list =
-    document
-      .getElementById("transactionsList");
+    document.getElementById("transactionsList");
 
   list.innerHTML =
     `<div class="loading">Loading...</div>`;
@@ -1737,16 +1566,16 @@ async function loadTransactions(type){
       data,
       error
     } =
-      await supabaseClient
-        .from("deposits")
-        .select(
-          "amount,payment_method,payment_number,transaction_id,status,created_at"
-        )
-        .eq("user_id",currentUser.id)
-        .order(
-          "created_at",
-          {ascending:false}
-        );
+    await supabaseClient
+      .from("deposits")
+      .select(
+        "amount,payment_method,payment_number,transaction_id,status,created_at"
+      )
+      .eq("user_id",currentUser.id)
+      .order(
+        "created_at",
+        {ascending:false}
+      );
 
 
     if(error){
@@ -1757,6 +1586,7 @@ async function loadTransactions(type){
         </div>`;
 
       return;
+
     }
 
 
@@ -1768,42 +1598,43 @@ async function loadTransactions(type){
         </div>`;
 
       return;
+
     }
 
 
     list.innerHTML =
       data.map(item => `
 
-        <div class="transaction">
+      <div class="transaction">
 
-          <div class="transaction-top">
+        <div class="transaction-top">
 
-            <div class="amount">
-              +৳${money(item.amount)}
-            </div>
-
-            ${statusHtml(item.status)}
-
+          <div class="amount">
+            +৳${money(item.amount)}
           </div>
 
-          <div class="small">
-
-            Method:
-            ${escapeHtml(item.payment_method)}
-
-            <br>
-
-            Transaction ID:
-            ${escapeHtml(item.transaction_id)}
-
-            <br>
-
-            Date:
-            ${formatDate(item.created_at)}
-
-          </div>
+          ${statusHtml(item.status)}
 
         </div>
+
+        <div class="small">
+
+          Method:
+          ${escapeHtml(item.payment_method)}
+
+          <br>
+
+          Transaction ID:
+          ${escapeHtml(item.transaction_id)}
+
+          <br>
+
+          Date:
+          ${formatDate(item.created_at)}
+
+        </div>
+
+      </div>
 
       `).join("");
 
@@ -1813,16 +1644,16 @@ async function loadTransactions(type){
       data,
       error
     } =
-      await supabaseClient
-        .from("withdrawals")
-        .select(
-          "amount,payment_method,payment_number,status,created_at"
-        )
-        .eq("user_id",currentUser.id)
-        .order(
-          "created_at",
-          {ascending:false}
-        );
+    await supabaseClient
+      .from("withdrawals")
+      .select(
+        "amount,payment_method,payment_number,status,created_at"
+      )
+      .eq("user_id",currentUser.id)
+      .order(
+        "created_at",
+        {ascending:false}
+      );
 
 
     if(error){
@@ -1833,6 +1664,7 @@ async function loadTransactions(type){
         </div>`;
 
       return;
+
     }
 
 
@@ -1844,42 +1676,43 @@ async function loadTransactions(type){
         </div>`;
 
       return;
+
     }
 
 
     list.innerHTML =
       data.map(item => `
 
-        <div class="transaction">
+      <div class="transaction">
 
-          <div class="transaction-top">
+        <div class="transaction-top">
 
-            <div class="amount">
-              -৳${money(item.amount)}
-            </div>
-
-            ${statusHtml(item.status)}
-
+          <div class="amount">
+            -৳${money(item.amount)}
           </div>
 
-          <div class="small">
-
-            Method:
-            ${escapeHtml(item.payment_method)}
-
-            <br>
-
-            Number:
-            ${escapeHtml(item.payment_number)}
-
-            <br>
-
-            Date:
-            ${formatDate(item.created_at)}
-
-          </div>
+          ${statusHtml(item.status)}
 
         </div>
+
+        <div class="small">
+
+          Method:
+          ${escapeHtml(item.payment_method)}
+
+          <br>
+
+          Number:
+          ${escapeHtml(item.payment_number)}
+
+          <br>
+
+          Date:
+          ${formatDate(item.created_at)}
+
+        </div>
+
+      </div>
 
       `).join("");
 
@@ -1888,30 +1721,15 @@ async function loadTransactions(type){
 }
 
 
-/* ==========================================
-   ADMIN CHECK
-========================================== */
-
-function isAdmin(){
-
-  return currentProfile &&
-         currentProfile.role === "admin";
-
-}
-
-
-/* ==========================================
+/* ==============================
    ADMIN PANEL
-========================================== */
+============================== */
 
-async function showAdminPanel(){
+async function openAdminPanel(){
 
   if(!isAdmin()){
 
-    alert(
-      "Admin access required"
-    );
-
+    alert("Admin access required");
     return;
 
   }
@@ -1935,30 +1753,26 @@ async function showAdminPanel(){
 }
 
 
-/* ==========================================
-   LOAD ADMIN DEPOSITS
-========================================== */
+/* ==============================
+   ADMIN DEPOSITS
+============================== */
 
 async function loadAdminDeposits(){
 
   if(!isAdmin()){
 
-    alert(
-      "Admin access required"
-    );
-
+    alert("Admin access required");
     return;
 
   }
 
 
   const list =
-    document
-      .getElementById("adminDepositList");
+    document.getElementById("adminDepositList");
 
   list.innerHTML =
     `<div class="loading">
-      Loading deposits...
+    Loading deposits...
     </div>`;
 
 
@@ -1966,9 +1780,9 @@ async function loadAdminDeposits(){
     data,
     error
   } =
-    await supabaseClient.rpc(
-      "admin_get_deposits"
-    );
+  await supabaseClient.rpc(
+    "admin_get_deposits"
+  );
 
 
   if(error){
@@ -1989,9 +1803,14 @@ async function loadAdminDeposits(){
   if(typeof deposits === "string"){
 
     try{
-      deposits = JSON.parse(deposits);
+
+      deposits =
+        JSON.parse(deposits);
+
     }catch(e){
+
       deposits = [];
+
     }
 
   }
@@ -2013,8 +1832,9 @@ async function loadAdminDeposits(){
     deposits.map(item => {
 
       const pending =
-        String(item.status).toLowerCase()
-        === "pending";
+        String(item.status)
+          .toLowerCase()
+          === "pending";
 
 
       return `
@@ -2023,11 +1843,9 @@ async function loadAdminDeposits(){
 
         <div class="admin-user">
 
-          👤
-          ${escapeHtml(item.user_name)}
+          👤 ${escapeHtml(item.user_name)}
 
         </div>
-
 
         <div class="small">
 
@@ -2072,12 +1890,13 @@ async function loadAdminDeposits(){
         ${
           pending
           ?
+
           `
 
           <div class="admin-actions">
 
             <button
-              class="btn btn-success"
+              class="btn btn-green"
               onclick="processDeposit(
                 '${item.id}',
                 'approved'
@@ -2087,9 +1906,8 @@ async function loadAdminDeposits(){
 
             </button>
 
-
             <button
-              class="btn btn-danger"
+              class="btn btn-red"
               onclick="processDeposit(
                 '${item.id}',
                 'rejected'
@@ -2102,8 +1920,11 @@ async function loadAdminDeposits(){
           </div>
 
           `
+
           :
+
           ""
+
         }
 
       </div>
@@ -2115,9 +1936,9 @@ async function loadAdminDeposits(){
 }
 
 
-/* ==========================================
-   ADMIN PROCESS DEPOSIT
-========================================== */
+/* ==============================
+   APPROVE / REJECT
+============================== */
 
 async function processDeposit(
   depositId,
@@ -2126,22 +1947,19 @@ async function processDeposit(
 
   if(!isAdmin()){
 
-    alert(
-      "Admin access required"
-    );
-
+    alert("Admin access required");
     return;
 
   }
 
 
-  let message =
+  const question =
     status === "approved"
     ? "এই Deposit Approve করবেন?"
     : "এই Deposit Reject করবেন?";
 
 
-  if(!confirm(message)){
+  if(!confirm(question)){
 
     return;
 
@@ -2152,13 +1970,13 @@ async function processDeposit(
     data,
     error
   } =
-    await supabaseClient.rpc(
-      "admin_update_deposit",
-      {
-        p_deposit_id:depositId,
-        p_status:status
-      }
-    );
+  await supabaseClient.rpc(
+    "admin_update_deposit",
+    {
+      p_deposit_id:depositId,
+      p_status:status
+    }
+  );
 
 
   if(error){
@@ -2183,11 +2001,11 @@ async function processDeposit(
 }
 
 
-/* ==========================================
+/* ==============================
    COMING SOON
-========================================== */
+============================== */
 
-function showComingSoon(name){
+function comingSoon(name){
 
   alert(
     name +
@@ -2197,9 +2015,9 @@ function showComingSoon(name){
 }
 
 
-/* ==========================================
-   AUTH STATE
-========================================== */
+/* ==============================
+   AUTH LISTENER
+============================== */
 
 supabaseClient.auth
 .onAuthStateChange(
@@ -2222,9 +2040,9 @@ supabaseClient.auth
 );
 
 
-/* ==========================================
+/* ==============================
    START
-========================================== */
+============================== */
 
 checkSession();
 
