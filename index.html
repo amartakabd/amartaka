@@ -9,12 +9,14 @@
 
 <style>
 *{box-sizing:border-box}
+
 body{
 margin:0;
 font-family:Arial,"Noto Sans Bengali",sans-serif;
 background:#f5f7f9;
 color:#17202a
 }
+
 header{
 background:#16834b;
 color:white;
@@ -26,8 +28,17 @@ position:sticky;
 top:0;
 z-index:20
 }
-.logo{font-size:22px;font-weight:bold}
-.container{max-width:900px;margin:auto;padding:18px}
+
+.logo{
+font-size:22px;
+font-weight:bold
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:18px
+}
 
 button{
 border:0;
@@ -36,27 +47,46 @@ padding:12px 16px;
 cursor:pointer;
 font-size:15px
 }
+
 button:disabled{
 cursor:not-allowed;
 opacity:.55
 }
-.primary{background:#16834b;color:white}
-.secondary{background:#e9f5ee;color:#16834b}
-.danger{background:#dc3545;color:white}
-.hidden{display:none!important}
+
+.primary{
+background:#16834b;
+color:white
+}
+
+.secondary{
+background:#e9f5ee;
+color:#16834b
+}
+
+.danger{
+background:#dc3545;
+color:white
+}
+
+.hidden{
+display:none!important
+}
 
 .hero{
 text-align:center;
 padding:55px 15px 35px
 }
+
 .hero h1{
 font-size:34px;
 margin:10px 0
 }
+
 .hero p{
 color:#667085;
 line-height:1.7
 }
+
 .actions{
 display:flex;
 gap:10px;
@@ -80,12 +110,14 @@ padding:22px;
 box-shadow:0 3px 15px #0000000d;
 margin-bottom:15px
 }
+
 .balance{
 font-size:34px;
 font-weight:bold;
 color:#16834b;
 margin:10px 0
 }
+
 .refresh{
 font-size:13px;
 padding:8px 12px
@@ -96,6 +128,7 @@ display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:12px
 }
+
 .menu-card{
 background:white;
 padding:20px;
@@ -105,19 +138,27 @@ cursor:pointer;
 font-size:17px;
 text-align:center
 }
+
 .menu-card:hover{
 background:#f0faf4
 }
+
 .admin-menu{
 border:2px solid #f59e0b
 }
 
-.page{display:none}
-.page.active{display:block}
+.page{
+display:none
+}
+
+.page.active{
+display:block
+}
 
 .back{
 margin-bottom:15px
 }
+
 .card{
 background:white;
 border-radius:16px;
@@ -134,6 +175,7 @@ border:1px solid #d8dee5;
 border-radius:10px;
 font-size:15px
 }
+
 label{
 font-size:14px;
 font-weight:bold
@@ -149,6 +191,7 @@ align-items:center;
 padding:15px;
 z-index:50
 }
+
 .modal-box{
 background:white;
 width:100%;
@@ -158,11 +201,13 @@ padding:22px;
 max-height:90vh;
 overflow:auto
 }
+
 .modal-title{
 font-size:22px;
 font-weight:bold;
 margin-bottom:15px
 }
+
 .close{
 float:right;
 background:#eee;
@@ -175,6 +220,7 @@ grid-template-columns:1fr 1fr;
 gap:10px;
 margin-bottom:10px
 }
+
 .method{
 padding:15px;
 background:#f1f3f5;
@@ -182,6 +228,7 @@ border-radius:10px;
 text-align:center;
 cursor:pointer
 }
+
 .method.selected{
 background:#16834b;
 color:white
@@ -209,13 +256,17 @@ font-size:14px;
 line-height:1.6
 }
 
-.claim-box{text-align:center}
+.claim-box{
+text-align:center
+}
+
 .claim-amount{
 font-size:34px;
 font-weight:bold;
 color:#16834b;
 margin:15px 0
 }
+
 .countdown{
 font-size:18px;
 font-weight:bold;
@@ -230,14 +281,17 @@ border-radius:20px;
 font-size:12px;
 font-weight:bold
 }
+
 .pending{
 background:#fff3cd;
 color:#856404
 }
+
 .approved{
 background:#d1e7dd;
 color:#0f5132
 }
+
 .rejected{
 background:#f8d7da;
 color:#842029
@@ -249,12 +303,14 @@ border-radius:12px;
 padding:14px;
 margin-bottom:10px
 }
+
 .admin-item{
 border:1px solid #ddd;
 border-radius:14px;
 padding:15px;
 margin-bottom:12px
 }
+
 .admin-actions{
 display:flex;
 gap:8px;
@@ -292,6 +348,7 @@ border:1px solid #e3e8e5;
 border-radius:12px;
 padding:15px
 }
+
 .vip-plan h3{
 margin:0 0 8px
 }
@@ -304,6 +361,63 @@ border-radius:10px;
 margin-top:12px
 }
 
+/* REFERRAL */
+
+.referral-code-box{
+background:#eaf7ef;
+border:2px dashed #16834b;
+border-radius:14px;
+padding:18px;
+text-align:center;
+margin:15px 0
+}
+
+.referral-code{
+font-size:28px;
+font-weight:bold;
+letter-spacing:2px;
+color:#16834b;
+margin:10px 0
+}
+
+.referral-link{
+background:#f5f7f9;
+border:1px solid #ddd;
+border-radius:10px;
+padding:12px;
+font-size:13px;
+word-break:break-all;
+margin:10px 0
+}
+
+.referral-stats{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px
+}
+
+.referral-stat{
+background:#f8faf9;
+border:1px solid #e3e8e5;
+border-radius:12px;
+padding:16px;
+text-align:center
+}
+
+.referral-stat-number{
+font-size:25px;
+font-weight:bold;
+color:#16834b;
+margin-top:5px
+}
+
+.reward-big{
+font-size:32px;
+font-weight:bold;
+color:#16834b;
+margin:10px 0
+}
+
 footer{
 text-align:center;
 color:#888;
@@ -312,18 +426,31 @@ font-size:13px
 }
 
 @media(max-width:600px){
+
 .menu-grid{
 grid-template-columns:1fr 1fr
 }
+
 .hero h1{
 font-size:28px
 }
+
 .balance{
 font-size:30px
 }
+
 .vip-grid{
 grid-template-columns:1fr
 }
+
+.referral-stats{
+grid-template-columns:1fr 1fr
+}
+
+.referral-code{
+font-size:23px
+}
+
 }
 </style>
 </head>
@@ -350,6 +477,7 @@ Create Account
 
 
 <!-- HOME -->
+
 <section id="homePage" class="page active">
 
 <div class="container">
@@ -393,6 +521,7 @@ Account তৈরি সম্পন্ন করলে Welcome Bonus প্র�
 
 
 <!-- DASHBOARD -->
+
 <section id="dashboardPage" class="page">
 
 <div class="container">
@@ -446,7 +575,7 @@ onclick="openVIPPlans()">
 </div>
 
 <div class="menu-card"
-onclick="showComingSoon('Referral')">
+onclick="openReferral()">
 👥<br>Referral
 </div>
 
@@ -474,6 +603,7 @@ onclick="logout()">
 
 
 <!-- DAILY CLAIM -->
+
 <section id="dailyClaimPage" class="page">
 
 <div class="container">
@@ -539,6 +669,7 @@ Claim ৳20
 
 
 <!-- VIP -->
+
 <section id="vipPage" class="page">
 
 <div class="container">
@@ -567,7 +698,156 @@ Loading...
 </section>
 
 
+<!-- REFERRAL -->
+
+<section id="referralPage" class="page">
+
+<div class="container">
+
+<button class="secondary back"
+onclick="showDashboard()">
+← Dashboard
+</button>
+
+<div class="card">
+
+<h2>👥 Referral Program</h2>
+
+<p style="color:#666;line-height:1.7">
+আপনার Referral Code ব্যবহার করে কেউ Account তৈরি করে
+প্রথমবার কমপক্ষে ৳500 Deposit করলে এবং সেই Deposit
+Admin approve করলে আপনি ৳200 Referral Reward পাবেন।
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🔗 আপনার Referral Code</h3>
+
+<div class="referral-code-box">
+
+<div style="font-size:14px;color:#666">
+Your Referral Code
+</div>
+
+<div id="myReferralCode"
+class="referral-code">
+Loading...
+</div>
+
+<button
+class="primary"
+onclick="copyReferralCode()">
+📋 Copy Code
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>🔗 আপনার Referral Link</h3>
+
+<div id="myReferralLink"
+class="referral-link">
+Loading...
+</div>
+
+<button
+class="secondary"
+style="width:100%"
+onclick="copyReferralLink()">
+📋 Copy Referral Link
+</button>
+
+</div>
+
+
+<div class="card">
+
+<h3>📊 Referral Statistics</h3>
+
+<div class="referral-stats">
+
+<div class="referral-stat">
+
+<div>👥 Total Referrals</div>
+
+<div
+id="refTotal"
+class="referral-stat-number">
+0
+</div>
+
+</div>
+
+<div class="referral-stat">
+
+<div>⏳ Pending</div>
+
+<div
+id="refPending"
+class="referral-stat-number">
+0
+</div>
+
+</div>
+
+<div class="referral-stat">
+
+<div>✅ Paid</div>
+
+<div
+id="refPaid"
+class="referral-stat-number">
+0
+</div>
+
+</div>
+
+<div class="referral-stat">
+
+<div>💰 Total Reward</div>
+
+<div
+id="refReward"
+class="reward-big">
+৳0
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h3>📌 Referral Rules</h3>
+
+<p style="color:#666;line-height:1.8">
+
+• Registration করলেই Referral Reward পাওয়া যাবে না।<br>
+• Referred User-এর প্রথম approved deposit কমপক্ষে ৳500 হতে হবে।<br>
+• প্রথম qualifying approved deposit-এর পর Referrer ৳200 পাবেন।<br>
+• একই referred User-এর জন্য Reward একবারই দেওয়া হবে।<br>
+• Pending অথবা Rejected Deposit-এ Reward দেওয়া হবে না।
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
 <!-- TRANSACTIONS -->
+
 <section id="transactionsPage" class="page">
 
 <div class="container">
@@ -611,6 +891,7 @@ Daily Claim
 
 
 <!-- ADMIN -->
+
 <section id="adminPage" class="page">
 
 <div class="container">
@@ -656,6 +937,7 @@ Loading...
 
 
 <!-- LOGIN -->
+
 <div id="loginModal" class="modal hidden">
 
 <div class="modal-box">
@@ -700,6 +982,7 @@ Login
 
 
 <!-- REGISTER -->
+
 <div id="registerModal" class="modal hidden">
 
 <div class="modal-box">
@@ -765,6 +1048,7 @@ Create Account
 
 
 <!-- DEPOSIT -->
+
 <div id="depositModal" class="modal hidden">
 
 <div class="modal-box">
@@ -854,6 +1138,7 @@ Submit Deposit
 
 
 <!-- WITHDRAW -->
+
 <div id="withdrawModal" class="modal hidden">
 
 <div class="modal-box">
@@ -935,10 +1220,7 @@ Submit Withdrawal
 
 <footer>
 © 2026 Amar Taka
-</footer>
-
-
-<script>
+</footer><script>
 
 const SUPABASE_URL =
 "https://xwdljcjotlspmecezhcl.supabase.co";
@@ -1026,28 +1308,23 @@ $("homePage").classList.remove("active");
 $("dashboardPage").classList.remove("active");
 $("dailyClaimPage").classList.remove("active");
 $("vipPage").classList.remove("active");
+$("referralPage").classList.remove("active");
 $("transactionsPage").classList.remove("active");
 $("adminPage").classList.remove("active");
 
 if(countdownTimer){
-
 clearInterval(countdownTimer);
 countdownTimer = null;
-
 }
 
 if(vipCountdownTimer){
-
 clearInterval(vipCountdownTimer);
 vipCountdownTimer = null;
-
 }
 
 if(vipClaimTimer){
-
 clearInterval(vipClaimTimer);
 vipClaimTimer = null;
-
 }
 
 }
@@ -1105,9 +1382,7 @@ $("loginMessage").innerHTML = "";
 $("loginModal").classList.remove("hidden");
 
 setTimeout(()=>{
-
 $("loginEmail").focus();
-
 },100);
 
 }
@@ -1119,16 +1394,14 @@ $("registerMessage").innerHTML = "";
 $("registerModal").classList.remove("hidden");
 
 setTimeout(()=>{
-
 $("regName").focus();
-
 },100);
 
 }
 
 
 /* ================================
-REGISTER
+REGISTER + REFERRAL
 ================================ */
 
 async function register(){
@@ -1197,6 +1470,49 @@ return;
 }
 
 if(data && data.user){
+
+/*
+Referral Code থাকলে নতুন account-এর
+সঙ্গে referral relationship তৈরি করা হবে।
+*/
+
+if(referral){
+
+if(data.session){
+
+const {error:refError} =
+await supabaseClient.rpc(
+"apply_referral_code",
+{
+p_referral_code:referral
+}
+);
+
+if(refError){
+
+console.error(
+"Referral apply error:",
+refError
+);
+
+}
+
+}else{
+
+/*
+Email confirmation যদি ভবিষ্যতে ON করা হয়,
+তাহলে login করার পর referral apply করার
+জন্য code localStorage-এ রাখা হবে।
+*/
+
+localStorage.setItem(
+"pendingReferralCode",
+referral
+);
+
+}
+
+}
 
 $("registerMessage").innerHTML =
 '<span style="color:green;font-weight:bold">'+
@@ -1272,7 +1588,43 @@ data.user;
 
 closeModal("loginModal");
 
+await applyPendingReferral();
+
 await loadDashboard();
+
+}
+
+
+/* ================================
+PENDING REFERRAL
+================================ */
+
+async function applyPendingReferral(){
+
+if(!currentUser)return;
+
+const pending =
+localStorage.getItem(
+"pendingReferralCode"
+);
+
+if(!pending)return;
+
+const {error} =
+await supabaseClient.rpc(
+"apply_referral_code",
+{
+p_referral_code:pending
+}
+);
+
+if(!error){
+
+localStorage.removeItem(
+"pendingReferralCode"
+);
+
+}
 
 }
 
@@ -1304,7 +1656,7 @@ if(!currentUser)return;
 const {data,error} =
 await supabaseClient
 .from("profiles")
-.select("id,balance,role")
+.select("id,balance,role,referral_code")
 .eq("id",currentUser.id)
 .single();
 
@@ -1316,7 +1668,8 @@ currentProfile = {
 
 id:currentUser.id,
 balance:0,
-role:"user"
+role:"user",
+referral_code:null
 
 };
 
@@ -1376,7 +1729,7 @@ if(!currentUser)return;
 const {data,error} =
 await supabaseClient
 .from("profiles")
-.select("id,balance,role")
+.select("id,balance,role,referral_code")
 .eq("id",currentUser.id)
 .single();
 
@@ -1412,6 +1765,218 @@ return(
 email === ADMIN_EMAIL.toLowerCase() ||
 currentProfile?.role === "admin"
 );
+
+}
+
+
+/* ================================
+REFERRAL PAGE
+================================ */
+
+async function openReferral(){
+
+if(!currentUser){
+
+showHome();
+
+return;
+
+}
+
+hidePages();
+
+$("referralPage").classList.add("active");
+
+await loadReferral();
+
+}
+
+
+async function loadReferral(){
+
+if(!currentUser)return;
+
+$("myReferralCode").innerText =
+"Loading...";
+
+$("myReferralLink").innerText =
+"Loading...";
+
+try{
+
+const {data:profile,error:profileError} =
+await supabaseClient
+.from("profiles")
+.select("referral_code")
+.eq("id",currentUser.id)
+.single();
+
+if(profileError){
+
+console.error(profileError);
+
+$("myReferralCode").innerText =
+"Not available";
+
+$("myReferralLink").innerText =
+"Referral Code পাওয়া যায়নি";
+
+return;
+
+}
+
+const code =
+profile?.referral_code || "";
+
+$("myReferralCode").innerText =
+code || "Not available";
+
+
+if(code){
+
+const baseUrl =
+window.location.origin +
+window.location.pathname;
+
+const link =
+baseUrl +
+"?ref=" +
+encodeURIComponent(code);
+
+$("myReferralLink").innerText =
+link;
+
+}else{
+
+$("myReferralLink").innerText =
+"Referral Code পাওয়া যায়নি";
+
+}
+
+
+const {data,error} =
+await supabaseClient.rpc(
+"get_my_referral_summary"
+);
+
+if(error){
+
+console.error(error);
+
+$("refTotal").innerText = "0";
+$("refPending").innerText = "0";
+$("refPaid").innerText = "0";
+$("refReward").innerText = "৳0";
+
+return;
+
+}
+
+$("refTotal").innerText =
+Number(data?.total_referrals || 0);
+
+$("refPending").innerText =
+Number(data?.pending_referrals || 0);
+
+$("refPaid").innerText =
+Number(data?.paid_referrals || 0);
+
+$("refReward").innerText =
+money(data?.total_reward || 0);
+
+}catch(error){
+
+console.error(error);
+
+}
+
+}
+
+
+async function copyReferralCode(){
+
+const code =
+$("myReferralCode").innerText.trim();
+
+if(!code || code === "Loading..." || code === "Not available"){
+
+alert("Referral Code পাওয়া যায়নি।");
+
+return;
+
+}
+
+try{
+
+await navigator.clipboard.writeText(code);
+
+alert("Referral Code copied");
+
+}catch(error){
+
+alert(code);
+
+}
+
+}
+
+
+async function copyReferralLink(){
+
+const link =
+$("myReferralLink").innerText.trim();
+
+if(!link || link === "Loading..." || link === "Referral Code পাওয়া যায়নি"){
+
+alert("Referral Link পাওয়া যায়নি।");
+
+return;
+
+}
+
+try{
+
+await navigator.clipboard.writeText(link);
+
+alert("Referral Link copied");
+
+}catch(error){
+
+alert(link);
+
+}
+
+}
+
+
+/* ================================
+READ REFERRAL FROM URL
+================================ */
+
+function getReferralFromUrl(){
+
+try{
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+const code =
+params.get("ref");
+
+if(code){
+
+$("regReferral").value =
+code.toUpperCase();
+
+}
+
+}catch(error){
+
+console.error(error);
+
+}
 
 }
 
@@ -1474,6 +2039,7 @@ await checkDailyClaim();
 
 }
 
+
 async function getLastClaim(){
 
 const {data,error} =
@@ -1498,6 +2064,7 @@ return data && data.length
 
 }
 
+
 async function checkDailyClaim(){
 
 if(!currentUser)return;
@@ -1507,14 +2074,10 @@ await getActiveVIP();
 
 let claimAmount = 20;
 
-let claimType = "daily";
-
 if(vip){
 
 claimAmount =
 Number(vip.daily_amount || 20);
-
-claimType = "vip";
 
 $("claimPlanInfo").innerHTML = `
 
@@ -1571,6 +2134,7 @@ $("claimCountdown");
 if(countdownTimer){
 
 clearInterval(countdownTimer);
+
 countdownTimer = null;
 
 }
@@ -1737,6 +2301,7 @@ await loadVIP();
 
 }
 
+
 async function loadVIP(){
 
 const box =
@@ -1747,6 +2312,7 @@ box.innerHTML = "Loading...";
 if(vipCountdownTimer){
 
 clearInterval(vipCountdownTimer);
+
 vipCountdownTimer = null;
 
 }
@@ -1754,6 +2320,7 @@ vipCountdownTimer = null;
 if(vipClaimTimer){
 
 clearInterval(vipClaimTimer);
+
 vipClaimTimer = null;
 
 }
@@ -1839,8 +2406,6 @@ return;
 }
 
 
-/* LAST VIP CLAIM */
-
 const {data:lastClaims,error:claimError} =
 await supabaseClient
 .from("daily_claims")
@@ -1866,8 +2431,6 @@ lastClaims && lastClaims.length
 ?lastClaims[0]
 :null;
 
-
-/* VIP CARD */
 
 box.innerHTML = `
 
@@ -2008,8 +2571,6 @@ style="text-align:center">
 `;
 
 
-/* VIP EXPIRY */
-
 function updateVIPExpiry(){
 
 const remaining =
@@ -2050,8 +2611,6 @@ updateVIPExpiry();
 vipCountdownTimer =
 setInterval(updateVIPExpiry,1000);
 
-
-/* VIP CLAIM */
 
 const button =
 $("vipClaimButton");
@@ -3005,6 +3564,8 @@ session.user;
 
 setTimeout(async()=>{
 
+await applyPendingReferral();
+
 await loadDashboard();
 
 },0);
@@ -3047,6 +3608,8 @@ if(data && data.session && data.session.user){
 currentUser =
 data.session.user;
 
+await applyPendingReferral();
+
 await loadDashboard();
 
 }else{
@@ -3064,6 +3627,13 @@ showHome();
 }
 
 })();
+
+
+/* ================================
+REFERRAL URL AUTO-FILL
+================================ */
+
+getReferralFromUrl();
 
 </script>
 
